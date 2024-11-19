@@ -1,0 +1,32 @@
+{
+			"id": "d1pack2card1",
+			"type": "Unit", 
+			"disposition": "d1",
+			"rarity": "Common",
+			"name": "TwoPistols",
+			"sprite": "uid://bdhindvyfvibn",
+			"cost": 2,
+			"hit points": 4,
+			"group": ["MissingHealthPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "cardmissinghealth",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			}]
+			
+		}
+		

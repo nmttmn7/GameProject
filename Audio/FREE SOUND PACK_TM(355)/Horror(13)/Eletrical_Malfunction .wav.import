@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cidsdvi8a0ffd"
+path="res://.godot/imported/Eletrical_Malfunction .wav-841ed97487b836d4aefe52ad075eeb7a.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Horror(13)/Eletrical_Malfunction .wav"
+dest_files=["res://.godot/imported/Eletrical_Malfunction .wav-841ed97487b836d4aefe52ad075eeb7a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

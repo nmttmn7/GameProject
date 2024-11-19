@@ -1,0 +1,232 @@
+
+		{
+			"id": "d1missinghealthpack1card1",
+			"type": "Unit", 
+			"disposition": "d1",
+			"rarity": "Common",
+			"name": "TwoPistols",
+			"sprite": "uid://bdhindvyfvibn",
+			"cost": 2,
+			"hit points": 4,
+			"group": ["MissingHealthPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "targetmaxhealth",
+				"count": 1,
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+				
+			}]
+			
+		}
+		
+		{
+			"id": "d1missinghealthpack1card2",
+			"type": "Unit", 
+			"disposition": "d1",
+			"rarity": "Common",
+			"name": "TwoPistols",
+			"sprite": "uid://bdhindvyfvibn",
+			"cost": 2,
+			"hit points": 4,
+			"group": ["MissingHealthPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "0",
+				"count": 1,
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+				
+				"status":{
+				"id": "status05"
+				"incr": "targetmissinghealth"
+			}
+				
+			}]
+			
+		}
+		
+		
+		{
+			"id": "d1missinghealthpack1card3",
+			"type": "Unit", 
+			"disposition": "d1",
+			"rarity": "Common",
+			"name": "TwoPistols",
+			"sprite": "uid://bdhindvyfvibn",
+			"cost": 2,
+			"hit points": 4,
+			"group": ["MissingHealthPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "HealAction",
+				"info": "1",
+				"count": 1,
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+				
+			}]
+			
+		}
+		
+		{
+			"id": "d1missinghealthpack1card4",
+			"type": "Unit", 
+			"disposition": "d1",
+			"rarity": "Common",
+			"name": "TwoPistols",
+			"sprite": "uid://bdhindvyfvibn",
+			"cost": 2,
+			"hit points": 16,
+			"group": ["MissingHealthPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "0",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				
+			}]
+			
+		}
+		
+		
+		{
+			"id": "TEST",
+			"type": "Unit", 
+			"disposition": "d1",
+			"rarity": "Common",
+			"name": "TwoPistols",
+			"sprite": "uid://bdhindvyfvibn",
+			"cost": 0,
+			"hit points": 4,
+			"group": ["MissingHealthPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "targetmaxhealth",
+				"count": 1,
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+				
+			}{
+				"action": "DamageAction",
+				"info": "0",
+				"count": 1,
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+				
+				"status":{
+				"id": "status05"
+				"incr": "targetmissinghealth"
+			}
+				
+			}{
+				"action": "HealAction",
+				"info": "1",
+				"count": 1,
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+				
+			}{
+				"action": "DamageAction",
+				"info": "0",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				
+			}]
+			
+		}
+		
+		{
+			"id": "d1missinghealthpack1card5",
+			"type": "Unit", 
+			"disposition": "d1",
+			"rarity": "Common",
+			"name": "TwoPistols",
+			"sprite": "uid://bdhindvyfvibn",
+			"cost": 1,
+			"hit points": 4,
+			"group": ["MissingHealthPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "HealAction",
+				"info": "3",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			}]
+			
+		}
+		
+	

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://1wkrfey86eul"
+path="res://.godot/imported/Space_Drones-002.wav-8903854e6991aef238b2f26f330d6b27.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Ambiences(43)/Space_Drones-002.wav"
+dest_files=["res://.godot/imported/Space_Drones-002.wav-8903854e6991aef238b2f26f330d6b27.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

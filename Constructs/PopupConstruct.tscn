@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1ydamdh386gx"]
+
+[ext_resource type="Script" path="res://Scripts/UI/PopupConstruct.cs" id="1_emppy"]
+[ext_resource type="SystemFont" uid="uid://d1eun1llll7oe" path="res://Fonts/KohoSystemFont.tres" id="1_pc1uo"]
+
+[node name="Popup" type="MarginContainer" node_paths=PackedStringArray("headerText", "descriptionText")]
+offset_right = 250.0
+offset_bottom = 157.0
+script = ExtResource("1_emppy")
+headerText = NodePath("MarginContainer/VBoxContainer/Header")
+descriptionText = NodePath("MarginContainer/VBoxContainer/Description")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0, 0, 0, 0.313726)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Header" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 15
+theme_override_fonts/normal_font = ExtResource("1_pc1uo")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "?"
+fit_content = true
+scroll_active = false
+
+[node name="Description" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 15
+theme_override_fonts/normal_font = ExtResource("1_pc1uo")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "?????"
+fit_content = true
+scroll_active = false

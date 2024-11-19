@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ce17stvn2ta8x"]
+
+[ext_resource type="Script" path="res://Animations/AnimationShake.cs" id="1_jkdhd"]
+
+[node name="AniShake" type="Node"]
+script = ExtResource("1_jkdhd")

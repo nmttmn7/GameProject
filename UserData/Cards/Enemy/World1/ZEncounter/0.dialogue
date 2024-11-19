@@ -1,0 +1,12 @@
+~ start
+Narrator: [[Hi|Hello|Howdy]], this is some dialogue.
+Narrator: Here are some choices.
+- Add a card to your deck.
+	Narrator: Card has been added.
+- Do something else.
+	Narrator: Did something esle has been added.
+- Repeat => start
+- End the conversation => END
+Narrator: For more information see the online documentation.
+do SceneSwitcher.SwitchScene("res://Scenes/MapScene.tscn")
+=> END

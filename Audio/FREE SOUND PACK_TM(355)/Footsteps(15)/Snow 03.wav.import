@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://lk2k7ll2x8qb"
+path="res://.godot/imported/Snow 03.wav-2031a5ccfad257b37c5022d6db99abf7.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Footsteps(15)/Snow 03.wav"
+dest_files=["res://.godot/imported/Snow 03.wav-2031a5ccfad257b37c5022d6db99abf7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

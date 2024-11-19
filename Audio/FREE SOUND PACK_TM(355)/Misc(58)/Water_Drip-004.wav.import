@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dn442hv4f3gvj"
+path="res://.godot/imported/Water_Drip-004.wav-c9ec5253209b146a4560b34fd549102a.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Misc(58)/Water_Drip-004.wav"
+dest_files=["res://.godot/imported/Water_Drip-004.wav-c9ec5253209b146a4560b34fd549102a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

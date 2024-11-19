@@ -1,0 +1,4 @@
+public enum GroupingTypes {
+	MissingHealth
+	
+}

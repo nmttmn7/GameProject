@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bxm1dw30isugv"
+path="res://.godot/imported/Object_Moving_Action-017.wav-f2438fd96ca37bf47f9af04faf989e04.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Misc(58)/Object_Moving_Action-017.wav"
+dest_files=["res://.godot/imported/Object_Moving_Action-017.wav-f2438fd96ca37bf47f9af04faf989e04.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

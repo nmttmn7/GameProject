@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bvba65b3i5bkb"
+path="res://.godot/imported/Eating_Gulp-001.wav-9c280c7aa8975d217dc69d8d17b9807f.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Misc(58)/Eating_Gulp-001.wav"
+dest_files=["res://.godot/imported/Eating_Gulp-001.wav-9c280c7aa8975d217dc69d8d17b9807f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

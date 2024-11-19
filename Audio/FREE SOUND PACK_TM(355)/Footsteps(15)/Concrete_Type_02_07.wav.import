@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dvsa8xr20omdu"
+path="res://.godot/imported/Concrete_Type_02_07.wav-bf536b18f2937f36154ae9c04e65c051.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Footsteps(15)/Concrete_Type_02_07.wav"
+dest_files=["res://.godot/imported/Concrete_Type_02_07.wav-bf536b18f2937f36154ae9c04e65c051.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,154 @@
+[gd_scene load_steps=15 format=3 uid="uid://tj5umg0xkimu"]
+
+[ext_resource type="Script" path="res://Scripts/Components/Map/MapNode.cs" id="1_xp072"]
+[ext_resource type="Texture2D" uid="uid://chhug5yblg4rn" path="res://Sprites/MapIcons/StatusIcons.png" id="3_bfm5f"]
+[ext_resource type="Texture2D" uid="uid://dma6ljfhf3flc" path="res://Sprites/MapIcons/StatusIconsHorns.png" id="4_6m85y"]
+[ext_resource type="Texture2D" uid="uid://cs8wjxku0h5g6" path="res://Sprites/MapIcons/StatusIconsHorns2.png" id="4_o5rvy"]
+[ext_resource type="Texture2D" uid="uid://c6s75f8kaksjr" path="res://Sprites/MapIcons/uncertainty.png" id="5_jchi6"]
+[ext_resource type="Texture2D" uid="uid://dob8t01hr2omj" path="res://Sprites/StatusIcons/checkered-diamond(1).png" id="5_mbyli"]
+[ext_resource type="Texture2D" uid="uid://d2k650dr84vb3" path="res://Sprites/MapIcons/arena .png" id="6_as8ia"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqkum"]
+atlas = ExtResource("3_bfm5f")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6r8s"]
+atlas = ExtResource("4_6m85y")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vphf"]
+atlas = ExtResource("4_6m85y")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwr4v"]
+atlas = ExtResource("4_6m85y")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45su6"]
+atlas = ExtResource("4_6m85y")
+region = Rect2(768, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilgqg"]
+atlas = ExtResource("4_o5rvy")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h2vow"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqkum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6r8s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vphf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwr4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45su6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilgqg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jchi6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_as8ia")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MapDestinationConstruct" type="Node2D"]
+
+[node name="MapNode" type="Node" parent="." node_paths=PackedStringArray("animatedSprite2D", "MapDestinationConstruct", "spriteAnima", "mapButton")]
+script = ExtResource("1_xp072")
+animatedSprite2D = NodePath("../Button/Node2D/AnimatedSprite2D")
+MapDestinationConstruct = NodePath("..")
+spriteAnima = NodePath("../Button/Node2D/AnimatedSprite2D")
+mapButton = NodePath("../Button")
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -68.0
+offset_right = 68.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(68, 68)
+flat = true
+
+[node name="Node2D" type="Node2D" parent="Button"]
+position = Vector2(68, 68)
+
+[node name="ColorRect" type="ColorRect" parent="Button/Node2D"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.42, 3.42)
+pivot_offset = Vector2(20, 20)
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Button/Node2D"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.04, 3.04)
+pivot_offset = Vector2(20, 20)
+mouse_filter = 2
+color = Color(0.376555, 0.376144, 1.92523e-07, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Button/Node2D"]
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_h2vow")
+
+[node name="TextureRect" type="TextureRect" parent="Button/Node2D"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+pivot_offset = Vector2(128, 128)
+texture = ExtResource("5_mbyli")
+
+[connection signal="mouse_entered" from="Button" to="MapNode" method="OnMouseEnter"]
+[connection signal="mouse_exited" from="Button" to="MapNode" method="OnMouseExit"]
+[connection signal="pressed" from="Button" to="MapNode" method="OnButtonPressed"]

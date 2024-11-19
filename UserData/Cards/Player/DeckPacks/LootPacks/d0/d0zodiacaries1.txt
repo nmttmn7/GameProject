@@ -1,0 +1,2 @@
+{ "deck": ["d0zodiacaries1enemy1","d0zodiacaries1enemy2","d0zodiacaries1enemy3","d0zodiacaries1enemy4","d0zodiacaries1enemy5","d0zodiacaries1enemy6",
+]}

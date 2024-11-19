@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bfpctf4maqd04"
+path="res://.godot/imported/Feamle_Hurt_Grunt-005.wav-7b9de22897328ae54aba07e1f1f5d285.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Human(26)/Feamle_Hurt_Grunt-005.wav"
+dest_files=["res://.godot/imported/Feamle_Hurt_Grunt-005.wav-7b9de22897328ae54aba07e1f1f5d285.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

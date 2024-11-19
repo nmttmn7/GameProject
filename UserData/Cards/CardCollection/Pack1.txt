@@ -1,0 +1,95 @@
+{
+			"id": "EnemyCard1",
+			"type": "Unit", 
+			"disposition": "d0",
+			"rarity": "Common",
+			"name": "A Box",
+			"sprite": "res://Sprites/CardSprites/Enemy/cardboard-box-closed.png",
+			"text": "",
+			"cost": 0,
+			"hit points": 17,
+			"group": ["EnemyPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "7",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+			}
+			
+			}]
+		}
+		
+		{
+			"id": "EnemyCard2",
+			"type": "Unit", 
+			"disposition": "d0",
+			"rarity": "Common",
+			"name": "A Open Box",
+			"sprite": "res://Sprites/CardSprites/Enemy/cardboard-box.png",
+			"text": "",
+			"cost": 0,
+			"hit points": 15,
+			"group": ["EnemyPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "14",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+			}
+			
+			}]
+		}
+		
+		{
+			"id": "BossCard1",
+			"type": "Unit", 
+			"disposition": "d0",
+			"rarity": "Common",
+			"name": "A Boss",
+			"sprite": "res://Sprites/CardSprites/Enemy/evil-minion.png",
+			"text": "",
+			"cost": 0,
+			"hit points": 15,
+			"group": ["EnemyPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "14",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+			}
+			
+			}]
+		}

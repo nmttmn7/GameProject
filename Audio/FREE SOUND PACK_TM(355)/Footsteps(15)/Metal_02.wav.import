@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b1t8crvmmco7v"
+path="res://.godot/imported/Metal_02.wav-fc341544b3aafd6e99585c77453b1800.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Footsteps(15)/Metal_02.wav"
+dest_files=["res://.godot/imported/Metal_02.wav-fc341544b3aafd6e99585c77453b1800.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

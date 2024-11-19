@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b1fhsl5j21anu"
+path="res://.godot/imported/ExplodeBip3.wav-2b97074d2904108c5d3cf16fa63078a2.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Retro(52)/ExplodeBip3.wav"
+dest_files=["res://.godot/imported/ExplodeBip3.wav-2b97074d2904108c5d3cf16fa63078a2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dkox6as2chqad"
+path="res://.godot/imported/Fire-004.wav-dc06dd236aaa6b4efdfb3c51fc532245.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Ambiences(43)/Fire-004.wav"
+dest_files=["res://.godot/imported/Fire-004.wav-dc06dd236aaa6b4efdfb3c51fc532245.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

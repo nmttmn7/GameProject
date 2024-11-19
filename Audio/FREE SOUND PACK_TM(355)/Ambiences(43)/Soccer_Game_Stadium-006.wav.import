@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bhecmwdg6wld4"
+path="res://.godot/imported/Soccer_Game_Stadium-006.wav-0c9d53e4800ef97c7df254eb0e64553b.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Ambiences(43)/Soccer_Game_Stadium-006.wav"
+dest_files=["res://.godot/imported/Soccer_Game_Stadium-006.wav-0c9d53e4800ef97c7df254eb0e64553b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

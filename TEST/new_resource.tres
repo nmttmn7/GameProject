@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=2 format=3 uid="uid://dycvtemn8rwtc"]
+
+[ext_resource type="Script" path="res://Scripts/DataModels/Cards/CardData.cs" id="1_jkiaw"]
+
+[resource]
+script = ExtResource("1_jkiaw")
+id = ""
+name = ""
+rarity = 0
+spritePath = ""
+cost = 0
+orderOfPlay = 2147483647
+ownerIndex = 0
+zone = 1

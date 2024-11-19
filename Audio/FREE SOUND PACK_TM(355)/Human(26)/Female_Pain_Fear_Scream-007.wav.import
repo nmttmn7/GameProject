@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://uvfyal6q4va0"
+path="res://.godot/imported/Female_Pain_Fear_Scream-007.wav-4cd61e28c4c977301351aa915e9a5230.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Human(26)/Female_Pain_Fear_Scream-007.wav"
+dest_files=["res://.godot/imported/Female_Pain_Fear_Scream-007.wav-4cd61e28c4c977301351aa915e9a5230.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

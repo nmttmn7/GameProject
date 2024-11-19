@@ -1,0 +1,547 @@
+{
+
+	Bison -- (Animal)
+	Chimpanzee -- (Animal)
+	Peanut Butter Hug Wolf
+	Jungle animals -
+	Worm
+	Beavor
+	
+	Spartucus
+	
+	Animals things (Green)
+		Rats
+	Humans (Red)
+	
+	Dimented ()
+	
+	
+	
+	Flying Pig
+	Nekromorph - Deadspace
+	Issacc- deadspace
+	Plasma cutter -dead space
+	Nooblets -Ark
+	Blue Knight -- (Castle Crashers)
+	Green Knight -- (Castle Crashers)
+	Bee Keeper -- (Castle Crashers)
+	HUGOUL -- (Diablo) Thorns Build
+	Limbo -- (Warframe) Status Build
+	Nekros -- (Warframe)
+	Harrow -- (Warframe)
+	Atlas -- (Warframe)
+	Meep -- (Oxygen Not Included)
+	Bubbles -- (Oxygen Not Included)
+	Hug Wolf -- (Adventure Time)
+	Ash -- (Titan Fall)
+	BT-7277 -- (Titan Fall)
+	Zinx -- (Paragon) -- Grim.exe
+	WX-78 -- (Dont Starve)
+	Wormwood -- (Dont Starve)
+	Wendy/Abigal -- (Dont Starve)
+	Wigfrid -- (Dont Starbe)
+	Skeleton -- (Minecraft)
+	Spider -- (Minecraft)
+	Bee -- (Minecraft)
+	Frog -- (Minecraft)
+	Acrid -- (Risk of Rain)
+	Enforcer -- (Risk of Rain)
+	Engineer -- (Risk of Rain)
+	Sacko -- (LBP)
+	Eve Silva Paragorica -- (LBP)
+	SackBot -- (LBP)
+	Logic -- (LBP)
+	Frida the Bride -- (LBP)
+	Clive -- (LBP)
+	Isaac -- (Binding of)
+	Apollyon -- (Binding of)
+	Eve -- (Binding of)
+	Nightmare Hunter -- (Bloodborne)
+	Iosefka -- (Bloodborne)
+	Amygdala(Aymig-Dala) -- (Bloodborne)
+	The Hunter -- (Enter the Gungeon)
+	The Marine -- (Enter the Gungeon)
+	The dog, Junior II -- (Enter the Gungeon)
+	Leech -- (WytchWood)
+	The Silent -- (Slaythespire)
+	Overlord -- (Overlord the game)
+	DeathSpank: Orphans of Justice -- (deathspank)
+	Nash - (LawBreakers)
+	Dicey/Pips -- (Lost In Random)
+	Hunters from bloodborne
+	(Super Meat Boy)
+	(Darksider 3)
+	(StackLands)
+	(Super Animal Royale)
+	(Remanat from the ashes)
+	(Shadow of the collosus)
+	(BioShock)
+	(Halo)
+	(Limbo)
+	FallenNavigator (Uniquie Name)
+	
+	Fire
+	fire now increase Card
+	Poison
+	poison Now does missing health damage
+	Rage
+	Cold
+	Glitch
+	Soak
+	Token
+	Thorns
+	Fragile 
+	Exposed
+	Vurnable
+	Multihit 
+	Dodge
+	Bomb
+	Polymorph 
+	Leech
+	Transfuse
+	Taunt
+	}
+	
+	Rage - Thorns- Max Health - Leech - Multihit - Exposed - Taunt - Last Stand - Heal - Max Health dmg - Discard - Bomb - Summoning - Consume to supply rage or leech
+	- Discard 
+	
+	Apply summoning - After 2 round summon a card that does a lot of damage
+	Deal 6 damage
+	Deal 2 damage twice
+	Deal 2 damage to every card
+	Apply 2 rage to a card
+	This card has 50 health and draw do 5 damage
+	When this card does damage gain rage if it is an enemy do 5 damage to self
+	The card has leech and does 0 damage twice
+	This card applies its max health to another card, kill itself(fragile)
+	This card does kills a random card to apply 5 max health to everyone
+	Apply leech to a card for one round
+	This card allows any other card to do max health damage for a round
+	This card has leech, whatever u dont heal u gain as rage
+	Apply 30 rage kill the card it is applied to next round
+	Card the next card is played twice kill this card
+	Draw cards based on the rage this card has 
+	Do 4 damage draw 2 cards
+	Deal -4 damage Apply rage to all cards based on damage dealt
+	Expose a card
+	This card has leech, gain perminant max health on kill
+	This card 
+	Apply leech to all exhaust
+	If this card has rage above 30 it cant die
+	Power Now rage goes up or apply increasing rage
+	
+	
+	Glitch - Cold - Poison - Fire - Exposed - Multihit - Tribalism - Deck Size damage - Negative effects - 
+	
+	
+	SYSTEMS NEEDED
+		-Card description [+]
+		-Enemy Systemm 
+		-Load system/Permanat states [+]
+		-Power system
+	
+	
+	
+	
+	New SYSTEMS NEEDED
+	
+	-Condition [If statements on abilities] - If true do something if not dont [+]
+	-Polymorph/transformcard [+]
+	-Permanant states
+	-Power cards
+	-Global Passives? - Like In discard when another card attacks do an ability
+	
+	"condition":{
+					"info": "info"
+					"comparator": "=="
+					"value": "4"
+				}
+	"afflictions":[{
+				"id": "Fragile"
+				"incr": "0"
+				"value": "2"
+				"decr": "0"
+				"modifier": "+"
+				"permanent": "true"
+			}]
+	-Poison- 11
+	-Deal 7 damage if poison do it again, if fire do it again, if cold do it one more time
+	-[+]Apply 2x Poison [Threshhold 0] 3x 
+	-[+]Apply 4 Poison 
+	
+	IFcardStatus
+	-Poison now does missing health damage
+	-Apply poison to 3 random enemies DeathRattl apply Poison to random cards
+	-Apply poison to all enemies DeathRattl apply Poison to random cards
+	-Apply poison if card has fire, apply fire if card has Poison
+	-This card transform between two sides, one side per draw, One side consumes an ally, the other side burst them out to apply poison. This travels through maps
+	-Apply Poison this card is duplicated on draw
+	-Apply Poison based on how many units died this round
+	If this card has fire double the poison
+	Poison is innate and does missing health damage
+	-If target is at fully health triple the poison
+	-Deal damage based on the amount of poison applied
+	
+	-Fire- 15
+	-Apply 4 fire [ThreshHold 5 Anything above 5] apply 10 fire [+]
+	-Apply fire, when played duplicate card [Theshhold Apply duplicate more]
+	-Appply fire base on deckcount [Theshold apply poison] [+]
+	-Apply fire, each amount of fire card in deck + 3 
+	-Apply fire [Theshold] bounce to 4 other random cards 
+	-Apply fire -2X [Theshold] fire that is applied bounces to other cards
+	-Apply fire increase, [Threshold 0] fire now increases by 2
+	-Kill a card apply fire to a random other card
+	-Kill a card add it to permant pool of fire applied [Theshhold] the permant pool gained is increase +1 to +3
+	-Fire and poison statuses together now explode to damage card
+	-Fire now counts as defense and fire cards can not be burned
+	-OverLord Spawn a blue , red, green minion based on color status effect 
+	- This card does damage based on amount of minions
+	Apply Rage base on the amount of minions
+	-Apply fire based on how many units died this round
+	
+	-If card has poison apply fire if card has fire apply poison.
+	
+	-Glitch- 11
+	-Apply 5 Glitch to a unit +
+	-Kill a card add glitch to 2 random units +
+	-Pick a unit kill a random card apply glitch to it +
+	-Glitch 20 exaust card +
+	-When a card dies applies glitch randomly 
+	-When glitch is applied aplly it again
+	-Power glitch can only equal zero
+	-Deal -10 damage 6 times
+	-Apply 60 glitch kill this card 
+	-Apply 1 glitch to all allies [Threshhold] apply 20 Glitch
+	-This card transform between two sides, one side per draw, One side consumes ALL allies, the other side shoots them out to apply Glitch. This travels through maps
+	
+	Cold 11
+	-Apply 0 Cold
+	-Apply 2 Cold, Gain a card on draw lose 1 mana
+	-Apply 1 Cold to everyone, Gain a card on draw Kill a card
+	-Apply 5 Cold Exhause draw to card that lose 1 mana on draw
+	-Cold emplifies poison damage
+	-Cold and fire applies water on card which means card does less damage
+	-Cold card now shatters on death and does damage around	
+	-Cold [theshold 0] if glitch > 5 apply 2 deepfreeze
+	-Apply cold for every negative card in deck
+	-Apply a shit ton of cold cost 6 mana
+	-Deepfreeze on allies consumes a hit
+	
+	Kill 4
+	Kill ally 3 units gain 3 mana
+	Kill ally 2 units deal 10 damage per unit
+	Expose a unit kill ally 2 units
+	If an ally has died this round play this to revive them exhaust
+	
+
+	Hit 3
+	Deal damage based on deck size
+	Deal damge based on mana
+	Deal a lot of damage 5 mana
+	Apply glitch based on deck size
+	
+	
+	Supporting card 6
+	-Duplicate a card 2 times
+	-Create two cards that have taunt
+	-This card has 10 health and taunt
+	- This card heals when fire or poison is applied is applied
+	-This card heals for 0
+	This card heals for deck size
+ 
+	
+	Draw 5
+	-Draw based on a picked cards combination of fire and poison
+	-Draw death rattle apply Poison to ALL UNITS
+	-Draw between 0 - 1 card duplicate this card
+	-Draw 2 card - gain card discard 1 random card
+	-Kill ally 1 card to draw another
+	 
+	MorePowers
+	Whenever poison is drawn do damage again 
+	All fire cards are now thorns
+	
+	-Apply defense apply duplicate card
+	
+	
+	-Glitch-
+	
+	
+	
+	-Rage-
+	Deal damage
+	This card has bloodlust
+	the card hits twice
+	This card hits all targets for -2 
+	Apply leech to a card
+	deal 5 damage to all card apply leech for two rounds
+	If this card is below 5 health deal 20 damage
+	If this card is below 10 hp
+	If card has rage heal
+	Heal for the amount of rage on card
+	each time this card gets a kill increase its health
+	deal damage for amount of missing heal this card has
+	Deal 1 damage until a card has one health then apply rage based on missing health to it
+	apply 4 damage 4 rage to random cards
+	Each time this card is hit apply rage to all cards in hand
+	
+	Bleed
+	
+	
+	
+	
+	
+	
+	
+	Card Builder One
+	"afflictions":[{
+				"id": "Thorns"
+				"incr": "0"
+				"value": "2"
+				"decr": "0"
+				"modifier": "+"
+			}]
+
+
+{
+	"id": "Cold",
+	"sprite": "res://Sprites/StatusIcons/ice-cube.svg"
+	"augments":[
+			{
+				"evokeName": "Cold"
+				"evokeType": "Null"
+				"value": "0"
+				"decr": "1"
+				"abilities":[]
+				
+				
+			}
+			]
+
+}
+
+
+
+
+{
+	"id": "Soak",
+	"sprite": "res://Sprites/StatusIcons/squib.png"
+	"augments":[
+			{
+				"evokeName": "Soak"
+				"evokeType": "DamageAugment"
+				"value": "0"
+				"decr": "1"
+				"abilities":[{
+				"action": "DamageAction",
+				"info": "infoskip",
+				"count": 1,
+				"targetSelector": {
+					"type": "SelfTarget",
+					"count": 1
+				},
+				
+				"status":{
+				"type": "Poison"
+				"incr": "info"
+				"modifier": "+"
+			}
+				}]
+				
+				
+			}
+			]
+
+}
+
+{
+	"id": "ds",
+	"sprite": "res://Sprites/StatusIcons/squib.png"
+	"augments":[
+			{
+				"evokeName": "Soak"
+				"evokeType": "DamageAugment"
+				"value": "0"
+				"decr": "0"
+				"abilities":[{
+				"action": "DamageAction",
+				"info": 0,
+				"count": 1,
+				"targetSelector": {
+					"type": "SelfTarget",
+					"count": 1
+				},
+				}]
+				
+				
+			}
+			]
+
+}
+
+{
+	"id": "SInt",
+	"augments":[
+			{
+				"evokeName": "SInt"
+				"evokeType": "Null"
+				"value": "0"
+				"decr": "99"
+				"abilities":[]
+				
+				
+			}
+			]
+
+}
+
+{
+	"id": "Ruin",
+	"augments":[
+			{
+				"evokeName": "Ruin"
+				"evokeType": "Null"
+				"value": "0"
+				"decr": "1"
+				"abilities":[]
+				
+				
+			}
+			]
+
+}
+
+{
+	"id": "Fragile",
+	"augments":[
+			{
+				"evokeName": "Fragile"
+				"evokeType": "Null"
+				"value": "0"
+				"decr": "1"
+				"abilities":[]
+				
+				
+			}
+			]
+
+}
+
+{
+	"id": "Sickness",
+	"augments":[
+			{
+				"evokeName": "Sickness"
+				"evokeType": "Null"
+				"value": "0"
+				"decr": "1"
+				"abilities":[]
+				
+				
+			}
+			]
+
+}
+
+
+
+{
+	"id": "Exposed",
+	"augments":[
+			{
+				"evokeName": "Sickness"
+				"evokeType": "Null"
+				"value": "0"
+				"decr": "1"
+				"abilities":[]
+				
+				
+			}
+			]
+
+}
+
+{
+	"id": "Multihit",
+	"augments":[
+			{
+				"evokeName": "Multihit"
+				"evokeType": "Null"
+				"value": "0"
+				"decr": "0"
+				"abilities":[]
+				
+				
+			}
+			]
+
+}
+
+{
+	"id": "Bleed",
+	"augments":[
+			{
+				"evokeName": "Bleed"
+				"evokeType": "ReceiveDamageAugment"
+				"value": "0"
+				"decr": "1"
+				"abilities":[{
+				"action": "DamageAction",
+				"info": 0,
+				"targetSelector": {
+					"type": "SelfTarget",
+					"count": 1
+				},
+				
+				}]
+				
+				
+			}
+			]
+
+}
+
+
+"decr": "reset","anynumber"
+
+
+
+
+
+{
+	"id": "Soak",
+	"sprite": "res://Sprites/StatusIcons/squib.png"
+	"evokeType": "DamageAugment"
+	"value": "0"
+	"decr": "1"
+	"modifier": "innate"
+	"trigger": "0"
+	"abilities":[{
+	"action": "DamageAction",
+	"info": "infoskip",
+	"count": 1,
+	"targetSelector": {
+	"type": "SelfTarget",
+	"count": 1
+	},
+				
+	"status":{
+	"id": "Token"
+	"incr": "info"
+	"modifier": "+"
+	}
+	}]	
+}
+
+{
+	"id": "Token",
+	"sprite": "res://Sprites/StatusIcons/ice-cube.svg"
+	"evokeType": "Null"
+	"value": "0"
+	"decr": "0"
+	"modifier": "+"
+	"trigger": "0"
+	"abilities":[]
+			
+
+}

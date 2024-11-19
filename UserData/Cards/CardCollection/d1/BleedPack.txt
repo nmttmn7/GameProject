@@ -1,0 +1,74 @@
+{
+			"id": "d1bleedpackcard1",
+			"type": "Unit", 
+			"disposition": "d1",
+			"rarity": "Common",
+			"name": "BloodPack",
+			"sprite": "uid://bdhindvyfvibn",
+			"cost": 1,
+			"hit points": 4,
+			"group": ["BleedPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "targetmaxhealth",
+				"count": 1,
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+				
+				"status":{
+				"id": "cold"
+				"incr": "5"
+			}
+				
+			}]
+			
+			"afflictions":[{
+				"id": "death"
+				"incr": "0"
+				"value": "1"
+			}]
+			
+		}
+		
+		{
+			"id": "d1bleedpackcard2",
+			"type": "Unit", 
+			"disposition": "d1",
+			"rarity": "Common",
+			"name": "BloodPact",
+			"sprite": "uid://bdhindvyfvibn",
+			"cost": 1,
+			"hit points": 3,
+			"group": ["BleedPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "targetmaxhealth",
+				"count": 1,
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+				
+			}]
+			
+		}

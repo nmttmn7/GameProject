@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bapsr7woywhcp"
+path="res://.godot/imported/LevelUP7.wav-a802cf7bc147e0954f83b27d1b67915f.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Retro(52)/LevelUP7.wav"
+dest_files=["res://.godot/imported/LevelUP7.wav-a802cf7bc147e0954f83b27d1b67915f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

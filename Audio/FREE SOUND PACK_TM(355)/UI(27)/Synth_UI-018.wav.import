@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cyhgo62bet185"
+path="res://.godot/imported/Synth_UI-018.wav-f80394b18bdeb400a77fba83ca8e8375.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/UI(27)/Synth_UI-018.wav"
+dest_files=["res://.godot/imported/Synth_UI-018.wav-f80394b18bdeb400a77fba83ca8e8375.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

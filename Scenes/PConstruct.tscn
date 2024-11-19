@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://diuqlwufumitl"]
+
+[ext_resource type="SystemFont" uid="uid://d1eun1llll7oe" path="res://Fonts/KohoSystemFont.tres" id="1_k8v88"]
+
+[node name="Panel" type="Panel"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+bbcode_enabled = true
+text = "Rage"
+scroll_active = false
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -150.0
+offset_right = -38.0
+offset_bottom = -108.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(20, 20)
+theme_override_colors/font_outline_color = Color(0.847118, 0.523188, 0.164009, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/normal_font = ExtResource("1_k8v88")
+bbcode_enabled = true
+fit_content = true
+scroll_active = false

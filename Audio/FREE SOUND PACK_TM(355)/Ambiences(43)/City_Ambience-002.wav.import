@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bykj4bt2a765l"
+path="res://.godot/imported/City_Ambience-002.wav-4de3f66487d9bf7068c3089299eede80.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Ambiences(43)/City_Ambience-002.wav"
+dest_files=["res://.godot/imported/City_Ambience-002.wav-4de3f66487d9bf7068c3089299eede80.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

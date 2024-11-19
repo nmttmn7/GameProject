@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UnitData" load_steps=2 format=3 uid="uid://cs5qohjo2jgd8"]
+
+[ext_resource type="Script" path="res://Scripts/DataModels/Cards/UnitData.cs" id="1_kpgqj"]
+
+[resource]
+script = ExtResource("1_kpgqj")
+hitPoints = 0
+maxHitPoints = 0
+abilityChain = []
+id = ""
+name = ""
+disposition = 0
+rarity = 0
+cost = 0

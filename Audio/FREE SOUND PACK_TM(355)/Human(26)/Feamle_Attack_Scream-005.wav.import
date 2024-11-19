@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cv5h07ngfem25"
+path="res://.godot/imported/Feamle_Attack_Scream-005.wav-7600f119dc7acb755b4b21f5d7e86317.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Human(26)/Feamle_Attack_Scream-005.wav"
+dest_files=["res://.godot/imported/Feamle_Attack_Scream-005.wav-7600f119dc7acb755b4b21f5d7e86317.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

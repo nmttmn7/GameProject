@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://goc5ulvk6bdg"
+path="res://.godot/imported/Male_Sneeze-003.wav-c513456c7d5e43719776306da4c3e0e0.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Human(26)/Male_Sneeze-003.wav"
+dest_files=["res://.godot/imported/Male_Sneeze-003.wav-c513456c7d5e43719776306da4c3e0e0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

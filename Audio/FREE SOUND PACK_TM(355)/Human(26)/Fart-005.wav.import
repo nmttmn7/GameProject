@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b2jvfn5w82vn8"
+path="res://.godot/imported/Fart-005.wav-05bf3d48e949e23a0b5eaa9f1bbcf595.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Human(26)/Fart-005.wav"
+dest_files=["res://.godot/imported/Fart-005.wav-05bf3d48e949e23a0b5eaa9f1bbcf595.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

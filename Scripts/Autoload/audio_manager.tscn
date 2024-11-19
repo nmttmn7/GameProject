@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=3 uid="uid://drcoj1m0touar"]
+
+[ext_resource type="Script" path="res://Scripts/AudioManager.gd" id="1_w34kg"]
+[ext_resource type="Script" path="res://Scripts/SoundEffectSetting.gd" id="2_6vyuo"]
+[ext_resource type="AudioStream" uid="uid://dbbv1jl5ntpqg" path="res://Audio/ShootingSound/crossbow.wav" id="3_ghfmj"]
+[ext_resource type="AudioStream" uid="uid://b6w07pedksili" path="res://Audio/Shapeforms Audio Free Sound Effects/Hit and Punch Preview/AUDIO/PUNCH_PERCUSSIVE_HEAVY_08.wav" id="4_w32ux"]
+[ext_resource type="AudioStream" uid="uid://b5ilsa6d71x6" path="res://Audio/Shapeforms Audio Free Sound Effects/Arcane Activations Preview/AUDIO/Activate Glyph Forcefield.wav" id="5_8jbm1"]
+
+[sub_resource type="Resource" id="Resource_6o8br"]
+script = ExtResource("2_6vyuo")
+limit = 5
+type = 0
+sound_effect = ExtResource("3_ghfmj")
+volume = 0
+pitch_scale = 1.0
+pitch_randomness = 0.0
+
+[sub_resource type="Resource" id="Resource_hmltn"]
+script = ExtResource("2_6vyuo")
+limit = 5
+type = 1
+sound_effect = ExtResource("4_w32ux")
+volume = 0
+pitch_scale = 1.0
+pitch_randomness = 0.0
+
+[sub_resource type="Resource" id="Resource_jlx7f"]
+script = ExtResource("2_6vyuo")
+limit = 5
+type = 3
+sound_effect = ExtResource("5_8jbm1")
+volume = 0
+pitch_scale = 1.0
+pitch_randomness = 0.0
+
+[node name="AudioManager" type="Node2D"]
+script = ExtResource("1_w34kg")
+sound_effect_settings = Array[ExtResource("2_6vyuo")]([SubResource("Resource_6o8br"), SubResource("Resource_hmltn"), SubResource("Resource_jlx7f")])

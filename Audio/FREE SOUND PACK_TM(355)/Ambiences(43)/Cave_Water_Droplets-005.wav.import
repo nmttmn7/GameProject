@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c5yb5syjdm341"
+path="res://.godot/imported/Cave_Water_Droplets-005.wav-f0a145004cc45514581d6566a2b5507a.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Ambiences(43)/Cave_Water_Droplets-005.wav"
+dest_files=["res://.godot/imported/Cave_Water_Droplets-005.wav-f0a145004cc45514581d6566a2b5507a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

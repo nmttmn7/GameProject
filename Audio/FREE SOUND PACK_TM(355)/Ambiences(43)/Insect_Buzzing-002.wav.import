@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dok6uk5f7jm2a"
+path="res://.godot/imported/Insect_Buzzing-002.wav-41bbc8bc3e331de07244fb79b45d805d.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Ambiences(43)/Insect_Buzzing-002.wav"
+dest_files=["res://.godot/imported/Insect_Buzzing-002.wav-41bbc8bc3e331de07244fb79b45d805d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

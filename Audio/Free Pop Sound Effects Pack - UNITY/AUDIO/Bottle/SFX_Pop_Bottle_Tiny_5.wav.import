@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://btcaohinmjdxy"
+path="res://.godot/imported/SFX_Pop_Bottle_Tiny_5.wav-f3f62720f4a5a78ead10f0e9b12267a4.sample"
+
+[deps]
+
+source_file="res://Audio/Free Pop Sound Effects Pack - UNITY/AUDIO/Bottle/SFX_Pop_Bottle_Tiny_5.wav"
+dest_files=["res://.godot/imported/SFX_Pop_Bottle_Tiny_5.wav-f3f62720f4a5a78ead10f0e9b12267a4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

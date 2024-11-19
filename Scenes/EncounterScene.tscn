@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://4wlklqebpq3w"]
+
+[ext_resource type="Script" path="res://Scripts/Components/EncounterView.cs" id="1_rkx25"]
+[ext_resource type="Resource" uid="uid://dmd817ewy1p1s" path="res://UserData/Cards/Enemy/World1/ZEncounter/0.dialogue" id="2_h6h1y"]
+[ext_resource type="PackedScene" uid="uid://b8ofhhcplb4qx" path="res://Constructs/CardConstruct.tscn" id="3_bumg6"]
+[ext_resource type="Shader" path="res://Shaders/ToonWaterEffect.gdshader" id="3_n3w16"]
+[ext_resource type="Script" path="res://Scripts/DisplayObjectsView.cs" id="4_7ktkj"]
+[ext_resource type="Script" path="res://Scripts/Components/StatusView.cs" id="6_ksiev"]
+[ext_resource type="PackedScene" uid="uid://dl0s8vtqymelc" path="res://Constructs/StatusConstruct.tscn" id="7_a7410"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pb1w0"]
+shader = ExtResource("3_n3w16")
+shader_parameter/R = Vector2(1.2, 0.6)
+shader_parameter/scale = 1.095
+shader_parameter/speed = 0.035
+shader_parameter/direction = Vector3(1, 1, 0)
+shader_parameter/distortion = 0.5
+shader_parameter/layers = 2.0
+shader_parameter/shades = 3.0
+shader_parameter/steps = 6
+shader_parameter/tint = Vector3(0, 0, 0)
+
+[node name="Encounter" type="Node2D" node_paths=PackedStringArray("displayObjectsView", "deckNode2D", "statusView")]
+position = Vector2(576, 324)
+script = ExtResource("1_rkx25")
+OO = ExtResource("2_h6h1y")
+cardConstruct = ExtResource("3_bumg6")
+displayObjectsView = NodePath("DisplayObjectsView")
+deckNode2D = NodePath("ObjectNode")
+statusView = NodePath("StatusView")
+metadata/_edit_lock_ = true
+
+[node name="Background" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_pb1w0")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(576, 274)
+color = Color(0, 0, 0, 0.47451)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 1.0
+
+[node name="DisplayObjectsView" type="Node" parent="."]
+script = ExtResource("4_7ktkj")
+
+[node name="ObjectNode" type="Node2D" parent="."]
+visible = false
+
+[node name="RewardController" type="Node" parent="."]
+
+[node name="StatusView" type="Node" parent="."]
+script = ExtResource("6_ksiev")
+statusIconConstruct = ExtResource("7_a7410")

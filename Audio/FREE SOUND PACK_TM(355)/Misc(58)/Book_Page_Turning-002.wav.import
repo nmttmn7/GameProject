@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cay0bic4kw74a"
+path="res://.godot/imported/Book_Page_Turning-002.wav-3ef786c36cfde99235635158c8bd5071.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Misc(58)/Book_Page_Turning-002.wav"
+dest_files=["res://.godot/imported/Book_Page_Turning-002.wav-3ef786c36cfde99235635158c8bd5071.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

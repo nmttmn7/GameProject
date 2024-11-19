@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dd0x2t7un1n5u"
+path="res://.godot/imported/Interface Button 10.wav-d442947e831dcc84fda9581c5ed88f83.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/UI(27)/Interface Button 10.wav"
+dest_files=["res://.godot/imported/Interface Button 10.wav-d442947e831dcc84fda9581c5ed88f83.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

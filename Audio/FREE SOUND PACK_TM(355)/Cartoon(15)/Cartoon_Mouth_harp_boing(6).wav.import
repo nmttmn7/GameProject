@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cx35m222mk6qa"
+path="res://.godot/imported/Cartoon_Mouth_harp_boing(6).wav-12f069cf44f7f337bffd63aa7747b90c.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Cartoon(15)/Cartoon_Mouth_harp_boing(6).wav"
+dest_files=["res://.godot/imported/Cartoon_Mouth_harp_boing(6).wav-12f069cf44f7f337bffd63aa7747b90c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

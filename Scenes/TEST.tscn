@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxtdp54g2ou3e"]
+
+[ext_resource type="Script" path="res://Scripts/Factory/DataManager.cs" id="1_3fx5b"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(576, 325)
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("1_3fx5b")

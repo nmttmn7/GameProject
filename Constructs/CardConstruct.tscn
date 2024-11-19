@@ -1,0 +1,517 @@
+[gd_scene load_steps=22 format=3 uid="uid://b8ofhhcplb4qx"]
+
+[ext_resource type="Script" path="res://Scripts/Components/CardView.cs" id="1_woj7e"]
+[ext_resource type="Script" path="res://Scripts/UI/CardUI.gd" id="2_rmyn6"]
+[ext_resource type="PackedScene" uid="uid://dqxw8o7hu74j6" path="res://Animations/Particles/CardHitAnimation.tscn" id="3_a6pvr"]
+[ext_resource type="Texture2D" uid="uid://38ecw4faqfte" path="res://icon.svg" id="3_gbdgh"]
+[ext_resource type="Script" path="res://Scripts/Components/StateMachines/Clickable.cs" id="4_gdiwq"]
+[ext_resource type="Shader" path="res://Shaders/CustomPerspective.gdshader" id="4_u315g"]
+[ext_resource type="SystemFont" uid="uid://d1eun1llll7oe" path="res://Fonts/KohoSystemFont.tres" id="4_w2e45"]
+[ext_resource type="Texture2D" uid="uid://c5cwyfrl3ngy5" path="res://Sprites/UIIcons/chained-heart (2).png" id="4_woabm"]
+[ext_resource type="Texture2D" uid="uid://8bm2ijjwnhkf" path="res://Sprites/MapIcons/UI board Large  parchment.png" id="4_yvs8n"]
+[ext_resource type="Shader" path="res://Shaders/OutlineBright.gdshader" id="5_ab71o"]
+[ext_resource type="Texture2D" uid="uid://b38f4dxki4ckw" path="res://Sprites/UIIcons/tesla-coil.png" id="6_eardd"]
+[ext_resource type="Texture2D" uid="uid://bfl7mq0tawsyq" path="res://Sprites/UIIcons/armoured-shell.png" id="7_8tht3"]
+[ext_resource type="Texture2D" uid="uid://cc73vn2upme2c" path="res://Sprites/UIIcons/metal-disc.png" id="12_4d6vn"]
+[ext_resource type="PackedScene" uid="uid://c1ydamdh386gx" path="res://Constructs/PopupConstruct.tscn" id="16_g58ho"]
+[ext_resource type="Script" path="res://Scripts/UI/PopupView.cs" id="16_kr0pt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fur4w"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_i40dc"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ipjus"]
+noise = SubResource("FastNoiseLite_i40dc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_68pxp"]
+resource_local_to_scene = true
+shader = ExtResource("4_u315g")
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+shader_parameter/shine = false
+shader_parameter/shine_color = Color(1, 1, 1, 0.25)
+shader_parameter/line_width = 0.1
+shader_parameter/angle = 0.785398
+shader_parameter/speed = 1.0
+shader_parameter/wait_cycles = 1.0
+shader_parameter/pulse_color = Color(1, 1, 1, 1)
+shader_parameter/progress = 0.0
+shader_parameter/percentage = 1.0
+shader_parameter/layer_1 = Color(0.2, 0.2, 0.2, 1)
+shader_parameter/size_1 = 0.05
+shader_parameter/layer_2 = Color(1, 0, 0, 1)
+shader_parameter/size_2 = 0.05
+shader_parameter/layer_3 = Color(1, 0.5, 0, 1)
+shader_parameter/size_3 = 0.05
+shader_parameter/burn_texture = SubResource("NoiseTexture2D_ipjus")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uwult"]
+shader = ExtResource("5_ab71o")
+shader_parameter/color = Color(0.0745098, 0.615686, 1, 1)
+shader_parameter/inner_stroke_thickness = 2.0
+shader_parameter/inner_stroke_opacity = 1.0
+shader_parameter/inside_opacity = 1.0
+shader_parameter/frequency = 8.0
+shader_parameter/phase_speed = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_snhgi"]
+
+[node name="CardConstruct" type="Node2D"]
+
+[node name="CardView" type="Node" parent="." node_paths=PackedStringArray("cardNodePos", "statusNode2D", "textureRect", "healthText", "manaText", "nameText", "abilityCountText", "moneyText", "descriptionText", "button")]
+script = ExtResource("1_woj7e")
+cardNodePos = NodePath("..")
+statusNode2D = NodePath("../Button/StatusView")
+textureRect = NodePath("../Button/CardTexture/SubViewport/Control/SpriteRect")
+healthText = NodePath("../Button/CardTexture/SubViewport/Control/CardHeader/HealthTexture/Health")
+manaText = NodePath("../Button/CardTexture/SubViewport/Control/CardHeader/ManaTexture/Mana")
+nameText = NodePath("../Button/CardTexture/SubViewport/Control/HeaderTexture/Name")
+abilityCountText = NodePath("../Button/CardTexture/SubViewport/Control/CardHeader/AbilityTexture/Ability")
+moneyText = NodePath("../Button/CardTexture/SubViewport/Control/HeaderTexture/Money/Money")
+descriptionText = NodePath("../Button/CardTexture/SubViewport/Control/Description")
+button = NodePath("../Button")
+
+[node name="Button" type="Button" parent="." node_paths=PackedStringArray("node2D", "outline", "cardview")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -200.0
+offset_right = 150.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(150, 200)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fur4w")
+flat = true
+script = ExtResource("2_rmyn6")
+spring = 350.0
+damp = 30.0
+node2D = NodePath("..")
+outline = NodePath("CardTexture/SubViewport/Control/Outline")
+cardview = NodePath("../CardView")
+cardHitAnimation = ExtResource("3_a6pvr")
+frequencyY = 15.0
+ampY = 15.0
+frequencyX = 15.0
+ampX = 15.0
+
+[node name="Shadow" type="ColorRect" parent="Button"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -137.5
+offset_right = 125.0
+offset_bottom = 212.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(125, 0)
+mouse_filter = 2
+color = Color(0, 0, 0, 0.827451)
+
+[node name="CardTexture" type="SubViewportContainer" parent="Button"]
+material = SubResource("ShaderMaterial_68pxp")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -550.0
+offset_right = 500.0
+offset_bottom = 550.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(150, 200)
+mouse_filter = 2
+
+[node name="SubViewport" type="SubViewport" parent="Button/CardTexture"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1000, 1100)
+render_target_update_mode = 4
+
+[node name="Control" type="Control" parent="Button/CardTexture/SubViewport"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Outline" type="ColorRect" parent="Button/CardTexture/SubViewport/Control"]
+visible = false
+material = SubResource("ShaderMaterial_uwult")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -175.0
+offset_right = 125.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.105, 1.105)
+pivot_offset = Vector2(125, 175)
+color = Color(0.527405, 0.371954, 0.97391, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Button/CardTexture/SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -175.0
+offset_right = 125.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(125, 175)
+color = Color(0.307742, 0.286846, 0.35656, 1)
+
+[node name="SpriteRect" type="TextureRect" parent="Button/CardTexture/SubViewport/Control"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -120.0
+offset_right = 64.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.6, 1.6)
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("3_gbdgh")
+expand_mode = 1
+
+[node name="CardHeader" type="ColorRect" parent="Button/CardTexture/SubViewport/Control"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -175.0
+offset_right = 125.0
+offset_bottom = -135.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(125, 0)
+
+[node name="HealthTexture" type="TextureRect" parent="Button/CardTexture/SubViewport/Control/CardHeader"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+pivot_offset = Vector2(256, 256)
+texture = ExtResource("4_woabm")
+
+[node name="Health" type="RichTextLabel" parent="Button/CardTexture/SubViewport/Control/CardHeader/HealthTexture"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.81
+offset_top = -20.0
+offset_right = 157.19
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(10.39, 10.39)
+pivot_offset = Vector2(150, 20)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("4_w2e45")
+theme_override_fonts/bold_font = ExtResource("4_w2e45")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]?"
+fit_content = true
+scroll_active = false
+
+[node name="ManaTexture" type="TextureRect" parent="Button/CardTexture/SubViewport/Control/CardHeader"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -372.0
+offset_top = -256.0
+offset_right = 140.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(256, 256)
+texture = ExtResource("6_eardd")
+
+[node name="Mana" type="RichTextLabel" parent="Button/CardTexture/SubViewport/Control/CardHeader/ManaTexture"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.81
+offset_top = -20.0
+offset_right = 157.19
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(10.39, 10.39)
+pivot_offset = Vector2(150, 20)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("4_w2e45")
+theme_override_fonts/bold_font = ExtResource("4_w2e45")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]?[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="AbilityTexture" type="TextureRect" parent="Button/CardTexture/SubViewport/Control/CardHeader"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -256.0
+offset_right = 372.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(256, 256)
+texture = ExtResource("7_8tht3")
+
+[node name="Ability" type="RichTextLabel" parent="Button/CardTexture/SubViewport/Control/CardHeader/AbilityTexture"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.81
+offset_top = -20.0
+offset_right = 157.19
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(10.39, 10.39)
+pivot_offset = Vector2(150, 20)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("4_w2e45")
+theme_override_fonts/bold_font = ExtResource("4_w2e45")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]?[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="HeaderTexture" type="TextureRect" parent="Button/CardTexture/SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -40.0
+offset_right = 125.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.125, 2.125)
+pivot_offset = Vector2(125, -43)
+texture = ExtResource("4_yvs8n")
+expand_mode = 2
+stretch_mode = 5
+flip_v = true
+
+[node name="Name" type="RichTextLabel" parent="Button/CardTexture/SubViewport/Control/HeaderTexture"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -93.0
+offset_right = 180.0
+offset_bottom = 147.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.545, 0.545)
+pivot_offset = Vector2(180, 120)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("4_w2e45")
+theme_override_fonts/bold_font = ExtResource("4_w2e45")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]?[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="DescriptionTexture" type="TextureRect" parent="Button/CardTexture/SubViewport/Control/HeaderTexture"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -29.885
+offset_right = 125.0
+offset_bottom = 50.115
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.005, 0.761)
+pivot_offset = Vector2(125, 40)
+texture = ExtResource("4_yvs8n")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Money" type="TextureRect" parent="Button/CardTexture/SubViewport/Control/HeaderTexture"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -218.0
+offset_right = 256.0
+offset_bottom = 294.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.03, 0.03)
+pivot_offset = Vector2(256, 256)
+texture = ExtResource("12_4d6vn")
+
+[node name="Money" type="RichTextLabel" parent="Button/CardTexture/SubViewport/Control/HeaderTexture/Money"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.81
+offset_top = -20.0
+offset_right = 157.19
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(10.39, 10.39)
+pivot_offset = Vector2(150, 20)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("4_w2e45")
+theme_override_fonts/bold_font = ExtResource("4_w2e45")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]?[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Description" type="RichTextLabel" parent="Button/CardTexture/SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = 62.0
+offset_right = 131.0
+offset_bottom = 422.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("4_w2e45")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]?"
+fit_content = true
+scroll_active = false
+
+[node name="ColorRect2" type="ColorRect" parent="Button/CardTexture"]
+visible = false
+material = SubResource("ShaderMaterial_snhgi")
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="StatusView" type="Node2D" parent="Button"]
+position = Vector2(150, 410)
+
+[node name="PopupContainer" type="VBoxContainer" parent="Button"]
+visible = false
+z_index = 4
+layout_mode = 0
+offset_left = 325.0
+offset_top = 25.0
+offset_right = 575.0
+offset_bottom = 289.0
+script = ExtResource("16_kr0pt")
+popupConstruct = ExtResource("16_g58ho")
+
+[node name="Clickable" type="Node" parent="."]
+script = ExtResource("4_gdiwq")
+
+[connection signal="button_down" from="Button" to="Clickable" method="OnClick"]
+[connection signal="button_up" from="Button" to="Button" method="_on_button_up"]
+[connection signal="button_up" from="Button" to="Clickable" method="OnRelease"]
+[connection signal="gui_input" from="Button" to="Button" method="_on_gui_input"]
+[connection signal="mouse_entered" from="Button" to="Button" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Button" to="Clickable" method="OnEnter"]
+[connection signal="mouse_exited" from="Button" to="Button" method="_on_mouse_exited"]

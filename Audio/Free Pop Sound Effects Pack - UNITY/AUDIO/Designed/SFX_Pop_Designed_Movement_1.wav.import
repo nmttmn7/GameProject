@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://copv0q2bhn0ed"
+path="res://.godot/imported/SFX_Pop_Designed_Movement_1.wav-e7d707212b5b470cc58d361a4cba0508.sample"
+
+[deps]
+
+source_file="res://Audio/Free Pop Sound Effects Pack - UNITY/AUDIO/Designed/SFX_Pop_Designed_Movement_1.wav"
+dest_files=["res://.godot/imported/SFX_Pop_Designed_Movement_1.wav-e7d707212b5b470cc58d361a4cba0508.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cakpm3031rgfx"
+path="res://.godot/imported/Pistol-003.wav-bdb0574d3494f3db6b65526905973730.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Weapons(25)/Pistol-003.wav"
+dest_files=["res://.godot/imported/Pistol-003.wav-bdb0574d3494f3db6b65526905973730.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

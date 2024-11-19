@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ch1dq0v2wc1rs"
+path="res://.godot/imported/Trumpet-010.wav-4622149eef415e309f4c82bc4eb1f5f2.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Musical Instruments(16)/Trumpet-010.wav"
+dest_files=["res://.godot/imported/Trumpet-010.wav-4622149eef415e309f4c82bc4eb1f5f2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

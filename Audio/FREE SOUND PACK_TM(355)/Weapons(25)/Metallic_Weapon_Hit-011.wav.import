@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://01iria7qcer3"
+path="res://.godot/imported/Metallic_Weapon_Hit-011.wav-deb50e3b151da37ca5d9ed484ab25c0b.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Weapons(25)/Metallic_Weapon_Hit-011.wav"
+dest_files=["res://.godot/imported/Metallic_Weapon_Hit-011.wav-deb50e3b151da37ca5d9ed484ab25c0b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

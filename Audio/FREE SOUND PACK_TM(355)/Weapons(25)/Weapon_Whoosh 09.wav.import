@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://5gr03qw3llej"
+path="res://.godot/imported/Weapon_Whoosh 09.wav-cd11b2efd7962ca77852582b4b0fa53d.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Weapons(25)/Weapon_Whoosh 09.wav"
+dest_files=["res://.godot/imported/Weapon_Whoosh 09.wav-cd11b2efd7962ca77852582b4b0fa53d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

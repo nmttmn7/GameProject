@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://beuodwk756jlg"
+path="res://.godot/imported/SCREAM - Man 3.wav-7aff77f42f3b3289c7c0c28f39f64aef.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Horror(13)/SCREAM - Man 3.wav"
+dest_files=["res://.godot/imported/SCREAM - Man 3.wav-7aff77f42f3b3289c7c0c28f39f64aef.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

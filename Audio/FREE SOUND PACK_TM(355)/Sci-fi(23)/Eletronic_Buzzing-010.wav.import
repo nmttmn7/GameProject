@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bt44chovmnfwf"
+path="res://.godot/imported/Eletronic_Buzzing-010.wav-533efc86d0f457775a6ee9887f992159.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Sci-fi(23)/Eletronic_Buzzing-010.wav"
+dest_files=["res://.godot/imported/Eletronic_Buzzing-010.wav-533efc86d0f457775a6ee9887f992159.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

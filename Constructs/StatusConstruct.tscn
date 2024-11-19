@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://dl0s8vtqymelc"]
+
+[ext_resource type="Texture2D" uid="uid://brpqkeifrngxl" path="res://Sprites/StatusIcons/thorny-tentacle.png" id="1_gyuda"]
+[ext_resource type="Script" path="res://Scripts/UI/StatusUI.cs" id="1_tsu6g"]
+[ext_resource type="SystemFont" uid="uid://d1eun1llll7oe" path="res://Fonts/KohoSystemFont.tres" id="2_c8c1t"]
+[ext_resource type="Texture2D" uid="uid://b7d15ob8ky0b2" path="res://Sprites/StatusIcons/plain-arrow.png" id="4_qcn8p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_prec3"]
+
+[node name="DrawConstruct" type="Node2D"]
+material = SubResource("ShaderMaterial_prec3")
+use_parent_material = true
+
+[node name="StatusUI" type="Node" parent="." node_paths=PackedStringArray("label", "statusIcon", "decreaseIcon")]
+script = ExtResource("1_tsu6g")
+label = NodePath("../Label")
+statusIcon = NodePath("../TextureRect")
+decreaseIcon = NodePath("../Label/DecreaseIcon")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+use_parent_material = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+pivot_offset = Vector2(64, 64)
+mouse_filter = 2
+texture = ExtResource("1_gyuda")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("2_c8c1t")
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DecreaseIcon" type="TextureRect" parent="Label"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -95.0
+offset_right = 64.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+pivot_offset = Vector2(64, 64)
+mouse_filter = 2
+texture = ExtResource("4_qcn8p")
+expand_mode = 1
+stretch_mode = 4

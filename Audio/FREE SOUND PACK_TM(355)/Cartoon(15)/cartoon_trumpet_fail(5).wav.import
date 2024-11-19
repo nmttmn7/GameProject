@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bbb3adqq5u08e"
+path="res://.godot/imported/cartoon_trumpet_fail(5).wav-c6c88e66eea5f977ff5eb4966e8442b4.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Cartoon(15)/cartoon_trumpet_fail(5).wav"
+dest_files=["res://.godot/imported/cartoon_trumpet_fail(5).wav-c6c88e66eea5f977ff5eb4966e8442b4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

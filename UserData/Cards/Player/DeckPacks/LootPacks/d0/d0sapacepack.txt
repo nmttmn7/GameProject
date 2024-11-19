@@ -1,0 +1,2 @@
+{ "deck": ["d0sapacepackenemy1","d0sapacepackenemy2",
+]}

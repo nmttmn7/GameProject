@@ -1,0 +1,19 @@
+{
+	"list": [
+
+{
+	"name": "Common",
+	"roll_weight": "1"	
+}
+
+{
+	"name": "Rare",
+	"roll_weight": "1"	
+}
+
+{
+	"name": "Special",
+	"roll_weight": "1"	
+}
+
+]}

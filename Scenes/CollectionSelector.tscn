@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://dndqrh7gflvin"]
+
+[ext_resource type="Texture2D" uid="uid://38ecw4faqfte" path="res://icon.svg" id="1_1magp"]
+[ext_resource type="Script" path="res://Scripts/UI/CollectionSelector.cs" id="1_j7esl"]
+[ext_resource type="Texture2D" uid="uid://jh5x0iro6t7q" path="res://Sprites/StatusIcons/warlord-helmet.png" id="2_wwb3x"]
+[ext_resource type="Texture2D" uid="uid://c7ykh1d7farll" path="res://Sprites/StatusIcons/disintegrate.png" id="3_hwkxx"]
+[ext_resource type="Texture2D" uid="uid://b38f4dxki4ckw" path="res://Sprites/UIIcons/tesla-coil.png" id="4_hqkic"]
+
+[node name="CollectionSelector" type="Control" node_paths=PackedStringArray("firstButton", "secondButton", "thirdButton", "devButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j7esl")
+firstButton = NodePath("HBoxContainer/TextureButton")
+secondButton = NodePath("HBoxContainer/TextureButton2")
+thirdButton = NodePath("HBoxContainer/TextureButton3")
+devButton = NodePath("HBoxContainer/TextureButton4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_wwb3x")
+stretch_mode = 5
+
+[node name="TextureButton2" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_hwkxx")
+stretch_mode = 5
+
+[node name="TextureButton3" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_hqkic")
+stretch_mode = 5
+
+[node name="TextureButton4" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_1magp")
+stretch_mode = 5
+
+[connection signal="pressed" from="HBoxContainer/TextureButton" to="." method="OnFirstPressed"]
+[connection signal="pressed" from="HBoxContainer/TextureButton2" to="." method="OnSecondPressed"]
+[connection signal="pressed" from="HBoxContainer/TextureButton3" to="." method="OnThirdPressed"]
+[connection signal="pressed" from="HBoxContainer/TextureButton4" to="." method="OnDevPressed"]

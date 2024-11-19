@@ -1,0 +1,188 @@
+[gd_scene load_steps=22 format=3 uid="uid://bji7841q126ar"]
+
+[ext_resource type="Texture2D" uid="uid://dj1n228too8ft" path="res://Sprites/StatusIcons/hearts.png" id="1_ddcc3"]
+[ext_resource type="Shader" path="res://Shaders/3DPerspective.gdshader" id="1_hmo5v"]
+[ext_resource type="SystemFont" uid="uid://d1eun1llll7oe" path="res://Fonts/KohoSystemFont.tres" id="2_23hnd"]
+[ext_resource type="Script" path="res://Animations/UIAnimation.cs" id="4_qiuai"]
+[ext_resource type="Texture2D" uid="uid://bj3d63ws1u8kq" path="res://Sprites/ParticleIcons/T/Flare00.PNG" id="5_tt155"]
+[ext_resource type="AudioStream" uid="uid://ctjp67wh5tm8u" path="res://Audio/mixkit-mechanical-crate-pick-up-3154.wav" id="6_nyn6n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xukn1"]
+shader = ExtResource("1_hmo5v")
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dv32g"]
+
+[sub_resource type="Curve" id="Curve_3bhi7"]
+_data = [Vector2(0.00724638, 0.131868), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_142ar"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_ve5wk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_mjtjo"]
+curve_x = SubResource("Curve_3bhi7")
+curve_y = SubResource("Curve_142ar")
+curve_z = SubResource("Curve_ve5wk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ukwun"]
+lifetime_randomness = 1.0
+particle_flag_align_y = true
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 180.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.1
+scale_curve = SubResource("CurveXYZTexture_mjtjo")
+color = Color(0.992572, 0.75092, 0.852901, 1)
+
+[sub_resource type="Curve" id="Curve_b7qj0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_nbght"]
+curve = SubResource("Curve_b7qj0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ftq4t"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 0.15
+scale_max = 0.15
+scale_curve = SubResource("CurveTexture_nbght")
+color = Color(1, 0.870588, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_q4p2n"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_diqvi"]
+gradient = SubResource("Gradient_q4p2n")
+
+[sub_resource type="Curve" id="Curve_eg1gj"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.98901, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0sdsc"]
+curve = SubResource("Curve_eg1gj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wqnc2"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 20.0
+gravity = Vector3(0, 400, 0)
+scale_min = 0.1
+scale_max = 0.1
+scale_curve = SubResource("CurveTexture_0sdsc")
+color = Color(1, 0.870588, 1, 1)
+color_ramp = SubResource("GradientTexture1D_diqvi")
+
+[node name="HealthConstruct" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_xukn1")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -105.0
+offset_right = 105.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.33, 0.33)
+pivot_offset = Vector2(105, 105)
+texture = ExtResource("1_ddcc3")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -37.0
+offset_right = 50.0003
+offset_bottom = 63.0001
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 50)
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("2_23hnd")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]X"
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8, 8)
+pivot_offset = Vector2(4, 4)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dv32g")
+
+[node name="Node" type="Node" parent="." node_paths=PackedStringArray("sfx", "card_texture", "node2D", "gpuParent")]
+script = ExtResource("4_qiuai")
+sfx = NodePath("../HeartUIsfx")
+card_texture = NodePath("../TextureRect")
+node2D = NodePath("..")
+gpuParent = NodePath("../Node2D")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Node2D"]
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_ukwun")
+texture = ExtResource("5_tt155")
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="Node2D"]
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_ftq4t")
+texture = ExtResource("5_tt155")
+lifetime = 0.1
+one_shot = true
+fixed_fps = 60
+
+[node name="Fire" type="GPUParticles2D" parent="Node2D"]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_wqnc2")
+texture = ExtResource("5_tt155")
+lifetime = 0.55
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+
+[node name="HeartUIsfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_nyn6n")
+pitch_scale = 1.05
+
+[connection signal="button_down" from="Button" to="Node" method="Expand"]

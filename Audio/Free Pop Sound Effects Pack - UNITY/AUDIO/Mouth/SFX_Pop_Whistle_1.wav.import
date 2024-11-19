@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bfanbi3kr2e2q"
+path="res://.godot/imported/SFX_Pop_Whistle_1.wav-5218f91aebc0784db4b6114224444bfd.sample"
+
+[deps]
+
+source_file="res://Audio/Free Pop Sound Effects Pack - UNITY/AUDIO/Mouth/SFX_Pop_Whistle_1.wav"
+dest_files=["res://.godot/imported/SFX_Pop_Whistle_1.wav-5218f91aebc0784db4b6114224444bfd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

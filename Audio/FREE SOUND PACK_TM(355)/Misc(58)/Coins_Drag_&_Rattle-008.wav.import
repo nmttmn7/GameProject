@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c58wqiiklwy2r"
+path="res://.godot/imported/Coins_Drag_&_Rattle-008.wav-0467f0952b1811e73d8a6191161301ca.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Misc(58)/Coins_Drag_&_Rattle-008.wav"
+dest_files=["res://.godot/imported/Coins_Drag_&_Rattle-008.wav-0467f0952b1811e73d8a6191161301ca.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

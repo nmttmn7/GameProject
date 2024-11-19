@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://5n61xl28covr"
+path="res://.godot/imported/Fall6.wav-b255dfd13ebbda75f2b0194a43f9c5cd.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Retro(52)/Fall6.wav"
+dest_files=["res://.godot/imported/Fall6.wav-b255dfd13ebbda75f2b0194a43f9c5cd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

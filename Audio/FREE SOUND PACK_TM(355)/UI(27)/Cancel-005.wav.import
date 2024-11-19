@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b6wwjuuo1i01"
+path="res://.godot/imported/Cancel-005.wav-b9e785536179d89e7f0fde8125fec666.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/UI(27)/Cancel-005.wav"
+dest_files=["res://.godot/imported/Cancel-005.wav-b9e785536179d89e7f0fde8125fec666.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

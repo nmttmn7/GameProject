@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://hq4f5a5osgxd"
+path="res://.godot/imported/cartoon_whistle_down(6).wav-553bc963bc85959cc06420ece91d7cff.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Cartoon(15)/cartoon_whistle_down(6).wav"
+dest_files=["res://.godot/imported/cartoon_whistle_down(6).wav-553bc963bc85959cc06420ece91d7cff.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

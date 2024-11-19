@@ -1,0 +1,116 @@
+
+		{
+			"id": "Card1",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Green Knight",
+			"sprite": "res://Sprites/Cards/RatKing.jpg",
+			"text": "3 damage to random enemies.",
+			"cost": 1,
+			"hit points": 4,
+			"target": {
+				"allowed": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": 1,
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+				
+				"status":{
+				"type": "Cold"
+				"incr": "cardCurrentHealth"
+				"modifier": "+"
+			}
+			}]
+			
+			"afflictions":[{
+				"type": "Cold"
+				"incr": "2"
+				"modifier": "+"
+				"decr": "0"
+				}]
+		}
+		
+		{
+			"id": "Card2",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Green Knight",
+			"sprite": "res://Sprites/Cards/RatKing.jpg",
+			"text": "3 damage to random enemies.",
+			"cost": 1,
+			"hit points": 4,
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": 0,
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+				
+				"status":{
+				"type": "Rage"
+				"incr": "2"
+				"modifier": "+"
+			}
+			}]
+			
+			
+		}
+		
+		{
+			"id": "Card3",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Blue Knight",
+			"sprite": "res://Sprites/Cards/RatKing.jpg",
+			"text": "3 damage to random enemies.",
+			"cost": 1,
+			"hit points": 4,
+			"target": {
+				"allowed": {
+					"alliance": "Ally",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Ally",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": 0,
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+				
+				"status":{
+				"type": "Rage"
+				"incr": "1"
+			}
+			}]
+		}
+		
+		
+		

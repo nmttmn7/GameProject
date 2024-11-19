@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cjvb8eapwmj38"
+path="res://.godot/imported/Machine_Pump-003.wav-b6841275f0ffb15ce0da583b647c59e4.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Sci-fi(23)/Machine_Pump-003.wav"
+dest_files=["res://.godot/imported/Machine_Pump-003.wav-b6841275f0ffb15ce0da583b647c59e4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

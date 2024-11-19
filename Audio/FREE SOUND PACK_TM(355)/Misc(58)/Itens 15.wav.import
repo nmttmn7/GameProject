@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d031h00w1sx0k"
+path="res://.godot/imported/Itens 15.wav-2a9193412a6441c2cb7e38446cc710de.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Misc(58)/Itens 15.wav"
+dest_files=["res://.godot/imported/Itens 15.wav-2a9193412a6441c2cb7e38446cc710de.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

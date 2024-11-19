@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://mur2h4lccbqa"
+path="res://.godot/imported/gun5.wav-7a4a8d6d6504e8f9b6dfec437d6106fe.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Retro(52)/gun5.wav"
+dest_files=["res://.godot/imported/gun5.wav-7a4a8d6d6504e8f9b6dfec437d6106fe.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

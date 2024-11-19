@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cow3j4vwj46wr"
+path="res://.godot/imported/SFX_Pop_Mouth_Soft_Muffled_4.wav-afaa3f9f6aa2832db1bfe5db2f00c6ce.sample"
+
+[deps]
+
+source_file="res://Audio/Free Pop Sound Effects Pack - UNITY/AUDIO/Mouth/SFX_Pop_Mouth_Soft_Muffled_4.wav"
+dest_files=["res://.godot/imported/SFX_Pop_Mouth_Soft_Muffled_4.wav-afaa3f9f6aa2832db1bfe5db2f00c6ce.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

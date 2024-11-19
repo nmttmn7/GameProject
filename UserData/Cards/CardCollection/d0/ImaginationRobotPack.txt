@@ -1,0 +1,71 @@
+{
+			"id": "d0robotpack1enemy1",
+			"type": "Unit", 
+			"disposition": "d0",
+			"rarity": "Common",
+			"name": "Cardboard Robot",
+			"sprite": "res://Sprites/CardSprites/Enemy/cardboard-box-closed.png",
+			"text": "",
+			"cost": 0,
+			"hit points": 17,
+			"group": ["robotpack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "0",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+			}
+			"status":{
+				"id": "cold"
+				"incr": "3"
+				
+			}
+			}]
+			
+		}
+		
+	{
+			"id": "d0robotpack1enemy2",
+			"type": "Unit", 
+			"disposition": "d0",
+			"rarity": "Common",
+			"name": "Cardboard Robot",
+			"sprite": "res://Sprites/CardSprites/d0/Rocketman.png",
+			"text": "",
+			"cost": 0,
+			"hit points": 17,
+			"group": ["robotpack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "90",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+			}
+			
+			}]
+			
+		}
+		
+	

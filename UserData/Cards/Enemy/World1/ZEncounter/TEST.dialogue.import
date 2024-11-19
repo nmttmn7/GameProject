@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://b161pwyw117jt"
+path="res://.godot/imported/TEST.dialogue-04c5b94615970b2874dc82e4fdfa0acc.tres"
+
+[deps]
+
+source_file="res://UserData/Cards/Enemy/World1/ZEncounter/TEST.dialogue"
+dest_files=["res://.godot/imported/TEST.dialogue-04c5b94615970b2874dc82e4fdfa0acc.tres"]
+
+[params]
+
+defaults=true

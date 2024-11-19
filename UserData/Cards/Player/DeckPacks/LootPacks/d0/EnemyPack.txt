@@ -1,0 +1,2 @@
+{ "deck": ["EnemyCard1","EnemyCard2","BossCard1","pack2enemycard1",
+]}

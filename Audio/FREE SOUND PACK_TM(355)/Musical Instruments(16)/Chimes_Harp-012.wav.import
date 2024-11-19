@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d2ylgr8axcbee"
+path="res://.godot/imported/Chimes_Harp-012.wav-0a30ad85529d664e1813d624b2a51adb.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Musical Instruments(16)/Chimes_Harp-012.wav"
+dest_files=["res://.godot/imported/Chimes_Harp-012.wav-0a30ad85529d664e1813d624b2a51adb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

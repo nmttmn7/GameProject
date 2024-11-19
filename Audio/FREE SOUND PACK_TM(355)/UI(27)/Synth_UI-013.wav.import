@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://drsx0n2ccc0cc"
+path="res://.godot/imported/Synth_UI-013.wav-b41a53e8521b6ad9569b18711934b660.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/UI(27)/Synth_UI-013.wav"
+dest_files=["res://.godot/imported/Synth_UI-013.wav-b41a53e8521b6ad9569b18711934b660.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

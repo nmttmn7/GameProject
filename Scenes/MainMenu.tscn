@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://btulmb2ym37kv"]
+
+[ext_resource type="Script" path="res://Scripts/UI/MainMenu.cs" id="1_6mms6"]
+[ext_resource type="SystemFont" uid="uid://d1eun1llll7oe" path="res://Fonts/KohoSystemFont.tres" id="2_rdy5c"]
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("newButton", "continueButton", "optionsButton", "quitButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6mms6")
+newButton = NodePath("MarginContainer/VBoxContainer/New Game")
+continueButton = NodePath("MarginContainer/VBoxContainer/Continue")
+optionsButton = NodePath("MarginContainer/VBoxContainer/Options")
+quitButton = NodePath("MarginContainer/VBoxContainer/Quit")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -156.0
+offset_right = 113.0
+grow_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="New Game" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_rdy5c")
+text = "New Game
+"
+
+[node name="Continue" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_rdy5c")
+text = "Continue"
+
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_rdy5c")
+text = "Options"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_rdy5c")
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/New Game" to="." method="OnNewPressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Continue" to="." method="OnContinuePressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="OnOptionsPressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="OnQuitPressed"]

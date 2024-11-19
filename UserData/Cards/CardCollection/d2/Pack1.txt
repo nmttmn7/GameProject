@@ -1,0 +1,656 @@
+{
+			"id": "status01Card1",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "Shroomer",
+			"sprite": "res://Sprites/CardSprites/Shroomer.png",
+			"cost": 1,
+			"hit points": 4,
+			"group": ["status01Pack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "2",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"status":{
+				"id": "status01"
+				"incr": "5"
+				
+			}
+	
+			
+			}]
+			
+			
+			
+		}
+	
+	
+	
+		{
+			"id": "status01Card2",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "Green Knight",
+			"sprite": "res://Sprites/CardSprites/Green Knight.png",
+			"cost": 1,
+			"hit points": 4,
+			"group": ["status01Pack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "1",
+				"count": 1,
+				"targetSelector": {
+					"type": "AllTarget",
+					"mark": {
+						"alliance": "Target",
+						"zone": "Hand"
+					},
+				}
+				
+				"status":{
+				"id": "status01"
+				"incr": "2"
+				
+			}
+	
+			
+			}]
+			
+		}
+	
+	
+		
+		{
+			"id": "status01Card3",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "AmongUs",
+			"sprite": "res://Sprites/CardSprites/AmongUs.png",
+			"cost": 1,
+			"hit points": 4,
+			"group": ["status01Pack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "7",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+		
+			}{
+				"action": "DamageAction",
+				"info": "7",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"condition":{
+					"info": "targetstatusstatus01"
+					"comparator": ">"
+					"value": "2"
+				}
+		
+			}]
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		{
+			"id": "status01Card4",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "Toxic Snake",
+			"sprite": "res://Sprites/CardSprites/Snake.png",
+			"cost": 1,
+			"hit points": 4,
+			"group": ["status01Pack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "0",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"status":{
+				"id": "status01"
+				"incr": "2"
+				"modifier": "x"
+			}
+		
+			}]
+			
+			"afflictions":[{
+				"id": "death"
+				"incr": "0"
+				"value": "1"
+			}]
+			
+			
+		}
+		
+		
+		{
+			"id": "status01Card5",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "Komono Dragoon",
+			"sprite": "res://Sprites/CardSprites/Dragoon.png",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["status01Pack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "0",
+				"count": 3,
+				"targetSelector": {
+					"type": "RandomTarget",
+					"mark": {
+						"alliance": "Target",
+						"zone": "Hand"
+					},
+				
+			}
+				
+				"status":{
+				"id": "status01"
+				"incr": "3"
+			}
+		
+			}]
+			
+			
+			
+			
+		}
+		
+		
+		
+		{
+			"id": "status01Card6",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "AlgalBloom",
+			"sprite": "res://Sprites/CardSprites/Algal.png",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["status01Pack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "0",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"status":{
+				"id": "status01"
+				"incr": "playernameAlgalBloom"
+			}
+		
+			}]
+				
+		}
+		
+		{
+			"id": "status01Card7",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "Pollution Monster",
+			"sprite": "res://Sprites/CardSprites/Pollution.png",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["status01Pack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "CreateCardsAction",
+				"info": "status01Card6|false|self",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				}]
+				
+		}
+		
+		{
+			"id": "status01Card8",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "Dart Frog",
+			"sprite": "res://Sprites/CardSprites/Frog.png",
+			"cost": 1,
+			"hit points": 12,
+			"group": ["status01Pack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "4",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+		
+			}]
+			
+			"afflictions":[{
+				"id": "status02"
+				"incr": "0"
+				"value": "1"
+			}]
+			
+		}
+		
+		{
+			"id": "status01Card9",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "Friendly Mushrooms",
+			"sprite": "res://Sprites/CardSprites/Mushroom.png",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["status01Pack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "1",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"status":{
+				"id": "status01"
+				"incr": "targetmissinghealth"
+			}
+		
+			}]
+				
+		}
+		
+		
+		{
+			"id": "status01Card10",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "Axolotl",
+			"sprite": "uid://bhyj6y38lwdrb",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["status01Pack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "HealAction",
+				"info": "4",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				
+		
+			}]
+				
+		}
+		
+		
+			{
+				
+			"id": "status01Card11",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "Axolotl",
+			"sprite": "uid://stf26i6ywmnr",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["status01Pack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "GrantMaxHealthAction",
+				"info": "4",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				
+		
+			}]
+				
+		}
+		
+		
+		
+	{
+	
+			"id": "status01Card12",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "Lickatoad",
+			"sprite": "uid://c107o4w8rhnln",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["status01Pack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "targetstatusstatus01",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				
+		
+			}]
+				
+		}
+		
+		{
+	
+			"id": "status01Card13",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "Platypus",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["status01Pack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "3",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"condition":{
+					"info": "targetCurrentHealth"
+					"comparator": "="
+					"value": "targetMaxHealth"
+				}
+				
+				"status":{
+				"id": "status01"
+				"incr": "3"
+				"modifier": "x"
+			}
+			
+			}]
+				
+		}
+		
+		
+		{
+	
+			"id": "status01Card14",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "Sockpuppet",
+			"sprite": "uid://csqot38nd6u1m",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["status01Pack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "cardMaxHealth",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			
+			}]
+				
+		}
+		
+		
+		{
+	
+			"id": "status01Card15",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "BlackEight",
+			"sprite": "uid://c5sphthaumtsy",
+			"cost": 1,
+			"hit points": 8,
+			"group": ["status01Pack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "8",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			
+			}{
+				"action": "DamageAction",
+				"info": "8",
+				"count": 2,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"condition":{
+					"info": "targetstatusstatus01"
+					"comparator": "="
+					"value": "8"
+				}
+			
+			}]
+				
+		}
+		
+		{
+			"id": "status01Card16",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "Scorpion",
+			"sprite": "uid://dbqr87mjmhwe8",
+			"cost": 2,
+			"hit points": 6,
+			"group": ["status01Pack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "0",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"status":{
+				"id": "status01"
+				"incr": "8"
+				
+			}
+	
+			
+			}]
+			
+		
+			
+		}

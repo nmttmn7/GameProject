@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://5ujgyns0hjfb"
+path="res://.godot/imported/SFX_Pop_Designed_withToyRattle.wav-0bc7f69c7c5b9ff86bff9adfcdef91f3.sample"
+
+[deps]
+
+source_file="res://Audio/Free Pop Sound Effects Pack - UNITY/AUDIO/Designed/SFX_Pop_Designed_withToyRattle.wav"
+dest_files=["res://.godot/imported/SFX_Pop_Designed_withToyRattle.wav-0bc7f69c7c5b9ff86bff9adfcdef91f3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

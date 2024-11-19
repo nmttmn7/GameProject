@@ -1,0 +1,90 @@
+{
+			"id": "d1starterpack1card1",
+			"type": "Unit", 
+			"disposition": "d1",
+			"rarity": "Common",
+			"name": "Knight",
+			"sprite": "uid://mirrwka8a6xe",
+			"cost": 1,
+			"hit points": 7,
+			"group": ["status05Pack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "6",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			}]
+			
+		}
+		
+		{
+			"id": "d1starterpack1card3",
+			"type": "Unit", 
+			"disposition": "d1",
+			"rarity": "Common",
+			"name": "TwoPistols",
+			"sprite": "uid://bdhindvyfvibn",
+			"cost": 2,
+			"hit points": 4,
+			"group": ["status05Pack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "2",
+				"count": 2,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			}]
+			
+		}
+		
+		
+		{
+			"id": "d1starterpack1card2",
+			"type": "Unit", 
+			"disposition": "d1",
+			"rarity": "Common",
+			"name": "Shield",
+			"sprite": "uid://dl8feebjvsj0c",
+			"cost": 1,
+			"hit points": 12,
+			"group": ["status05Pack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": []
+			
+			
+			
+		}

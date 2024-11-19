@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bwlg5fnpw3io1"
+path="res://.godot/imported/Frogs_Swamp-003.wav-0f6acd7823a8e5a9c555c5a30d524faf.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Ambiences(43)/Frogs_Swamp-003.wav"
+dest_files=["res://.godot/imported/Frogs_Swamp-003.wav-0f6acd7823a8e5a9c555c5a30d524faf.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

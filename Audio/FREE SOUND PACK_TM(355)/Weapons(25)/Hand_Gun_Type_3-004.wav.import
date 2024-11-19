@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c8qykx2r8b204"
+path="res://.godot/imported/Hand_Gun_Type_3-004.wav-13a7500199643f9d7ec90c7f71f091d0.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Weapons(25)/Hand_Gun_Type_3-004.wav"
+dest_files=["res://.godot/imported/Hand_Gun_Type_3-004.wav-13a7500199643f9d7ec90c7f71f091d0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

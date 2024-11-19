@@ -1,0 +1,39 @@
+{
+			"id": "d0zodiacboss1enemy1",
+			"type": "Unit", 
+			"disposition": "d0",
+			"rarity": "Common",
+			"name": "King Star",
+			"sprite": "res://Sprites/CardSprites/Enemy/cardboard-box.png",
+			"text": "",
+			"cost": 0,
+			"hit points": 64,
+			"group": ["d0zodiacboss1"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "playergraveyard",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+			}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "status06"
+				"incr": "0"
+				"value": "1"
+			}]
+			
+			
+		}

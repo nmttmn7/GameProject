@@ -1,0 +1,38 @@
+	{
+			"id": "PoisonCard1",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Green Knight",
+			"sprite": "res://Sprites/Cards/RatKing.jpg",
+			"cost": 1,
+			"hit points": 4,
+			"group": ["PoisonPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": 2,
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+				
+				"status":{
+				"id": "Poison"
+				"incr": "4"
+				"modifier": "+"
+			}
+			}]
+			
+			
+			
+		}
+		

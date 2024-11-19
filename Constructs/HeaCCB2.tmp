@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://bji7841q126ar"]
+
+[ext_resource type="Texture2D" uid="uid://dj1n228too8ft" path="res://Sprites/StatusIcons/hearts.png" id="1_ddcc3"]
+[ext_resource type="Script" path="res://Animations/AnimationExpand.gd" id="1_yco07"]
+[ext_resource type="SystemFont" uid="uid://d1eun1llll7oe" path="res://Fonts/KohoSystemFont.tres" id="2_23hnd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dv32g"]
+
+[node name="HealthConstruct" type="Node2D"]
+script = ExtResource("1_yco07")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -105.0
+offset_right = 105.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.33, 0.33)
+pivot_offset = Vector2(105, 105)
+texture = ExtResource("1_ddcc3")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -37.0
+offset_right = 50.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 50)
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("2_23hnd")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]X"
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8, 8)
+pivot_offset = Vector2(4, 4)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dv32g")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

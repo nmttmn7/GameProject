@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="StatusData" load_steps=7 format=3 uid="uid://cmws4k7v2is1l"]
+
+[ext_resource type="Script" path="res://Scripts/DataModels/Cards/Abilities/AbilityData.cs" id="1_vu17r"]
+[ext_resource type="Script" path="res://Scripts/DataModels/Statuses/StatusData.cs" id="1_yov00"]
+[ext_resource type="Script" path="res://Scripts/DataModels/Cards/Abilities/Target Selectors/TargetSelectorData.cs" id="2_lm56c"]
+[ext_resource type="Texture2D" uid="uid://c7ykh1d7farll" path="res://Sprites/StatusIcons/disintegrate.png" id="4_82ml4"]
+
+[sub_resource type="Resource" id="Resource_5hnbx"]
+script = ExtResource("2_lm56c")
+type = 1
+
+[sub_resource type="Resource" id="Resource_ohbtw"]
+script = ExtResource("1_vu17r")
+actionName = 0
+userInfo = "0"
+count = 1
+targetSelectorData = SubResource("Resource_5hnbx")
+
+[resource]
+script = ExtResource("1_yov00")
+id = "toxin"
+name = "Toxin"
+sprite = ExtResource("4_82ml4")
+value_ability = true
+statusTypes = 0
+evokeType = 1
+decrement_resetOverride = false
+decrement_amount = 1.0
+abilityChain = [SubResource("Resource_ohbtw")]

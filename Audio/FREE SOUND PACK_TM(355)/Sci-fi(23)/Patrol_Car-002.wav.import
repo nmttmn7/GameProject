@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dvvusfh7iwtne"
+path="res://.godot/imported/Patrol_Car-002.wav-73513a4e59f44bcebeaf0f15ca39dbe9.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Sci-fi(23)/Patrol_Car-002.wav"
+dest_files=["res://.godot/imported/Patrol_Car-002.wav-73513a4e59f44bcebeaf0f15ca39dbe9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

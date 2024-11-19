@@ -1,0 +1,1389 @@
+{ "cards": [
+	
+	
+	
+	
+		{
+			"id": "CardRage1",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Card 1",
+			"sprite": "res://Sprites/StatusIcons/alien-skull.png",
+			"cost": 1,
+			"hit points": 9,
+			"group": ["RagePack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "6",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+	
+			
+			}]
+			
+		}
+		
+		{
+			"id": "CardRage2",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "CardRage2",
+			"sprite": "res://Sprites/StatusIcons/alien-skull.png",
+			"cost": 0,
+			"hit points": 15,
+			"group": ["RagePack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "0",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"status":{
+				"id": "Rage"
+				"incr": "4"
+				"modifier": "+"
+				
+			}
+				
+			
+			}]
+		}
+		
+		{
+			"id": "CardRage3",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "CardRage3",
+			"sprite": "res://Sprites/StatusIcons/alien-skull.png",
+			"text": "This card hits all targets for -2 ",
+			"cost": 3,
+			"hit points": 15,
+			"group": ["RagePack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "-2",
+				"count": 1,
+				"targetSelector": {
+					"type": "AllTarget",
+					"mark": {
+						"alliance": "Target",
+						"zone": "Hand"
+					},
+				}
+				
+			
+			}]
+		}
+		
+		{
+			"id": "CardRage4",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "CardTEST",
+			"sprite": "res://Sprites/StatusIcons/alien-skull.png",
+			"text": "Deal 1 damage 5 times to random targets with fire > 0",
+			"cost": 1,
+			"hit points": 15,
+			"group": ["RagePack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "4",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			"status":{
+				"id": "Rage"
+				"incr": "5"
+				"modifier": "+"
+				
+			}
+			
+			}]
+		}
+		
+		{
+			"id": "CardRage5",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "CardTEST",
+			"sprite": "res://Sprites/StatusIcons/alien-skull.png",
+			"text": "Deal 1 damage 5 times to random targets with fire > 0",
+			"cost": 1,
+			"hit points": 15,
+			"group": ["RagePack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "0",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			"status":{
+				"id": "Bloodlust"
+				"incr": "5"
+				"modifier": "+"
+				
+			}
+			
+			}]
+		}
+		
+		{
+			"id": "CardRage6",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "CardTEST",
+			"sprite": "res://Sprites/StatusIcons/vampire-cape.png",
+			"cost": 1,
+			"hit points": 15,
+			"group": ["RagePack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "1",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			}]
+			
+			"afflictions":[{
+				"id": "Leech"
+				"incr": "0"
+				"value": "1"
+				"decr": "0"
+				"modifier": "+"
+				"permanent": true
+			}]
+		}
+		
+		{
+			"id": "CardRage7",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "CardTEST",
+			"sprite": "res://Sprites/StatusIcons/alien-skull.png",
+			"text": "Deal 1 damage 5 times to random targets with fire > 0",
+			"cost": 1,
+			"hit points": 15,
+			"group": ["RagePack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "4",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			"status":{
+				"id": "Leech"
+				"incr": "2"
+				"modifier": "+"
+				"type": "INSTANT"
+				
+			}
+			
+			}]
+		}
+		
+		
+			{
+			"id": "CardRage8",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "CardTEST",
+			"sprite": "res://Sprites/StatusIcons/alien-skull.png",
+			"text": "Deal 1 damage 5 times to random targets with fire > 0",
+			"cost": 1,
+			"hit points": 15,
+			"group": ["RagePack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "3",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"condition":{
+					"info": "cardCurrentHealth"
+					"comparator": ">="
+					"value": "6"
+				}
+				
+			
+			
+			}{
+				"action": "DamageAction",
+				"info": "20",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"condition":{
+					"info": "cardCurrentHealth"
+					"comparator": "<="
+					"value": "6"
+				}
+				
+			
+			
+			}]
+		}
+		
+			{
+			"id": "CardRage9",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "CardTEST",
+			"sprite": "res://Sprites/StatusIcons/alien-skull.png",
+			"text": "Deal 1 damage 5 times to random targets with fire > 0",
+			"cost": 1,
+			"hit points": 15,
+			"group": ["RagePack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "0",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"condition":{
+					"info": "cardCurrentHealth"
+					"comparator": "<"
+					"value": "targetCurrentHealth"
+				}
+				
+				"status":{
+				"id": "Rage"
+				"incr": "8"
+				"modifier": "+"
+				
+			}
+			
+			
+			}]
+		}
+		
+		{
+			"id": "CardRage10",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "CardRage10",
+			"sprite": "res://Sprites/StatusIcons/alien-skull.png",
+			"text": "Deal 1 damage 5 times to random targets with fire > 0",
+			"cost": 1,
+			"hit points": 15,
+			"group": ["RagePack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "HealAction",
+				"info": "targetStatusRage",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			}]
+		}
+		
+		{
+			"id": "CardRage11",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "CardRage10",
+			"sprite": "res://Sprites/StatusIcons/alien-skull.png",
+			"text": "Deal 1 damage 5 times to random targets with fire > 0",
+			"cost": 1,
+			"hit points": 15,
+			"group": ["RagePack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "5",
+				"count": 3,
+				"targetSelector": {
+					"type": "RandomTarget",
+					"mark": {
+						"alliance": "Target",
+						"zone": "Hand"
+					},
+				
+			}
+			
+			}{
+				"action": "DamageAction",
+				"info": "0",
+				"count": 3,
+				"targetSelector": {
+					"type": "RandomTarget",
+					"mark": {
+						"alliance": "Target",
+						"zone": "Hand"
+					},
+				
+			}
+			
+			"status":{
+				"id": "Rage"
+				"incr": "8"
+				"modifier": "+"
+				
+			}
+			}]
+		}
+		
+		{
+			"id": "CardRage12",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "CardRage12",
+			"sprite": "res://Sprites/StatusIcons/alien-skull.png",
+			"text": "Deal 1 damage 5 times to random targets with fire > 0",
+			"cost": 1,
+			"hit points": 15,
+			"group": ["RagePack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "2",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+			}
+			
+			"status":{
+				"id": "Rage"
+				"incr": "7"
+				"modifier": "+"
+				
+			}
+			}]
+		}
+		{
+			"id": "CardRage13",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "CardRage13",
+			"sprite": "res://Sprites/StatusIcons/alien-skull.png",
+			"cost": 2,
+			"hit points": 15,
+			"group": ["RagePack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "2",
+				"count": 2,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			
+			}]
+		}
+		
+		
+
+		
+		{
+			"id": "EnemyCard1",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "A Box",
+			"sprite": "res://Sprites/CardSprites/Enemy/cardboard-box-closed.png",
+			"text": "",
+			"cost": 0,
+			"hit points": 17,
+			
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "7",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+			}
+			
+			}]
+		}
+		
+		{
+			"id": "EnemyCard2",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "A Open Box",
+			"sprite": "res://Sprites/CardSprites/Enemy/cardboard-box.png",
+			"text": "",
+			"cost": 0,
+			"hit points": 15,
+			
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "14",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+			}
+			
+			}]
+		}
+		
+		{
+			"id": "BossCard1",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "A Boss",
+			"sprite": "res://Sprites/CardSprites/Enemy/evil-minion.png",
+			"text": "",
+			"cost": 0,
+			"hit points": 15,
+			
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "14",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+			}
+			
+			}]
+		}
+		
+			{
+			"id": "CardTEST",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "CardTEST",
+			"sprite": "res://Sprites/StatusIcons/alien-skull.png",
+			"text": "Deal 1 damage 5 times to random targets with fire > 0",
+			"cost": 0,
+			"hit points": 12,
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "5",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+	
+			
+			}]
+			
+			
+			
+			
+		}
+		
+		{
+			"id": "CardTEST1",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "CardTEST",
+			"sprite": "res://Sprites/StatusIcons/alien-skull.png",
+			"text": "Deal 1 damage 5 times to random targets with fire > 0",
+			"cost": 0,
+			"hit points": 12,
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "90",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"status":{
+				"id": "Rage"
+				"incr": "5"
+				"modifier": "+"
+				
+			}
+			
+			}]
+			
+			
+			
+		}
+		
+		{
+			"id": "PoisonCard1",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Poison",
+			"sprite": "res://Sprites/StatusIcons/disintegrate.png",
+			"text": "Apply Poisom",
+			"cost": 1,
+			"hit points": 12,
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "0",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+				"status":{
+				"id": "Poison"
+				"incr": "4"
+				"modifier": "+"
+				
+			}
+			}]
+			"afflictions":[{
+				"id": "Fragile"
+				"incr": "0"
+				"value": "2"
+				"decr": "0"
+				"modifier": "+"
+				"permanent": true
+			}]
+		}
+		
+		{
+			"id": "Card16",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Totem Minion",
+			"sprite": "res://Sprites/StatusIcons/spark-spirit.png",
+			"text": "On play kill to draw 2, Ondraw summon a minion",
+			"cost": 1,
+			"hit points": 12,
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "playernameMinion",
+				"count": 2,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+			}]
+		}
+		
+		{
+			"id": "Card15",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Brute Minion",
+			"sprite": "res://Sprites/StatusIcons/spark-spirit.png",
+			"text": "Does apply Cold",
+			"cost": 1,
+			"hit points": 12,
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "playernameMinion",
+				"count": 2,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+			}]
+		}
+		
+		{
+			"id": "Card14",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Brute Minion",
+			"sprite": "res://Sprites/StatusIcons/spark-spirit.png",
+			"text": "Does apply Cold",
+			"cost": 1,
+			"hit points": 12,
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "4",
+				"count": 2,
+				"targetSelector": {
+					"type": "RandomTarget",
+					"mark": {
+						"alliance": "Target",
+						"zone": "Hand"
+					},
+				}
+			}]
+		}
+		
+		{
+			"id": "Card13",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Cold Minion",
+			"sprite": "res://Sprites/StatusIcons/spark-spirit.png",
+			"text": "Does apply Cold",
+			"cost": 1,
+			"hit points": 12,
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+				"status":{
+				"id": "Cold"
+				"incr": "2"
+				"modifier": "+"
+				
+			}
+			}]
+		}
+		
+		{
+			"id": "Card12",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Poison Minion",
+			"sprite": "res://Sprites/StatusIcons/spark-spirit.png",
+			"text": "Does apply Poison",
+			"cost": 1,
+			"hit points": 12,
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+				"status":{
+				"id": "Poison"
+				"incr": "6"
+				"modifier": "+"
+				
+			}
+			}]
+		}
+		
+		{
+			"id": "Card11",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Overlord",
+			"sprite": "res://Sprites/StatusIcons/spark-spirit.png",
+			"text": "Spawn Minions based on status",
+			"cost": 1,
+			"hit points": 12,
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "CreateCardsAction",
+				"info": "Card9|true|Self",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+				"condition":{
+					"info": "targetstatusFire"
+					"comparator": ">"
+					"value": "0"
+				}
+			}{
+				"action": "CreateCardsAction",
+				"info": "Card12|true|Self",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+				"condition":{
+					"info": "targetstatusPoison"
+					"comparator": ">"
+					"value": "0"
+				}
+			}{
+				"action": "CreateCardsAction",
+				"info": "Card13|true|Self",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+				"condition":{
+					"info": "targetstatusCold"
+					"comparator": ">"
+					"value": "0"
+				}
+			}]
+		}
+		
+		{
+			"id": "Card10",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Card10",
+			"sprite": "res://Sprites/StatusIcons/spark-spirit.png",
+			"text": "Double cards fire if fire status below 4",
+			"cost": 1,
+			"hit points": 12,
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+				"status":{
+				"id": "Fire"
+				"incr": "2"
+				"modifier": "x"
+				
+			}
+			"condition":{
+					"info": "infostatus"
+					"comparator": "<"
+					"value": "4"
+				}
+			}]
+		}
+		
+		{
+			"id": "Card9",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Fire Minion",
+			"sprite": "res://Sprites/StatusIcons/spark-spirit.png",
+			"text": "Does apply fire damage",
+			"cost": 1,
+			"hit points": 12,
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+				"status":{
+				"id": "Fire"
+				"incr": "6"
+				"modifier": "+"
+				
+			}
+			}]
+		}
+		
+			{
+			"id": "Card8",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Card8",
+			"sprite": "res://Sprites/StatusIcons/spark-spirit.png",
+			"text": "Kill a card to summon a fire tiefling",
+			"cost": 1,
+			"hit points": 12,
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 3,
+				"targetSelector": {
+					"type": "RandomTarget",
+					"mark": {
+						"alliance": "Target",
+						"zone": "Hand"
+					},
+				}
+				"status":{
+				"id": "Polymorph"
+				"incr": "2"
+				"modifier": "+"
+				"cardID": "Card9"
+				
+			}
+			}]
+		}
+		
+			{
+			"id": "Card7",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Fire Teif",
+			"sprite": "res://Sprites/StatusIcons/spark-spirit.png",
+			"text": "Deal 2 damage 2 fire to 2 random target with fire > 1",
+			"cost": 1,
+			"hit points": 12,
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "2",
+				"count": 2,
+				"targetSelector": {
+					"type": "RandomTarget",
+					"mark": {
+						"alliance": "Target",
+						"zone": "Hand"
+					},
+				}
+				"condition":{
+					"info": "targetstatusFire"
+					"comparator": ">"
+					"value": "1"
+				}
+				
+				"status":{
+				"id": "Fire"
+				"incr": "2"
+				"modifier": "+"
+				
+			}
+			}]
+		}
+		
+		{
+			"id": "Card6",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Card6",
+			"sprite": "res://Sprites/StatusIcons/spark-spirit.png",
+			"text": "Kill a card to summon a fire tiefling",
+			"cost": 1,
+			"hit points": 12,
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "targetmaxhealth",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+			}{
+				"action": "CreateCardsAction",
+				"info": "Card7|true|Target",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+			}]
+		}
+		
+		{
+			"id": "Card5",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Card5",
+			"sprite": "res://Sprites/StatusIcons/spark-spirit.png",
+			"text": "Apply fire based on graveyard",
+			"cost": 1,
+			"hit points": 12,
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+				"status":{
+				"id": "Fire"
+				"incr": "graveyard"
+				"modifier": "+"
+				
+			}
+			}]
+		}
+		
+		{
+			"id": "Card4",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Card4",
+			"sprite": "res://Sprites/StatusIcons/spark-spirit.png",
+			"text": "Apply fire ",
+			"cost": 1,
+			"hit points": 12,
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+				"status":{
+				"id": "Fire"
+				"incr": "2"
+				"modifier": "+"
+				
+			}
+			}{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 5,
+				"targetSelector": {
+					"type": "RandomTarget",
+					"mark": {
+						"alliance": "Target",
+						"zone": "Hand"
+					},
+				}
+				"status":{
+				"id": "Poison"
+				"incr": "3"
+				"modifier": "+"
+				
+			}
+			"condition":{
+					"info": "targetStatusFire"
+					"comparator": ">"
+					"value": "1"
+				}
+			
+			}]
+		}
+		
+		{
+			"id": "Card3",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Fire3",
+			"sprite": "res://Sprites/StatusIcons/spark-spirit.png",
+			"text": "Apply 1 fire. If target has fire greater than or equal 4 apply poison to based on fire",
+			"cost": 1,
+			"hit points": 12,
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+				"status":{
+				"id": "Fire"
+				"incr": "playernameFire"
+				"modifier": "+"
+				
+			}
+			}]
+			
+		}
+		
+		{
+			"id": "Card2",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Card2",
+			"sprite": "res://Sprites/StatusIcons/spark-spirit.png",
+			"text": "",
+			"cost": 1,
+			"hit points": 12,
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+				"status":{
+				"id": "Fire"
+				"incr": "1"
+				"modifier": "+"
+				
+			}
+			}{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+				"status":{
+				"id": "Poison"
+				"incr": "targetStatusFire"
+				"modifier": "+"
+				
+			}
+			"condition":{
+					"info": "targetStatusFire"
+					"comparator": ">="
+					"value": "4"
+				}
+			
+			}]
+		}
+		
+		{
+			"id": "Card1",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Card1",
+			"sprite": "res://Sprites/StatusIcons/spark-spirit.png",
+			"text": "",
+			"cost": 1,
+			"hit points": 12,
+			"group": ["wpw","woe","sd"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+				"status":{
+				"id": "Fire"
+				"incr": "4"
+				"modifier": "+"
+				
+			}
+			}{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+				"status":{
+				"id": "Fire"
+				"incr": "0"
+				"modifier": "+"
+				
+			}
+			"condition":{
+					"info": "infostatus"
+					"comparator": ">"
+					"value": "5"
+				}
+			}]
+		}
+
+		
+ ]}

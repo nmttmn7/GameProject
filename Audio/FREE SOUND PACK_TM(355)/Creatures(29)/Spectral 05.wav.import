@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cflk7150ngdrl"
+path="res://.godot/imported/Spectral 05.wav-cad09f92de3603af6e405a9b50741ad3.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Creatures(29)/Spectral 05.wav"
+dest_files=["res://.godot/imported/Spectral 05.wav-cad09f92de3603af6e405a9b50741ad3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

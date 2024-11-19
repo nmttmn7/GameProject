@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cn06q6is11aru"
+path="res://.godot/imported/Glass_Breaking-016.wav-a45702bb61e6cacbf2e46ede66dd7d83.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Misc(58)/Glass_Breaking-016.wav"
+dest_files=["res://.godot/imported/Glass_Breaking-016.wav-a45702bb61e6cacbf2e46ede66dd7d83.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

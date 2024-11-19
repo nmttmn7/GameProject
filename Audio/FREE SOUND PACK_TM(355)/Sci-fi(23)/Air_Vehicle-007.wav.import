@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b2inrgg5trlyx"
+path="res://.godot/imported/Air_Vehicle-007.wav-db2f0902892872ca9721ae673f4c7845.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Sci-fi(23)/Air_Vehicle-007.wav"
+dest_files=["res://.godot/imported/Air_Vehicle-007.wav-db2f0902892872ca9721ae673f4c7845.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

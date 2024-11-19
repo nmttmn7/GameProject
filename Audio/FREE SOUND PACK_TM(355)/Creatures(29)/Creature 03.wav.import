@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cq18x1uyhebr1"
+path="res://.godot/imported/Creature 03.wav-6e282b59c6ebcd2f4beef075691753c6.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Creatures(29)/Creature 03.wav"
+dest_files=["res://.godot/imported/Creature 03.wav-6e282b59c6ebcd2f4beef075691753c6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://btulmb2ym37kv"]
+
+[ext_resource type="Script" path="res://Scripts/UI/MainMenu.cs" id="1_6mms6"]
+[ext_resource type="Shader" path="res://Shaders/3DPerspective.gdshader" id="2_8h4hj"]
+[ext_resource type="Script" path="res://Shaders/OO.gd" id="2_r16eh"]
+[ext_resource type="Texture2D" uid="uid://dips1s5sqpqtl" path="res://icon.svg" id="3_5tu8y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xdqxy"]
+shader = ExtResource("2_8h4hj")
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("newButton", "continueButton", "optionsButton", "quitButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6mms6")
+newButton = NodePath("MarginContainer/VBoxContainer/New Game")
+continueButton = NodePath("MarginContainer/VBoxContainer/Continue")
+optionsButton = NodePath("MarginContainer/VBoxContainer/Options")
+quitButton = NodePath("MarginContainer/VBoxContainer/Quit")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -101.0
+offset_right = 70.0
+grow_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="New Game" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "New Game
+"
+
+[node name="Continue" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Continue"
+
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 626.0
+offset_bottom = 389.0
+script = ExtResource("2_r16eh")
+
+[node name="CardTexture" type="TextureRect" parent="Button"]
+material = SubResource("ShaderMaterial_xdqxy")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_5tu8y")
+
+[node name="Shadow" type="TextureRect" parent="Button"]
+material = SubResource("ShaderMaterial_xdqxy")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_5tu8y")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/New Game" to="." method="OnNewPressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Continue" to="." method="OnContinuePressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="OnOptionsPressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="OnQuitPressed"]

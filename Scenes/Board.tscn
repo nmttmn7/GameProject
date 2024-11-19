@@ -1,0 +1,108 @@
+[gd_scene load_steps=12 format=3 uid="uid://cgycx4obmnsen"]
+
+[ext_resource type="Script" path="res://Scripts/Systems/GameViewSystem.cs" id="1_3ko67"]
+[ext_resource type="PackedScene" uid="uid://ckhqsabxslt4x" path="res://Constructs/ChangeTurnContruct.tscn" id="1_vx0n8"]
+[ext_resource type="Script" path="res://Scripts/Components/BoardView.cs" id="2_sjwy4"]
+[ext_resource type="Script" path="res://Scripts/Components/PlayerView.cs" id="3_agkxb"]
+[ext_resource type="Script" path="res://Scripts/Components/HandView.cs" id="4_iw4qi"]
+[ext_resource type="Script" path="res://Scripts/Components/DeckView.cs" id="5_aj88h"]
+[ext_resource type="Script" path="res://Scripts/DisplayObjectsView.cs" id="6_ohso1"]
+[ext_resource type="Script" path="res://Scripts/Components/DrawCardsView.cs" id="7_wx3b8"]
+[ext_resource type="PackedScene" uid="uid://b8ofhhcplb4qx" path="res://Constructs/CardConstruct.tscn" id="8_u5f3m"]
+[ext_resource type="Script" path="res://Scripts/Components/StateMachines/CardController.cs" id="9_r0bbh"]
+[ext_resource type="Script" path="res://Scripts/Components/DiscardCardsView.cs" id="10_vv2dr"]
+
+[node name="Main" type="Node2D"]
+
+[node name="GameViewSystem" type="Node" parent="."]
+script = ExtResource("1_3ko67")
+
+[node name="Board" type="Node" parent="GameViewSystem"]
+script = ExtResource("2_sjwy4")
+
+[node name="AllyPlayerView" type="Node" parent="GameViewSystem/Board" node_paths=PackedStringArray("deck", "hand")]
+script = ExtResource("3_agkxb")
+deck = NodePath("DeckView")
+hand = NodePath("HandView")
+
+[node name="HandView" type="Node" parent="GameViewSystem/Board/AllyPlayerView" node_paths=PackedStringArray("deckPos", "handPos", "enemyHandView")]
+script = ExtResource("4_iw4qi")
+deckPos = NodePath("../../../../Deck")
+handPos = NodePath("../../../../PlayerHand")
+enemyHandView = NodePath("../../EnemyPlayerView/EnemyHandView")
+
+[node name="TopCard" type="Node2D" parent="GameViewSystem/Board/AllyPlayerView/HandView"]
+position = Vector2(108, 78)
+
+[node name="DeckView" type="Node" parent="GameViewSystem/Board/AllyPlayerView"]
+
+[node name="EnemyPlayerView" type="Node" parent="GameViewSystem/Board" node_paths=PackedStringArray("deck", "hand")]
+script = ExtResource("3_agkxb")
+deck = NodePath("DeckView")
+hand = NodePath("EnemyHandView")
+
+[node name="EnemyHandView" type="Node" parent="GameViewSystem/Board/EnemyPlayerView" node_paths=PackedStringArray("deckPos", "handPos", "enemyHandView")]
+script = ExtResource("4_iw4qi")
+deckPos = NodePath("TopCard")
+handPos = NodePath("../../../../EnemyHand")
+enemyHandView = NodePath("../../AllyPlayerView/HandView")
+
+[node name="Hand" type="Node2D" parent="GameViewSystem/Board/EnemyPlayerView/EnemyHandView"]
+position = Vector2(36, 144)
+
+[node name="TopCard" type="Node2D" parent="GameViewSystem/Board/EnemyPlayerView/EnemyHandView"]
+position = Vector2(63, 58)
+
+[node name="DeckView" type="Node" parent="GameViewSystem/Board/EnemyPlayerView"]
+script = ExtResource("5_aj88h")
+
+[node name="DisplayObjectsView" type="Node" parent="GameViewSystem"]
+script = ExtResource("6_ohso1")
+
+[node name="DrawCardsView" type="Node" parent="GameViewSystem"]
+script = ExtResource("7_wx3b8")
+cardConstruct = ExtResource("8_u5f3m")
+
+[node name="CardController" type="Node" parent="GameViewSystem"]
+script = ExtResource("9_r0bbh")
+
+[node name="ActiveZone" type="Node2D" parent="GameViewSystem/CardController"]
+
+[node name="DiscardCardsView" type="Node" parent="GameViewSystem"]
+script = ExtResource("10_vv2dr")
+
+[node name="Banner" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -100.0
+offset_right = 250.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(250, 100)
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]Banner"
+fit_content = true
+scroll_active = false
+
+[node name="Control" parent="." node_paths=PackedStringArray("yourTurnBanner", "changeTurnNode") instance=ExtResource("1_vx0n8")]
+offset_left = 476.0
+offset_right = 576.0
+yourTurnBanner = NodePath("../Banner")
+changeTurnNode = NodePath(".")
+
+[node name="PlayerHand" type="Node2D" parent="."]
+position = Vector2(0, 170)
+
+[node name="EnemyHand" type="Node2D" parent="."]
+position = Vector2(0, -170)
+
+[node name="Deck" type="Node2D" parent="."]
+position = Vector2(0, 310)
+
+[node name="Camera2D" type="Camera2D" parent="."]

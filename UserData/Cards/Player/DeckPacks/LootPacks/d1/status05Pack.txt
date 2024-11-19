@@ -1,0 +1,2 @@
+{ "deck": ["d1pack1card1","d1pack1card2","d1pack1card3","d1pack1card4","d1pack1card5","d1starterpack1card1","d1starterpack1card3","d1starterpack1card2",
+]}

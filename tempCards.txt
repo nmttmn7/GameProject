@@ -1,0 +1,339 @@
+		
+		{
+			"id": "2dw",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Card2",
+			"sprite": "res://Sprites/StatusIcons/spark-spirit.png",
+			"text": "Apply 1 fire. If target has fire greater than or equal 4 apply poison to based on fire",
+			"cost": 1,
+			"hit points": 12,
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+				"status":{
+				"id": "Fire"
+				"incr": "1"
+				"modifier": "+"
+				
+			}
+			}{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+				"status":{
+				"id": "Poison"
+				"incr": "targetStatusFire"
+				"modifier": "+"
+				
+			}
+			"condition":{
+					"info": "targetStatusFire"
+					"comparator": ">="
+					"value": "4"
+				}
+			
+			}]
+			
+		
+			
+		}
+		
+			
+		
+		{
+			"id": "Cardf2",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Card2",
+			"sprite": "res://Sprites/Cards/RatKing.jpg",
+			"text": "",
+			"cost": 1,
+			"hit points": 12,
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "0",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+				"status":{
+				"id": "Glitch"
+				"incr": "1"
+				"modifier": "+"
+				
+			}
+			}]
+			
+		}
+		
+		{
+			"id": "Card211",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Card3",
+			"sprite": "res://Sprites/Cards/RatKing.jpg",
+			"text": "",
+			"cost": 1,
+			"hit points": 12,
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "0",
+				"count": 1,
+				"targetSelector": {
+					"type": "AllTarget",
+					"mark": {
+						"alliance": "Any",
+						"zone": "Hand"
+					},
+				}
+				"status":{
+				"id": "Glitch"
+				"incr": "1"
+				"modifier": "+"
+				
+			}
+			}]
+			
+		}
+		
+			{
+			"id": "Card44",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Card44",
+			"sprite": "res://Sprites/Cards/RatKing.jpg",
+			"text": "",
+			"cost": 1,
+			"hit points": 12,
+			"target": {
+				"allowed": {
+					"alliance": "Ally",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Ally",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "targetMax Health",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+		
+			}
+			
+			{
+				"action": "DamageAction",
+				"info": "0",
+				"count": 2,
+					"targetSelector": {
+					"type": "RandomTarget",
+					"mark": {
+						"alliance": "Ally",
+						"zone": "Hand"
+					},
+				}
+					
+				"status":{
+				"id": "Glitch"
+				"incr": "3"
+				"modifier": "+"
+				
+			
+			}
+			}]
+			
+		}
+		
+		
+		{
+			"id": "Card5",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Card5",
+			"sprite": "res://Sprites/Cards/RatKing.jpg",
+			"text": "",
+			"cost": 1,
+			"hit points": 12,
+			"target": {
+				"allowed": {
+					"alliance": "Ally",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Ally",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "targetMax Health",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+		
+			}
+			
+			{
+				"action": "DamageAction",
+				"info": "0",
+				"count": 1,
+					"targetSelector": {
+					"type": "RandomTarget",
+					"mark": {
+						"alliance": "Ally",
+						"zone": "Hand"
+					},
+				}
+					
+				"status":{
+				"id": "Glitch"
+				"incr": "10"
+				"modifier": "+"
+				
+			
+			}
+			}]
+			
+		}
+		
+		
+		{
+			"id": "Card6",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Card6",
+			"sprite": "res://Sprites/Cards/RatKing.jpg",
+			"text": "",
+			"cost": 1,
+			"hit points": 12,
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [
+			{
+				"action": "DamageAction",
+				"info": "0",
+				"count": 1,
+					"targetSelector": {
+					"type": "ManualTarget"
+				}
+					
+				"status":{
+				"id": "Glitch"
+				"incr": "60"
+				"modifier": "+"
+				
+			
+			}
+			}
+			{
+				"action": "DamageAction",
+				"info": "0",
+				"count": 1,
+					"targetSelector": {
+	"type": "SelfTarget",
+	"count": 1
+	}
+					
+				
+			}]
+			"afflictions":[{
+				"id": "Fragile"
+				"incr": "0"
+				"value": "2"
+				"decr": "0"
+				"modifier": "+"
+			}]
+			
+		}
+		
+			{
+			"id": "Card7",
+			"type": "Unit",
+			"rarity": "Common",
+			"name": "Card7",
+			"sprite": "res://Sprites/Cards/RatKing.jpg",
+			"text": "",
+			"cost": 2,
+			"hit points": 12,
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Any",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [
+			{
+				"action": "DamageAction",
+				"info": "0",
+				"count": 1,
+					"targetSelector": {
+					"type": "ManualTarget"
+				}
+					
+				"status":{
+				"id": "Glitch"
+				"incr": "20"
+				"modifier": "+"
+				
+			
+			}
+			}
+			]
+			
+			
+		}

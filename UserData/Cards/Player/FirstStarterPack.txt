@@ -1,0 +1,6 @@
+{
+	"deck" : [
+		"d0robotpack1enemy1","d0robotpack1enemy1","d0robotpack1enemy1","d0robotpack1enemy1","d0robotpack1enemy1",
+		"d0robotpack1enemy1","d0robotpack1enemy1","d1starterpack1card3"
+	]
+}

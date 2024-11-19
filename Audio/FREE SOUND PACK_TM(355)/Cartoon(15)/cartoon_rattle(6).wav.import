@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bpo6giwo84le8"
+path="res://.godot/imported/cartoon_rattle(6).wav-85d9b09af879ad42c291b10926a2dbcd.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Cartoon(15)/cartoon_rattle(6).wav"
+dest_files=["res://.godot/imported/cartoon_rattle(6).wav-85d9b09af879ad42c291b10926a2dbcd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://2g8h4xc0yax3"
+path="res://.godot/imported/Robot_Talking-004.wav-bc5d971b8e82379722ec8933f75412bd.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Sci-fi(23)/Robot_Talking-004.wav"
+dest_files=["res://.godot/imported/Robot_Talking-004.wav-bc5d971b8e82379722ec8933f75412bd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dodfraoitedgn"
+path="res://.godot/imported/Cattle-003.wav-b0a99543279da6eccf4acc8d0136a280.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Animals(12)/Cattle-003.wav"
+dest_files=["res://.godot/imported/Cattle-003.wav-b0a99543279da6eccf4acc8d0136a280.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://72a04jeegk1u"
+path="res://.godot/imported/Birds_Singing-005.wav-f12d9caab1a7580d01ff46b8b8c74b46.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Ambiences(43)/Birds_Singing-005.wav"
+dest_files=["res://.godot/imported/Birds_Singing-005.wav-f12d9caab1a7580d01ff46b8b8c74b46.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

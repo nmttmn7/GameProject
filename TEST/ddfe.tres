@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UnitData" load_steps=2 format=3 uid="uid://dyegiiws013"]
+
+[ext_resource type="Script" path="res://Scripts/DataModels/Cards/UnitData.cs" id="1_yjofq"]
+
+[resource]
+script = ExtResource("1_yjofq")
+hitPoints = 0
+maxHitPoints = 0
+abilityChain = []
+id = ""
+name = ""
+disposition = 0
+rarity = 0
+cost = 0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://fjqk7p35p2j6"
+path="res://.godot/imported/Indicator4.wav-f472ba1c15de8c09328cab00f31b55c0.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Retro(52)/Indicator4.wav"
+dest_files=["res://.godot/imported/Indicator4.wav-f472ba1c15de8c09328cab00f31b55c0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

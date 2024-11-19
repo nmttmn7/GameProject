@@ -1,0 +1,100 @@
+[gd_scene load_steps=12 format=3 uid="uid://ca1aty1uhen8h"]
+
+[ext_resource type="Script" path="res://Scripts/Systems/GameViewSystem.cs" id="1_idymh"]
+[ext_resource type="Script" path="res://Scripts/Components/BoardView.cs" id="2_wxyat"]
+[ext_resource type="Script" path="res://Scripts/Components/PlayerView.cs" id="3_wkem8"]
+[ext_resource type="Script" path="res://Scripts/Components/HandView.cs" id="4_5d5r4"]
+[ext_resource type="Script" path="res://Scripts/Components/DeckView.cs" id="5_ld2qh"]
+[ext_resource type="Script" path="res://Scripts/DisplayObjectsView.cs" id="6_2iey8"]
+[ext_resource type="Script" path="res://Scripts/Components/DrawCardsView.cs" id="7_36jce"]
+[ext_resource type="PackedScene" uid="uid://b8ofhhcplb4qx" path="res://Constructs/CardConstruct.tscn" id="8_jdrdp"]
+[ext_resource type="Script" path="res://Scripts/Components/StateMachines/CardController.cs" id="9_5gbxo"]
+[ext_resource type="Script" path="res://Scripts/Components/DiscardCardsView.cs" id="10_47jqg"]
+[ext_resource type="PackedScene" uid="uid://ckhqsabxslt4x" path="res://Constructs/ChangeTurnContruct.tscn" id="11_6s310"]
+
+[node name="Main" type="Node2D"]
+position = Vector2(579, 325)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Banner" type="RichTextLabel" parent="Camera2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -100.0
+offset_right = 250.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(250, 100)
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]Banner"
+fit_content = true
+scroll_active = false
+
+[node name="GameViewSystem" type="Node" parent="Camera2D"]
+script = ExtResource("1_idymh")
+
+[node name="Board" type="Node" parent="Camera2D/GameViewSystem"]
+script = ExtResource("2_wxyat")
+
+[node name="AllyPlayerView" type="Node" parent="Camera2D/GameViewSystem/Board" node_paths=PackedStringArray("deck", "hand")]
+script = ExtResource("3_wkem8")
+deck = NodePath("DeckView")
+hand = NodePath("HandView")
+
+[node name="HandView" type="Node" parent="Camera2D/GameViewSystem/Board/AllyPlayerView" node_paths=PackedStringArray("handPos", "enemyHandView")]
+script = ExtResource("4_5d5r4")
+handPos = NodePath("Hand")
+enemyHandView = NodePath("../../EnemyPlayerView/HandView")
+
+[node name="Hand" type="Node2D" parent="Camera2D/GameViewSystem/Board/AllyPlayerView/HandView"]
+position = Vector2(579, 475)
+
+[node name="DeckView" type="Node" parent="Camera2D/GameViewSystem/Board/AllyPlayerView"]
+script = ExtResource("5_ld2qh")
+
+[node name="TopCard" type="Node2D" parent="Camera2D/GameViewSystem/Board/AllyPlayerView/DeckView"]
+
+[node name="EnemyPlayerView" type="Node" parent="Camera2D/GameViewSystem/Board" node_paths=PackedStringArray("deck", "hand")]
+script = ExtResource("3_wkem8")
+deck = NodePath("DeckView")
+hand = NodePath("HandView")
+
+[node name="HandView" type="Node" parent="Camera2D/GameViewSystem/Board/EnemyPlayerView" node_paths=PackedStringArray("handPos", "enemyHandView")]
+script = ExtResource("4_5d5r4")
+handPos = NodePath("Hand")
+enemyHandView = NodePath("../../AllyPlayerView/HandView")
+
+[node name="Hand" type="Node2D" parent="Camera2D/GameViewSystem/Board/EnemyPlayerView/HandView"]
+position = Vector2(579, 144)
+
+[node name="DeckView" type="Node" parent="Camera2D/GameViewSystem/Board/EnemyPlayerView"]
+script = ExtResource("5_ld2qh")
+
+[node name="TopCard" type="Node2D" parent="Camera2D/GameViewSystem/Board/EnemyPlayerView/DeckView"]
+position = Vector2(579, -200)
+
+[node name="DisplayObjectsView" type="Node" parent="Camera2D/GameViewSystem"]
+script = ExtResource("6_2iey8")
+
+[node name="DrawCardsView" type="Node" parent="Camera2D/GameViewSystem"]
+script = ExtResource("7_36jce")
+cardConstruct = ExtResource("8_jdrdp")
+
+[node name="CardController" type="Node" parent="Camera2D/GameViewSystem"]
+script = ExtResource("9_5gbxo")
+
+[node name="ActiveZone" type="Node2D" parent="Camera2D/GameViewSystem/CardController"]
+
+[node name="Node" type="Node" parent="Camera2D/GameViewSystem"]
+script = ExtResource("10_47jqg")
+
+[node name="Control" parent="Camera2D" node_paths=PackedStringArray("changeTurnNode") instance=ExtResource("11_6s310")]
+offset_left = 497.0
+offset_right = 597.0
+changeTurnNode = NodePath(".")

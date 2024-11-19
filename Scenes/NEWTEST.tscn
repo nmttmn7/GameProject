@@ -1,0 +1,172 @@
+[gd_scene load_steps=19 format=3 uid="uid://d2r8dxoflakje"]
+
+[ext_resource type="PackedScene" uid="uid://b8ofhhcplb4qx" path="res://Constructs/CardConstruct.tscn" id="2_kcp02"]
+[ext_resource type="Texture2D" uid="uid://cmo8x5ltispum" path="res://Sprites/ParticleIcons/kenney_particle_pack/light_01.png" id="3_bq7qj"]
+[ext_resource type="Texture2D" uid="uid://dg7cq6vysk0dm" path="res://icon.svg" id="5_dgtgx"]
+[ext_resource type="Shader" path="res://Shaders/Frost.gdshader" id="6_2nhgm"]
+[ext_resource type="Shader" path="res://Shaders/WeirdRotatingSquare.gdshader" id="6_6ryb8"]
+[ext_resource type="Shader" path="res://Shaders/Glitch.gdshader" id="7_4j0bf"]
+[ext_resource type="Shader" path="res://Shaders/GlassShift.gdshader" id="8_vh24v"]
+
+[sub_resource type="Gradient" id="Gradient_hrgym"]
+offsets = PackedFloat32Array(0.477352, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iuj3g"]
+gradient = SubResource("Gradient_hrgym")
+
+[sub_resource type="Curve" id="Curve_et8n3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.536545, 0.0281477), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7l5of"]
+curve = SubResource("Curve_et8n3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l5g1a"]
+particle_flag_disable_z = true
+initial_velocity_min = 600.0
+initial_velocity_max = 600.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_7l5of")
+color = Color(1, 0.383731, 0.429501, 1)
+color_ramp = SubResource("GradientTexture1D_iuj3g")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vpawu"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g5bn7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_onr57"]
+shader = ExtResource("6_6ryb8")
+shader_parameter/ro_ = Vector3(-11.115, 0.515, -3)
+shader_parameter/la_ = Vector3(6.475, 0, 0)
+shader_parameter/cube_color = Vector3(1.91, 2.095, 3)
+shader_parameter/cube_size = 1.0
+shader_parameter/surface_texture = 1.0
+shader_parameter/mask = 1.0
+shader_parameter/background = Vector3(1, 1, 1)
+shader_parameter/MAX_RAY_LENGTH = 10.0
+shader_parameter/MAX_RAY_MARCHES = 80
+shader_parameter/sun_color = Vector3(0.6, 0.95, 0.01)
+shader_parameter/sun_diraction = Vector3(0, 0, 1)
+shader_parameter/light_color0 = Vector3(0.7, 0.85, 1)
+shader_parameter/light_position0 = Vector3(4, 4, -8)
+shader_parameter/light_cube_color = Vector3(0.8, 0.75, 1)
+shader_parameter/light_position1 = Vector3(-2, -2, -4)
+shader_parameter/bottom_box_color = Vector3(0.7, 0.8, 0.5)
+shader_parameter/top_box_color = Vector3(0.57, 0.9, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ymeed"]
+shader = ExtResource("6_2nhgm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vjjpm"]
+shader = ExtResource("7_4j0bf")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.2
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pctiq"]
+shader = ExtResource("8_vh24v")
+shader_parameter/corner_radius = 120.0
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(576, 325)
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_l5g1a")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_vpawu")
+texture = ExtResource("3_bq7qj")
+one_shot = true
+interp_to_end = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_g5bn7")
+offset_left = -2577.0
+offset_top = -1261.0
+offset_right = 6521.0
+offset_bottom = 2329.0
+texture = ExtResource("5_dgtgx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_onr57")
+offset_left = -16360.0
+offset_top = -5241.0
+offset_right = -3538.0
+offset_bottom = -540.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 76.0
+offset_bottom = 43.0
+text = "222222gbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+fit_content = true
+scroll_active = false
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8.63, 1)
+pivot_offset = Vector2(20, 20)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ymeed")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 173.0
+offset_top = -44.0
+offset_right = 213.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8.135, 0.745)
+pivot_offset = Vector2(20, 20)
+color = Color(0.996803, 0.291408, 0, 1)
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_vjjpm")
+offset_left = -471.0
+offset_top = -102.0
+offset_right = -343.0
+offset_bottom = 26.0
+texture = ExtResource("5_dgtgx")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_pctiq")
+offset_left = -169.0
+offset_top = -199.0
+offset_right = -41.0
+offset_bottom = -71.0
+texture = ExtResource("5_dgtgx")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-237, 140)
+
+[node name="Node2D2" type="Node2D" parent="Node2D"]
+position = Vector2(-2, -131)
+
+[node name="CardConstruct" parent="." instance=ExtResource("2_kcp02")]
+position = Vector2(-412, 112)

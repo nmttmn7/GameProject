@@ -1,0 +1,75 @@
+[gd_scene load_steps=14 format=3 uid="uid://dqxw8o7hu74j6"]
+
+[ext_resource type="Script" path="res://addons/particle_scene_compositor/sync_node_2d/gpu_particles/gpu_sync_node_2d.gd" id="1_wa83k"]
+[ext_resource type="Texture2D" uid="uid://c2ea46ihv5xd1" path="res://Sprites/ParticleIcons/kenney_particle_pack/muzzle_05.png" id="2_7xvxn"]
+[ext_resource type="Texture2D" uid="uid://cauub6rh1ln1x" path="res://Sprites/ParticleIcons/kenney_particle_pack/scratch_01.png" id="3_w3wcv"]
+
+[sub_resource type="Gradient" id="Gradient_kg7xy"]
+offsets = PackedFloat32Array(0.15708, 0.480089, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wln3e"]
+gradient = SubResource("Gradient_kg7xy")
+
+[sub_resource type="Curve" id="Curve_suv5a"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7lxjy"]
+curve = SubResource("Curve_suv5a")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8j8bc"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 550.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 0.55
+scale_curve = SubResource("CurveTexture_7lxjy")
+color_ramp = SubResource("GradientTexture1D_wln3e")
+
+[sub_resource type="Curve" id="Curve_h16y4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.285417, 1), 0.0, 0.0, 0, 0, Vector2(0.389583, 0), 0.0, 0.0, 0, 0, Vector2(0.879167, 0.0346035), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_1oyfi"]
+curve = SubResource("Curve_h16y4")
+
+[sub_resource type="Gradient" id="Gradient_n8tp8"]
+offsets = PackedFloat32Array(0.143805, 0.725664, 0.867257, 1)
+colors = PackedColorArray(0.868573, 0, 0.0965829, 1, 0, 0, 0, 1, 0, 0, 0, 0.963542, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3st5a"]
+gradient = SubResource("Gradient_n8tp8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6qxj2"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 360.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_3st5a")
+alpha_curve = SubResource("CurveTexture_1oyfi")
+
+[node name="GPUSyncNode2D" type="Node2D"]
+script = ExtResource("1_wa83k")
+
+[node name="Splash" type="GPUParticles2D" parent="."]
+modulate = Color(1, 0.172549, 0.0588235, 1)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_8j8bc")
+texture = ExtResource("2_7xvxn")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+trail_enabled = true
+
+[node name="Slash" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_6qxj2")
+texture = ExtResource("3_w3wcv")
+lifetime = 2.0
+one_shot = true

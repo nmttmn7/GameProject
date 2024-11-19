@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0a0u78ru6ddb"]
+
+[ext_resource type="Texture2D" uid="uid://bk45i34e2ricj" path="res://Sprites/ParticleIcons/Picter_yt/floaty_64.png" id="1_kesty"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0wrk8"]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 7
+particles_anim_v_frames = 7
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_imk4k"]
+offsets = PackedFloat32Array(0, 0.361878, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0.505882, 0.282353, 1, 0.0294985, 0.0294985, 0.0294985, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0tbet"]
+gradient = SubResource("Gradient_imk4k")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k54jp"]
+particle_flag_disable_z = true
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 360.0
+gravity = Vector3(0, 98, 0)
+color_ramp = SubResource("GradientTexture1D_0tbet")
+anim_speed_max = 1.0
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_0wrk8")
+process_material = SubResource("ParticleProcessMaterial_k54jp")
+texture = ExtResource("1_kesty")
+lifetime = 2.0

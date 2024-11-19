@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dtnge16v475l7"
+path="res://.godot/imported/Plastic_Hit-005.wav-d70917e2f4f0c7294fb84346f6a72be9.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Misc(58)/Plastic_Hit-005.wav"
+dest_files=["res://.godot/imported/Plastic_Hit-005.wav-d70917e2f4f0c7294fb84346f6a72be9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

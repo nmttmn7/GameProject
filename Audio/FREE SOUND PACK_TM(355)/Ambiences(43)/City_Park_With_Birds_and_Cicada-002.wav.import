@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dxypurswau5mu"
+path="res://.godot/imported/City_Park_With_Birds_and_Cicada-002.wav-bcb0227f10ba2e667c7dcda4385f78b7.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Ambiences(43)/City_Park_With_Birds_and_Cicada-002.wav"
+dest_files=["res://.godot/imported/City_Park_With_Birds_and_Cicada-002.wav-bcb0227f10ba2e667c7dcda4385f78b7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

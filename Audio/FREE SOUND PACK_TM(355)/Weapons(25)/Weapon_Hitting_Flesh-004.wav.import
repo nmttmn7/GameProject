@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ywpt2qiulm2s"
+path="res://.godot/imported/Weapon_Hitting_Flesh-004.wav-26165aafe8199b957d628553da005d2f.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Weapons(25)/Weapon_Hitting_Flesh-004.wav"
+dest_files=["res://.godot/imported/Weapon_Hitting_Flesh-004.wav-26165aafe8199b957d628553da005d2f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

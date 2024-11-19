@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://50k1uahrcrd1"
+path="res://.godot/imported/SFX_Pop_Muffled_Bottle_Glass_Watery_4.wav-dbdceb063bb66cf47f967c2b15d7ede3.sample"
+
+[deps]
+
+source_file="res://Audio/Free Pop Sound Effects Pack - UNITY/AUDIO/Bottle/Watery/SFX_Pop_Muffled_Bottle_Glass_Watery_4.wav"
+dest_files=["res://.godot/imported/SFX_Pop_Muffled_Bottle_Glass_Watery_4.wav-dbdceb063bb66cf47f967c2b15d7ede3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ciqljidt0sq31"
+path="res://.godot/imported/Male_Hurt_Grunt-004.wav-82f2e99c461cd68349eb2f3824bac474.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Human(26)/Male_Hurt_Grunt-004.wav"
+dest_files=["res://.godot/imported/Male_Hurt_Grunt-004.wav-82f2e99c461cd68349eb2f3824bac474.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

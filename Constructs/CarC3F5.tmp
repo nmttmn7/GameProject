@@ -1,0 +1,329 @@
+[gd_scene load_steps=15 format=3 uid="uid://b8ofhhcplb4qx"]
+
+[ext_resource type="Script" path="res://Scripts/Components/CardView.cs" id="1_woj7e"]
+[ext_resource type="Shader" path="res://Shaders/Dissolve.gdshader" id="2_mubtw"]
+[ext_resource type="Script" path="res://Scripts/UI/CardUI.gd" id="2_rmyn6"]
+[ext_resource type="Texture2D" uid="uid://dips1s5sqpqtl" path="res://icon.svg" id="3_gbdgh"]
+[ext_resource type="Script" path="res://Scripts/Components/StateMachines/Clickable.cs" id="4_gdiwq"]
+[ext_resource type="SystemFont" uid="uid://d1eun1llll7oe" path="res://Fonts/KohoSystemFont.tres" id="4_w2e45"]
+[ext_resource type="Texture2D" uid="uid://8bm2ijjwnhkf" path="res://Sprites/MapIcons/UI board Large  parchment.png" id="4_yvs8n"]
+[ext_resource type="Texture2D" uid="uid://7ug1hc3kqinx" path="res://Sprites/MapIcons/normal_ui_set A/TextBTN_Medium_Pressed.png" id="7_s3rin"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xf5ms"]
+resource_local_to_scene = true
+frequency = 0.0026
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fvnf3"]
+resource_local_to_scene = true
+noise = SubResource("FastNoiseLite_xf5ms")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nsd6n"]
+resource_local_to_scene = true
+shader = ExtResource("2_mubtw")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/burn_size = 0.05
+shader_parameter/burn_color = Color(1, 1, 1, 1)
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_fvnf3")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fur4w"]
+
+[sub_resource type="Shader" id="Shader_ppb1k"]
+code = "// Hey this is Hei! This shader \"fakes\" a 3D-camera perspective on CanvasItems.
+// License: MIT
+
+shader_type canvas_item;
+
+// Camera FOV
+uniform float fov : hint_range(1, 179) = 90;
+uniform bool cull_back = true;
+uniform float y_rot : hint_range(-180, 180) = 0.0;
+uniform float x_rot : hint_range(-180, 180) = 0.0;
+// At 0, the image retains its size when unrotated.
+// At 1, the image is resized so that it can do a full
+// rotation without clipping inside its rect.
+uniform float inset : hint_range(0, 1) = 0.0;
+// Consider changing this to a uniform and changing it from code
+
+varying flat vec2 o;
+varying vec3 p;
+
+
+
+// Creates rotation matrix
+void vertex(){
+	float sin_b = sin(y_rot / 180.0 * PI);
+	float cos_b = cos(y_rot / 180.0 * PI);
+	float sin_c = sin(x_rot / 180.0 * PI);
+	float cos_c = cos(x_rot / 180.0 * PI);
+	
+	mat3 inv_rot_mat;
+	inv_rot_mat[0][0] = cos_b;
+	inv_rot_mat[0][1] = 0.0;
+	inv_rot_mat[0][2] = -sin_b;
+	
+	inv_rot_mat[1][0] = sin_b * sin_c;
+	inv_rot_mat[1][1] = cos_c;
+	inv_rot_mat[1][2] = cos_b * sin_c;
+	
+	inv_rot_mat[2][0] = sin_b * cos_c;
+	inv_rot_mat[2][1] = -sin_c;
+	inv_rot_mat[2][2] = cos_b * cos_c;
+	
+	
+	float t = tan(fov / 360.0 * PI);
+	p = inv_rot_mat * vec3((UV - 0.5), 0.5 / t);
+	float v = (0.5 / t) + 0.5;
+	p.xy *= v * inv_rot_mat[2].z;
+	o = v * inv_rot_mat[2].xy;
+
+
+	VERTEX += (UV - 0.5) / TEXTURE_PIXEL_SIZE * t * (1.0 - inset);
+}
+
+void fragment(){
+	if (cull_back && p.z <= 0.0) discard;
+	vec2 uv = (p.xy / p.z).xy - o;
+    COLOR = texture(TEXTURE, uv + 0.5);
+	COLOR.a *= step(max(abs(uv.x), abs(uv.y)), 0.5);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_68pxp"]
+resource_local_to_scene = true
+shader = SubResource("Shader_ppb1k")
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+
+[node name="CardConstruct" type="Node2D"]
+
+[node name="CardView" type="Node" parent="." node_paths=PackedStringArray("cardNodePos", "statusNode2D", "textureRect", "healthText", "manaText", "nameText", "descriptionText", "button")]
+script = ExtResource("1_woj7e")
+cardNodePos = NodePath("..")
+statusNode2D = NodePath("../Button/StatusView")
+textureRect = NodePath("../Button/CardTexture/SubViewport/VBoxContainer/ColorRect/AspectRatioContainer/TextureRect")
+healthText = NodePath("../Button/CardTexture/SubViewport/VBoxContainer/Health")
+manaText = NodePath("../Button/CardTexture/SubViewport/VBoxContainer/Control2/Cost")
+nameText = NodePath("../Button/CardTexture/SubViewport/VBoxContainer/Control2/Name")
+descriptionText = NodePath("../Button/CardTexture/SubViewport/VBoxContainer/Control2/Description")
+button = NodePath("../Button")
+
+[node name="Button" type="Button" parent="." node_paths=PackedStringArray("node2D")]
+material = SubResource("ShaderMaterial_nsd6n")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -175.0
+offset_right = 125.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(125, 175)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fur4w")
+flat = true
+script = ExtResource("2_rmyn6")
+spring = 350.0
+damp = 30.0
+node2D = NodePath("..")
+
+[node name="Shadow" type="ColorRect" parent="Button"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(125, 0)
+mouse_filter = 2
+color = Color(0, 0, 0, 0.827451)
+
+[node name="CardTexture" type="SubViewportContainer" parent="Button"]
+material = SubResource("ShaderMaterial_68pxp")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -175.0
+offset_right = 125.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(125, 175)
+mouse_filter = 2
+
+[node name="SubViewport" type="SubViewport" parent="Button/CardTexture"]
+handle_input_locally = false
+size = Vector2i(250, 350)
+render_target_update_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="Button/CardTexture/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Button/CardTexture/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Health" type="RichTextLabel" parent="Button/CardTexture/SubViewport/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("4_w2e45")
+theme_override_fonts/bold_font = ExtResource("4_w2e45")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]?[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Control" type="Control" parent="Button/CardTexture/SubViewport/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Button/CardTexture/SubViewport/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Button/CardTexture/SubViewport/VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -75.0
+offset_right = 75.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(75, 75)
+
+[node name="TextureRect" type="TextureRect" parent="Button/CardTexture/SubViewport/VBoxContainer/ColorRect/AspectRatioContainer"]
+layout_mode = 2
+texture = ExtResource("3_gbdgh")
+
+[node name="Control2" type="Control" parent="Button/CardTexture/SubViewport/VBoxContainer"]
+custom_minimum_size = Vector2(0, 41.81)
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Button/CardTexture/SubViewport/VBoxContainer/Control2"]
+layout_mode = 1
+offset_left = -82.875
+offset_top = -14.05
+offset_right = 198.125
+offset_bottom = 95.95
+scale = Vector2(3.145, 0.515)
+texture = ExtResource("7_s3rin")
+
+[node name="TextureRect" type="TextureRect" parent="Button/CardTexture/SubViewport/VBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 87.238
+offset_right = 125.0
+offset_bottom = 168.633
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.125, 1.86)
+pivot_offset = Vector2(125, 94.985)
+texture = ExtResource("4_yvs8n")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Name" type="RichTextLabel" parent="Button/CardTexture/SubViewport/VBoxContainer/Control2"]
+layout_mode = 2
+offset_top = -6.405
+offset_right = 250.0
+offset_bottom = 33.595
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("4_w2e45")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]Name[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Cost" type="RichTextLabel" parent="Button/CardTexture/SubViewport/VBoxContainer/Control2"]
+layout_mode = 2
+offset_top = -44.0
+offset_right = 250.0
+offset_bottom = -4.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("4_w2e45")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]1[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Description" type="RichTextLabel" parent="Button/CardTexture/SubViewport/VBoxContainer/Control2"]
+layout_mode = 2
+offset_top = 35.0
+offset_right = 250.0
+offset_bottom = 285.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("4_w2e45")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Deal 2 dmg 2 \"\"  to random targets X2 with target's fire [/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Cover" type="ColorRect" parent="Button/CardTexture/SubViewport"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StatusView" type="Node2D" parent="Button"]
+position = Vector2(125, 375)
+
+[node name="Clickable" type="Node" parent="." node_paths=PackedStringArray("attached", "button")]
+script = ExtResource("4_gdiwq")
+attached = NodePath("..")
+button = NodePath("../Button")
+
+[node name="Float" type="Node" parent="."]
+
+[connection signal="button_down" from="Button" to="Clickable" method="OnClick"]
+[connection signal="button_up" from="Button" to="Button" method="_on_button_up"]
+[connection signal="button_up" from="Button" to="Clickable" method="OnRelease"]
+[connection signal="gui_input" from="Button" to="Button" method="_on_gui_input"]
+[connection signal="mouse_entered" from="Button" to="Button" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Button" to="Clickable" method="OnEnter"]
+[connection signal="mouse_exited" from="Button" to="Button" method="_on_mouse_exited"]

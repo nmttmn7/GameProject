@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://6kix7u2g4dmb"]
+
+[ext_resource type="Script" path="res://Scripts/Components/ManaView.cs" id="1_dcprs"]
+[ext_resource type="Shader" path="res://Shaders/2DSphereFill.gdshader" id="3_ifmr6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r2ndr"]
+shader = ExtResource("3_ifmr6")
+shader_parameter/backFillColour = Color(0, 0.291192, 0.230112, 1)
+shader_parameter/frontFillInnerColour = Color(0, 0.411765, 0.329412, 1)
+shader_parameter/frontFillOuterColour = Color(1.82897e-06, 0.757919, 0.579522, 1)
+shader_parameter/ringColour = Color(0, 0.16, 0.13, 1)
+shader_parameter/fresnelColour = Color(0.628377, 0.936328, 1, 1)
+shader_parameter/innerRingGlowColour = Color(0, 0.656052, 0.656052, 1)
+shader_parameter/fillcolour = Color(1, 1, 1, 1)
+shader_parameter/ringWidth = 0.15
+shader_parameter/innerRingGlowWidth = 0.02
+shader_parameter/innerCircleRadiusOffset = 0.0
+shader_parameter/fill_value = 1.365
+shader_parameter/waveFreq = 2.0
+shader_parameter/waveAmp = 0.05
+shader_parameter/waveSpeed = 2.0
+
+[sub_resource type="SystemFont" id="SystemFont_paq4s"]
+font_names = PackedStringArray("KoHo")
+subpixel_positioning = 0
+
+[node name="ManaView" type="Node2D" node_paths=PackedStringArray("richTextLabel", "colorRect")]
+z_index = -3
+script = ExtResource("1_dcprs")
+richTextLabel = NodePath("Mana")
+colorRect = NodePath("ManaDisplay")
+
+[node name="ManaDisplay" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_r2ndr")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 20)
+
+[node name="Mana" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -65.5
+offset_right = 75.0
+offset_bottom = 65.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+pivot_offset = Vector2(75, 65)
+mouse_filter = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0941176, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = SubResource("SystemFont_paq4s")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]0"
+fit_content = true
+scroll_active = false

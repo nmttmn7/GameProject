@@ -1,0 +1,5 @@
+{
+	"deck" : [
+		"status01Card1","status01Card1","status01Card1","status01Card1","status01Card1","status01Card2","status01Card2","status01Card3"
+	]
+}

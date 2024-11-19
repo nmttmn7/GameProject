@@ -1,0 +1,80 @@
+{
+			"id": "d0sapacepackenemy1",
+			"type": "Unit", 
+			"disposition": "d0",
+			"rarity": "Common",
+			"name": "Astronaut",
+			"sprite": "res://Sprites/CardSprites/d0/Astro.png",
+			"text": "",
+			"cost": 0,
+			"hit points": 64,
+			"group": ["d0sapacepack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "playergraveyard",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+			}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "status06"
+				"incr": "0"
+				"value": "1"
+			}]
+			
+			
+		}
+		
+		
+		{
+			"id": "d0sapacepackenemy2",
+			"type": "Unit", 
+			"disposition": "d0",
+			"rarity": "Common",
+			"name": "Rocketman",
+			"sprite": "res://Sprites/CardSprites/d0/Rocketman.png",
+			"text": "",
+			"cost": 0,
+			"hit points": 64,
+			"group": ["d0sapacepack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "playergraveyard",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+			}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "status06"
+				"incr": "0"
+				"value": "1"
+			}]
+			
+			
+		}

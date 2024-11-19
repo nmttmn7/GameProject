@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://db04k1i8cft7g"
+path="res://.godot/imported/Demons_People_ laughing-005.wav-3cf3e722abaecc71400703f69c9a3694.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Horror(13)/Demons_People_ laughing-005.wav"
+dest_files=["res://.godot/imported/Demons_People_ laughing-005.wav-3cf3e722abaecc71400703f69c9a3694.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://wi2345ebg13s"
+path="res://.godot/imported/Xylophone-014.wav-3787427090f9f3a9c2d80e472ccf98f5.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Musical Instruments(16)/Xylophone-014.wav"
+dest_files=["res://.godot/imported/Xylophone-014.wav-3787427090f9f3a9c2d80e472ccf98f5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

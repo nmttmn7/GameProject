@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b5m0jnf0aq7c8"
+path="res://.godot/imported/Pizzicato-006.wav-4817a499665df7f4b1ec2ef0594a8acb.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Musical Instruments(16)/Pizzicato-006.wav"
+dest_files=["res://.godot/imported/Pizzicato-006.wav-4817a499665df7f4b1ec2ef0594a8acb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

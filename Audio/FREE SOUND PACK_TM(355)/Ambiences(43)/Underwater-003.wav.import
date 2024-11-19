@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://da28wfysi8ii7"
+path="res://.godot/imported/Underwater-003.wav-053a448b35172e5888aaa1d23d592744.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Ambiences(43)/Underwater-003.wav"
+dest_files=["res://.godot/imported/Underwater-003.wav-053a448b35172e5888aaa1d23d592744.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

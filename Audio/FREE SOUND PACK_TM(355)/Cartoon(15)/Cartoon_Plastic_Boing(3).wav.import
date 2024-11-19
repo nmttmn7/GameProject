@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bj2oxp067uyvj"
+path="res://.godot/imported/Cartoon_Plastic_Boing(3).wav-2eb68b51144a3897fe6fd211bea59f00.sample"
+
+[deps]
+
+source_file="res://Audio/FREE SOUND PACK_TM(355)/Cartoon(15)/Cartoon_Plastic_Boing(3).wav"
+dest_files=["res://.godot/imported/Cartoon_Plastic_Boing(3).wav-2eb68b51144a3897fe6fd211bea59f00.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
