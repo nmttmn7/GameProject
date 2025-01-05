@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cc2r0yqgu7cbb"]
 
-[ext_resource type="Texture2D" uid="uid://cb1yt3qy3hw8p" path="res://Sprites/StatusIcons/card-burn.png" id="1_8uhhm"]
+[ext_resource type="Texture2D" uid="uid://cb1yt3qy3hw8p" path="res://Sprites/StatusSprites/card-burn.png" id="1_8uhhm"]
 [ext_resource type="SystemFont" uid="uid://d1eun1llll7oe" path="res://Fonts/KohoSystemFont.tres" id="2_ymil3"]
 
 [node name="DiscardConstruct" type="Node2D"]

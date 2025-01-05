@@ -1,2 +1,0 @@
-{ "deck": ["d0robotpack1enemy1","d0robotpack1enemy2",
-]}

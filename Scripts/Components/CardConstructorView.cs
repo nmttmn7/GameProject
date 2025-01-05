@@ -73,7 +73,7 @@ public partial class CardConstructorView : Node, IAspect {
 
 	}
 	public void _on_button_down(){
-		SaveFactory.SaveDeck("res://UserData/Cards/Player/Deck.txt",p);
+		SaveFactory.SaveDeck(DataManager.playerdeckPath,p);
 		SceneSwitcher.node.SwitchScene("res://Scenes/MapScene.tscn");
 	}
 	private void SetUpPlayerCards()
@@ -83,13 +83,13 @@ public partial class CardConstructorView : Node, IAspect {
 
 	List<Card> deck = new();
 
-		if(FileFactory.Contains("res://UserData/Cards/Player/Deck.txt", "deck")){
+		if(FileFactory.Contains(DataManager.playerdeckPath, "deck")){
 			
-			deck = DeckFactory.CreateDeck("res://UserData/Cards/Player/Deck.txt", p.index);
+			deck = DeckFactory.CreateDeck(DataManager.playerdeckPath, p.index);
 
 		}else{
 
-			deck = DeckFactory.CreateDeck ("res://UserData/Cards/Player/FirstStarterPack.txt", p.index);
+			deck = DeckFactory.CreateDeck (DataManager.placeHolderDeck, p.index);
 		}
 
 		p [Zones.Deck].AddRange (deck);

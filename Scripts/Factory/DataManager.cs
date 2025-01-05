@@ -1,49 +1,36 @@
+using System.Collections;
+using System.Collections.Generic;
 using Godot;
-using Godot.Collections;
 using System;
+using System.Linq;
 
-public partial class DataManager : Node
-{
+public static class DataManager {
 
-	[Export] public Dictionary<string, CardData> _cardCompendium = new();
-	// Called when the node enters the scene tree for the first time.
+	public static string mapPath = "res://Data/UserData/Map.txt";
 
-	Node currentScene = null;
+	public static string saveScene = "res://Data/UserData/SaveScene.txt";
 
-	public static DataManager node;
-
-	public Array<Dispositions> dispositions= new Array<Dispositions>();
-	public override void _Ready()
-	{	
-		node = this;
-		OO();
-	}
-
+	public static string seedPath = "res://Data/UserData/Seed.txt";
 	
+	public static string dispositionPath = "res://Data/UserData/Disposition.txt";
 
-	private void TT(){
-		Dictionary<string,CardData> cards = _cardCompendium.Duplicate();
-		
+	public static string playerdeckPath = "res://Data/UserData/PlayerDeck.txt";
+	public static string enemydeckPath = "res://Data/UserData/EnemyDeck.txt";
+
+	public static string placeHolderDeck = "res://Data/PackCollection/Player/D1StarterPack.txt";
+
+
+
+
+
+
+	public static string rarityWeightFilePath = "res://Data/PackCollection/Player/DeckPacks/LootTable/RarityWeight.txt";
+	public static string lootGroupWeightFilePath = "res://Data/PackCollection/Player/DeckPacks/LootTable/LootGroupWeight.txt";
+
+
+	public static string loadedLootFilePath = "res://Data/PackCollection/Player/DeckPacks/LootTable/LoadedLoot.txt";
+	public static string baseRarityFilePath = "res://Data/PackCollection/Player/DeckPacks/LootTable/BaseRarity.txt";
+
+	public static string cardCreationFilePath = "res://Data/UserData/CardCreationTemp.txt";
 	
-	}
-	private void OO(){
-
-		var folder = "res://Data/CardCompedium/Units/";
-
-		var dir = DirAccess.Open(folder);
-		var allDir = dir.GetDirectories();
-
-		foreach(var d in allDir){
-			
-	var newDir = DirAccess.Open(folder + d);
-	var allFiles = newDir.GetFiles();
-
-	foreach(var loadFile in allFiles){
-	
-	var temp = ResourceLoader.Load<Card>(folder + d + "/" + loadFile);
-	
-	}
-
-	}
-	}
 }

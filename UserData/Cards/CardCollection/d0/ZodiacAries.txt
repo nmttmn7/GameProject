@@ -146,10 +146,10 @@
 			"type": "Unit", 
 			"disposition": "d0",
 			"rarity": "Common",
-			"name": "Sheep",
+			"name": "Sheep!!!!!",
 			"sprite": "uid://bihahmpsv1kx4",
 			"cost": 0,
-			"hit points": 12,
+			"hit points": 4,
 			"group": ["d0zodiacaries1"]
 			"target": {
 				"allowed": {
@@ -170,6 +170,9 @@
 			}
 			
 			}]
+			
+			
+			
 		}
 		
 		{

@@ -10,6 +10,13 @@ public class SelfTarget : Aspect, ITargetSelector
 	public List<Card> SelectTargets(IContainer game)
 	{
 		var card = (container as Ability).card;
+
+		var status = (container as Ability).abilityRoot.container as Status;
+		if(status != null){
+			if(status.flip)
+			card = (container as Ability).evokedAbility.card;
+		}
+		
 		var result = new List<Card>();
 
 		var condition = (container as Ability).GetAspect<Condition> ();
@@ -40,7 +47,7 @@ public class SelfTarget : Aspect, ITargetSelector
 
     public string LoadText()
     {
-        return "";
+        return "self ";
     }
 
 }

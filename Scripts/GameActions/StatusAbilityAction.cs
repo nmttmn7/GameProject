@@ -1,12 +1,11 @@
 
 public class StatusAbilityAction : GameAction
 {
-	public AbilityRoot abilityRoot;
+	public Status status;
 	public Ability castedAbility;
 	
-	public bool skip = false;
-	public StatusAbilityAction(AbilityRoot abilityRoot)
+	public StatusAbilityAction(Status status)
 	{
-		this.abilityRoot = abilityRoot;
+		this.status = status;
 	}
 }

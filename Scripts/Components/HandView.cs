@@ -39,7 +39,7 @@ public partial class HandView : Node {
 
 	//	this.AddObserver (OnCompleteAllActions, ActionSystem.completeNotification);
 
-		this.AddObserver (OnPolymorphZeroNotification, AugmentSystem.RemovePolymorphNotification);
+	//	this.AddObserver (OnPolymorphZeroNotification, AugmentSystem.RemovePolymorphNotification);
 	}
 
 	public override void _ExitTree()
@@ -59,7 +59,7 @@ public partial class HandView : Node {
 		//this.RemoveObserver (OnDiscardNotification, ActionSystem.deathReaperNotification);
 //		this.RemoveObserver (OnCompleteAllActions, ActionSystem.completeNotification);
 
-		this.RemoveObserver (OnPolymorphZeroNotification, AugmentSystem.RemovePolymorphNotification);
+	//	this.RemoveObserver (OnPolymorphZeroNotification, AugmentSystem.RemovePolymorphNotification);
 	}
 	
 	#region Polymorph Methods

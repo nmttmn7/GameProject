@@ -1,0 +1,618 @@
+{
+			"id": "ToxinPackCard1",
+			"type": "Unit", 
+			"disposition": "D2",
+			"rarity": "Common",
+			"name": "Shroomer",
+			"sprite": "res://Sprites/CardSprites/Shroomer.png",
+			"cost": 1,
+			"hit points": 4,
+			"group": ["ToxinPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"status":{
+				"id": "toxin"
+				"incr": "5"
+				
+			}
+	
+			
+			}]
+			
+			
+			
+		}
+	
+	
+	
+		{
+			"id": "ToxinPackCard2",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "Green Knight",
+			"sprite": "res://Sprites/CardSprites/Green Knight.png",
+			"cost": 1,
+			"hit points": 4,
+			"group": ["ToxinPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "1",
+				"count": 1,
+				"targetSelector": {
+					"type": "AllTarget",
+					"mark": {
+						"alliance": "Target",
+						"zone": "Hand"
+					},
+				}
+				
+				"status":{
+				"id": "toxin"
+				"incr": "2"
+				
+			}
+	
+			
+			}]
+			
+		}
+	
+	
+		
+		{
+			"id": "ToxinPackCard3",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "AmongUs",
+			"sprite": "res://Sprites/CardSprites/AmongUs.png",
+			"cost": 1,
+			"hit points": 4,
+			"group": ["ToxinPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "7",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+		
+			}{
+				"action": "DamageAction",
+				"info": "7",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"condition":{
+					"info": "targetstatustoxin"
+					"comparator": ">"
+					"value": "7"
+				}
+		
+			}]
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		{
+			"id": "ToxinPackCard4",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "Toxic Snake",
+			"sprite": "res://Sprites/CardSprites/Snake.png",
+			"cost": 1,
+			"hit points": 4,
+			"group": ["ToxinPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"status":{
+				"id": "toxin"
+				"incr": "2"
+				"modifier": "x"
+			}
+		
+			}]
+			
+			"afflictions":[{
+				"id": "death"
+				"value": "1"
+			}]
+			
+			
+		}
+		
+		
+		{
+			"id": "ToxinPackCard5",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "Komono Dragoon",
+			"sprite": "res://Sprites/CardSprites/Dragoon.png",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["ToxinPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 3,
+				"targetSelector": {
+					"type": "RandomTarget",
+					"mark": {
+						"alliance": "Target",
+						"zone": "Hand"
+					},
+				
+			}
+				
+				"status":{
+				"id": "toxin"
+				"incr": "3"
+			}
+		
+			}]
+			
+			
+			
+			
+		}
+		
+		{
+			"id": "ToxinPackCard6",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "Dart Frog",
+			"sprite": "res://Sprites/CardSprites/Frog.png",
+			"cost": 1,
+			"hit points": 12,
+			"group": ["ToxinPack,ThornPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "4",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+		
+			}]
+			
+			"afflictions":[{
+				"id": "poisonous"
+				"value": "1"
+			}]
+			
+		}
+		
+		{
+			"id": "ToxinPackCard7",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "Friendly Mushrooms",
+			"sprite": "res://Sprites/CardSprites/Mushroom.png",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["ToxinPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "1",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"status":{
+				"id": "toxin"
+				"incr": "targetmissinghealth"
+			}
+		
+			}]
+				
+		}
+		
+		
+		{
+			"id": "ToxinPackCard8",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "Axolotl",
+			"sprite": "uid://bhyj6y38lwdrb",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["ToxinPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "HealAction",
+				"info": "4",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				
+		
+			}]
+				
+		}
+		
+		
+			{
+				
+			"id": "ToxinPackCard9",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "Axolotl",
+			"sprite": "uid://stf26i6ywmnr",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["ToxinPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "GrantMaxHealthAction",
+				"info": "4",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				
+		
+			}]
+				
+		}
+		
+		
+		
+	{
+	
+			"id": "ToxinPackCard10",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "Lickatoad",
+			"sprite": "uid://c107o4w8rhnln",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["ToxinPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "targetstatustoxin",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			}]
+				
+		}
+		
+		{
+	
+			"id": "ToxinPackCard11",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "Platypus",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": 3,
+			"hit points": 6,
+			"group": ["ToxinPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "3",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"condition":{
+					"info": "targetCurrentHealth"
+					"comparator": "="
+					"value": "targetMaxHealth"
+				}
+				
+				"status":{
+				"id": "toxin"
+				"incr": "3"
+				"modifier": "x"
+			}
+			
+			}]
+				
+		}
+		
+		{Whenever this card is drawn kill it and do damage}
+		{Copy this card}{Copy this card}{When this card is drawn draw another card}
+		{
+	
+			"id": "ToxinPackCard12",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "Sockpuppet",
+			"sprite": "uid://csqot38nd6u1m",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["ToxinPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "cardMaxHealth",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			
+			}]
+				
+		}
+		
+		
+		{
+				
+			"id": "ToxinPackCard13",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "Axolotl",
+			"sprite": "uid://stf26i6ywmnr",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["ToxinPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "GrantMaxHealthAction",
+				"info": "targetstatustoxin",
+				"count": 1,
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+				
+				
+		
+			}]
+				
+		}
+		
+		
+		{
+	
+			"id": "ToxinPackCard14",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "BlackEight",
+			"sprite": "uid://c5sphthaumtsy",
+			"cost": 1,
+			"hit points": 8,
+			"group": ["ToxinPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "8",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			
+			}{
+				"action": "DamageAction",
+				"info": "8",
+				"count": 2,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"condition":{
+					"info": "targetstatustoxin"
+					"comparator": "="
+					"value": "8"
+				}
+			
+			}]
+				
+		}
+		
+		{
+			"id": "ToxinPackCard15",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "Scorpion",
+			"sprite": "uid://dbqr87mjmhwe8",
+			"cost": 2,
+			"hit points": 6,
+			"group": ["ToxinPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"status":{
+				"id": "toxin"
+				"incr": "8"
+				
+			}
+			
+			}]
+			
+		
+			
+		}

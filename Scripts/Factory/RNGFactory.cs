@@ -7,7 +7,6 @@ using System.Linq;
 public static class RNGFactory{
     static RandomNumberGenerator rng = new();
 
-	public static string seedPath = "res://UserData/Seed.txt";
 	public static void SetSeed(string seed){
 		rng.Seed = (ulong)GD.Hash(seed);
 	}
@@ -39,12 +38,12 @@ public static class RNGFactory{
 	}
 	public static void LoadSeed(){
 		
-		if(!FileFactory.Contains(seedPath,"seed")){
+		if(!FileFactory.Contains(DataManager.seedPath,"seed")){
 			GD.PushError("RNGFactory File is EMPTY");
 			return;
 		}
 
-		var file =  Godot.FileAccess.Open(seedPath,Godot.FileAccess.ModeFlags.Read);
+		var file =  Godot.FileAccess.Open(DataManager.seedPath,Godot.FileAccess.ModeFlags.Read);
 		
 
 		
@@ -60,7 +59,7 @@ public static class RNGFactory{
 
 	}
 	public static void SaveSeed(){
-		var file =  Godot.FileAccess.Open(seedPath,Godot.FileAccess.ModeFlags.Write);
+		var file =  Godot.FileAccess.Open(DataManager.seedPath,Godot.FileAccess.ModeFlags.Write);
 		file.StoreString("{ \"seed\": [");
 		file.StoreString("\n{");
 		file.StoreString("\n" + "\"seed\": " + "\"" + rng.Seed + "\"");
@@ -72,7 +71,7 @@ public static class RNGFactory{
 
 	public static void ClearSeedFile(){
 		
-		var file =  Godot.FileAccess.Open(seedPath,Godot.FileAccess.ModeFlags.Write);
+		var file =  Godot.FileAccess.Open(DataManager.seedPath,Godot.FileAccess.ModeFlags.Write);
 		var text = file.GetAsText();
 		text = "";
 		file.Close();

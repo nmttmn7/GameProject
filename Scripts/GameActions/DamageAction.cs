@@ -45,9 +45,9 @@ public class DamageAction : GameAction, IAbilityLoader
 			if (destructable != null)
 				targets.Add(destructable);
 		}
-
-		if(ability.abilityRoot.GetAspect<Status>() == null && !ability.userInfo.ToString().ToLower().Contains("cardstatusstatus05"))
-			ability.userInfo += "|(cardstatusstatus05)";
+		var status = ability.abilityRoot.container as Status;
+		if(status == null && !ability.userInfo.ToString().ToLower().Contains("(cardstatusrage)"))
+			ability.userInfo += "|(cardstatusrage)";
 
 	
 
@@ -66,16 +66,14 @@ public class DamageAction : GameAction, IAbilityLoader
 		
 		
 		if(!str.Contains("skip")){
-
+		description += "Deal ";
 		var split = str.Split("|");
 		foreach(var sub in split){
 			description += IAbility.InterpretData(sub);
 		}
 
-		//if(str.Contains("info")){
-		//	description += "status info ";
-		//}
-
+		if(description.Contains("img"))
+		description += "as ";
 		description += "damage ";
 		
 		}

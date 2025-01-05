@@ -1,0 +1,140 @@
+		{
+	
+			"id": "GraveyardPack1",
+			"type": "Unit", 
+			"disposition": "d1",
+			"rarity": "Common",
+			"name": "GraveyardPack1",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": 0,
+			"hit points": 6,
+			"group": ["GraveyardPack,ZeroHealthPack,RagePack,BleedPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "cardCurrentHealth",
+				"count": 1,
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+				
+			}]
+				
+		}
+		
+		
+		
+		{
+				
+			"id": "GraveyardPack2",
+			"type": "Unit", 
+			"disposition": "d1",
+			"rarity": "Common",
+			"name": "GraveyardPack2",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["GraveyardPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "CreateCardsAction",
+				"info": "GraveyardPack1|true",
+				"count": 2,
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+				
+			}]
+				
+		}
+		
+		
+		{	
+			"id": "GraveyardPack3",
+			"type": "Unit", 
+			"disposition": "d1",
+			"rarity": "Common",
+			"name": "GraveyardPack3",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["GraveyardPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "playerGraveyard",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			}]
+				
+		}
+		
+		
+		
+		{
+			"id": "GraveyardPack5",
+			"type": "Unit", 
+			"disposition": "d1",
+			"rarity": "Common",
+			"name": "Ghost",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["GraveyardPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "4",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			}]
+			
+			"afflictions":[{
+				"id": "status02"
+				"incr": "0"
+				"value": "1"
+			}]
+			
+		}

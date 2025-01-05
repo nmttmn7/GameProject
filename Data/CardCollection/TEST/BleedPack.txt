@@ -1,0 +1,427 @@
+		{
+				
+			"id": "BleedPack1",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "BleedPack1",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["BleedPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			"status":{
+				"id": "bleed"
+				"incr": "8"
+			}
+			
+			}]
+				
+		}
+		
+		
+		{
+				
+			"id": "BleedPack2",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "BleedPack2",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": 2,
+			"hit points": 6,
+			"group": ["BleedPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			"status":{
+				"id": "bleed"
+				"incr": "2"
+				"modifier": "x"
+			}
+			
+			}]
+				
+		}
+		
+		{
+				
+			"id": "BleedPack3",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "BleedPack3",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["BleedPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "1",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+			}{
+				"action": "DamageAction",
+				"info": "1",
+				"count": "3",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"condition":{
+					"info": "targetstatusbleed"
+					"comparator": ">"
+					"value": "8"
+				}
+				
+			}]
+				
+		}
+		
+			{
+			
+			"id": "BleedPack4",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "BleedPack4",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["BleedPack,ZeroHealthPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "2",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"condition":{
+					"info": "cardCurrentHealth"
+					"comparator": "="
+					"value": "0"
+				}
+				
+				"status":{
+				"id": "bleed"
+				"incr": "10"
+			}
+			
+			}]
+				
+		}
+		
+		
+			{
+				
+			"id": "BleedPack5",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "BleedPack5",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["BleedPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "1",
+				"targetSelector": {
+					"type": "AllTarget",
+					"mark": {
+						"alliance": "Target",
+						"zone": "Hand"
+					},
+				}
+				
+			"status":{
+				"id": "bleed"
+				"incr": "4"
+			}
+			
+			}]
+				
+		}
+		
+		
+			{
+				
+			"id": "BleedPack6",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "BleedPack6",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["BleedPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "2",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+		
+			
+			}]
+			
+			"afflictions":[{
+				"id": "slash"
+				"value": "1"
+				"type": "INSTANT"
+			}]
+		}
+		
+			{
+				
+			"id": "BleedPack7",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "BleedPack7",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["BleedPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "2",
+				"count": "3",
+				"targetSelector": {
+					"type": "RandomTarget",
+					"mark": {
+						"alliance": "Target",
+						"zone": "Hand"
+					},
+			}
+			
+			"condition":{
+					"info": "targetstatusbleed"
+					"comparator": ">"
+					"value": "2"
+				}	
+		
+			
+			}]
+			
+			
+		}
+		
+			{
+				
+			"id": "BleedPack8",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "BleedPack8",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["BleedPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "3",
+				"targetSelector": {
+					"type": "RandomTarget",
+					"mark": {
+						"alliance": "Target",
+						"zone": "Hand"
+					},
+			}
+			
+			"condition":{
+					"info": "targetstatusbleed"
+					"comparator": "<"
+					"value": "2"
+				}	
+				
+			"status":{
+				"id": "bleed"
+				"incr": "2"
+			}
+				
+			}]
+			
+			
+		}
+		
+		{
+				
+			"id": "BleedPack9",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "BleedPack9",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["BleedPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+			}
+		
+				
+			"status":{
+				"id": "slash"
+				"incr": "2"
+			}
+				
+			}]
+			
+			
+		}
+		
+			{
+				
+			"id": "BleedPack10",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "BleedPack10",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["BleedPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "1",
+				"count": "playergraveyard",
+				"targetSelector": {
+					"type": "ManualTarget",
+			}
+				
+			}{
+				"action": "DamageAction",
+				"info": "cardcurrenthealth",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+			}
+				
+			}]
+			
+			
+		}

@@ -9,7 +9,7 @@ using TheLiquidFire.Notifications;
 
 public partial class AugmentSystem : Aspect, IObserve
 {
-	
+    /*
 	
 	public const string UpdateStatusNotification = "AugmentSystem.UpdateStatusNotification";
 	public const string RemovePolymorphNotification = "AugmentSystem.RemovePolymorphNotification";
@@ -151,7 +151,7 @@ public partial class AugmentSystem : Aspect, IObserve
 
 		if(str.Contains("infostatus")){
 
-		var castStatus = ability.GetAspect<Status>();
+		var castStatus = ability.GetAspect<Stat>();
 
 				if(castStatus != null){
 
@@ -203,7 +203,7 @@ public partial class AugmentSystem : Aspect, IObserve
 
 		int value = 0;
 
-		var status = ability.abilityRoot.GetAspect<Status>();
+		var status = ability.abilityRoot.GetAspect<Stat>();
 		
 		if(status == null){
 		
@@ -212,7 +212,7 @@ public partial class AugmentSystem : Aspect, IObserve
 			if(augment != null){
 		    
 				if(augment.statusPairs.TryGetValue("Glitch",out AbilityRoot val)){
-					Status stat = val.GetAspect<Status>();
+					Stat stat = val.GetAspect<Stat>();
 					return stat.glitchValue;
 				
 				}
@@ -328,14 +328,14 @@ public partial class AugmentSystem : Aspect, IObserve
 					return 0;
 		    
 				if(augment.statusPairs.TryGetValue(str.ToLower(),out AbilityRoot value)){
-					Status status = value.GetAspect<Status>();
+					Stat status = value.GetAspect<Stat>();
 					return status.value;
 				
 				}else
 					return 0;
 	}
 
-	private void AddStatus(Card target, Status status, Ability statusAbility){
+	private void AddStatus(Card target, Stat status, Ability statusAbility){
 		
 		if(status == null)
 			return;
@@ -364,9 +364,9 @@ public partial class AugmentSystem : Aspect, IObserve
 		
 		if(aug.statusPairs.TryGetValue(statusID, out AbilityRoot value)){
 			
-				Status originStat = null;	
+				Stat originStat = null;	
 
-				originStat = value.GetAspect<Status>();	
+				originStat = value.GetAspect<Stat>();	
 				
 				if(!statusMod.Contains("x")){
 				originStat.value += statusInc;
@@ -386,7 +386,7 @@ public partial class AugmentSystem : Aspect, IObserve
 		
 	}
 
-	private void DecreaseStatus(Status status, AbilityRoot abilityRoot)
+	private void DecreaseStatus(Stat status, AbilityRoot abilityRoot)
     {	
 		
 
@@ -430,7 +430,7 @@ public partial class AugmentSystem : Aspect, IObserve
 	void OnPerformStatusAbility(object sender, object args)
 	{
 		var action = args as StatusAbilityAction;
-		var status = action.abilityRoot.GetAspect<Status>();
+		var status = action.abilityRoot.GetAspect<Stat>();
 		var abilityRoot = action.abilityRoot;
 		var statusValue = status.value;
 		var statDecr = status.decrease.ToString().ToLower();
@@ -487,7 +487,7 @@ public partial class AugmentSystem : Aspect, IObserve
 				return;
 		}
 
-		Status stat = ability.GetAspect<Status>();
+		Stat stat = ability.GetAspect<Stat>();
 		if(stat != null){
 		string str = stat.increase.ToString();
 			if(str.ToLower().Contains("evoke")){
@@ -540,17 +540,17 @@ public partial class AugmentSystem : Aspect, IObserve
 			return;
 
 		
-		Status rootStatus = null;
+		Stat rootStatus = null;
 
 		if(ability != null)
-			rootStatus = ability.abilityRoot.GetAspect<Status>();
+			rootStatus = ability.abilityRoot.GetAspect<Stat>();
 
 		if(rootStatus != null)
 			return;	
 		
 
 		foreach (var type in aug.statusPairs) {
-			var stat = type.Value.GetAspect<Status>();
+			var stat = type.Value.GetAspect<Stat>();
 			
 			if(evokeType == stat.evokeType){
 
@@ -583,7 +583,7 @@ public partial class AugmentSystem : Aspect, IObserve
 		
 		if(aug.statusPairs.TryGetValue("polymorph", out AbilityRoot rootStatus)){
 			
-			Status status = rootStatus.GetAspect<Status>();
+			Status stat = rootStatus.GetAspect<Stat>();
 			
 			string cardID = status.cardID;
 			
@@ -625,14 +625,23 @@ public partial class AugmentSystem : Aspect, IObserve
 			return false;
 	}
 
-	private void ScrambleGlitch(Status status){
+	private void ScrambleGlitch(Stat status){
 		status.glitchValue = RNGFactory.RandiRange(0, status.value);
 	}
+*/
+    public void Awake()
+    {
+        throw new NotImplementedException();
+    }
 
+    public void Destroy()
+    {
+        throw new NotImplementedException();
+    }
 
 }
 
 public class StatusNotification{
 	public Card card;
-	public Status status;
+	public Stat status;
 }

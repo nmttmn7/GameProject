@@ -1,0 +1,218 @@
+{
+			"id": "d0zodiacaries1enemy1",
+			"type": "Unit", 
+			"disposition": "E0",
+			"rarity": "Common",
+			"name": "Aries",
+			"sprite": "res://Sprites/CardSprites/Enemy/cardboard-box.png",
+			"text": "",
+			"cost": 0,
+			"hit points": 64,
+			"group": "d0zodiacaries1"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "playergraveyard",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+			}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "status06"
+				"incr": "0"
+				"value": "1"
+			}]
+			
+			
+		}
+		
+		
+		{
+			"id": "d0zodiacaries1enemy2",
+			"type": "Unit", 
+			"disposition": "E0",
+			"rarity": "Common",
+			"name": "Hamal",
+			"sprite": "res://Sprites/CardSprites/Enemy/cardboard-box.png",
+			"text": "",
+			"cost": 0,
+			"hit points": 12,
+			"group": "d0zodiacaries1"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "7",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+			}
+			
+			}]
+		}
+		
+		{
+			"id": "d0zodiacaries1enemy3",
+			"type": "Unit", 
+			"disposition": "E0",
+			"rarity": "Common",
+			"name": "Healer Sheep",
+			"sprite": "res://Sprites/CardSprites/Enemy/cardboard-box.png",
+			"text": "",
+			"cost": 0,
+			"hit points": 12,
+			"group": "d0zodiacaries1"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "HealAction",
+				"info": "4",
+				"count": 1,
+				"targetSelector": {
+					"type": "AllTarget",
+					"mark": {
+						"alliance": "Ally",
+						"zone": "Active"
+					},
+				}
+			
+			}]
+		}
+		
+		
+		
+		{
+			"id": "d0zodiacaries1enemy4",
+			"type": "Unit", 
+			"disposition": "E0",
+			"rarity": "Common",
+			"name": "Create Sheep",
+			"sprite": "res://Sprites/CardSprites/Enemy/cardboard-box.png",
+			"text": "",
+			"cost": 0,
+			"hit points": 12,
+			"group": "d0zodiacaries1"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "CreateCardsAction",
+				"info": "d0zodiacaries1enemy5|true|Self",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget"
+				}
+				
+			}]
+		}
+		
+		{
+			"id": "d0zodiacaries1enemy5",
+			"type": "Unit", 
+			"disposition": "E0",
+			"rarity": "Common",
+			"name": "Sheep!!!!!",
+			"sprite": "uid://bihahmpsv1kx4",
+			"cost": 0,
+			"hit points": 4,
+			"group": "d0zodiacaries1"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "4",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+					"mark": {
+						"alliance": "Ally",
+						"zone": "Hand"
+					},
+			}
+			
+			}]
+			
+			
+			
+		}
+		
+		{
+			"id": "d0zodiacaries1enemy6",
+			"type": "Unit", 
+			"disposition": "E0",
+			"rarity": "Common",
+			"name": "Star",
+			"sprite": "res://Sprites/CardSprites/E0/Star.png",
+			"cost": 0,
+			"hit points": 1,
+			"group": "d0zodiacaries1"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "0",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+			}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "status07"
+				"incr": "0"
+				"value": "1"
+			}]
+		
+		}

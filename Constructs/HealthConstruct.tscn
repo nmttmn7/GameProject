@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://bji7841q126ar"]
 
-[ext_resource type="Texture2D" uid="uid://dj1n228too8ft" path="res://Sprites/StatusIcons/hearts.png" id="1_ddcc3"]
+[ext_resource type="Texture2D" uid="uid://dj1n228too8ft" path="res://Sprites/StatusSprites/hearts.png" id="1_ddcc3"]
 [ext_resource type="Shader" path="res://Shaders/3DPerspective.gdshader" id="1_hmo5v"]
 [ext_resource type="SystemFont" uid="uid://d1eun1llll7oe" path="res://Fonts/KohoSystemFont.tres" id="2_23hnd"]
 [ext_resource type="Script" path="res://Animations/UIAnimation.cs" id="4_qiuai"]

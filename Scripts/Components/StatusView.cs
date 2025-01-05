@@ -16,15 +16,15 @@ public partial class StatusView : Node
 	public override void _Ready()
 	{
 		
-		this.AddObserver (OnStatusValueChangedNotification, AugmentSystem.UpdateStatusNotification);
-		this.AddObserver (OnValidateStatusAbility, Global.ValidateNotification<StatusAbilityAction> ());
+		this.AddObserver (OnStatusValueChangedNotification, StatusSystem.UpdateStatusNotification);
+		this.AddObserver (OnValidateStatusAbility, Global.ValidateNotification<AbilityAction> ());
 	
 	}
 
     public override void _ExitTree()
     {
-		this.RemoveObserver (OnStatusValueChangedNotification, AugmentSystem.UpdateStatusNotification);
-		this.RemoveObserver (OnValidateStatusAbility, Global.ValidateNotification<StatusAbilityAction> ());
+		this.RemoveObserver (OnStatusValueChangedNotification, StatusSystem.UpdateStatusNotification);
+		this.RemoveObserver (OnValidateStatusAbility, Global.ValidateNotification<AbilityAction> ());
 	
     }
 
@@ -80,7 +80,7 @@ public partial class StatusView : Node
 
 	void OnStatusValueChangedNotification (object sender, object args) {
 		
-		var notification = args as StatusNotification;
+		var notification = args as UpdateStatusNotification;
 		var status = notification.status;
 		var card = notification.card;
 		var cardView = handView.GetView(card);
@@ -134,9 +134,9 @@ public partial class StatusView : Node
 		var animation = StatusIconCreateAnimation((Node2D)instance, animationTime);
 		animation.MoveNext();
 
-		if(status.polyCard != null){
-			cardView.UpdateText();
-		}
+	//	if(status.polyCard != null){
+	//		cardView.UpdateText();
+	//	}
 
 		return instance;
 	}
@@ -153,26 +153,97 @@ public partial class StatusView : Node
 	}
 
 	public void GenerateAllStatuses(CardView cardView){
-		var aug = cardView.card.GetAspect<Augment>();
+		var aff = cardView.card.GetAspect<Afflictions>();
 
-		if(aug == null)
+		if(aff == null)
 		  return;
 
-		foreach (var pair in aug.statusPairs){
-			CreateStatusIcon(pair.Value.GetAspect<Status>(),0f,cardView);
+		foreach (var pair in aff.statusPairs){
+			CreateStatusIcon(pair.Value,0f,cardView);
 		}
 	}
 	
 	void OnValidateStatusAbility (object sender, object args) {
-		var action = sender as StatusAbilityAction;
-		action.perform.viewer = OnPerformStatusAbility;
+		var action = sender as AbilityAction;
+		action.perform.viewer = OO;
 	}
 
+
+	IEnumerator OO (IContainer game, GameAction action) {
+		var abilityAction = action as AbilityAction;
+		
+		var status = abilityAction.ability.abilityRoot.container as Status;
+		
+		
+		if(status != null){
+		var card = (Card)status.container;
+		var cardView = handView.GetView(card);
+		if(cardView == null)
+			yield break;
+
+		var nodeObj = cardView.statusNodes[status.id];
+
+		
+
+		var growAnimation = StatusUpdateAnimation(nodeObj, status, cardView);
+		while (growAnimation.MoveNext())
+				yield return false;
+		
+		yield return true;
+		
+		var layoutObjects = LayoutObjects(cardView,cardView.statusNodes,4,false);
+		while (layoutObjects.MoveNext())
+				yield return false;
+
+		}else
+		yield return true;
+
+
+
+
+	}
+	
+	public IEnumerator StatusUpdateAnimation(Node nodeObj, Status status, CardView cardView){
+				
+		
+
+		Tween tween = CreateTween();
+
+		tween.TweenProperty(nodeObj, "scale", new Vector2(1.4f, 1.4f), .6f);
+		tween.TweenInterval(.2f);
+
+		if(status.value > 0){
+		
+		tween.TweenCallback(Callable.From(() => UpdateText(nodeObj,status.value.ToString())));
+		tween.TweenProperty(nodeObj, "scale", new Vector2(1f, 1f), .2f).SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Back);
+		
+
+		}else{
+		
+		tween.TweenCallback(Callable.From(() => UpdateText(nodeObj,status.value.ToString())));
+		tween.TweenProperty(nodeObj, "scale", new Vector2(.4f, .4f), .3f).SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Elastic);
+		
+
+		}
+
+		while (tween != null && tween.IsRunning())
+				yield return null;
+
+	
+
+		if(status.value <= 0)
+		RemoveStatus(nodeObj,cardView,status);
+
+	
+	
+
+	}
+	/*
 	IEnumerator OnPerformStatusAbility (IContainer game, GameAction action) {
 		var statusAbilityAction = action as StatusAbilityAction;
 		
-		var status = statusAbilityAction.abilityRoot.GetAspect<Status>();
-		var card = statusAbilityAction.abilityRoot.card;
+		var status = statusAbilityAction.status;
+		var card = (Card)status.container;
 		var cardView = handView.GetView(card);
 		
 		if(cardView == null)
@@ -205,7 +276,8 @@ public partial class StatusView : Node
 		shrinkAnimation.MoveNext();
 				
 		}
-	}
+	} 
+	*/
 
 	public IEnumerator StatusGrowAnimation(Node nodeObj, Status status, CardView cardView){
 				
@@ -227,14 +299,14 @@ public partial class StatusView : Node
 
 		
 			
-			tween.TweenProperty(nodeObj, "scale", new Vector2(.4f, .4f), .5f).SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Elastic);
+			tween.TweenProperty(nodeObj, "scale", new Vector2(.4f, .4f), .3f).SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Elastic);
 			
 		
 			
 		
 	
 
-		while (tween != null && tween.GetTotalElapsedTime() < .4f)
+		while (tween != null && tween.IsRunning())
 				yield return false;
 		
 		
@@ -269,7 +341,7 @@ public partial class StatusView : Node
     {
 		nodeObj.QueueFree();
 		cardView.statusNodes.Remove(status.id);
-		cardView.card.GetAspect<Augment>().statusPairs.Remove(status.id);
+		cardView.card.GetAspect<Afflictions>().statusPairs.Remove(status.id);
 	}
 	
 	

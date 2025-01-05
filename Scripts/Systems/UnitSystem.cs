@@ -36,32 +36,39 @@ public class UnitSystem : Aspect, IObserve
 		var abilityRoot = action.unit.GetAspect<AbilityRoot>();
 
 		
-		if(abilityRoot.GetAspect<Status>() == null){
-		var poly = AugmentSystem.CheckPolymorph(action.unit);
+		if(abilityRoot.GetAspect<Stat>() == null){
+	//	var poly = AugmentSystem.CheckPolymorph(action.unit);
 
-		if(poly != null){
-			abilityRoot = poly.GetAspect<AbilityRoot>();
-			foreach(var ability in abilityRoot.abilityChain){
-				ability.card = action.unit;
-				ability.container = action.unit;
-			}
-		}
+	//	if(poly != null){
+	//		abilityRoot = poly.GetAspect<AbilityRoot>();
+	//		foreach(var ability in abilityRoot.abilityChain){
+	//			ability.card = action.unit;
+	//			ability.container = action.unit;
+	//		}
+	//	}
 
 		}
 		
+		StatusSystem statusSystem = container.GetAspect<StatusSystem>();
+		
+		
 		foreach(var ability in abilityRoot.abilityChain){
+		int count = statusSystem.ParseAbilityInfo(ability.abilityCount.ToString(), null, ability);
+
+		for(int i = 0; i < count; i++){
 		var reaction = new AbilityAction(ability);
-		for(int i = 0; i < ability.abilityCount; i++)
 		container.AddReaction(reaction);
 		}
 		
-		if(!AugmentSystem.CheckStatus(action.unit, "status03")){
+		}
+		
+	//	if(StatusSystem.GetStatus(action.unit, "deathless") == null){
 
 		var match = container.GetAspect<DataSystem> ().match;
 		var player = match.players [action.unit.ownerIndex];
 		var discardAction = new DiscardCardsAction(player,action.unit);
 		container.AddReaction(discardAction);
 
-		}
+	//	}
 	}
 }

@@ -41,7 +41,7 @@ public partial class MapView : Node, IAspect {
     }
     public override void _Ready()
 	{
-		if(FileFactory.Contains("res://UserData/Map/Map.txt","map")){
+		if(FileFactory.Contains(DataManager.mapPath,"map")){
 		LoadMap();
 		SaveFactory.SaveCurrentScene("res://Scenes/MapScene.tscn");
 		}else{
@@ -57,7 +57,7 @@ public partial class MapView : Node, IAspect {
 
 	private void LoadMap(){
 		int x = 1;
-		var file =  Godot.FileAccess.Open(mapPath,Godot.FileAccess.ModeFlags.Read);
+		var file =  Godot.FileAccess.Open(DataManager.mapPath,Godot.FileAccess.ModeFlags.Read);
 		var fileText = file.GetAsText();
 		var contents = MiniJSON.Json.Deserialize (fileText) as Dictionary<string, object>;
 		file.Close();
@@ -160,7 +160,6 @@ public partial class MapView : Node, IAspect {
 	#endregion
 
 
-public static string mapPath = "res://UserData/Map/Map.txt";
 public string mapWorld;
 public int playerDepth = 1;
 
@@ -327,7 +326,7 @@ public int playerDepth = 1;
 
 	}
 	public static string GetCurrentMapNodeData(string reference){
-		var file =  Godot.FileAccess.Open(MapView.mapPath,Godot.FileAccess.ModeFlags.Read);
+		var file =  Godot.FileAccess.Open(DataManager.mapPath,Godot.FileAccess.ModeFlags.Read);
 		var fileText = file.GetAsText();
 		var contents = MiniJSON.Json.Deserialize (fileText) as Dictionary<string, object>;
 		file.Close();

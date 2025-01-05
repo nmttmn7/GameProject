@@ -80,8 +80,33 @@ public class PlayerSystem : Aspect, IObserve {
 	void OnPerformDrawCards (object sender, object args) {
 		var action = args as DrawCardsAction;
 
-		
+		foreach (Card target in action.targets){
+			Player player = container.GetMatch ().players [target.ownerIndex];
 
+
+			foreach (Card card in action.cards)
+			ChangeZone (card, Zones.Hand);
+
+		var remain = action.amount - action.cards.Count;
+
+		if(remain > 0){
+			var shuffle = player [Zones.Discard].ReturnNew();
+		
+			foreach (Card card in shuffle)
+				ChangeZone (card, Zones.Deck);
+
+			List<Card> r = player [Zones.Deck].Draw(remain);
+		
+			foreach (Card card in r)
+				ChangeZone (card, Zones.Hand);
+
+			action.cards.AddRange(r);
+		}
+
+		}
+		
+			
+		/*
 		int deckCount = action.player [Zones.Deck].Count;
 		
 		int roomInHand = Player.maxHand - action.player [Zones.Hand].Count;
@@ -90,19 +115,6 @@ public class PlayerSystem : Aspect, IObserve {
 
 		int drawCount = 4;
 
-/*		GD.Print("DECKCOUNT = " + action.player[Zones.Deck].Count);
-		
-		GD.Print("DISCARD = " + action.player[Zones.Discard].Count);
-
-		action.cards = action.player [Zones.Deck].Draw(2);
-		GD.Print("MEOW " + action.cards.Count);
-		foreach (Card card in action.cards){
-			ChangeZone (card, Zones.Discard);
-			GD.Print("MEOW");
-		}
-		GD.Print("DECKCOUNT = " + action.player[Zones.Deck].Count);
-		
-		GD.Print("DISCARD = " + action.player[Zones.Discard].Count); */
  
 		if(deckCount >= action.amount){
 		
@@ -136,7 +148,7 @@ public class PlayerSystem : Aspect, IObserve {
 
 			action.cards.AddRange(r);
 
-		}
+		} */
 
 
 		
@@ -151,7 +163,7 @@ public class PlayerSystem : Aspect, IObserve {
 
 
 	void DrawCards (Player player, int amount) {
-		var action = new DrawCardsAction (player, amount);
+		var action = new DrawCardsAction (player.GetACard(), amount);
 		container.AddReaction (action);
 	}
 

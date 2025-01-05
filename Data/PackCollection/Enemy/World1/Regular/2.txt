@@ -1,0 +1,9 @@
+{
+	"deck" : [
+		"MonsterPack3"
+	]
+	
+	"draw" : [
+		"1"
+	]
+}

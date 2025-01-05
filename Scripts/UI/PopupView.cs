@@ -7,8 +7,9 @@ public partial class PopupView : Node
 	[Export] PackedScene popupConstruct; 
 	List<string> popupNames = new List<string>();
 	public void PopupCheck(CardView cardView){
-		CreateAbilityInfo(cardView);
 		CreateStatusInfo(cardView);
+		CreateAbilityInfo(cardView);
+		
 	}
 	
 	public void UpdatePopup(CardView cardView){
@@ -20,10 +21,10 @@ public partial class PopupView : Node
 		Card card = cardView.card;
 		var abilityRoot = card.GetAspect<AbilityRoot>();
 		if(abilityRoot.abilityChain.Count > 0){
-		var status = abilityRoot.abilityChain[cardView.descriptionIndex].GetAspect<Status>();
+		var statusData = abilityRoot.abilityChain[cardView.descriptionIndex].GetAspect<StatusData>();
 
-		if(status != null)
-			CreatePopup(status);
+		if(statusData != null)
+			CreatePopup(statusData);
 
 		}
 		
@@ -31,18 +32,44 @@ public partial class PopupView : Node
 	private void CreateStatusInfo(CardView cardView){
 		Card card = cardView.card;
 
-		var aug = card.GetAspect<Augment>();
+		var afflictions = card.GetAspect<Afflictions>();
 
-		if(aug == null)
+		if(afflictions == null)
 			return;
 
-		foreach (var entry in aug.statusPairs){
+		foreach (var entry in afflictions.statusPairs){
 
 			
-			var status = entry.Value.GetAspect<Status>();
+			var status = entry.Value;
 			CreatePopup(status);
 			
 		}
+	}
+
+	private void CreatePopup(StatusData statusData){
+			
+			string id = (string)statusData.data["id"];
+			id = id.ToLower();
+
+			if(popupNames.Contains(id))
+				return;
+
+			var data = DeckFactory.Statuses[id];
+				
+			var instance = popupConstruct.Instantiate();
+			var construct = (PopupConstruct)instance;
+
+			construct.headerText.Text = (string)data["name"];
+			construct.headerText.Text += " " + "[img=35]" + (string)data["sprite"] + "[/img]";
+
+			string description = "";
+
+			
+				description = (string)data["evokeType"] + ": " + (string)data["description"];
+
+			construct.descriptionText.Text = description;
+			popupNames.Add(id);
+			AddChild(instance);
 	}
 
 	private void CreatePopup(Status status){
@@ -54,7 +81,15 @@ public partial class PopupView : Node
 			var construct = (PopupConstruct)instance;
 			construct.headerText.Text = status.name;
 			construct.headerText.Text += " " + "[img=35]" + status.sprite + "[/img]";
-			string description = status.evokeType + ": " + status.description;
+
+			string description = "";
+
+			if(status.statusType == StatusTypes.STACKABLE){
+
+				description = status.decrease + ": " + status.description;
+			}else
+				description = status.evokeType + ": " + status.description;
+
 			construct.descriptionText.Text = description;
 			popupNames.Add(status.id);
 			AddChild(instance);

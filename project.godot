@@ -60,4 +60,4 @@ ScrollDown={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://UserData/Cards/Enemy/World1/ZEncounter/0.dialogue", "res://UserData/Cards/Enemy/World1/ZEncounter/TEST.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Data/PackCollection/Enemy/World1/ZEncounter/0.dialogue", "res://Data/PackCollection/Enemy/World1/ZEncounter/TEST.dialogue")

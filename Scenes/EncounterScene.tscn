@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://4wlklqebpq3w"]
 
 [ext_resource type="Script" path="res://Scripts/Components/EncounterView.cs" id="1_rkx25"]
-[ext_resource type="Resource" uid="uid://dmd817ewy1p1s" path="res://UserData/Cards/Enemy/World1/ZEncounter/0.dialogue" id="2_h6h1y"]
+[ext_resource type="Resource" uid="uid://dmd817ewy1p1s" path="res://Data/PackCollection/Enemy/World1/ZEncounter/0.dialogue" id="2_h6h1y"]
 [ext_resource type="PackedScene" uid="uid://b8ofhhcplb4qx" path="res://Constructs/CardConstruct.tscn" id="3_bumg6"]
 [ext_resource type="Shader" path="res://Shaders/ToonWaterEffect.gdshader" id="3_n3w16"]
 [ext_resource type="Script" path="res://Scripts/DisplayObjectsView.cs" id="4_7ktkj"]

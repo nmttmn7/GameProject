@@ -74,6 +74,11 @@ public class TargetSystem : Aspect, IObserve {
 			var cards = GetCards (source, mark, player, condition);
 			marks.AddRange (cards);
 		}
+
+		
+		if(marks.Count == 0)
+			marks.Add(source);
+
 		return marks;
 	}
 

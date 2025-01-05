@@ -68,7 +68,7 @@ void OnPerformDrawUICards(object sender, object args){
 		yield return true; // perform the action logic so that we know what cards have been drawn
 		var drawAction = action as DrawCardsAction;
 
-		var playerView = boardView.playerViews [drawAction.player.index];
+		
 
 		for (int i = 0; i < drawAction.cards.Count; ++i) {
 			
@@ -79,7 +79,10 @@ void OnPerformDrawUICards(object sender, object args){
 			if(drawAction.createdCard == true){
 				instance.GetChild(0).GetParent<Node2D>().Visible = true;
 			}
+			instance.GetChild(0).GetParent<Node2D>().Visible = true;
 		//	instance.Reparent(playerView.hand.handPos, false);
+			var playerView = boardView.playerViews [drawAction.cards[i].ownerIndex];
+
 			playerView.hand.handPos.AddChild(instance);
 			
 			
@@ -96,14 +99,14 @@ void OnPerformDrawUICards(object sender, object args){
 		//	instance.Reparent(playerView.deck.topCard,true);
 			cardView.card = drawAction.cards [i];
 	
-			
+		 	var player = game.GetMatch ().players [drawAction.cards[i].ownerIndex];
 		
-			var showPreview = action.player.mode == ControlModes.Local;
+			var showPreview = player.mode == ControlModes.Local;
 			
-			if(AugmentSystem.CheckStatus(cardView.card, "power01")){
-				GD.Print("WOW");
-				cardView.button.Call("blinded");
-			}
+		//	if(AugmentSystem.CheckStatus(cardView.card, "power01")){
+		//		GD.Print("WOW");
+		//		cardView.button.Call("blinded");
+		//	}
 			statusView.GenerateAllStatuses(cardView);
 
 			

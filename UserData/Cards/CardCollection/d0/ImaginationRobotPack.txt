@@ -1,14 +1,14 @@
-{
+			{
+				
 			"id": "d0robotpack1enemy1",
 			"type": "Unit", 
-			"disposition": "d0",
+			"disposition": "d1",
 			"rarity": "Common",
-			"name": "Cardboard Robot",
-			"sprite": "res://Sprites/CardSprites/Enemy/cardboard-box-closed.png",
-			"text": "",
-			"cost": 0,
-			"hit points": 17,
-			"group": ["robotpack"]
+			"name": "BleedPack6",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": 1,
+			"hit points": 600,
+			"group": ["BleedPack"]
 			"target": {
 				"allowed": {
 					"alliance": "Any",
@@ -21,17 +21,35 @@
 			},
 			"abilities": [{
 				"action": "DamageAction",
-				"info": "0",
-				"count": 1,
+				"info": "1",
+				"count": 3,
+				"description": "wow"
 				"targetSelector": {
-					"type": "ManualTarget",
-			}
+					"type": "AllTarget",
+					"mark": {
+						"alliance": "Target",
+						"zone": "Hand"
+					},
+				}
+				
 			"status":{
 				"id": "cold"
 				"incr": "3"
 				
+				"description": "Explode",
+				
+				
 			}
+			
 			}]
+			
+			"afflictions":[{
+				"id": "riposte"
+				"value": "10"
+			}]
+			
+		
+			
 			
 		}
 		
@@ -64,6 +82,15 @@
 					"type": "ManualTarget",
 			}
 			
+			}]
+			"overridehealth":{
+				"status": "rage",
+			}
+			
+			"afflictions":[{
+				"id": "rage"
+				"incr": "0"
+				"value": "20"
 			}]
 			
 		}

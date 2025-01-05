@@ -147,7 +147,7 @@ public partial class RewardController : Node {
 			base.Enter ();
 			Tween tween = SceneSwitcher.node.CreateTween();
 			tween.TweenInterval(2);
-			var file =  Godot.FileAccess.Open(MapView.mapPath,Godot.FileAccess.ModeFlags.Read);
+			var file =  Godot.FileAccess.Open(DataManager.mapPath,Godot.FileAccess.ModeFlags.Read);
 			var fileText = file.GetAsText();
 			var contents = MiniJSON.Json.Deserialize (fileText) as Dictionary<string, object>;
 			file.Close();

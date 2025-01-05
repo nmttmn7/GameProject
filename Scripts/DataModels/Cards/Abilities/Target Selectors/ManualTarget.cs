@@ -7,7 +7,14 @@ using TheLiquidFire.Extensions;
 public class ManualTarget : Aspect, ITargetSelector {
 
 	public List<Card> SelectTargets (IContainer game) {
+		
 		var card = (container as Ability).card;
+		var status = (container as Ability).abilityRoot.container as Status;
+		if(status != null){
+			if(status.flip)
+			card = (container as Ability).evokedAbility.card;
+		}
+
 		var target = card.GetAspect<Target> ();
 		var result = new List<Card> ();
 		var condition = (container as Ability).GetAspect<Condition> ();

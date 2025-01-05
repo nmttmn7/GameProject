@@ -9,80 +9,106 @@ using TheLiquidFire.Notifications;
 
 public class Status : TheLiquidFire.AspectContainer.Container, IAspect {
 
+#region BasicVariables
+#endregion
 	public IContainer container { get; set; }
-	public Ability ability {get; set;}
-
 	public string id {get; set;}
 	public string name {get; set;}
 	public string description {get; set;}
     public string evokeType {get; set;}
-	public bool valueTOability {get; set;}
 	public string sprite {get; set;}
     public int value{get; set;}
-    public object increase {get; set;}
-	public string modifier {get; set;}
-    public object decrease {get; set;}
+    public int decrease {get; set;}
 	public StatusTypes statusType {get; set;}
-	public bool permanent {get; set;}
+	
 	public bool flip {get; set;}
-	
-	
-	public string cardID {get; set;}
-	public Card polyCard {get; set;}
 
-	public int glitchValue {get; set;}
-    public void Load(Dictionary<string, object> data) {
+	public string color {get;set;}
+	
+	public AbilityRoot abilityRoot = new();
+	
+    public void Load(Dictionary<string, object> data, Card target, Ability castedAbility = null, StatusSystem statusSystem = null) {
 		
+		container = target;
+		abilityRoot.container = this;
+
+		if(data.ContainsKey("id")){
 		id = (string)data["id"];
 		id = id.ToLower();
-	
-		var statusData = DeckFactory.Statuses[id];
+		}
+
+		if(data.ContainsKey("name"))
+			name = (string)data["name"];
+
+		if(data.ContainsKey("sprite"))
+			sprite = (string)data["sprite"];
+
+		if(data.ContainsKey("evokeType")){
+			string temp = (string)data["evokeType"];
+
+			if(evokeType == null)
+				evokeType += ApplyColorFilter(temp);
+			else if(!temp.Contains(evokeType)){
+				if(temp.Contains("Set")){
+				temp = temp.Replace("Set","");
+				evokeType = ApplyColorFilter(temp);
+				}else
+				evokeType += ApplyColorFilter(temp);
+
+			}
+		}
+
 		
-		name = (string)statusData["name"];
-		sprite = (string)statusData["sprite"];
-		evokeType = (string)statusData["evokeType"];
-		description = (string)statusData["description"];
-	
-		increase = (string)data ["incr"];
+
+
+
+		if(data.ContainsKey("description"))
+			description +=  ApplyColorFilter((string)data["description"]);
+
+			
+
 		
+
+		if(data.ContainsKey("incr")){
+
+			int statusINCREMENT = statusSystem.ParseAbilityInfo((string)data ["incr"], target, castedAbility);
+
+
+			if(data.ContainsKey("modifier"))
+				    value *= statusINCREMENT;
+				else
+				    value += statusINCREMENT;
+		}
+	
+	
 		if(data.ContainsKey("decr"))
-			decrease = (string)data["decr"];
-		else if(statusData.ContainsKey("decr")){
-			decrease = (string)statusData["decr"];
-		}else
-			decrease = "1";
+			decrease = Int32.Parse((string)data ["decr"]);
+		
+		
+		if(data.ContainsKey("value"))
+		    value = Int32.Parse((string)data ["value"]);
+		
 
-		if(data.ContainsKey("modifier"))
-		modifier = (string)data ["modifier"];
-		else
-		modifier = "+";
-	
-		if(statusData.ContainsKey("valueTOability"))
-		valueTOability = (bool)statusData ["valueTOability"];
-		else
-		valueTOability = true;
-
-		if(data.ContainsKey("permanent"))
-		permanent = (bool)data ["permanent"];
-		else
-		permanent = false;
-
-		if(statusData.ContainsKey("flip"))
-		flip = (bool)statusData ["flip"];
-		else
-		flip = false;
+		
 
 
-		string typeData; 
+		
+
+		if(data.ContainsKey("flip"))
+			flip = (bool)data ["flip"];
+		
+		if(data.ContainsKey("color"))
+			color = (string)data["color"];
+
+		string typeData = ""; 
 
 		if(data.ContainsKey("type"))
 			typeData = (string)data ["type"];
-		else
-			typeData = (string)statusData ["type"];
+		
 		
 
 		
-	   	
+	   	if(typeData.Length > 0){
 		bool isValid = Enum.TryParse(typeData, out StatusTypes typeStat);
 		if(isValid) {
 			statusType = typeStat;
@@ -90,36 +116,44 @@ public class Status : TheLiquidFire.AspectContainer.Container, IAspect {
 			throw new NotImplementedException();
 		}
 
-		if(data.ContainsKey("cardID"))
-		cardID = (string)data["cardID"];
+		}
 		
-		if(data.ContainsKey("value"))
-		value = Int32.Parse((string)data ["value"]);
-		else
-		value = 0;
-
+		if(data.ContainsKey("abilities"))
+			DeckFactory.AddAbilities(abilityRoot,target,data);
 	}
+	private string ApplyColorFilter(string temp){
+		
 
+			if(temp.Contains("color"))
+				return temp;
+			else
+				return "[color=" +  color  +  "]" + temp + "[/color]";
+
+				
+	}
+	
 	public string Save(){
 		string text = "";
 		
-
+		text += "{";
 		text += "\n\"id\": " + "\"" + id + "\","; 
-		text += "\n\"evokeType\": " + "\"" + evokeType + "\","; 
-		text += "\n\"value\": " + "\"" + value + "\","; 
-		text += "\n\"incr\": " + "\"" + increase + "\","; 
-		text += "\n\"modifier\": " + "\"" + modifier + "\","; 
+		text += "\n\"name\": " + "\"" + name + "\",";
+		text += "\n\"type\": " + "\"" + statusType + "\","; 
+		text += "\n\"sprite\": " + "\"" + sprite + "\","; 
+		text += "\n\"evokeType\": " + "\"" + evokeType + "\",";
+		text += "\n\"description\": " + "\"" + description + "\","; 
 		text += "\n\"decr\": " + "\"" + decrease + "\","; 
-		text += "\n\"statusType\": " + "\"" + statusType + "\",";
-		text += "\n\"valueTOability\": " + "" + valueTOability.ToString().ToLower() + ","; 
+		text += "\n\"value\": " + "\"" + value + "\","; 
 		text += "\n\"flip\": " + "" + flip.ToString().ToLower() + ",";
-		text += "\n\"permanent\": " + "" + permanent.ToString().ToLower() + ","; 
-		text += "\n\"cardID\": " + "\"" + cardID + "\","; 
-		text += "\n\"polyCard\": " + "\"" + polyCard + "\","; 
-		text += "\n\"glitchValue\": " + "\"" + glitchValue + "\",";  
-		
+		text += "\n\"color\": " + "" + color + ",";
+		if(abilityRoot.abilityChain.Count > 0){
+			text += "\n\"abilities\": [";
+		foreach(var ability in abilityRoot.abilityChain)
+			ability.Save();
+		text += "]";
+		}
 
-		
+		text += "}";
 	
 		return text;
 	}

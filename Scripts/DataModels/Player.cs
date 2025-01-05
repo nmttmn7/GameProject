@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Godot;
+using TheLiquidFire.Extensions;
 
 
 public class Player {
@@ -23,7 +25,6 @@ public class Player {
 	public List<Card> hand = new List<Card> (maxHand);
 	public List<Card> discard = new List<Card> ();
 	public Dictionary<string,List<Card>> power = new();
-	public List<Card> battlefield = new List<Card> (maxBattlefield);
 	public List<Card> secrets = new List<Card> (maxSecrets);
 	public List<Card> graveyard = new List<Card> ();
 
@@ -63,10 +64,10 @@ public class Player {
 				for(int i = 0; i < player[zone].Count; i++){
 					Card card = player[zone][i];
 					string name;
-					Card poly = AugmentSystem.CheckPolymorph(card);
-					if(poly != null)
-						name = poly.name.ToLower();
-					else
+			//		Card poly = AugmentSystem.CheckPolymorph(card);
+			//		if(poly != null)
+			//			name = poly.name.ToLower();
+			//		else
 						name = card.name.ToLower();
 
 						if(name.Contains(str.ToLower())){
@@ -79,6 +80,15 @@ public class Player {
 		
 		return cards;
 	}
-
+	
+	public Card GetACard(){
+		
+		if(this[Zones.Deck].Count > 0)
+		return this[Zones.Deck].First();
+		else if(this[Zones.Discard].Count > 0)
+		return this[Zones.Discard].First();
+		else
+		return this[Zones.Hand].First();
+	}
 	
 }
