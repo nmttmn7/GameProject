@@ -1,0 +1,278 @@
+
+{
+			"id": "FirePack1111",
+			"type": "Unit", 
+			"disposition": "D2",
+			"rarity": "Common",
+			"name": "FirePack1",
+			"decription": "//Fire card that heals based on fire amount, When this particular card is hit it does fire damage to cards in return, fire now spreads?"
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["FirePack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+				
+			"status":{
+				"id": "fire"
+				"incr": "5"
+			}
+			
+			}]
+				
+		}
+		
+		{
+			"id": "FirePack13343",
+			"type": "Unit", 
+			"disposition": "D2",
+			"rarity": "Common",
+			"name": "FirePack1",
+			"description": "fire is this cards health"
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["FirePack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "cardstatusfire",
+				"count": 2,
+				"targetSelector": {
+					"type": "RandomTarget",
+					"mark": {
+						"alliance": "Target",
+						"zone": "Hand"
+					},
+				}
+				
+				"status":{
+				"id": "fire"
+				"incr": "cardstatusfire"
+			}
+			
+			}]
+			
+			"overridehealth":{
+				"status": "fire",
+			}
+			
+			"afflictions":[{
+				"id": "fire"
+				"value": "4"
+				"decr": "-1"
+				"evokeType": "OnWounded"
+				"flip": true
+				"abilities":[{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 1,
+				"targetSelector": {
+				"type": "SelfTarget",
+				},		
+				"status":{
+				"id": "fire"
+				"incr": ""
+				}
+				}]
+			}]
+			
+		}
+		
+			{
+				
+			"id": "FirePack1",
+			"type": "Unit", 
+			"disposition": "D2",
+			"rarity": "Common",
+			"name": "FirePack1",
+			"sprite": "res://Sprites/CardSprites/Algal.png",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["FirePack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "1",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			}]
+		}
+		
+		{
+			"id": "FirePack2",
+			"type": "Unit", 
+			"disposition": "D2",
+			"rarity": "Common",
+			"name": "FirePack2",
+			"sprite": "res://Sprites/CardSprites/Algal.png",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["FirePack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"status":{
+				"id": "fire"
+				"incr": "playernamefire"
+			}
+		
+			}]
+				
+		}
+		
+		{
+				
+			"id": "FirePack3",
+			"type": "Unit", 
+			"disposition": "D2",
+			"rarity": "Common",
+			"name": "FirePack3",
+			"sprite": "res://Sprites/CardSprites/Algal.png",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["FirePack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"status":{
+				"id": "fire"
+				"incr": "playernamefire"
+			}
+		
+			}]
+				
+		}
+		
+		
+		{
+			"id": "FirePack4",
+			"type": "Unit", 
+			"disposition": "d2",
+			"rarity": "Common",
+			"name": "FirePack4",
+			"sprite": "res://Sprites/CardSprites/Pollution.png",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["FirePack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "CreateCardsAction",
+				"info": "FirePack1|false|self",
+				"count": 2,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				}]
+				
+		}
+		
+		
+		{
+				
+			"id": "FirePack21",
+			"type": "Unit", 
+			"disposition": "D2",
+			"rarity": "Common",
+			"name": "FirePack1",
+			"sprite": "res://Sprites/CardSprites/Algal.png",
+			"cost": 1,
+			"hit points": 6,
+			"group": ["FirePack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			}]
+				
+		}
+		

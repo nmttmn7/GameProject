@@ -34,7 +34,8 @@ public static class GameFactory {
 		game.AddAspect<TargetSystem> ();
 	//	game.AddAspect<TauntSystem> ();
 
-		game.AddAspect<AugmentSystem>();
+	//	game.AddAspect<AugmentSystem>();
+		game.AddAspect<StatusSystem>();
 		game.AddAspect<VictorySystem> ();
 		
 		game.AddAspect<MoneySystem>();

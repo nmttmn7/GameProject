@@ -16,7 +16,7 @@ public static class SaveFactory {
 	}
 
 	public static void SaveDisposition(){		
-		var file = Godot.FileAccess.Open("res://UserData/Cards/Player/Disposition.txt", Godot.FileAccess.ModeFlags.Write);
+		var file = Godot.FileAccess.Open(DataManager.dispositionPath, Godot.FileAccess.ModeFlags.Write);
 		file.StoreString("[");
 		foreach(var d in SceneSwitcher.node.dispositions)
 			file.StoreString("\""+ d.ToString() + "\"" + ",");
@@ -25,7 +25,7 @@ public static class SaveFactory {
 	}
 
 	public static void LoadDisposition(){		
-		var file = Godot.FileAccess.Open("res://UserData/Cards/Player/Disposition.txt", Godot.FileAccess.ModeFlags.Read);
+		var file = Godot.FileAccess.Open(DataManager.dispositionPath, Godot.FileAccess.ModeFlags.Read);
 		var fileText = file.GetAsText();
 		var list = MiniJSON.Json.Deserialize (fileText) as List<object>;
 		file.Close();
@@ -66,28 +66,28 @@ public static class SaveFactory {
 	public static void SaveReward(Card card)
     {
 
-		var text = Godot.FileAccess.Open("res://UserData/Cards/Player/Deck.txt", Godot.FileAccess.ModeFlags.Read);
+		var text = Godot.FileAccess.Open(DataManager.playerdeckPath, Godot.FileAccess.ModeFlags.Read);
 		var fileText = text.GetAsText();
 		text.Close();
 		
 		fileText = fileText.Remove(fileText.Length - 3);
 		
 		
-		var file = Godot.FileAccess.Open("res://UserData/Cards/Player/Deck.txt", Godot.FileAccess.ModeFlags.Write);
+		var file = Godot.FileAccess.Open(DataManager.playerdeckPath, Godot.FileAccess.ModeFlags.Write);
 		file.StoreString(fileText);
 		SaveCard(card, file);
 		file.StoreString("\n]}");
 		file.Close();
 	}
-	private static void SaveCard(Card card, Godot.FileAccess file)
+	public static void SaveCard(Card card, Godot.FileAccess file, bool checktemp = true)
     {
 
 		var temp = card.GetAspect<Temp>();
 		
-		if(temp != null)
+		if(temp != null && checktemp == true)
 			return;
 
-		var aug = card.GetAspect<Augment>();
+		
 		var unit = (Unit)card;
 		
 		
@@ -106,17 +106,25 @@ public static class SaveFactory {
 		file.StoreString(target.Save());
 
 		SaveAbilities(card, file);
+		SaveOverride(card, file);
 		SaveAfflictions(card,file);
 		file.StoreString("}");
 
 		
 	}
 
+	private static void SaveOverride(Card card, Godot.FileAccess file)
+    {
+       var overrideHealth = card.GetAspect<OverrideHealth>();
+		if(overrideHealth != null)
+		file.StoreString(overrideHealth.Save());
+    }
+
     private static void SaveAfflictions(Card card, Godot.FileAccess file)
     {
-       var augment = card.GetAspect<Augment>();
-		if(augment != null)
-		file.StoreString(augment.Save());
+       var afflictions = card.GetAspect<Afflictions>();
+		if(afflictions != null)
+		file.StoreString(afflictions.Save());
     }
 
     private static void SaveAbilities(Card card, Godot.FileAccess file){
@@ -136,7 +144,7 @@ public static class SaveFactory {
 
 	public static void SaveCurrentScene(string sceneConstruct){
 		RNGFactory.SaveSeed();
-		SaveFactory.SaveTOFile(MainMenu.saveScene, "{" + "\"" + "scene"+ "\"" + ": " + "\"" + sceneConstruct + "\"" + "}");
+		SaveFactory.SaveTOFile(DataManager.saveScene, "{" + "\"" + "scene"+ "\"" + ": " + "\"" + sceneConstruct + "\"" + "}");
 	}
 /*
 	public static void AddCardToSaveFile(Card card){
@@ -307,7 +315,7 @@ public static class SaveFactory {
 	public static void AddCardToGraveFile(Match match){
 
 		var player = match.players[0];
-		var file =  Godot.FileAccess.Open("res://UserData/Cards/Graveyard.txt",Godot.FileAccess.ModeFlags.Write);
+		var file =  Godot.FileAccess.Open("res://UserData/Cards/Graveyard",Godot.FileAccess.ModeFlags.Write);
 
 		file.StoreString("{ \"cards\": [");
 	
@@ -333,7 +341,7 @@ public static class SaveFactory {
 
 
 		
-		var file =  Godot.FileAccess.Open(MapView.mapPath,Godot.FileAccess.ModeFlags.Write);
+		var file =  Godot.FileAccess.Open(DataManager.mapPath,Godot.FileAccess.ModeFlags.Write);
 		file.StoreString("{ \"map\": [");
 		file.StoreString("\n{");
 	

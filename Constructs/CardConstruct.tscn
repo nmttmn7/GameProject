@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b8ofhhcplb4qx"]
+[gd_scene load_steps=26 format=3 uid="uid://b8ofhhcplb4qx"]
 
 [ext_resource type="Script" path="res://Scripts/Components/CardView.cs" id="1_woj7e"]
 [ext_resource type="Script" path="res://Scripts/UI/CardUI.gd" id="2_rmyn6"]
@@ -8,7 +8,6 @@
 [ext_resource type="Shader" path="res://Shaders/CustomPerspective.gdshader" id="4_u315g"]
 [ext_resource type="SystemFont" uid="uid://d1eun1llll7oe" path="res://Fonts/KohoSystemFont.tres" id="4_w2e45"]
 [ext_resource type="Texture2D" uid="uid://c5cwyfrl3ngy5" path="res://Sprites/UIIcons/chained-heart (2).png" id="4_woabm"]
-[ext_resource type="Texture2D" uid="uid://8bm2ijjwnhkf" path="res://Sprites/MapIcons/UI board Large  parchment.png" id="4_yvs8n"]
 [ext_resource type="Shader" path="res://Shaders/OutlineBright.gdshader" id="5_ab71o"]
 [ext_resource type="Texture2D" uid="uid://b38f4dxki4ckw" path="res://Sprites/UIIcons/tesla-coil.png" id="6_eardd"]
 [ext_resource type="Texture2D" uid="uid://bfl7mq0tawsyq" path="res://Sprites/UIIcons/armoured-shell.png" id="7_8tht3"]
@@ -48,6 +47,13 @@ shader_parameter/layer_3 = Color(1, 0.5, 0, 1)
 shader_parameter/size_3 = 0.05
 shader_parameter/burn_texture = SubResource("NoiseTexture2D_ipjus")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jrdbh"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uwult"]
 shader = ExtResource("5_ab71o")
 shader_parameter/color = Color(0.0745098, 0.615686, 1, 1)
@@ -56,6 +62,25 @@ shader_parameter/inner_stroke_opacity = 1.0
 shader_parameter/inside_opacity = 1.0
 shader_parameter/frequency = 8.0
 shader_parameter/phase_speed = 1.0
+
+[sub_resource type="Gradient" id="Gradient_lufg0"]
+offsets = PackedFloat32Array(0.16, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wky8u"]
+gradient = SubResource("Gradient_lufg0")
+height = 30
+fill_from = Vector2(1, 0.76748)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8vn8"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vue2x"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_snhgi"]
 
@@ -68,10 +93,10 @@ statusNode2D = NodePath("../Button/StatusView")
 textureRect = NodePath("../Button/CardTexture/SubViewport/Control/SpriteRect")
 healthText = NodePath("../Button/CardTexture/SubViewport/Control/CardHeader/HealthTexture/Health")
 manaText = NodePath("../Button/CardTexture/SubViewport/Control/CardHeader/ManaTexture/Mana")
-nameText = NodePath("../Button/CardTexture/SubViewport/Control/HeaderTexture/Name")
+nameText = NodePath("../Button/CardTexture/SubViewport/Control/Name")
 abilityCountText = NodePath("../Button/CardTexture/SubViewport/Control/CardHeader/AbilityTexture/Ability")
-moneyText = NodePath("../Button/CardTexture/SubViewport/Control/HeaderTexture/Money/Money")
-descriptionText = NodePath("../Button/CardTexture/SubViewport/Control/Description")
+moneyText = NodePath("../Button/CardTexture/SubViewport/Control/Money/Money")
+descriptionText = NodePath("../Button/CardTexture/SubViewport/Control/Panel4/Description2")
 button = NodePath("../Button")
 
 [node name="Button" type="Button" parent="." node_paths=PackedStringArray("node2D", "outline", "cardview")]
@@ -103,6 +128,7 @@ frequencyX = 15.0
 ampX = 15.0
 
 [node name="Shadow" type="ColorRect" parent="Button"]
+visible = false
 z_index = -1
 layout_mode = 1
 anchors_preset = 8
@@ -153,6 +179,22 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Panel2" type="Panel" parent="Button/CardTexture/SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -175.0
+offset_right = 125.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(125, 175)
+theme_override_styles/panel = SubResource("StyleBoxFlat_jrdbh")
+
 [node name="Outline" type="ColorRect" parent="Button/CardTexture/SubViewport/Control"]
 visible = false
 material = SubResource("ShaderMaterial_uwult")
@@ -172,22 +214,6 @@ scale = Vector2(1.105, 1.105)
 pivot_offset = Vector2(125, 175)
 color = Color(0.527405, 0.371954, 0.97391, 1)
 
-[node name="ColorRect3" type="ColorRect" parent="Button/CardTexture/SubViewport/Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -175.0
-offset_right = 125.0
-offset_bottom = 175.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(125, 175)
-color = Color(0.307742, 0.286846, 0.35656, 1)
-
 [node name="SpriteRect" type="TextureRect" parent="Button/CardTexture/SubViewport/Control"]
 use_parent_material = true
 layout_mode = 1
@@ -196,16 +222,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -120.0
-offset_right = 64.0
-offset_bottom = 8.0
+offset_left = -115.0
+offset_top = -165.0
+offset_right = 115.0
+offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.6, 1.6)
-pivot_offset = Vector2(64, 64)
+pivot_offset = Vector2(115, 165)
 texture = ExtResource("3_gbdgh")
 expand_mode = 1
+stretch_mode = 6
 
 [node name="CardHeader" type="ColorRect" parent="Button/CardTexture/SubViewport/Control"]
 use_parent_material = true
@@ -222,6 +248,7 @@ offset_bottom = -135.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(125, 0)
+color = Color(0.917647, 0.611765, 0, 0)
 
 [node name="HealthTexture" type="TextureRect" parent="Button/CardTexture/SubViewport/Control/CardHeader"]
 use_parent_material = true
@@ -354,89 +381,120 @@ text = "[center]?[/center]"
 fit_content = true
 scroll_active = false
 
-[node name="HeaderTexture" type="TextureRect" parent="Button/CardTexture/SubViewport/Control"]
+[node name="TextureRect2" type="TextureRect" parent="Button/CardTexture/SubViewport/Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -40.0
-offset_right = 125.0
-offset_bottom = 40.0
+offset_left = -120.0
+offset_top = 34.78
+offset_right = 120.0
+offset_bottom = 64.78
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2.125, 2.125)
-pivot_offset = Vector2(125, -43)
-texture = ExtResource("4_yvs8n")
-expand_mode = 2
-stretch_mode = 5
-flip_v = true
+texture = SubResource("GradientTexture2D_wky8u")
 
-[node name="Name" type="RichTextLabel" parent="Button/CardTexture/SubViewport/Control/HeaderTexture"]
+[node name="Panel" type="Panel" parent="Button/CardTexture/SubViewport/Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -180.0
-offset_top = -93.0
-offset_right = 180.0
-offset_bottom = 147.0
+offset_left = -130.0
+offset_top = -4.0
+offset_right = 110.0
+offset_bottom = 106.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.545, 0.545)
-pivot_offset = Vector2(180, 120)
-theme_override_colors/default_color = Color(1, 1, 1, 1)
+rotation = 3.14159
+pivot_offset = Vector2(125, 87)
+theme_override_styles/panel = SubResource("StyleBoxFlat_y8vn8")
+
+[node name="Name" type="RichTextLabel" parent="Button/CardTexture/SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -179.0
+offset_top = 21.5251
+offset_right = 181.0
+offset_bottom = 381.525
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(180, 180)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 12
 theme_override_fonts/normal_font = ExtResource("4_w2e45")
-theme_override_fonts/bold_font = ExtResource("4_w2e45")
-theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
-text = "[center]?[/center]"
+text = "[center]Name"
 fit_content = true
 scroll_active = false
 
-[node name="DescriptionTexture" type="TextureRect" parent="Button/CardTexture/SubViewport/Control/HeaderTexture"]
+[node name="Panel4" type="Panel" parent="Button/CardTexture/SubViewport/Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -29.885
-offset_right = 125.0
-offset_bottom = 50.115
+offset_left = -135.0
+offset_top = -9.0
+offset_right = 95.0
+offset_bottom = 91.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.005, 0.761)
-pivot_offset = Vector2(125, 40)
-texture = ExtResource("4_yvs8n")
-expand_mode = 2
-stretch_mode = 5
+rotation = 3.14159
+pivot_offset = Vector2(125, 87)
+theme_override_styles/panel = SubResource("StyleBoxFlat_vue2x")
 
-[node name="Money" type="TextureRect" parent="Button/CardTexture/SubViewport/Control/HeaderTexture"]
+[node name="Description2" type="RichTextLabel" parent="Button/CardTexture/SubViewport/Control/Panel4"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -256.0
-offset_top = -218.0
-offset_right = 256.0
-offset_bottom = 294.0
+offset_left = -245.0
+offset_top = -306.0
+offset_right = -15.0
+offset_bottom = 54.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.03, 0.03)
+rotation = 3.14159
+pivot_offset = Vector2(180, 180)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("4_w2e45")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[center]Description"
+fit_content = true
+scroll_active = false
+
+[node name="Money" type="TextureRect" parent="Button/CardTexture/SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.095
+offset_top = -81.71
+offset_right = 255.905
+offset_bottom = 430.29
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.055, 0.055)
 pivot_offset = Vector2(256, 256)
 texture = ExtResource("12_4d6vn")
 
-[node name="Money" type="RichTextLabel" parent="Button/CardTexture/SubViewport/Control/HeaderTexture/Money"]
+[node name="Money" type="RichTextLabel" parent="Button/CardTexture/SubViewport/Control/Money"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -459,28 +517,6 @@ theme_override_fonts/bold_font = ExtResource("4_w2e45")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[center]?[/center]"
-fit_content = true
-scroll_active = false
-
-[node name="Description" type="RichTextLabel" parent="Button/CardTexture/SubViewport/Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -131.0
-offset_top = 62.0
-offset_right = 131.0
-offset_bottom = 422.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 12
-theme_override_fonts/normal_font = ExtResource("4_w2e45")
-theme_override_font_sizes/normal_font_size = 30
-bbcode_enabled = true
-text = "[center]?"
 fit_content = true
 scroll_active = false
 

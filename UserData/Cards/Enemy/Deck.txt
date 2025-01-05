@@ -1,1 +1,0 @@
-res://UserData/Cards/Enemy/World1/Regular/2.txt

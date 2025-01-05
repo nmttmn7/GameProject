@@ -10,7 +10,7 @@ public partial class GameViewSystem : Node, IAspect {
 
 	bool loadDeck = true;
 	UIView UIView;
-	public static string deckFilePath = "res://UserData/Cards/Player/Deck.txt";
+
 	public IContainer container { 
 		get {
 			if (_container == null) {
@@ -54,21 +54,25 @@ public partial class GameViewSystem : Node, IAspect {
 
 		List<Card> deck = new();
 
-		if(loadDeck && FileFactory.Contains("res://UserData/Cards/Player/Deck.txt", "deck")){
+		if(loadDeck && FileFactory.Contains(DataManager.playerdeckPath, "deck")){
 			//GD.Print("LOADSSS");
-			deck = DeckFactory.CreateDeck("res://UserData/Cards/Player/Deck.txt", p.index);
+			deck = DeckFactory.CreateDeck(DataManager.playerdeckPath, p.index);
 
 		}else{
 
-			if(SceneSwitcher.node.dispositions[0] == "d1")
-			deck = DeckFactory.CreateDeck ("res://UserData/Cards/Player/FirstStarterPack.txt", p.index);
+			if(SceneSwitcher.node.dispositions[0] == "D1")
+			deck = DeckFactory.CreateDeck ("res://Data/PackCollection/Player/D1StarterPack.txt", p.index);
 
-			if(SceneSwitcher.node.dispositions[0] == "d2")
-			deck = DeckFactory.CreateDeck ("res://UserData/Cards/Player/SecondStarterPack.txt", p.index);
+			if(SceneSwitcher.node.dispositions[0] == "D2")
+			deck = DeckFactory.CreateDeck ("res://Data/PackCollection/Player/D2StarterPack.txt", p.index);
 
-			if(SceneSwitcher.node.dispositions[0] == "d3")
-			deck = DeckFactory.CreateDeck ("res://UserData/Cards/Player/ThirdStarterPack.txt", p.index);
+			if(SceneSwitcher.node.dispositions[0] == "D3")
+			deck = DeckFactory.CreateDeck ("res://Data/PackCollection/Player/D3StarterPack.txt", p.index);
 		}
+
+		var statusSystem = container.GetAspect<StatusSystem>();
+		foreach(Card card in deck) 
+			statusSystem.InitializeCard(card, DeckFactory.Cards[card.id]);
 
 		p [Zones.Deck].AddRange (deck);
 		
@@ -83,9 +87,9 @@ public partial class GameViewSystem : Node, IAspect {
 		Player p = match.players[1];
 		List<Card> deck = new();
 		string path = "";
-		if(!FileFactory.Contains("res://UserData/Cards/Player/Deck.txt", ".txt")){
+		if(!FileFactory.Contains(DataManager.enemydeckPath, ".txt")){
 
-		path =  "res://UserData/Cards/Enemy/";
+		path =  "res://Data/PackCollection/Enemy/";
 		var data = mapWorld();
 
 		
@@ -105,13 +109,13 @@ public partial class GameViewSystem : Node, IAspect {
 		
 		
 
-		var loadFile = Godot.FileAccess.Open("res://UserData/Cards/Enemy/Deck.txt", Godot.FileAccess.ModeFlags.Write);
+		var loadFile = Godot.FileAccess.Open(DataManager.enemydeckPath, Godot.FileAccess.ModeFlags.Write);
 		loadFile.StoreString(path);
 		loadFile.Close();
 
 		}else{
 
-		var loadFile = Godot.FileAccess.Open("res://UserData/Cards/Enemy/Deck.txt", Godot.FileAccess.ModeFlags.Read);
+		var loadFile = Godot.FileAccess.Open(DataManager.enemydeckPath, Godot.FileAccess.ModeFlags.Read);
 		var str = loadFile.GetAsText();
 		loadFile.Close();
 		path = str;
@@ -120,7 +124,9 @@ public partial class GameViewSystem : Node, IAspect {
 		
 		deck = DeckFactory.CreateDeck (path, p.index);
 		
-
+	//	var statusSystem = container.GetAspect<StatusSystem>();
+	//	foreach(Card card in deck) 
+	//		statusSystem.InitializeCard(card, DeckFactory.Cards[card.id]);
 
 		
 		p [Zones.Deck].AddRange (deck);
@@ -144,7 +150,7 @@ public partial class GameViewSystem : Node, IAspect {
 
 	public List<string> mapWorld(){
 		List<string> data = new();
-		var file =  Godot.FileAccess.Open(MapView.mapPath,Godot.FileAccess.ModeFlags.Read);
+		var file =  Godot.FileAccess.Open(DataManager.mapPath,Godot.FileAccess.ModeFlags.Read);
 		var fileText = file.GetAsText();
 		var contents = MiniJSON.Json.Deserialize (fileText) as Dictionary<string, object>;
 		file.Close();
@@ -173,137 +179,6 @@ public partial class GameViewSystem : Node, IAspect {
 	{
 		actionSystem.Update ();
 	}
-/*
-	void Temp_SetupSinglePlayer() {
-		var match = container.GetMatch ();
-		match.players [0].mode = ControlModes.Local;
-		Player p = match.players[0];
 
 
-			List<Card> deck = new();
-			
-			if(FileFactory.IsEmpty(PathFactory.playerDeckPath)){
-
-			var file =  Godot.FileAccess.Open("res://UserData/Cards/Player/CollectionSelection.txt",Godot.FileAccess.ModeFlags.Read);
-			var fileText = file.GetAsText();
-			file.Close();
-
-
-			if(fileText.Equals("RED"))
-			deck = DeckFactory.CreateDeck ("res://UserData/Cards/Player/DeckPacks/RedPack.txt", p.index);
-
-			if(fileText.Equals("GREEN"))
-			deck = DeckFactory.CreateDeck ("res://UserData/Cards/Player/DeckPacks/GreenPack.txt", p.index);
-
-			}else{
-			deck = DeckFactory.LoadDeck(PathFactory.playerDeckPath, p.index);
-			}
-
-			p [Zones.Deck].AddRange (deck);
-
-			//GRAVEYARD NEED TO BE ADDED
-			if(!FileFactory.IsEmpty(PathFactory.playerGraveyardPath)){
-			deck = DeckFactory.LoadDeck (PathFactory.playerGraveyardPath, p.index);
-			}
-	}
-
-	void SetupOpposer(){
-		var match = container.GetMatch ();
-		match.players [1].mode = ControlModes.Computer;
-		Player p = match.players[1];
-
-	//	if(FileFactory.FindNumberOfStringInstances(PathFactory.enemyDeckPath, "Enemy") <= 0)
-	//		CreateEnemyCards();
-
-		GenerateEnemiesBasedOnMapNode();
-		
-		var deck = DeckFactory.CreateDeck (PathFactory.enemyDeckPath, p.index);
-			p [Zones.Deck].AddRange (deck);
-
-			
-		RNGFactory.SaveSeed();
-	}
-	
-
-
-	void GenerateEnemiesBasedOnMapNode(){
-
-		if(!FileFactory.IsEmpty(PathFactory.enemyDeckPath))
-			return;
-
-		var file =  Godot.FileAccess.Open(MapGenerator.mapPath,Godot.FileAccess.ModeFlags.Read);
-		var fileText = file.GetAsText();
-		var contents = MiniJSON.Json.Deserialize (fileText) as Dictionary<string, object>;
-		file.Close();
-		var array = (List<object>)contents ["map"];
-		var nodeData = (Dictionary<string, object>)array.ElementAt(0);
-		int id = System.Convert.ToInt32(nodeData["currentMapNodeID"]); 
-		
-		
-		var worldPath = (string)nodeData["mapWorld"];
-		int playerDepth = System.Convert.ToInt32(nodeData["playerDepth"]); 
-
-		
-		var type = "Common"; 
-		if(id == 0){
-			type = "Special";
-		}
-		if(id == 2){
-			type = "Rare";
-		}
-		
-		
-
-			var folder = "res://UserData/Cards/Enemy/DeckPacks/" + worldPath  + "/Lvl" + playerDepth + "/" + type + "/";
-			var dir = DirAccess.Open(folder);
-			dir.ListDirBegin();
-			var allFiles = dir.GetFiles();
-			dir.ListDirEnd();
-			int i = RNGFactory.RandiRange(0,allFiles.Length - 1);
-			var newFile = FileAccess.Open(PathFactory.enemyDeckPath, FileAccess.ModeFlags.Write);
-				newFile.StoreString(Godot.FileAccess.Open(folder + allFiles[i],Godot.FileAccess.ModeFlags.Read).GetAsText());
-				newFile.Close();
-		
-		
-	}
-
-	void CreateEnemyCards(){
-		int MINEnemyCards = 1;
-		int MAXEnemyCards = 5;
-		
-		var cardCom =  Godot.FileAccess.Open(DeckFactory.cardCompendiumPath,Godot.FileAccess.ModeFlags.Read);
-		var fileText = cardCom.GetAsText();
-		cardCom.Close();
-        var enemyListCount = Regex.Matches(fileText, "\"id\":" + " " + "\"" + "Enemy").Count;
-		
-		
-
-
-		var amountOfCard = RNGFactory.RandiRange(MINEnemyCards, MAXEnemyCards);
-
-		
-		var file = Godot.FileAccess.Open(PathFactory.enemyDeckPath,Godot.FileAccess.ModeFlags.Write);
-		file.StoreString("{ \"deck\": [");
-		for(int i = 0; i < amountOfCard; i++){
-		var c = RNGFactory.RandiRange(1,enemyListCount);
-		file.StoreString("\"Enemy"+ c +"\",");
-		}
-		file.StoreString("\n ]}");
-		file.Close();
-	
-
-
-	//	Edit();
-
-	}
-	void Edit(){
-		var file = Godot.FileAccess.Open(PathFactory.enemyDeckPath,Godot.FileAccess.ModeFlags.Write);
-		file.StoreString("{ \"deck\": [");
-		file.StoreString("\"Enemy"+ 1 +"\",");
-		file.StoreString("\n ]}");
-		file.Close();
-	
-	}
-*/
-	
 }

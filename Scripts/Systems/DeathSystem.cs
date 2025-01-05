@@ -33,9 +33,28 @@ public class DeathSystem : Aspect, IObserve {
 		cardSystem.ChangeZone (action.card, Zones.Graveyard);
 	}
 
-	bool ShouldReap (Card card) {
+	bool OO (Card card) {
 		var target = card as IDestructable;
 		return target != null && target.hitPoints <= 0;
+	}
+
+	bool ShouldReap(Card card){
+		var oh = card.GetAspect<OverrideHealth>();
+	
+		if(oh == null){
+
+			Unit unit = (Unit)card;
+			return unit.hitPoints <= 0;
+
+		}else{
+			
+			
+		return StatusSystem.GetStatusValue(card, oh.status) <= 0;
+
+			
+			
+
+		}
 	}
 
 	void TriggerReap (Card card,Player player) {

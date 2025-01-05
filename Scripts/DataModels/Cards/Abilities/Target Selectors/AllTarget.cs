@@ -10,12 +10,21 @@ public class AllTarget : Aspect, ITargetSelector {
 	public Mark mark;
 
 	Condition cond;
-	string info;
+	
 
 	public List<Card> SelectTargets (IContainer game) {
 		var result = new List<Card> ();
+		
 		var system = game.GetAspect<TargetSystem> ();
 		var card = (container as Ability).card;
+
+		var status = (container as Ability).abilityRoot.container as Status;
+		if(status != null){
+			if(status.flip)
+			card = (container as Ability).evokedAbility.card;
+		}
+
+		
 		Condition condition = (container as Ability).GetAspect<Condition>();
 		
 		if(mark.alliance == Alliance.Target) {
@@ -52,7 +61,7 @@ public class AllTarget : Aspect, ITargetSelector {
 		var markData = (Dictionary<string, object>)data["mark"];
 		mark = new Mark (markData);
 
-		cond = DeckFactory.CreateCondition(container as Ability, data);
+	//	cond = DeckFactory.CreateCondition(container as Ability, data);
 		
 	}
 

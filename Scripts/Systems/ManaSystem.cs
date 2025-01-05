@@ -59,10 +59,10 @@ public class ManaSystem : Aspect, IObserve {
 
 		int cost = action.card.cost;
 
-		var poly = AugmentSystem.CheckPolymorph(action.card);
+		//var poly = AugmentSystem.CheckPolymorph(action.card);
 		
-		if (poly != null)
-			cost = poly.cost;
+		//if (poly != null)
+		//	cost = poly.cost;
 		
 		if(cost == -1){
 			mana.spent += mana.permanent;

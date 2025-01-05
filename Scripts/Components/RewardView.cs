@@ -137,8 +137,8 @@ public partial class RewardView : Node, IAspect {
 
 		initialized = false;
 		LoadFileIFEmpty();
-		LoadFileTOWeightedList(rarityWeightFilePath);
-		LoadFileTOWeightedList(lootGroupWeightFilePath);
+		LoadFileTOWeightedList(DataManager.rarityWeightFilePath);
+		LoadFileTOWeightedList(DataManager.lootGroupWeightFilePath);
 		GenerateCardRewardPack();
 
 		
@@ -159,13 +159,13 @@ public partial class RewardView : Node, IAspect {
 
 	List<Card> deck = new();
 
-		if(FileFactory.Contains("res://UserData/Cards/Player/Deck.txt", "deck")){
+		if(FileFactory.Contains(DataManager.playerdeckPath, "deck")){
 			
-			deck = DeckFactory.CreateDeck("res://UserData/Cards/Player/Deck.txt", p.index);
+			deck = DeckFactory.CreateDeck(DataManager.playerdeckPath, p.index);
 
 		}else{
 
-			deck = DeckFactory.CreateDeck ("res://UserData/Cards/Player/FirstStarterPack.txt", p.index);
+			deck = DeckFactory.CreateDeck (DataManager.placeHolderDeck, p.index);
 		}
 
 		p [Zones.Deck].AddRange (deck);
@@ -193,23 +193,16 @@ public partial class RewardView : Node, IAspect {
 
 	
 	//File Paths that are edited
-	public static string rarityWeightFilePath = "res://UserData/LootTable/RarityWeight.txt";
-	public static string lootGroupWeightFilePath = "res://UserData/LootTable/LootGroupWeight.txt";
-
-
-
-
-	public static string loadedLootFilePath = "res://UserData/LootTable/LoadedLoot.txt";
-	private string baseRarityFilePath = "res://UserData/LootTable/BaseRarity.txt";
+	
 
 	void LoadFileIFEmpty(){
 		
 
-		if(!FileFactory.Contains(rarityWeightFilePath,"list")){
+		if(!FileFactory.Contains(DataManager.rarityWeightFilePath,"list")){
 
-		var editFile =  Godot.FileAccess.Open(rarityWeightFilePath,Godot.FileAccess.ModeFlags.Write);
+		var editFile =  Godot.FileAccess.Open(DataManager.rarityWeightFilePath,Godot.FileAccess.ModeFlags.Write);
 
-		var file = Godot.FileAccess.Open(baseRarityFilePath, Godot.FileAccess.ModeFlags.Read);
+		var file = Godot.FileAccess.Open(DataManager.baseRarityFilePath, Godot.FileAccess.ModeFlags.Read);
 		var fileText = file.GetAsText();
 		file.Close();
 
@@ -219,9 +212,9 @@ public partial class RewardView : Node, IAspect {
 
 		}
 
-		if(!FileFactory.Contains(lootGroupWeightFilePath,"list")){
+		if(!FileFactory.Contains(DataManager.lootGroupWeightFilePath,"list")){
 
-		var editFile =  Godot.FileAccess.Open(lootGroupWeightFilePath,Godot.FileAccess.ModeFlags.Write);
+		var editFile =  Godot.FileAccess.Open(DataManager.lootGroupWeightFilePath,Godot.FileAccess.ModeFlags.Write);
 
 
 		editFile.StoreString("{");
@@ -229,13 +222,13 @@ public partial class RewardView : Node, IAspect {
 		
 		
 		foreach	(var dis in SceneSwitcher.node.dispositions){
-		DirAccess dir = DirAccess.Open("res://UserData/Cards/Player/DeckPacks/LootPacks/" + dis.ToString() + "/");
+		DirAccess dir = DirAccess.Open("res://Data/PackCollection/Player/DeckPacks/LootPacks/" + dis.ToString() + "/");
 		
 		var files = dir.GetFiles();
 		
 		foreach(var f in files){
 
-			var str = "res://UserData/Cards/Player/DeckPacks/LootPacks/" + dis.ToString() + "/" + f;
+			var str = "res://Data/PackCollection/Player/DeckPacks/LootPacks/" + dis.ToString() + "/" + f;
 
 			editFile.StoreString("\n{");
 			editFile.StoreString("\n\"name\": ");
@@ -258,9 +251,9 @@ public partial class RewardView : Node, IAspect {
 	void GenerateCardRewardPack(){
 
 		
-		if(!FileFactory.Contains(loadedLootFilePath, "deck")){
+		if(!FileFactory.Contains(DataManager.loadedLootFilePath, "deck")){
 		
-			var editfile =  Godot.FileAccess.Open(loadedLootFilePath,Godot.FileAccess.ModeFlags.Write);
+			var editfile =  Godot.FileAccess.Open(DataManager.loadedLootFilePath,Godot.FileAccess.ModeFlags.Write);
 			editfile.StoreString("{ \"deck\": [");
 		
 		   for(int i = 0; i < rewardAmount; i++){
@@ -269,8 +262,8 @@ public partial class RewardView : Node, IAspect {
 
 			
 			
-				var rarity = WeightRandomSelection.PickAWeightedItem(rarityWeightFilePath);
-				var lootGroup = WeightRandomSelection.PickAWeightedItem(lootGroupWeightFilePath);
+				var rarity = WeightRandomSelection.PickAWeightedItem(DataManager.rarityWeightFilePath);
+				var lootGroup = WeightRandomSelection.PickAWeightedItem(DataManager.lootGroupWeightFilePath);
 				
 				
 				var id = ChooseACard(rarity,lootGroup);
@@ -304,7 +297,7 @@ public partial class RewardView : Node, IAspect {
 
 		}else{
 			
-			var deck = DeckFactory.CreateDeck(loadedLootFilePath, 0);
+			var deck = DeckFactory.CreateDeck(DataManager.loadedLootFilePath, 0);
 			foreach(var card in deck){
 				var instance = cardConstruct.Instantiate();
 				rewardNode2D.AddChild(instance);
@@ -367,7 +360,7 @@ public partial class RewardView : Node, IAspect {
 		
 		string group = lootGroup.name;
 		
-		
+		GD.Print("GROUP " + group);
 
 		var file = Godot.FileAccess.Open(group, Godot.FileAccess.ModeFlags.Read);
 		
@@ -409,7 +402,7 @@ public partial class RewardView : Node, IAspect {
 		if(initialized == true)
 			return;
 
-		var file =  Godot.FileAccess.Open(MapView.mapPath,Godot.FileAccess.ModeFlags.Read);
+		var file =  Godot.FileAccess.Open(DataManager.mapPath,Godot.FileAccess.ModeFlags.Read);
 		var fileText = file.GetAsText();
 		var contents = MiniJSON.Json.Deserialize (fileText) as Dictionary<string, object>;
 		file.Close();
@@ -432,9 +425,9 @@ public partial class RewardView : Node, IAspect {
 	public void SelectCard(Card card)
     {	
 		
-		FileFactory.ClearFile(loadedLootFilePath);
+		FileFactory.ClearFile(DataManager.loadedLootFilePath);
 		p.deck.Add(card);
-		SaveFactory.SaveDeck("res://UserData/Cards/Player/Deck.txt",p);
+		SaveFactory.SaveDeck(DataManager.playerdeckPath,p);
 	//	SaveFactory.SaveCurrentScene("res://Scenes/MapScene.tscn");
 		InitializeNextScene();
 		List<Item> itemList =  new();
@@ -458,8 +451,8 @@ public partial class RewardView : Node, IAspect {
 		}
 
 		
-		WeightRandomSelection.SaveToWeightedCollection(rarityWeightFilePath,itemList);
-		LoadWeightedListTOFile(rarityWeightFilePath);
+		WeightRandomSelection.SaveToWeightedCollection(DataManager.rarityWeightFilePath,itemList);
+		LoadWeightedListTOFile(DataManager.rarityWeightFilePath);
 
 		
 		itemList.Clear();
@@ -467,19 +460,22 @@ public partial class RewardView : Node, IAspect {
 		var data  = DeckFactory.Cards[card.id];
 	
 
-		var array = (List<object>)data ["group"];
+	//	var array = (List<object>)data ["group"];
+		var groupList = (string)data["group"];
+		var array = groupList.Split("|");
+
 		var disposition = (string)data ["disposition"];
 		
-		foreach (object str in array) {
-			string group = "res://UserData/Cards/Player/DeckPacks/LootPacks/" + disposition + "/" + str.ToString() + ".txt";
+		foreach (string str in array) {
+			string group = "res://Data/PackCollection/Player/DeckPacks/LootPacks/" + disposition + "/" + str + ".txt";
 			Item item = new(group,25);
 			itemList.Add (item);
 		}
 
 
 	
-		WeightRandomSelection.SaveToWeightedCollection(lootGroupWeightFilePath,itemList);
-		LoadWeightedListTOFile(lootGroupWeightFilePath);
+		WeightRandomSelection.SaveToWeightedCollection(DataManager.lootGroupWeightFilePath,itemList);
+		LoadWeightedListTOFile(DataManager.lootGroupWeightFilePath);
 
 
 	}
@@ -556,22 +552,22 @@ public partial class RewardView : Node, IAspect {
 	
 	private void ResetWeightedSystem(){
 
-		var editFile =  Godot.FileAccess.Open(rarityWeightFilePath,Godot.FileAccess.ModeFlags.Write);
+		var editFile =  Godot.FileAccess.Open(DataManager.rarityWeightFilePath,Godot.FileAccess.ModeFlags.Write);
 
 		editFile.StoreString("");
 
 		editFile.Close();
 
 
-		editFile =  Godot.FileAccess.Open(lootGroupWeightFilePath,Godot.FileAccess.ModeFlags.Write);
+		editFile =  Godot.FileAccess.Open(DataManager.lootGroupWeightFilePath,Godot.FileAccess.ModeFlags.Write);
 
 		
 		editFile.StoreString("");
 
 		editFile.Close();
 
-		WeightRandomSelection.RemoveFromWeightCollection(rarityWeightFilePath);
-		WeightRandomSelection.RemoveFromWeightCollection(lootGroupWeightFilePath);
+		WeightRandomSelection.RemoveFromWeightCollection(DataManager.rarityWeightFilePath);
+		WeightRandomSelection.RemoveFromWeightCollection(DataManager.lootGroupWeightFilePath);
 
 	}	
 	

@@ -23,13 +23,13 @@ public class Condition : TheLiquidFire.AspectContainer.Container, IAspect {
 			
 			if(comparator.Equals("contain")){
 				string name = card.name.ToLower();
-				if(name.Contains(conditionInfo) || name.Contains("value"))
+				if(name.Contains(conditionInfo) || name.Contains(value))
 					return true;
 			}
 
-			int amount = game.GetAspect<AugmentSystem>().ParseAbilityInfo(conditionInfo, card, ability);
+			int amount = game.GetAspect<StatusSystem>().ParseAbilityInfo(conditionInfo, card, ability);
 			
-			int output = game.GetAspect<AugmentSystem>().ParseAbilityInfo(value, card, ability);
+			int output = game.GetAspect<StatusSystem>().ParseAbilityInfo(value, card, ability);
 
 			//GD.Print("AMOUNT = " + amount +"\n" + "Output = " + output);
 
@@ -39,10 +39,10 @@ public class Condition : TheLiquidFire.AspectContainer.Container, IAspect {
 			}else if(comparator.Equals("!=")){
 				if(amount != output)
 					return true;
-			}else if(comparator.Equals("<=")){
+			}else if(comparator.Equals("≤")){
 				if(amount <= output)
 					return true;
-			}else if(comparator.Equals(">=")){
+			}else if(comparator.Equals("≥")){
 				if(amount >= output)
 					return true;
 			}else if(comparator.Equals("<")){

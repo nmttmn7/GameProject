@@ -4,3 +4,15 @@ red-34
 green-137
 blue-0
 name- #228900
+
+#Red 255 -0 - 0
+#Blue 0 210 255
+#Green 120 255 0
+#Yellow/Orange 255 200 0
+#Grey 210-210-210
+
+
+
+Card background
+Red - 94 0 0 
+Dark Red - 65 0 0

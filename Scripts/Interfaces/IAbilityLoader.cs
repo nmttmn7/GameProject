@@ -17,7 +17,7 @@ public interface IAbilityLoader {
 
 		if(ITargetSelector != null){
 		str += ITargetSelector.LoadText(); 
-		if(ability.abilityCount > 1)
+		if(!ability.abilityCount.ToString().Equals("1"))
 			str +=  "X" + ability.abilityCount + " ";
 		}
 
@@ -35,9 +35,9 @@ public interface IAbilityLoader {
 		string info = condition.conditionInfo;
 		string valueInfo = condition.value;
 		
-		info = info.Replace("infoability", "Ability");
-		info = info.Replace("infostatus", "Status");
-		text += "with " + InterpretData(info) + " " + condition.comparator + " " + InterpretData(valueInfo) + " ";
+	//	info = info.Replace("infoability", "Ability");
+	//	info = info.Replace("infostatus", "Status");
+		text += "IF " + InterpretData(info) + " " + condition.comparator + " " + InterpretData(valueInfo) + " ";
 		return text;
 		
 	}
@@ -45,28 +45,16 @@ public interface IAbilityLoader {
 	
 	public string InterpretStatus(Ability ability){
 
-		Status status = ability.GetAspect<Status>();
+		StatusData statusData = ability.GetAspect<StatusData>();
 		string description = "";
 
-		if(status == null)
+		if(statusData == null)
 			return description;
-
-		string str = status.increase.ToString();
-
-
-
-		if(status.modifier.Contains("x"))
-			description += "x";
-
-		var split = str.Split("|");
-		foreach(var sub in split){
-			description += InterpretData(sub);
-		}
-
-		var data = DeckFactory.Statuses[status.id];
-			string statSprite = (string)data["sprite"];
-			description += "[img=40]" + statSprite + "[/img] ";
+		
+		description += "Apply ";
 	
+		description += statusData.InterpretStatus(statusData.data);
+
 		return description;
 	}
 
@@ -141,6 +129,10 @@ public interface IAbilityLoader {
 				return "target's [img=40]" + statSprite + "[/img] ";
 			}
 			
+		}
+
+		if(info.Contains("abilitychainposition")){
+			return "[img=40]" + "res://Sprites/UIIcons/armoured-shell.png" + "[/img] ";
 		}
 		
 			return info + " ";

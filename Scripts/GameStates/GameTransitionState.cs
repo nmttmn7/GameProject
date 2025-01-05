@@ -23,8 +23,8 @@ public class GameTransitionState : BaseState {
 		GD.Print("Game Transition");
 		var match = container.GetAspect<DataSystem> ().match;
 		
-		SaveFactory.SaveDeck("res://UserData/Cards/Player/Deck.txt", match.players[0]);
-		FileFactory.ClearFile("res://UserData/Cards/Enemy/Deck.txt");
+		SaveFactory.SaveDeck(DataManager.playerdeckPath, match.players[0]);
+		FileFactory.ClearFile(DataManager.enemydeckPath);
 		tween.TweenInterval(2);
 		tween.TweenCallback(Callable.From(() => SceneSwitcher.node.SwitchScene("res://Scenes/RewardScene.tscn")));
 		}

@@ -1,9 +1,0 @@
-{
-	"deck" : [
-		"d0zodiacaries1enemy5","d0zodiacaries1enemy5","d0zodiacaries1enemy5","d0zodiacaries1enemy5"
-	]
-	
-	"draw" : [
-		"2"
-	]
-}

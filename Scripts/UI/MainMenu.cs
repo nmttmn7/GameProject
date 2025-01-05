@@ -16,10 +16,9 @@ public partial class MainMenu : Node
 
 	}
 
-	public static string saveScene = "res://UserData/Scene/SaveScene.txt";
     private void ButtonVisibility()
     {	
-		if(!FileFactory.Contains(saveScene,"scene"))
+		if(!FileFactory.Contains(DataManager.saveScene,"scene"))
        		continueButton.Visible = false;
     }
 
@@ -36,23 +35,23 @@ public partial class MainMenu : Node
     private void ClearUserFiles()
     {
 
-	FileFactory.ClearFile(saveScene);
+	FileFactory.ClearFile(DataManager.saveScene);
 	
-    FileFactory.ClearFile(MapView.mapPath);
+    FileFactory.ClearFile(DataManager.mapPath);
 	
-	FileFactory.ClearFile(RewardView.loadedLootFilePath);
-	FileFactory.ClearFile(RewardView.rarityWeightFilePath);
-	FileFactory.ClearFile(RewardView.lootGroupWeightFilePath);
+	FileFactory.ClearFile(DataManager.loadedLootFilePath);
+	FileFactory.ClearFile(DataManager.rarityWeightFilePath);
+	FileFactory.ClearFile(DataManager.lootGroupWeightFilePath);
 
-	FileFactory.ClearFile(GameViewSystem.deckFilePath);
+	FileFactory.ClearFile(DataManager.playerdeckPath);
 
-	FileFactory.ClearFile("res://UserData/Cards/Enemy/Deck.txt");
+	FileFactory.ClearFile(DataManager.enemydeckPath);
 
     }
 
     private void OnContinuePressed(){
 
-		var file = Godot.FileAccess.Open(saveScene, Godot.FileAccess.ModeFlags.Read);
+		var file = Godot.FileAccess.Open(DataManager.saveScene, Godot.FileAccess.ModeFlags.Read);
 		var fileText = file.GetAsText();
 		var contents = MiniJSON.Json.Deserialize (fileText) as Dictionary<string, object>;
 		file.Close();

@@ -17,7 +17,7 @@ public class Augment : TheLiquidFire.AspectContainer.Container, IAspect {
 
 		text += "\n\"afflictions\": [";
 		foreach(var value in statusPairs.Values){
-			var stat = value.GetAspect<Status>();
+			var stat = value.GetAspect<Stat>();
 			if(stat.permanent){
 				text += "\n{";
 				text += stat.Save();

@@ -1,0 +1,45 @@
+{
+"id": "RagePack4",
+"type": "Unit",
+"rarity": "Common",
+"name": "RagePack4",
+"sprite": "uid://c5smq5nlc40a5",
+"cost": "1",
+"hit points": "6",
+"money": "0",
+"target": {
+"allowed": {
+"alliance": "Any",
+"zone": "Hand"
+},
+"preferred": {
+"alliance": "Enemy",
+"zone": "Hand"
+}
+}
+"abilities": [
+{
+"action": "DamageAction",
+"info": "0",
+"count": "4",
+"targetSelector": {
+"type": "RandomTarget",
+"mark": {
+"alliance": "Target",
+"zone": "Active"
+}
+}
+}
+]
+"afflictions": [{
+"id": "rage",
+"name": "Rage",
+"type": "INSTANT",
+"sprite": "res://Sprites/StatusSprites/Icons/fire-iris.png",
+"evokeType": "[color=]Passive[/color]",
+"description": "[color=white]Increases attack power.[/color]",
+"decr": "1",
+"value": "5",
+"flip": false,
+"color": red,}
+]}

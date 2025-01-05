@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bi73cqm7haucl"]
 
-[ext_resource type="Texture2D" uid="uid://bpha85kqx8enk" path="res://Sprites/StatusIcons/stack.png" id="1_4wauv"]
+[ext_resource type="Texture2D" uid="uid://bpha85kqx8enk" path="res://Sprites/StatusSprites/stack.png" id="1_4wauv"]
 [ext_resource type="SystemFont" uid="uid://d1eun1llll7oe" path="res://Fonts/KohoSystemFont.tres" id="2_cnknl"]
 
 [node name="Node2D" type="Node2D"]

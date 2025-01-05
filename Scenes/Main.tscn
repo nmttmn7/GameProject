@@ -1,12 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://bsl650avf8clx"]
+[gd_scene load_steps=31 format=3 uid="uid://bsl650avf8clx"]
 
 [ext_resource type="PackedScene" uid="uid://ckhqsabxslt4x" path="res://Constructs/ChangeTurnContruct.tscn" id="1_1mf0h"]
-[ext_resource type="Shader" path="res://Shaders/Galaxy.gdshader" id="1_4whf2"]
 [ext_resource type="Script" path="res://Scripts/Systems/GameViewSystem.cs" id="1_ktsjg"]
 [ext_resource type="PackedScene" uid="uid://6kix7u2g4dmb" path="res://Constructs/ManaConstruct.tscn" id="1_owwox"]
 [ext_resource type="Script" path="res://Scripts/Components/BoardView.cs" id="2_ad3t2"]
 [ext_resource type="Script" path="res://Scripts/Components/PlayerView.cs" id="3_0q8gm"]
-[ext_resource type="Texture2D" uid="uid://kjuml6mgad16" path="res://Sprites/MapIcons/normal_ui_set A/UI board Large  parchment.png" id="3_3vfip"]
 [ext_resource type="Script" path="res://Scripts/Components/HandView.cs" id="4_waych"]
 [ext_resource type="PackedScene" uid="uid://ce17stvn2ta8x" path="res://Animations/AniShake.tscn" id="5_6yeo6"]
 [ext_resource type="Script" path="res://Scripts/Components/DeckView.cs" id="5_q8wdx"]
@@ -25,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://bi73cqm7haucl" path="res://Constructs/DrawViewConstruct.tscn" id="18_1i384"]
 [ext_resource type="PackedScene" uid="uid://bji7841q126ar" path="res://Constructs/HealthConstruct.tscn" id="19_bper5"]
 [ext_resource type="SystemFont" uid="uid://d1eun1llll7oe" path="res://Fonts/KohoSystemFont.tres" id="21_ss5mj"]
+[ext_resource type="Shader" path="res://Shaders/ToonWaterEffect.gdshader" id="24_6xlhh"]
 
 [sub_resource type="Environment" id="Environment_3avdd"]
 background_mode = 3
@@ -37,26 +36,30 @@ glow_blend_mode = 0
 glow_hdr_threshold = 0.5
 glow_hdr_scale = 1.5
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nxlqv"]
-shader = ExtResource("1_4whf2")
-shader_parameter/iterations = 17
-shader_parameter/formuparam = 0.53
-shader_parameter/volsteps = 10
-shader_parameter/stepsize = 0.1
-shader_parameter/zoom = 0.8
-shader_parameter/tile = 0.85
-shader_parameter/speed = 0.001
-shader_parameter/brightness = 0.0015
-shader_parameter/darkmatter = 0.3
-shader_parameter/distfading = 0.73
-shader_parameter/saturation = 0.85
-shader_parameter/rotation = null
-shader_parameter/colorampMix = 0.5
-shader_parameter/isColoramp = null
-
 [sub_resource type="SystemFont" id="SystemFont_pk7vw"]
 font_names = PackedStringArray("KoHo")
 subpixel_positioning = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xv4tg"]
+shader = ExtResource("24_6xlhh")
+shader_parameter/R = Vector2(0.8, -0.415)
+shader_parameter/scale = -0.54
+shader_parameter/speed = 0.035
+shader_parameter/direction = Vector3(1, 1, 0)
+shader_parameter/distortion = 0.22
+shader_parameter/layers = 2.0
+shader_parameter/shades = -0.22
+shader_parameter/steps = 6
+shader_parameter/tint = Vector3(0.459, 0.765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q4dqs"]
+bg_color = Color(0, 0, 0, 0.588235)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ysmp"]
+bg_color = Color(0.823529, 0.823529, 0.823529, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gxmpx"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="Main" type="Node2D"]
 position = Vector2(576, 324)
@@ -64,33 +67,6 @@ metadata/_edit_lock_ = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3avdd")
-
-[node name="BackGround" type="ColorRect" parent="."]
-z_index = -10
-material = SubResource("ShaderMaterial_nxlqv")
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.935, 1.935)
-pivot_offset = Vector2(576, 324)
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-
-[node name="TextureRect" type="TextureRect" parent="BackGround"]
-layout_mode = 0
-offset_left = -358.367
-offset_top = 512.114
-offset_right = 1108.39
-offset_bottom = 1065.11
-texture = ExtResource("3_3vfip")
 
 [node name="PlayerHand" type="Node2D" parent="."]
 position = Vector2(0, 250)
@@ -219,7 +195,7 @@ fit_content = true
 scroll_active = false
 
 [node name="EnemyDrawLabel" type="Node2D" parent="."]
-position = Vector2(473.42, -113.96)
+position = Vector2(-750, 125)
 scale = Vector2(2.5, 2.5)
 
 [node name="Mana" type="RichTextLabel" parent="EnemyDrawLabel"]
@@ -242,6 +218,77 @@ theme_override_constants/outline_size = 30
 theme_override_fonts/normal_font = SubResource("SystemFont_pk7vw")
 theme_override_font_sizes/normal_font_size = 100
 bbcode_enabled = true
-text = "[center]Draw: ? Round: ?"
+text = "[center]Draw: 0 Round: 0"
 fit_content = true
 scroll_active = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -50
+material = SubResource("ShaderMaterial_xv4tg")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(12.915, 12.915)
+pivot_offset = Vector2(100, 100)
+mouse_filter = 2
+color = Color(0, 0.12549, 0.113725, 1)
+
+[node name="Panel" type="Panel" parent="."]
+z_index = -15
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1000.0
+offset_top = 393.73
+offset_right = 1000.0
+offset_bottom = 571.05
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q4dqs")
+
+[node name="Panel2" type="Panel" parent="."]
+z_index = -15
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -880.0
+offset_top = -75.0
+offset_right = -620.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 75)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ysmp")
+
+[node name="Panel2" type="Panel" parent="Panel2"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -135.0
+offset_top = -155.0
+offset_right = 135.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.035, 1.035)
+pivot_offset = Vector2(130, 75)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gxmpx")

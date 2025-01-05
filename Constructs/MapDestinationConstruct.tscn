@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dma6ljfhf3flc" path="res://Sprites/MapIcons/StatusIconsHorns.png" id="4_6m85y"]
 [ext_resource type="Texture2D" uid="uid://cs8wjxku0h5g6" path="res://Sprites/MapIcons/StatusIconsHorns2.png" id="4_o5rvy"]
 [ext_resource type="Texture2D" uid="uid://c6s75f8kaksjr" path="res://Sprites/MapIcons/uncertainty.png" id="5_jchi6"]
-[ext_resource type="Texture2D" uid="uid://dob8t01hr2omj" path="res://Sprites/StatusIcons/checkered-diamond(1).png" id="5_mbyli"]
+[ext_resource type="Texture2D" uid="uid://dob8t01hr2omj" path="res://Sprites/StatusSprites/checkered-diamond(1).png" id="5_mbyli"]
 [ext_resource type="Texture2D" uid="uid://d2k650dr84vb3" path="res://Sprites/MapIcons/arena .png" id="6_as8ia"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fqkum"]

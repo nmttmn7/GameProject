@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://dl0s8vtqymelc"]
 
-[ext_resource type="Texture2D" uid="uid://brpqkeifrngxl" path="res://Sprites/StatusIcons/thorny-tentacle.png" id="1_gyuda"]
 [ext_resource type="Script" path="res://Scripts/UI/StatusUI.cs" id="1_tsu6g"]
 [ext_resource type="SystemFont" uid="uid://d1eun1llll7oe" path="res://Fonts/KohoSystemFont.tres" id="2_c8c1t"]
-[ext_resource type="Texture2D" uid="uid://b7d15ob8ky0b2" path="res://Sprites/StatusIcons/plain-arrow.png" id="4_qcn8p"]
+[ext_resource type="Texture2D" uid="uid://b06fk8sfr04r8" path="res://Sprites/StatusSprites/Icons/fire-iris.png" id="2_k7e6l"]
+[ext_resource type="Texture2D" uid="uid://b7d15ob8ky0b2" path="res://Sprites/StatusSprites/Icons/plain-arrow.png" id="4_qcn8p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_prec3"]
 
@@ -14,10 +14,10 @@ use_parent_material = true
 [node name="StatusUI" type="Node" parent="." node_paths=PackedStringArray("label", "statusIcon", "decreaseIcon")]
 script = ExtResource("1_tsu6g")
 label = NodePath("../Label")
-statusIcon = NodePath("../TextureRect")
+statusIcon = NodePath("../Icon")
 decreaseIcon = NodePath("../Label/DecreaseIcon")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Icon" type="TextureRect" parent="."]
 use_parent_material = true
 anchors_preset = 8
 anchor_left = 0.5
@@ -33,7 +33,7 @@ grow_vertical = 2
 scale = Vector2(0.4, 0.4)
 pivot_offset = Vector2(64, 64)
 mouse_filter = 2
-texture = ExtResource("1_gyuda")
+texture = ExtResource("2_k7e6l")
 expand_mode = 1
 stretch_mode = 4
 

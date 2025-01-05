@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://38ecw4faqfte" path="res://icon.svg" id="1_1magp"]
 [ext_resource type="Script" path="res://Scripts/UI/CollectionSelector.cs" id="1_j7esl"]
-[ext_resource type="Texture2D" uid="uid://jh5x0iro6t7q" path="res://Sprites/StatusIcons/warlord-helmet.png" id="2_wwb3x"]
-[ext_resource type="Texture2D" uid="uid://c7ykh1d7farll" path="res://Sprites/StatusIcons/disintegrate.png" id="3_hwkxx"]
+[ext_resource type="Texture2D" uid="uid://jh5x0iro6t7q" path="res://Sprites/StatusSprites/warlord-helmet.png" id="2_wwb3x"]
+[ext_resource type="Texture2D" uid="uid://c7ykh1d7farll" path="res://Sprites/StatusSprites/disintegrate.png" id="3_hwkxx"]
 [ext_resource type="Texture2D" uid="uid://b38f4dxki4ckw" path="res://Sprites/UIIcons/tesla-coil.png" id="4_hqkic"]
 
 [node name="CollectionSelector" type="Control" node_paths=PackedStringArray("firstButton", "secondButton", "thirdButton", "devButton")]

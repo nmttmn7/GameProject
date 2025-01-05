@@ -1,0 +1,547 @@
+Fire - Deal produce more fire cards that get out of control
+//Card that fire is health
+
+Growth/Death Poison - Spawn good cards, and kill do something, Draw
+
+Chaos - Fire - Rage - Many cards, Tribalism, Low healt
+
+Robot - Mana , Ordering abilities,
+
+		{Create a copy of this card}{Apply fire to self}{deal damage based on the amount of this card in pool if fire is on}
+		{Apply 7 rage to self}{multi hit if rage is = 7}{If rage = 7 end ability chain}
+		{Apply fire to self}{if card has fire deal 20 fire to enemy}{enemy has fire gain rage}{if fire and rage deal fire to enemy and deal damage}
+		{Apply fire 5}{if card has fire apply fire x2}
+		
+		{Hit card}{if card has fire on it deal 1 damage and apply fire}
+		
+		{Self and increase buff to rage}{If card has zero heal rage increase even more}
+		{Affliction each time this card attacks it applies fire}
+		{If this card has no rage or 7 fire on it do 7 hits}
+		
+		-------{Turns rage into a stackable that explodes and does fire}
+		
+		{Increase fire self decrease = -1}
+		{Deal fire based on the amount of fire cards}
+		{Rage is health om this card}
+		{Hit 1}{Draw 3 is this is 3 ability}
+		{Lose hp}{Do 12 damage}
+		{Apply bloodlust to self}
+		
+		{Deal damage to all cards with fire}
+		{Randomly apply fire}
+		
+		{Deal Damage to all card}{Gain rage based on the amount of damage dealt}
+		{Afflictions All abilities on this card is played again}
+		{Whenever this card is drawn kill it and do damage}
+		{Copy this card}{Copy this card}{When this card is drawn draw another card}
+		{Unplayable}{when ever this card is drawn play it}{Kill this card and do damage around}
+		{Kill a friendly card}{Apply block to card}
+		{Rage behaves as block}{Fire behaves as block}{Whenever you gain rage or block deal damage to enemy cards}
+		{Consume hand deal damage based on amount of cards consumed}
+		{Kill this card}{Double all stats on card}
+		[When this card is hit a unit other card are played]{Minion hit the same card that overlord has yea}
+		{Cannot be played summon a fire minion}
+		{Cannot be played summon a rage minion}
+		{Cannot be played deal  damage minion}
+		{Cannot be played apply 5 rage to all minions}
+		{Cannot be played apply 5 rage to all minions}
+		{Each time Im summoned gain 1 rage forever}
+		{If unit has fire bounce to another unit until all units have fire}
+		{If unit has fire bounce to another unit until find unit no fire or all units been touched}
+		{If i have fire apply fire 3 random units}
+		{Apply fire for the amount of fire i have then kill this card}
+		{Fire OnDraw apply fire to all unit everywhere}
+		{Deal damage based on fire on this card}
+		{Apply unbrittle - Take less damage for amount of hits}
+		
+{	
+			"id": "ToxinPackCard1",
+			"type": "Unit", 
+			"disposition": "D2",
+			"rarity": "Common",
+			"name": "Shroomer",
+			"sprite": "res://Sprites/CardSprites/Shroomer.png",
+			"cost": 1,
+			"hit points": 4,
+			"group": ["ToxinPack"]
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"status":{
+				"id": "toxin"
+				"incr": "5"
+				
+			}
+	
+			
+			}]
+			
+			
+			
+		}
+	
+	
+	
+	{ "statuses": [
+
+{
+	"id": "id",
+	"name": "name",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusIcons/ice-cube.svg"
+	"evokeType": "OnDraw"
+	"description": "[color=white]Freeze an enemy.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": false
+	"color": "blue"
+	"abilities":[]
+}
+
+{
+	"id": "rage",
+	"name": "Rage",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusIcons/warlord-helmet.png"
+	"evokeType": "Passive"
+	"description": "[color=white]Increases attack power.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": false
+	"color": "red"
+	"abilities":[]
+}
+
+{
+	"id": "scorched",
+	"name": "Scorched",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusIcons/ice-cube.svg"
+	"evokeType": "OnAttack"
+	"description": "[color=white]Attacks deal fire.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": false
+	"color": "red"
+	"abilities":[{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 1,
+				"targetSelector": {
+					"type": "EvokeTarget",
+				},
+				"status":{
+				"id": "fire"
+				"incr": "1"
+			}
+				
+				}]
+}
+
+{
+	"id": "thorns",
+	"name": "Thorns",
+	"type": "INSTANT"
+	"sprite": ""res://Sprites/StatusIcons/thorny-tentacle.png"
+	"evokeType": "OnWounded"
+	"description": "[color=white]Deal damage to attacker.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": true
+	"color": "green"
+	"abilities":[{
+	"action": "DamageAction",
+	"info": "cardstatusthorns",
+	"count": 1,
+	"targetSelector": {
+	"type": "SelfTarget",
+	},
+	}]
+}
+
+
+
+{
+	"id": "poisonous",
+	"name": "Poisonous",
+	"type": "INNATE"
+	"sprite": "res://Sprites/StatusIcons/poison.png"
+	"evokeType": "OnWounded"
+	"description": "[color=white]Hittin this card applies toxin.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": true
+	"color": "green"
+	"abilities":[{
+	"action": "DamageAction",
+	"info": "skip",
+	"count": 1,
+	"targetSelector": {
+	"type": "SelfTarget",
+	},		
+	"status":{
+	"id": "toxin"
+	"incr": "1"
+	}
+	}]
+}
+
+{
+	"id": "death",
+	"name": "Death",
+	"type": "INNATE"
+	"sprite": "res://Sprites/StatusIcons/pirate-grave.png"
+	"evokeType": "OnPlay"
+	"description": "[color=white]Kill this card after it is played.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": false
+	"color": "grey"
+	"abilities":[{
+				"action": "DamageAction",
+				"info": "cardMaxHealth",
+				"count": 1,
+				"targetSelector": {
+					"type": "SelfTarget",
+				},
+				
+				}]
+}
+{
+	"id": "toxin",
+	"name": "Toxin",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusIcons/disintegrate.png"
+	"evokeType": "OnDraw"
+	"description": "[color=white]ReduceDamage.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": false
+	"color": "green"
+	"abilities":[{
+				"action": "DamageAction",
+				"info": "cardstatustoxin",
+				"count": 1,
+				"targetSelector": {
+					"type": "SelfTarget",
+				},
+				
+				}]
+}
+
+{
+	"id": "burn",
+	"name": "Burn",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusIcons/bleeding-wound.png"
+	"evokeType": "OnWounded"
+	"description": "Deal damage."
+	"decr": "1"
+	"abilities":[{
+				"action": "DamageAction",
+				"info": 0,
+				"count": 1,
+				"targetSelector": {
+					"type": "SelfTarget",
+					"count": 1
+				},
+				
+				}]
+}
+
+{
+	"id": "bleed",
+	"name": "Bleed",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusIcons/bleeding-wound.png"
+	"evokeType": "OnPLay"
+	"description": "[color=white]Deal Damage.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": false
+	"color": "red"
+	"abilities":[{
+				"action": "DamageAction",
+				"info": "1",
+				"count": 1,
+				"targetSelector": {
+					"type": "SelfTarget",
+					"count": 1
+				},
+				
+				}]
+}
+
+{
+	"id": "slash",
+	"name": "Slash",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusIcons/fangs.png"
+	"evokeType": "OnAttack"
+	"decr": "1"
+	"description": "All attacks proc bleed."
+	"abilities":[{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 1,
+				"targetSelector": {
+					"type": "EvokeTarget",
+				},
+				"status":{
+				"id": "bleed"
+				"incr": "1"
+			}
+				
+				}]	
+}
+
+
+
+{
+	"id": "cold",
+	"name": "Cold",
+	"type": "STACKABLE"
+	"sprite": "res://Sprites/StatusIcons/ice-cube.svg"
+	"evokeType": "{5<=}"
+	"description": "[color=white]Freeze an enemy.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": false
+	"color": "blue"
+	"abilities":[{
+				"action": "DamageAction",
+				"info": "2",
+				"count": 1,
+				"targetSelector": {
+					"type": "SelfTarget",
+					"count": 1
+				},
+				
+				}]
+}
+
+
+{
+	"id": "Deepfreeze",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusIcons/brain-freeze.png"
+	"evokeType": "null"
+	"decr": "1"
+	"description": "Deepfreeze: Card can NOT be played."
+	"abilities":[]
+
+}
+
+{
+	"id": "sickness",
+	"name": "Sickness",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusIcons/ice-cube.svg"
+	"evokeType": "Passive"
+	"description": "[color=white]ReduceDamage.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": false
+	"color": "green"
+	"abilities":[]
+}
+
+
+
+
+
+{
+	"id": "bloodlust",
+	"name": "Bloodlust",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusIcons/bleeding-heart.png"
+	"evokeType": "OnWounded"
+	"description": "[color=white]Gain Rage for the amount of damage taken.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": false
+	"color": "red"
+	"abilities":[{
+	"action": "DamageAction",
+	"info": "skip",
+	"count": 1,
+	"targetSelector": {
+	"type": "SelfTarget",
+	},
+	"status":{
+	"id": "rage"
+	"incr": "evoke"
+	}
+	}]
+}
+
+
+{
+	"id": "riposte",
+	"name": "Riposte",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusIcons/thorny-tentacle.png"
+	"evokeType": "OnWounded"
+	"description": "Deal damage to attacker."
+	"decr": "1"
+	"flip": true
+	"abilities":[{
+	"action": "DamageAction",
+	"info": "targetstatusriposte",
+	"count": 1,
+	"targetSelector": {
+	"type": "SelfTarget",
+	},
+	}]	
+}
+
+{
+	"id": "status02",
+	"name": "Poisonous",
+	"type": "INNATE"
+	"sprite": "res://Sprites/StatusIcons/poison.png"
+	"evokeType": "OnWounded"
+	"description": "Hittin this card applies"
+	"decr": "1"
+	"valueTOability": false
+	"flip": true
+	"abilities":[{
+	"action": "DamageAction",
+	"info": "skip",
+	"count": 1,
+	"targetSelector": {
+	"type": "SelfTarget",
+	},		
+	"status":{
+	"id": "status01"
+	"incr": "1"
+	"modifier": "+"
+	}
+	}]	
+}
+
+
+{
+	"id": "status04",
+	"name": "Permanent",
+	"type": "INNATE"
+	"sprite": "res://Sprites/StatusIcons/pirate-grave.png"
+	"evokeType": "null"
+	"description": "Kill this card after it is played."
+	"decr": "1"
+	"abilities":[]
+
+}
+
+
+
+
+
+{
+	"id": "status07",
+	"name": "Explosive",
+	"type": "INNATE"
+	"sprite": "res://Sprites/StatusIcons/Explosion.png"
+	"evokeType": "OnDeath"
+	"valueTOability": false
+	"description": "Deal damage."
+	"decr": "1"
+	"abilities":[{
+				"action": "DamageAction",
+				"info": "2",
+				"count": 1,
+				"targetSelector": {
+					"type": "AllTarget",
+					"mark": {
+						"alliance": "Enemy",
+						"zone": "Hand"
+					},
+				}
+			
+			}]
+
+}
+
+{
+	"id": "polymorph",
+	"name": "Polymorphism",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusIcons/sheep.png"
+	"evokeType": "null"
+	"decr": "1"
+	"valueTOability": false
+	"description": "Deal damage on death."
+	"abilities":[]
+				
+}
+
+{
+	"id": "Leech",
+	"type": "INNATE"
+	"sprite": "res://Sprites/StatusIcons/fangs.png"
+	"evokeType": "OnAttack"
+	"decr": "1"
+	"valueTOability": false
+	"description": "Heal for the amount of damage dealt."
+	"abilities":[{
+	"action": "HealAction",
+	"info": "evoke",
+	"count": 1,
+	"targetSelector": {
+	"type": "SelfTarget",
+	"count": 1
+	},
+	}]	
+}
+
+
+
+
+
+
+
+
+
+{
+	"id": "Fragile",
+	"type": "INNATE"
+	"sprite": "res://Sprites/StatusIcons/broken-skull.png"
+	"evokeType": "OnWounded"
+	"decr": "1"
+	"abilities":[{
+	"action": "DamageAction",
+	"info": "cardMaxHealth",
+	"count": 1,
+	"targetSelector": {
+	"type": "SelfTarget"
+	}
+	
+	"condition":{
+					"info": "evoke"
+					"comparator": ">"
+					"value": "0"
+				}
+	
+	}]
+}
+
+
+]
+
+
+}

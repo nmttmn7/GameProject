@@ -14,6 +14,13 @@ public class RandomTarget : Aspect, ITargetSelector {
 		var result = new List<Card> ();
 		var system = game.GetAspect<TargetSystem> ();
 		var card = (container as Ability).card;
+		
+		var status = (container as Ability).abilityRoot.container as Status;
+		if(status != null){
+			if(status.flip)
+			card = (container as Ability).evokedAbility.card;
+		}
+		
 		var target = card.GetAspect<Target> ();
 
 		var condition = (container as Ability).GetAspect<Condition> ();

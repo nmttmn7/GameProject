@@ -26,20 +26,19 @@ public partial class CardView : Node
 		var unit = card as Unit;
 	
 		if (unit != null) {
+			OO();
 			
-			var poly = (Unit)AugmentSystem.CheckPolymorph(card);
 
 			healthText.Text = "[center]" + unit.hitPoints.ToString () + "[/center]";
 			
 			
-			if(poly != null)
-				unit = poly;
+			
 				
 			nameText.Text = "[center]"  + unit.name + "[/center]" ;
 			textureRect.Texture =  (Texture2D)GD.Load(unit.spritePath);
 			manaText.Text = "[center]" + unit.cost.ToString () + "[/center]";
 
-			GD.Print("CARD " + unit.description.Count);
+			
 
 			if(unit.description.Count <= 1)
 			abilityCountText.Text = "[center]"  + "-" + "[/center]";
@@ -52,13 +51,26 @@ public partial class CardView : Node
 			
 
 			moneyText.Text = "[center]"  + unit.money + "[/center]";
-			GD.Print("COUNT " + unit.description.Count);
+			
+
 			if(unit.description.Count > 0)
 			descriptionText.Text = "[center]"  + unit.description[descriptionIndex] + "[/center]";
 			
 		}
 
 		
+	}
+
+	public void OO(){
+		var oh = card.GetAspect<OverrideHealth>();
+
+		if(oh != null){
+			healthText.Visible = false;
+			var statusData = DeckFactory.Statuses[oh.status];
+			var sprite = (string)statusData["sprite"];
+			TextureRect textureRect = healthText.GetParent<TextureRect>();
+			textureRect.Texture = (Texture2D)GD.Load(sprite);
+		}
 	}
 
 	public void DescriptionTextNext(){

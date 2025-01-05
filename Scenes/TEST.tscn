@@ -1,9 +1,123 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxtdp54g2ou3e"]
+[gd_scene load_steps=20 format=3 uid="uid://cxtdp54g2ou3e"]
 
 [ext_resource type="Script" path="res://Scripts/Factory/DataManager.cs" id="1_3fx5b"]
+[ext_resource type="Shader" path="res://Shaders/WolKaHologram.gdshader" id="2_ywrqp"]
+[ext_resource type="Texture2D" uid="uid://38ecw4faqfte" path="res://icon.svg" id="4_hxgac"]
+[ext_resource type="Shader" path="res://Shaders/TEST.gdshader" id="4_p4k07"]
+
+[sub_resource type="Gradient" id="Gradient_gs54o"]
+offsets = PackedFloat32Array(0, 0.196296, 0.351852, 0.722222, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.0914559, 0.0833937, 0.243381, 1, 0.00451774, 0.226165, 0.328984, 1, 0.0694147, 0.347696, 0.806756, 1, 0.736817, 0.520025, 1.92523e-07, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ckivt"]
+gradient = SubResource("Gradient_gs54o")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gbeph"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mtagy"]
+seamless = true
+noise = SubResource("FastNoiseLite_gbeph")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_k7452"]
+noise_type = 2
+frequency = 0.09
+fractal_type = 2
+fractal_octaves = 2
+fractal_weighted_strength = 0.3
+cellular_distance_function = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1n4xw"]
+seamless = true
+noise = SubResource("FastNoiseLite_k7452")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7bql1"]
+shader = ExtResource("2_ywrqp")
+shader_parameter/scroll1 = Vector2(0.1, 0)
+shader_parameter/scroll2 = Vector2(0.455, 0)
+shader_parameter/distortion_strength = 0.0700001
+shader_parameter/tint_alpha = 0.33
+shader_parameter/tint_beta = 0.3
+shader_parameter/tint_gamma = 0.34
+shader_parameter/noise1 = SubResource("NoiseTexture2D_mtagy")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_1n4xw")
+shader_parameter/gradient = SubResource("GradientTexture1D_ckivt")
+
+[sub_resource type="Gradient" id="Gradient_udqjb"]
+offsets = PackedFloat32Array(0, 0.233333, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.277778, 0.277778, 0.277778, 1, 0.725944, 4.48579e-05, 0.560147, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_euqsr"]
+gradient = SubResource("Gradient_udqjb")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fao8e"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q137s"]
+seamless = true
+noise = SubResource("FastNoiseLite_fao8e")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_sjpcg"]
+frequency = 0.0278
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h7yqs"]
+seamless = true
+noise = SubResource("FastNoiseLite_sjpcg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d8msh"]
+shader = ExtResource("2_ywrqp")
+shader_parameter/scroll1 = Vector2(0.1, 0)
+shader_parameter/scroll2 = Vector2(-0.1, 0)
+shader_parameter/distortion_strength = 0.03
+shader_parameter/tint_alpha = 0.3
+shader_parameter/tint_beta = 0.3
+shader_parameter/tint_gamma = 0.34
+shader_parameter/noise1 = SubResource("NoiseTexture2D_q137s")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_h7yqs")
+shader_parameter/gradient = SubResource("GradientTexture1D_euqsr")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ua60a"]
+shader = ExtResource("4_p4k07")
+shader_parameter/crt_curve = 0.02
+shader_parameter/crt_scan_line_color = 0.347
+shader_parameter/aperture_grille_rate = 0.4
+shader_parameter/rf_switch_esque_blur = 1.0
+shader_parameter/white_noise_rate = 0.0
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(576, 325)
 
 [node name="Node" type="Node" parent="."]
 script = ExtResource("1_3fx5b")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_7bql1")
+offset_left = 31.0
+offset_top = 117.0
+offset_right = 159.0
+offset_bottom = 245.0
+texture = ExtResource("4_hxgac")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+material = SubResource("ShaderMaterial_d8msh")
+offset_left = 227.0
+offset_top = 199.0
+offset_right = 485.0
+offset_bottom = 327.0
+text = "mmmmmmmmmm"
+fit_content = true
+scroll_active = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_ua60a")
+offset_left = 44.0
+offset_top = 71.0
+offset_right = 467.0
+offset_bottom = 292.0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_right = 270.0
+offset_bottom = 147.0
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "L[img=60]res://Sprites/StatusSprites/Icons/plain-arrow.png[/img]-1"
+metadata/_edit_lock_ = true

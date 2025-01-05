@@ -1,2 +1,0 @@
-{ "deck": ["status01Card1","status01Card2","status01Card3","status01Card4","status01Card5","status01Card6","status01Card7","status01Card8","status01Card9","status01Card10","status01Card11","status01Card12","status01Card13","status01Card14","status01Card15","status01Card16",
-]}

@@ -9,7 +9,7 @@ public class CreateCardsAction : GameAction, IAbilityLoader {
 	
 
 	public string cardID;
-	public string targetInfo;
+	
 	public bool drawCreatedCard = false;
 
 	public List<Card> targets;
@@ -28,11 +28,7 @@ public class CreateCardsAction : GameAction, IAbilityLoader {
 
 		attachedAbility = ability;
 	
-		//string temp;
-
 		
-		//temp = ability.userInfo.ToString();
-
 		var split = ability.userInfo.ToString().Split("|");
 		cardID = split[0];
 		drawCreatedCard = System.Convert.ToBoolean(split[1]);
@@ -43,7 +39,6 @@ public class CreateCardsAction : GameAction, IAbilityLoader {
 		targets = new List<Card>();
 		targets = cards;
 
-		targetInfo = split[2].ToLower();
 		
 			
 		
@@ -62,16 +57,14 @@ public class CreateCardsAction : GameAction, IAbilityLoader {
         
 
 		if(drawCreatedCard)
-			str += "Create ";
-		else
 			str += "Draw ";
-
-		GD.Print("CARD " + cardID);
-
-		if(cardID.ToLower() == "copy")
-			str += "a copy ";
 		else
-			str += "a " + (string)DeckFactory.Cards[cardID]["name"] + " ";
+			str += "Create ";
+
+		if(cardID == "target" || cardID == "self")
+			str += "a copy of " + cardID + " ";
+			else
+		str += "a " + (string)DeckFactory.Cards[cardID]["name"] + " ";
 
 		str += InterpretTarget(ability);
 		str += InterpretCondition(ability);
@@ -176,8 +169,12 @@ public class CreateCardsAction : GameAction, IAbilityLoader {
 		var ITargetSelector = ability.GetAspect<ITargetSelector>();
 
 		if(ITargetSelector != null){
+		
+		if(ITargetSelector.ToString().Contains("self"))
+			str += "on ";
+
 		str += ITargetSelector.LoadText(); 
-		if(ability.abilityCount > 1)
+	//	if(ability.abilityCount > 1)
 			str +=  "X" + ability.abilityCount + " ";
 		}
 

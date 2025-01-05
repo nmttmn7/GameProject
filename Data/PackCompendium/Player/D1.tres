@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="PackData" load_steps=2 format=3 uid="uid://bmut87pjronyl"]
-
-[ext_resource type="Script" path="res://Scripts/DataModels/PackData.cs" id="1_e3vrb"]
-
-[resource]
-script = ExtResource("1_e3vrb")
-cardList = []
-drawList = []

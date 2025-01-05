@@ -20,7 +20,7 @@ public partial class CollectionSelector : Node
 
     private void OnFirstPressed(){
 		
-		SceneSwitcher.node.dispositions.Add("d1");
+		SceneSwitcher.node.dispositions.Add("D1");
 		SaveFactory.SaveDisposition();
 		SceneSwitcher.node.SwitchScene("res://Scenes/MapScene.tscn");
 		
@@ -28,14 +28,14 @@ public partial class CollectionSelector : Node
 
 	private void OnSecondPressed(){
 		
-		SceneSwitcher.node.dispositions.Add("d2");
+		SceneSwitcher.node.dispositions.Add("D2");
 		SaveFactory.SaveDisposition();
 		SceneSwitcher.node.SwitchScene("res://Scenes/MapScene.tscn");
 	}
 
 	private void OnThirdPressed(){
 		
-		SceneSwitcher.node.dispositions.Add("d3");
+		SceneSwitcher.node.dispositions.Add("D3");
 		SaveFactory.SaveDisposition();
 		SceneSwitcher.node.SwitchScene("res://Scenes/MapScene.tscn");
 	}

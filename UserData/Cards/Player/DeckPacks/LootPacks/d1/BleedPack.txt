@@ -1,2 +1,0 @@
-{ "deck": ["d1bleedpackcard1","d1bleedpackcard2",
-]}
