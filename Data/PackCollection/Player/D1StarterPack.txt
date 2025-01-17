@@ -1,6 +1,6 @@
 {
 	"deck" : [
-		"RagePack1","RagePack1","RagePack1","RagePack1","RagePack10","WeakPack1","WeakPack1","WeakPack1"
+		"RagePack1","RagePack1","RagePack1","RagePack1","RagePack1","RagePack5","RagePack5","RagePack4"
 		
 	]
 }

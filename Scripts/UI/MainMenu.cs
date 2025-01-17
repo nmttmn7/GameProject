@@ -42,6 +42,7 @@ public partial class MainMenu : Node
 	FileFactory.ClearFile(DataManager.loadedLootFilePath);
 	FileFactory.ClearFile(DataManager.rarityWeightFilePath);
 	FileFactory.ClearFile(DataManager.lootGroupWeightFilePath);
+	FileFactory.ClearFile(DataManager.lootPacksPath);
 
 	FileFactory.ClearFile(DataManager.playerdeckPath);
 

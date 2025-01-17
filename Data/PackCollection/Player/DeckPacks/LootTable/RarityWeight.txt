@@ -1,0 +1,155 @@
+{
+"list": [
+{
+"name": "Common"
+"roll_weight": "1"
+}
+{
+"name": "Rare"
+"roll_weight": "1"
+}
+{
+"name": "Special"
+"roll_weight": "1"
+}
+{
+"name": "Rare"
+"roll_weight": "0.3"
+}
+{
+"name": "Special"
+"roll_weight": "0.3"
+}
+{
+"name": "Common"
+"roll_weight": "1"
+}
+{
+"name": "Rare"
+"roll_weight": "1"
+}
+{
+"name": "Special"
+"roll_weight": "1"
+}
+{
+"name": "Rare"
+"roll_weight": "0.3"
+}
+{
+"name": "Special"
+"roll_weight": "0.3"
+}
+{
+"name": "Rare"
+"roll_weight": "0.3"
+}
+{
+"name": "Special"
+"roll_weight": "0.3"
+}
+{
+"name": "Common"
+"roll_weight": "1"
+}
+{
+"name": "Rare"
+"roll_weight": "1"
+}
+{
+"name": "Special"
+"roll_weight": "1"
+}
+{
+"name": "Rare"
+"roll_weight": "0.3"
+}
+{
+"name": "Special"
+"roll_weight": "0.3"
+}
+{
+"name": "Common"
+"roll_weight": "1"
+}
+{
+"name": "Rare"
+"roll_weight": "1"
+}
+{
+"name": "Special"
+"roll_weight": "1"
+}
+{
+"name": "Rare"
+"roll_weight": "0.3"
+}
+{
+"name": "Special"
+"roll_weight": "0.3"
+}
+{
+"name": "Rare"
+"roll_weight": "0.3"
+}
+{
+"name": "Special"
+"roll_weight": "0.3"
+}
+{
+"name": "Common"
+"roll_weight": "1"
+}
+{
+"name": "Rare"
+"roll_weight": "1"
+}
+{
+"name": "Special"
+"roll_weight": "1"
+}
+{
+"name": "Rare"
+"roll_weight": "0.3"
+}
+{
+"name": "Special"
+"roll_weight": "0.3"
+}
+{
+"name": "Common"
+"roll_weight": "1"
+}
+{
+"name": "Rare"
+"roll_weight": "1"
+}
+{
+"name": "Special"
+"roll_weight": "1"
+}
+{
+"name": "Rare"
+"roll_weight": "0.3"
+}
+{
+"name": "Special"
+"roll_weight": "0.3"
+}
+{
+"name": "Rare"
+"roll_weight": "0.3"
+}
+{
+"name": "Special"
+"roll_weight": "0.3"
+}
+{
+"name": "Rare"
+"roll_weight": "0.3"
+}
+{
+"name": "Special"
+"roll_weight": "0.3"
+}
+]}

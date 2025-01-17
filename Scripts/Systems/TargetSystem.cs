@@ -111,7 +111,7 @@ public class TargetSystem : Aspect, IObserve {
 				
 				for(int i = 0; i < player[zone].Count; i++){
 					Unit randCard = (Unit)player[zone].GetIndex(i);
-					if(randCard != source && randCard.hitPoints > 0 && TargetConditionCheck(randCard, condition)){ 
+					if(randCard != source && TargetConditionCheck(randCard, condition)){ 
 						cards.Add(randCard);
 					}
 				}

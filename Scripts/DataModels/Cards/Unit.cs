@@ -3,13 +3,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-public partial class Unit :  Card, IDestructable
+public partial class Unit :  Card
 {
 	// IDestructable
-	public int hitPoints { get; set; }
-	public int bulwarkPoints { get; set; }
-	public int maxHitPoints { get; set; }
 	
+	
+	public string HP;
 
 	
 	public int money;
@@ -24,16 +23,17 @@ public partial class Unit :  Card, IDestructable
 		base.Load(data);
 		//attack = System.Convert.ToInt32(data["attack"]);
 		
-		hitPoints = maxHitPoints = System.Convert.ToInt32(data["hit points"]);
 		
-		if(data.ContainsKey("max hit points"))
-		maxHitPoints = System.Convert.ToInt32(data["max hit points"]);
+		
+		
 		
 		if(data.ContainsKey("money")){
 		money = System.Convert.ToInt32(data["money"]);
 		}else{
 			money = 0;
 		}
+
+		this.AddAspect<Afflictions>();
 		
 		}
 
@@ -41,7 +41,7 @@ public partial class Unit :  Card, IDestructable
     {
         string text = base.Save();
 	//	text += "\n\"max hit points\": " + "\"" + maxHitPoints + "\",";
-		text += "\n\"hit points\": " + "\"" + maxHitPoints + "\","; 
+	
 		text += "\n\"money\": " + "\"" + money + "\","; 
 		return text;
 

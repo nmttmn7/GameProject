@@ -6,8 +6,7 @@
 			"rarity": "Common",
 			"name": "FirePack1",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "FirePack"
 			"target": {
 				"allowed": {
@@ -34,7 +33,19 @@
 			}
 			
 			}]
-				
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
 		}
 		
 		{
@@ -45,8 +56,7 @@
 			"rarity": "Common",
 			"name": "FirePack2",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "FirePack"
 			"target": {
 				"allowed": {
@@ -59,7 +69,6 @@
 				}
 			},
 			"abilities": [{
-				"description": "Deal damage based on the amount of firepack2 cards"
 				"action": "DamageAction",
 				"info": "playernamefirepack2",
 				"count": "1",
@@ -68,7 +77,24 @@
 				}
 				
 			}]
-				
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "1"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "death"
+				"value": "1"
+				"type": "INNATE"
+			}]
+			
+			
 		}
 		
 		
@@ -80,8 +106,7 @@
 			"rarity": "Common",
 			"name": "FirePack3",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "FirePack"
 			"target": {
 				"allowed": {
@@ -97,18 +122,34 @@
 				"description": "Apply 7 fire"
 				"action": "DamageAction",
 				"info": "skip",
-				"count": "1",
+				"count": "4",
 				"targetSelector": {
-					"type": "ManualTarget",
+					"type": "RandomTarget",
+					"mark": {
+						"alliance": "Target",
+						"zone": "Active"
+					},
 				}
 				
 				"status":{
 				"id": "fire"
-				"incr": "7"
+				"incr": "3"
 				}
 				
 			}]
-				
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
 		}
 
 		{
@@ -119,8 +160,7 @@
 			"rarity": "Common",
 			"name": "FirePack4",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "2",
 			"group": "FirePack"
 			"target": {
 				"allowed": {
@@ -143,17 +183,29 @@
 				
 				"status":{
 				"id": "fire"
-				"incr": "14"
+				"incr": "15"
 				}
 				
 				"condition":{
-					"info": "cardstatusfire"
+					"info": "10"
 					"comparator": "≥"
-					"value": "1"
+					"value": "targetstatusfire"
 				}
 				
 			}]
-				
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "12"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
 		}
 
 		{
@@ -164,8 +216,7 @@
 			"rarity": "Common",
 			"name": "FirePack5",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "FirePack"
 			"target": {
 				"allowed": {
@@ -191,15 +242,25 @@
 				"incr": "cardstatusfire"
 				}
 				
-				"condition":{
-					"info": "1"
-					"comparator": "≤"
-					"value": "targetstatusfire"
-				}
-				
 			}]
-				
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "24"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
 		}
+
+
+
+
 
 		{
 				
@@ -209,8 +270,7 @@
 			"rarity": "Common",
 			"name": "FirePack6",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "FirePack"
 			"target": {
 				"allowed": {
@@ -225,24 +285,33 @@
 			"abilities": [{
 				"description": "Deal damage based on the amount of fire on target"
 				"action": "DamageAction",
-				"info": "targetstatusfire",
+				"info": "cardstatusfire",
 				"count": "1",
 				"targetSelector": {
 					"type": "ManualTarget",
 				}
 				
 				
-				"condition":{
-					"info": "targetstatusfire"
-					"comparator": "≥"
-					"value": "10"
-				}
-				
 			}]
-				
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
 		}
 
-	{
+
+
+
+			{
 				
 			"id": "FirePack7",
 			"type": "Unit", 
@@ -250,49 +319,7 @@
 			"rarity": "Common",
 			"name": "FirePack7",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
-			"group": "FirePack"
-			"target": {
-				"allowed": {
-					"alliance": "Any",
-					"zone": "Hand"
-				},
-				"preferred": {
-					"alliance": "Enemy",
-					"zone": "Hand"
-				}
-			},
-			"abilities": [{
-				"description": "Apply 5 fire "
-				"action": "DamageAction",
-				"info": "skip",
-				"count": "1",
-				"targetSelector": {
-					"type": "ManualTarget",
-				}
-				
-			"status":{
-				"id": "fire"
-				"incr": "5"
-			}
-			
-			}]
-				
-		}
-		
-
-
-			{
-				
-			"id": "FirePack8",
-			"type": "Unit", 
-			"disposition": "D1",
-			"rarity": "Common",
-			"name": "FirePack8",
-			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "FirePack"
 			"target": {
 				"allowed": {
@@ -320,12 +347,28 @@
 				
 			}
 			
+			}{
+				"description": "Apply 4 rage."
+				"action": "DamageAction",
+				"info": "1",
+				"count": "cardstatusfire",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+				
+			
 			}]
 			
 			"afflictions":[{
-				"id": "death"
-				"value": "1"
-				"type": "INNATE"
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
 			}]
 			
 		}
@@ -333,14 +376,13 @@
 
 		{
 				
-			"id": "FirePack9",
+			"id": "FirePack8",
 			"type": "Unit", 
 			"disposition": "D1",
 			"rarity": "Common",
-			"name": "FirePack9",
+			"name": "FirePack8",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "FirePack"
 			"target": {
 				"allowed": {
@@ -364,24 +406,35 @@
 				"status":{
 				"id": "fire"
 				"incr": "1"
-				"decr": "-1"
+				"decr": "-2"
 				
 			}
 				
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
 			}]
 			
 		}
 
 
 		{
-			"id": "FirePack10",
+			"id": "FirePack9",
 			"type": "Unit", 
 			"disposition": "D1",
 			"rarity": "Common",
-			"name": "FirePack10",
+			"name": "FirePack9",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "FirePack"
 			"target": {
 				"allowed": {
@@ -404,27 +457,33 @@
 				
 			}]
 			
-			"overridehealth":{
-				"status": "fire",
-			}
 			
 			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
+			}{
 				"id": "fire"
 				"value": "4"
+				"override": "health"
 			}]
 			
 		}
 		
 
 	{
-			"id": "FirePack11",
+			"id": "FirePack10",
 			"type": "Unit", 
 			"disposition": "D1",
 			"rarity": "Common",
-			"name": "FirePack11",
+			"name": "FirePack10",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "FirePack"
 			"target": {
 				"allowed": {
@@ -450,24 +509,34 @@
 				}
 				
 				"status":{
-				"id": "fire"
+				"id": "oil"
 				"incr": "4"
 			}
 				
 			}]
 			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
+			}]
 			
 		}
 		
 		{
-			"id": "FirePack12",
+			"id": "FirePack11",
 			"type": "Unit", 
 			"disposition": "D1",
 			"rarity": "Common",
-			"name": "FirePack12",
+			"name": "FirePack11",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "2",
 			"group": "FirePack"
 			"target": {
 				"allowed": {
@@ -495,7 +564,7 @@
 				"condition":{
 					"info": "cardstatusfire"
 					"comparator": ">"
-					"value": "0"
+					"value": "5"
 				}
 				
 				"status":{
@@ -505,19 +574,29 @@
 				
 			}]
 			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "12"
+			}{
+				"id": "abilitychain"
+			
+			}]
 			
 		}
 		
 			{
 				
-			"id": "FirePack13",
+			"id": "FirePack12",
 			"type": "Unit", 
 			"disposition": "D1",
 			"rarity": "Common",
-			"name": "FirePack13",
+			"name": "FirePack12",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "FirePack"
 			"target": {
 				"allowed": {
@@ -537,15 +616,20 @@
 				"targetSelector": {
 					"type": "ManualTarget",
 				}
-				"condition":{
-					"info": "cardstatusscorched"
-					"comparator": ">"
-					"value": "0"
-				}
 				
 			}]
 			
 			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
+			}{
 				"id": "scorched"
 				"value": "1"
 				"type": "INNATE"

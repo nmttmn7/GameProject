@@ -1,1 +1,0 @@
-res://Data/PackCollection/Enemy/World1/Regular/1.txt

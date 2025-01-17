@@ -1,41 +1,51 @@
 { "map": [
 {
-"currentMapNodeX": "2"
-"currentMapNodeDepth": "0"
-"currentMapNodeID": "Regular"
+"currentMapNodeX": "0"
+"currentMapNodeDepth": "4"
+"currentMapNodeID": "Elite"
 "mapWorld": "World1"
 "playerDepth": "1"
 }
  {
 "depth": "0",
-"mapPosition": "(-337.58948, 0)",
+"mapPosition": "(-285.95044, 0)",
 "path": "res://Scenes/Main.tscn",
 "mapID": "Regular",
+"connectedNodes": {
+"connectedX0": "1",
+"connectedX1": "0",
+ }
+ }
+ {
+"depth": "0",
+"mapPosition": "(72.485245, 0)",
+"path": "res://Scenes/Main.tscn",
+"mapID": "Regular",
+"connectedNodes": {
+"connectedX0": "2",
+ }
+ }
+ {
+"depth": "0",
+"mapPosition": "(296.48596, 0)",
+"path": "res://Scenes/Main.tscn",
+"mapID": "Regular",
+"connectedNodes": {
+"connectedX0": "3",
+ }
+ }
+ {
+"depth": "1",
+"mapPosition": "(-308.23328, -200)",
+"path": "res://Scenes/StoreScene.tscn",
+"mapID": "Store",
 "connectedNodes": {
 "connectedX0": "0",
  }
  }
  {
-"depth": "0",
-"mapPosition": "(-134.52666, 0)",
-"path": "res://Scenes/Main.tscn",
-"mapID": "Regular",
-"connectedNodes": {
-"connectedX0": "0",
- }
- }
- {
-"depth": "0",
-"mapPosition": "(130.175, 0)",
-"path": "res://Scenes/Main.tscn",
-"mapID": "Regular",
-"connectedNodes": {
-"connectedX0": "0",
- }
- }
- {
-"depth": "0",
-"mapPosition": "(288.9577, 0)",
+"depth": "1",
+"mapPosition": "(-147.77444, -200)",
 "path": "res://Scenes/Main.tscn",
 "mapID": "Regular",
 "connectedNodes": {
@@ -44,19 +54,7 @@
  }
  {
 "depth": "1",
-"mapPosition": "(12.408173, -200)",
-"path": "res://Scenes/EncounterScene.tscn",
-"mapID": "Encounter",
-"connectedNodes": {
-"connectedX0": "3",
-"connectedX1": "2",
-"connectedX2": "1",
-"connectedX3": "0",
- }
- }
- {
-"depth": "2",
-"mapPosition": "(-310.0298, -400)",
+"mapPosition": "(53.73477, -200)",
 "path": "res://Scenes/Main.tscn",
 "mapID": "Regular",
 "connectedNodes": {
@@ -64,8 +62,8 @@
  }
  }
  {
-"depth": "2",
-"mapPosition": "(-57.697556, -400)",
+"depth": "1",
+"mapPosition": "(255.03912, -200)",
 "path": "res://Scenes/Main.tscn",
 "mapID": "Regular",
 "connectedNodes": {
@@ -74,7 +72,16 @@
  }
  {
 "depth": "2",
-"mapPosition": "(69.13136, -400)",
+"mapPosition": "(-286.23364, -400)",
+"path": "res://Scenes/EncounterScene.tscn",
+"mapID": "Encounter",
+"connectedNodes": {
+"connectedX0": "0",
+ }
+ }
+ {
+"depth": "2",
+"mapPosition": "(133.77403, -400)",
 "path": "res://Scenes/EncounterScene.tscn",
 "mapID": "Encounter",
 "connectedNodes": {
@@ -82,73 +89,90 @@
  }
  }
  {
-"depth": "2",
-"mapPosition": "(313.2027, -400)",
-"path": "res://Scenes/Main.tscn",
-"mapID": "Elite",
-"connectedNodes": {
-"connectedX0": "1",
- }
- }
- {
 "depth": "3",
-"mapPosition": "(-137.49428, -600)",
-"path": "res://Scenes/Main.tscn",
-"mapID": "Elite",
-"connectedNodes": {
-"connectedX0": "0",
- }
- }
- {
-"depth": "3",
-"mapPosition": "(204.14053, -600)",
+"mapPosition": "(-206.46442, -600)",
 "path": "res://Scenes/StoreScene.tscn",
 "mapID": "Store",
 "connectedNodes": {
-"connectedX0": "0",
+"connectedX0": "1",
+"connectedX1": "0",
+ }
+ }
+ {
+"depth": "3",
+"mapPosition": "(111.244354, -600)",
+"path": "res://Scenes/Main.tscn",
+"mapID": "Elite",
+"connectedNodes": {
+"connectedX0": "1",
  }
  }
  {
 "depth": "4",
-"mapPosition": "(-169.52232, -800)",
-"path": "res://Scenes/StoreScene.tscn",
-"mapID": "Store",
+"mapPosition": "(-69.90994, -800)",
+"path": "res://Scenes/Main.tscn",
+"mapID": "Elite",
 "connectedNodes": {
-"connectedX0": "2",
-"connectedX1": "1",
-"connectedX2": "0",
+"connectedX0": "1",
+"connectedX1": "0",
+ }
+ }
+ {
+"depth": "4",
+"mapPosition": "(79.74551, -800)",
+"path": "res://Scenes/Main.tscn",
+"mapID": "Regular",
+"connectedNodes": {
+"connectedX0": "1",
  }
  }
  {
 "depth": "5",
-"mapPosition": "(-245.85803, -1000)",
+"mapPosition": "(-208.44032, -1000)",
 "path": "res://Scenes/Main.tscn",
 "mapID": "Regular",
 "connectedNodes": {
-"connectedX0": "0",
+"connectedX0": "1",
+"connectedX1": "0",
  }
  }
  {
 "depth": "5",
-"mapPosition": "(-76.622894, -1000)",
+"mapPosition": "(305.77374, -1000)",
 "path": "res://Scenes/Main.tscn",
 "mapID": "Regular",
 "connectedNodes": {
-"connectedX0": "0",
- }
- }
- {
-"depth": "5",
-"mapPosition": "(264.34604, -1000)",
-"path": "res://Scenes/Main.tscn",
-"mapID": "Regular",
-"connectedNodes": {
-"connectedX0": "0",
+"connectedX0": "3",
+"connectedX1": "2",
  }
  }
  {
 "depth": "6",
-"mapPosition": "(276.9914, -1200)",
+"mapPosition": "(-318.74384, -1200)",
+"path": "res://Scenes/Main.tscn",
+"mapID": "Boss",
+"connectedNodes": {
+ }
+ }
+ {
+"depth": "6",
+"mapPosition": "(-86.63284, -1200)",
+"path": "res://Scenes/Main.tscn",
+"mapID": "Boss",
+"connectedNodes": {
+ }
+ }
+ {
+"depth": "6",
+"mapPosition": "(104.60197, -1200)",
+"path": "res://Scenes/Main.tscn",
+"mapID": "Boss",
+"connectedNodes": {
+ }
+ }
+ {
+"depth": "6",
+"mapPosition": "(274.1687, -1200)",
 "path": "res://Scenes/Main.tscn",
 "mapID": "Boss",
 "connectedNodes": {

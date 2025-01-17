@@ -9,24 +9,24 @@ using Godot;
 
 public partial class DrawCardsView : Node {
 
-	[Export] PackedScene cardConstruct;
-
-	BoardView boardView;
-
-	StatusView statusView;
+	
+	AfflictionView afflictionView;
 	
 	Node2D AudioManager;
 
 	[Export]
 	public Resource resource;
 	RichTextLabel deckCardLabel;
+	
+	public ViewView view;
 	public override void _Ready()
 	{
 		this.AddObserver (OnPrepareDrawCards, Global.PrepareNotification<DrawCardsAction> ());
 
 		this.AddObserver (OnPerformDrawUICards, Global.PerformNotification<DrawCardsAction> ());
-		boardView = GetTree().Root.GetNode("Main").GetNode("GameViewSystem").GetNode<BoardView>("Board");
-		statusView = GetTree().Root.GetNode("Main").GetNode("GameViewSystem").GetNode<StatusView>("StatusView");
+
+		afflictionView = GetTree().Root.GetNode("Main").GetNode("GameViewSystem").GetNode<AfflictionView>("AfflictionView");
+		view = GetTree().Root.GetNode("Main").GetNode("GameViewSystem").GetNode<ViewView>("ViewView");
 		AudioManager = GetTree().Root.GetNode<Node2D>("AudioManager");
 		deckCardLabel = GetTree().Root.GetNode("Main").GetNode("DrawConstruct").GetChild<RichTextLabel>(1);
 	}
@@ -65,7 +65,7 @@ void OnPerformDrawUICards(object sender, object args){
 
 	
 	IEnumerator DrawCardsViewer (IContainer game, GameAction action) {
-		yield return true; // perform the action logic so that we know what cards have been drawn
+		yield return true;
 		var drawAction = action as DrawCardsAction;
 
 		
@@ -74,43 +74,39 @@ void OnPerformDrawUICards(object sender, object args){
 			
 			
 			
-			var instance = cardConstruct.Instantiate();
+			var instance = DataManager.node.cardConstruct.Instantiate();
 
-			if(drawAction.createdCard == true){
-				instance.GetChild(0).GetParent<Node2D>().Visible = true;
-			}
+			//if(drawAction.createdCard == true)
+
 			instance.GetChild(0).GetParent<Node2D>().Visible = true;
-		//	instance.Reparent(playerView.hand.handPos, false);
-			var playerView = boardView.playerViews [drawAction.cards[i].ownerIndex];
 
-			playerView.hand.handPos.AddChild(instance);
-			
-			
 			CardView cardView = instance.GetChild<CardView>(0);
+
+			if(drawAction.cards[i].ownerIndex == 0){
+
+				view.playerHand2D.AddChild(instance);
+				cardView.cardNodePos.Position += new Vector2(0, 500f);
+
+			}else{
+				
+				view.enemyHand2D.AddChild(instance);
+				cardView.cardNodePos.Position += new Vector2(0, 0f);
+
+			}
+			
+
+			
 		
 			AudioManager.Call("create_audio","CARD_DRAW");
 
-			if(playerView.player.index == 0){
-				cardView.cardNodePos.Position += new Vector2(0, 500f);
-			}else
-				cardView.cardNodePos.Position += new Vector2(0, -500f);
-		//	cardView.cardNodePos.Position = playerView.hand.handPos.Position;
-			//cardView.cardNodePos.Rotation = playerView.deck.topCard.Rotation;
-		//	instance.Reparent(playerView.deck.topCard,true);
+
 			cardView.card = drawAction.cards [i];
-	
-		 	var player = game.GetMatch ().players [drawAction.cards[i].ownerIndex];
-		
-			var showPreview = player.mode == ControlModes.Local;
 			
-		//	if(AugmentSystem.CheckStatus(cardView.card, "power01")){
-		//		GD.Print("WOW");
-		//		cardView.button.Call("blinded");
-		//	}
-			statusView.GenerateAllStatuses(cardView);
+	
+			afflictionView.GenerateAllStatuses(cardView);
 
 			
-			var addCard = playerView.hand.AddCard (cardView, drawAction.createdCard,drawAction.attachedAbility);
+			var addCard = view.AddCard (cardView, drawAction.createdCard,drawAction.attachedAbility,cardView.card.ownerIndex);
 			while (addCard.MoveNext ())
 				yield return null;
 

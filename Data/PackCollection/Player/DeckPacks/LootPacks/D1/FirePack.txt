@@ -1,2 +1,2 @@
-{ "deck": ["FirePack1","FirePack2","FirePack3","FirePack4","FirePack5","FirePack6","FirePack7","FirePack8","FirePack9","FirePack10","FirePack11","FirePack12","FirePack13","RagePack2",
+{ "deck": ["DuplicatePack1","FirePack1","FirePack2","FirePack3","FirePack4","FirePack5","FirePack6","FirePack7","FirePack8","FirePack9","FirePack10","FirePack11","FirePack12","RagePack2",
 ]}

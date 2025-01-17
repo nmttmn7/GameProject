@@ -50,7 +50,7 @@ public partial class SceneSwitcher : Node
 		switch(ID)
 		{
 			case 0:
-			GD.Print("WOWOWOOW");
+			
 			GetTree().Root.AddChild(new ColorRect());
 
 			return;

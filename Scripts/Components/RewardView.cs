@@ -20,6 +20,7 @@ public partial class RewardView : Node, IAspect {
 				_container = new TheLiquidFire.AspectContainer.Container();
 				_container.AddAspect (this);
 				_container.AddAspect<ActionSystem> ();
+				
 			}
 			return _container;
 		}
@@ -35,17 +36,19 @@ public partial class RewardView : Node, IAspect {
 	[Export] PackedScene cardConstruct;
 	[Export] Node2D rewardNode2D;
 	[Export] Node2D deckNode2D;
-	[Export] StatusView statusView;
+	[Export] AfflictionView afflictionView;
 	[Export] DisplayObjectsView displayObjectsView;
 	[Export] int rewardAmount = 3;
 	
 	[Export] public bool storeSETUP;
-
+	public List<CardView> cardLIST = new List<CardView> ();
 	private Player p;
     	public override void _EnterTree()
     {	
 		container.Awake ();
 		actionSystem = container.GetAspect<ActionSystem> ();
+		container.AddAspect<DataSystem>();
+		container.AddAspect<StatusSystem>();
 		this.AddObserver (OnValidateReward, Global.ValidateNotification<RewardAction> ());
         }
 
@@ -250,7 +253,7 @@ public partial class RewardView : Node, IAspect {
 
 	void GenerateCardRewardPack(){
 
-		
+		var statusSystem = container.GetAspect<StatusSystem>();
 		if(!FileFactory.Contains(DataManager.loadedLootFilePath, "deck")){
 		
 			var editfile =  Godot.FileAccess.Open(DataManager.loadedLootFilePath,Godot.FileAccess.ModeFlags.Write);
@@ -269,6 +272,8 @@ public partial class RewardView : Node, IAspect {
 				var id = ChooseACard(rarity,lootGroup);
 				
 				var card = DeckFactory.CreateCard(id, 0, null);
+				GD.Print("ID " + card.id);
+				
 				
 				editfile.StoreString("\"" + id + "\"");
 				var instance = cardConstruct.Instantiate();
@@ -278,7 +283,10 @@ public partial class RewardView : Node, IAspect {
 				CardView cardView = instance.GetChild<CardView>(0);
 				cardView.card = card;
 				
-				statusView.GenerateAllStatuses(cardView);
+				cardLIST.Add(cardView);
+				statusSystem.InitializeCard(card, DeckFactory.Cards[card.id]);
+
+				afflictionView.GenerateAllStatuses(cardView);
 				
 
 
@@ -298,14 +306,19 @@ public partial class RewardView : Node, IAspect {
 		}else{
 			
 			var deck = DeckFactory.CreateDeck(DataManager.loadedLootFilePath, 0);
+			
+		
 			foreach(var card in deck){
+
+				statusSystem.InitializeCard(card, DeckFactory.Cards[card.id]);
+
 				var instance = cardConstruct.Instantiate();
 				rewardNode2D.AddChild(instance);
 
 				CardView cardView = instance.GetChild<CardView>(0);
 				cardView.card = card;
 
-				statusView.GenerateAllStatuses(cardView);
+				afflictionView.GenerateAllStatuses(cardView);
 
 
 				if(storeSETUP)

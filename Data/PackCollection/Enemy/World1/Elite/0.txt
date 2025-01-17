@@ -1,9 +1,9 @@
 {
 	"deck" : [
-		"MonsterPack1"
+		"MonsterPack1","MonsterPack1","MonsterPack1","MonsterPack1"
 	]
 	
 	"draw" : [
-		"3"
+		"4"
 	]
 }

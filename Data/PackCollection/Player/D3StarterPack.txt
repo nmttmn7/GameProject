@@ -1,5 +1,5 @@
 {
 	"deck" : [
-		"CardRage1","CardRage1","CardRage1","CardRage1","CardRage1","CardRage6","CardRage6","CardRage2"
+		"TEST","TEST","TEST","TEST","TEST1","TEST1","TEST1","TEST1"
 	]
 }

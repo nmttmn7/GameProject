@@ -1,0 +1,37 @@
+			{
+			
+			"id": "PoisoncdfPack1",
+			"type": "Unit", 
+			"disposition": "D2",
+			"rarity": "Common",
+			"name": "PoisonPack1",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": 1,
+			"hit points": 18,
+			"group": "PoisonPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			"status":{
+				"id": "poison"
+				"incr": "8"
+			}
+			
+			}]
+				
+		}

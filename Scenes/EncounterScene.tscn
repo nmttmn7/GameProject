@@ -1,12 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://4wlklqebpq3w"]
+[gd_scene load_steps=8 format=3 uid="uid://4wlklqebpq3w"]
 
 [ext_resource type="Script" path="res://Scripts/Components/EncounterView.cs" id="1_rkx25"]
 [ext_resource type="Resource" uid="uid://dmd817ewy1p1s" path="res://Data/PackCollection/Enemy/World1/ZEncounter/0.dialogue" id="2_h6h1y"]
 [ext_resource type="PackedScene" uid="uid://b8ofhhcplb4qx" path="res://Constructs/CardConstruct.tscn" id="3_bumg6"]
 [ext_resource type="Shader" path="res://Shaders/ToonWaterEffect.gdshader" id="3_n3w16"]
 [ext_resource type="Script" path="res://Scripts/DisplayObjectsView.cs" id="4_7ktkj"]
-[ext_resource type="Script" path="res://Scripts/Components/StatusView.cs" id="6_ksiev"]
-[ext_resource type="PackedScene" uid="uid://dl0s8vtqymelc" path="res://Constructs/StatusConstruct.tscn" id="7_a7410"]
+[ext_resource type="Script" path="res://Scripts/Components/AfflictionView.cs" id="6_1syp2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pb1w0"]
 shader = ExtResource("3_n3w16")
@@ -20,14 +19,13 @@ shader_parameter/shades = 3.0
 shader_parameter/steps = 6
 shader_parameter/tint = Vector3(0, 0, 0)
 
-[node name="Encounter" type="Node2D" node_paths=PackedStringArray("displayObjectsView", "deckNode2D", "statusView")]
+[node name="Encounter" type="Node2D" node_paths=PackedStringArray("displayObjectsView", "deckNode2D")]
 position = Vector2(576, 324)
 script = ExtResource("1_rkx25")
 OO = ExtResource("2_h6h1y")
 cardConstruct = ExtResource("3_bumg6")
 displayObjectsView = NodePath("DisplayObjectsView")
 deckNode2D = NodePath("ObjectNode")
-statusView = NodePath("StatusView")
 metadata/_edit_lock_ = true
 
 [node name="Background" type="ColorRect" parent="."]
@@ -59,6 +57,5 @@ visible = false
 
 [node name="RewardController" type="Node" parent="."]
 
-[node name="StatusView" type="Node" parent="."]
-script = ExtResource("6_ksiev")
-statusIconConstruct = ExtResource("7_a7410")
+[node name="AfflictionView" type="Node" parent="."]
+script = ExtResource("6_1syp2")

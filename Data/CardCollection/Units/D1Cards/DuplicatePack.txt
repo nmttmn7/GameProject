@@ -6,9 +6,8 @@
 			"rarity": "Common",
 			"name": "DuplicatePack1",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
-			"group": "DuplicatePack"
+			"cost": "1",
+			"group": "FirePack"
 			"target": {
 				"allowed": {
 					"alliance": "Any",
@@ -22,11 +21,23 @@
 			"abilities": [{
 				"description": "Create a copy of self."
 				"action": "CreateCardsAction",
-				"info": "target|true",
+				"info": "self|true",
 				"count": "1",
 				"targetSelector": {
-					"type": "ManualTarget",
+					"type": "SelfTarget",
 				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "1"
+			}{
+				"id": "abilitychain"
 			
 			}]
 				

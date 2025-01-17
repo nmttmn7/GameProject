@@ -121,8 +121,12 @@ public partial class GameViewSystem : Node, IAspect {
 		path = str;
 
 		}
-		
 		deck = DeckFactory.CreateDeck (path, p.index);
+		
+		var statusSystem = container.GetAspect<StatusSystem>();
+		foreach(Card card in deck) 
+			statusSystem.InitializeCard(card, DeckFactory.Cards[card.id]);
+		
 		
 	//	var statusSystem = container.GetAspect<StatusSystem>();
 	//	foreach(Card card in deck) 

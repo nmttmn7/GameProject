@@ -23,32 +23,17 @@ public partial class CardCreationSystem : Aspect, IObserve
     }
 	
     void OnPerformTransformCardsAction(object sender, object args)
-	{
-        var action = args as TransformCardsAction;
-        
+	  {
+    
+    var action = args as TransformCardsAction;
+    var cardID = action.cardID;
 
-
-        Card createdCard;
-
-        foreach (var card in action.targets){
-
-		createdCard = DeckFactory.CreateCard(action.cardID,card.ownerIndex, null);
-        
-        var newAbilityChain = createdCard.GetAspect<AbilityRoot>().abilityChain;
-        
-        foreach (var ability in newAbilityChain){
-            ability.card = card;
-            ability.container = card;
-        }
-
-        card.GetAspect<AbilityRoot>().abilityChain = newAbilityChain;
-        card.cost = createdCard.cost;
-        card.description = createdCard.description;
-        card.spritePath = createdCard.spritePath; 
-        
-        
-        }
-        
+    foreach (Card target in action.targets) {
+      
+    DeckFactory.TransformCard(target, cardID);
+    
+    }
+            
     }
 	
 	void OnPerformCreateCardAction(object sender, object args)
@@ -79,7 +64,7 @@ public partial class CardCreationSystem : Aspect, IObserve
 		    loadfile.Close();
 
             createdCard = DeckFactory.CreateCard(null, player.index, contents);
-            statussystem.MM(createdCard,contents);
+            statussystem.CreateCard(createdCard,contents,action.attachedAbility.card);
             createdCard.AddAspect<Temp>();
             player[Zones.Deck].Add(createdCard);
             
@@ -97,14 +82,16 @@ public partial class CardCreationSystem : Aspect, IObserve
 
             createdCard = DeckFactory.CreateCard(null, player.index, contents);
             createdCard.AddAspect<Temp>();
-            statussystem.MM(createdCard,contents);
+            statussystem.CreateCard(createdCard,contents,action.attachedAbility.card);
             player[Zones.Deck].Add(createdCard);
 
           }
           else{
 		
             createdCard = DeckFactory.CreateCard(cardID, player.index, null);
+             statussystem.InitializeCard(createdCard, DeckFactory.Cards[createdCard.id]);
             createdCard.AddAspect<Temp>();
+            statussystem.ShareAfflictions(action.attachedAbility.card,createdCard);
             player[Zones.Deck].Add(createdCard);
         
           }

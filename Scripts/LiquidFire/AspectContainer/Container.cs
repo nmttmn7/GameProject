@@ -8,6 +8,7 @@ namespace TheLiquidFire.AspectContainer
 		T AddAspect<T> (string key = null) where T : IAspect, new ();
 		T AddAspect<T> (T aspect, string key = null) where T : IAspect;
 		T GetAspect<T> (string key = null) where T : IAspect;
+		void DeleteAspect<T> (string key = null) where T : IAspect;
 		ICollection<IAspect> Aspects ();
 	}
 
@@ -29,6 +30,12 @@ namespace TheLiquidFire.AspectContainer
 			key = key ?? typeof(T).Name;
 			T aspect = aspects.ContainsKey (key) ? (T)aspects [key] : default (T);
 			return aspect;
+		}
+
+		public void DeleteAspect<T> (string key = null) where T : IAspect {
+			key = key ?? typeof(T).Name;
+			aspects.Remove(key);
+		
 		}
 
 		public ICollection<IAspect> Aspects () {

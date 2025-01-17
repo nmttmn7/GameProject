@@ -8,5 +8,9 @@ public class AbilityRoot : Container, IAspect {
 	
 	public List<Ability> abilityChain = new List<Ability>();
 
+	//List<Ability> L = new List<Ability> ( new Ability[10] );
+	
+	public int chainMAX;
+
 
 }

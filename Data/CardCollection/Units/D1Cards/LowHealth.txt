@@ -1,0 +1,249 @@
+		{
+				
+			"id": "LowHealthPack1",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "LowHealthPack1",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "RagePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Apply 4 rage."
+				"action": "DamageAction",
+				"info": "cardmissinghealth",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "50"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+		{
+				
+			"id": "LowHealthPack2",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "LowHealthPack2",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "RagePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Apply 4 rage."
+				"action": "GrantMaxHealthAction",
+				"info": "4",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"condition":{
+					"info": "cardstatusfire"
+					"comparator": "≥"
+					"value": "1"
+				}
+				
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "8"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+		{
+				
+			"id": "LowHealthPack3",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "LowHealthPack3",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "RagePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Apply 4 rage."
+				"action": "DrawCardsAction",
+				"info": "1",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				
+			}]
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "8"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "fire"
+				"value": "1"
+				"decr": "-3"
+			}]
+		}
+		
+			{
+				
+			"id": "LowPack4",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "LowPack4",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": "1",
+			"group": "LowPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Apply 1 fire to self"
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			"status":{
+				"id": "rage"
+				"incr": "cardmissinghealth"
+			}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+
+		{
+				
+			"id": "LowHealthPack5",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "LowHealthPack5",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "RagePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Apply 4 rage."
+				"action": "HealAction",
+				"info": "cardmissinghealth",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"condition":{
+					"info": "0"
+					"comparator": "≥"
+					"value": "cardcurrenthealth"
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+				
+			}{
+				"id": "health"
+				
+				"value": "18"
+			}{
+				"id": "abilitychain"
+				
+			}]
+			
+		}

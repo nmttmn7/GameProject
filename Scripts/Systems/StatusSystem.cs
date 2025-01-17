@@ -1,4 +1,5 @@
 using Godot;
+using GodotPlugins.Game;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,10 +13,12 @@ public partial class StatusSystem : Aspect, IObserve
 
 
     public const string UpdateStatusNotification = "StatusSystem.UpdateStatusNotification";
+	public const string DecreaseStatusNotification = "StatusSystem.DecreaseStatusNotification";
     public void Awake()
     {
         this.AddObserver(OnPerformDamageAction, Global.PerformNotification<DamageAction>(), container);
-        this.AddObserver (OnPerformStatusAbility, Global.PerformNotification<StatusAbilityAction> (), container);
+    //    this.AddObserver (OnPerformStatusAbility, Global.PerformNotification<StatusAbilityAction> (), container);
+		this.AddObserver (OnPerformStatusAbility, Global.PerformNotification<AbilityAction> (), container);
         this.AddObserver (OnPerformDrawCardsAction, Global.PerformNotification<DrawCardsAction> (), container);
         this.AddObserver (OnPerformDeathAction, Global.PerformNotification<DeathAction> (), container);
         this.AddObserver (OnPerformPlayCardAction, Global.PerformNotification<PlayCardAction> (), container);
@@ -24,7 +27,8 @@ public partial class StatusSystem : Aspect, IObserve
     public void Destroy()
     {
         this.RemoveObserver(OnPerformDamageAction, Global.PerformNotification<DamageAction>(), container);
-        this.RemoveObserver (OnPerformStatusAbility, Global.PerformNotification<StatusAbilityAction> (), container);
+        //this.RemoveObserver (OnPerformStatusAbility, Global.PerformNotification<StatusAbilityAction> (), container);
+		this.AddObserver (OnPerformStatusAbility, Global.PerformNotification<AbilityAction> (), container);
         this.RemoveObserver (OnPerformDrawCardsAction, Global.PerformNotification<DrawCardsAction> (), container);
         this.RemoveObserver (OnPerformDeathAction, Global.PerformNotification<DeathAction> (), container);
         this.RemoveObserver (OnPerformPlayCardAction, Global.PerformNotification<PlayCardAction> (), container);
@@ -43,6 +47,7 @@ public partial class StatusSystem : Aspect, IObserve
 		
         //  if(status == null)
 		SearchForEvokeType("OnDraw", card);
+		
 			if(!action.createdCard)
 		ReduceAllEvokeTypes(card.GetAspect<Afflictions>());
 
@@ -66,7 +71,7 @@ public partial class StatusSystem : Aspect, IObserve
 		foreach (Card target in action.targets){
 
 		
-		if(card != null && !action.attachedAbility.userInfo.ToString().Contains("skip"))
+		if(card != null && !action.attachedAbility.GetInfo().Contains("skip"))
 		SearchForEvokeType("OnWounded", target, action.attachedAbility);
 
 		AddStatus(target, statusData, action.attachedAbility);
@@ -84,10 +89,6 @@ public partial class StatusSystem : Aspect, IObserve
 		
 		SearchForEvokeType("OnDeath", action.card);
 			
-
-		
-		
-		
 	}  
 
 	void OnPerformPlayCardAction (object sender, object args) {
@@ -114,28 +115,28 @@ public partial class StatusSystem : Aspect, IObserve
        foreach (var type in afflictions.statusPairs) {
 		var status = type.Value;
 
-			if("OnDraw" != status.evokeType){
+			if(!status.evokeType.Contains("OnDraw")){
 				
 				
 
 				
-
-				DecreaseStatus(status,status.decrease,3);
+				
+				DecreaseStatus(status, status.id, status.decrease,3);
 
 			}
 	   }
     }
-
-    public void DecreaseStatus(Status status, int decrementAmount, int decrement = 2)
+	
+    public void DecreaseStatus(Status status, string id, int decrementAmount, int decrement = 2)
     {	
-		if(status == null)
+		if(status == null || status.id != id)
 			return;
 
-
+		
 		if(decrement == 1){
 	
 	
-        status.value = Mathf.Max(status.value - status.decrease, 0);
+        status.value = Mathf.Max(status.value - decrementAmount, 0);
 		
 		if(status.statusType == StatusTypes.INNATE)
 			status.value = 0; 
@@ -154,9 +155,10 @@ public partial class StatusSystem : Aspect, IObserve
         
         if(status.statusType == StatusTypes.STACKABLE)
             status.value = 0;
-
-        status.value = Mathf.Max(status.value - status.decrease, 0);
 		
+		
+        status.value = Mathf.Max(status.value - decrementAmount, 0);
+	
 
 		if(status.value <= 0)
             status.container.GetAspect<Afflictions>().statusPairs.Remove(status.id);
@@ -166,8 +168,8 @@ public partial class StatusSystem : Aspect, IObserve
         if(status.statusType == StatusTypes.INNATE)
 			return; 
 
-
-        status.value = Mathf.Max(status.value - status.decrease, 0);
+		
+        status.value = Mathf.Max(status.value - decrementAmount, 0);
 		
 
 		if(status.value <= 0)
@@ -175,75 +177,38 @@ public partial class StatusSystem : Aspect, IObserve
 
 
         }
+		
 
+		Card card = status.container as Card;
+		DecreaseStatusNotify(card, status);
 			
 	}
     
-
-    void OnPerformStatusAbility(object sender, object args)
+ 	void OnPerformStatusAbility(object sender, object args)
 	{
-		var action = args as StatusAbilityAction;
-		var status = action.status;
-		var statusValue = status.value;
+		var action = args as AbilityAction;
+		var status = action.ability.abilityRoot.container as Status;
+
+		if(status == null)
+			return;
 
 		
-		if(status.statusType == StatusTypes.STACKABLE && status.value < status.decrease)
-				return;
-			
 
-		DecreaseStatus(status, status.decrease);
-			
-    
-
-		foreach(var ability in status.abilityRoot.abilityChain){
 		
-
-		ability.evokedAbility = action.castedAbility;
-		
-	
-		
-		//if(status.flip)
-		//	ability.card = action.castedAbility.card;
 			
 		
-		
-		
-        ability.userInfo = SetStatusValue(ability.userInfo,status,statusValue);
+		DecreaseStatus(status, status.id, status.decrease);
+			
 
-		
-		var reaction = new AbilityAction(ability);
-
-        StatusSystem statusSystem = container.GetAspect<StatusSystem>();
-		
-		int count = statusSystem.ParseAbilityInfo(ability.abilityCount.ToString(), null, ability);
-
-		for(int i = 0; i < count; i++)
-		container.AddReaction(reaction);
-		
-		}
 	}
 
-    object SetStatusValue(object obj, Status status, int originalStatusValue)
-    {
-        
-        string str = "cardstatus" + status.id;
-
-        string userInfoString = obj.ToString();
-
-        userInfoString =  userInfoString.Replace(str, originalStatusValue.ToString());
-
-        obj = userInfoString;
-         
-        return obj;
-       
-    }
-
+/*
     void CheckEvokeKeyord(Ability ability, StatusAbilityAction action)
     	{
 
 
 
-		if(ability.userInfo.ToString().ToLower().Contains("evoke") || ability.GetAspect<ITargetSelector>().ToString() == "EvokeTarget"){
+		if(ability.GetInfo().Contains("evoke") || ability.GetAspect<ITargetSelector>().ToString() == "EvokeTarget"){
 			ability.evokedAbility = action.castedAbility;
 				return;
 		}
@@ -271,74 +236,47 @@ public partial class StatusSystem : Aspect, IObserve
 			}
 		}
 		
-		}
+		} */
+ 
+    void SearchForEvokeType(string evokeType, Card card, Ability castedAbility = null){
 
-    void SearchForEvokeType(string evokeType, Card card, Ability ability = null){
         if(card == null)
-        return;
+       	 return;
 
         Afflictions targetAfflictions = card.GetAspect<Afflictions>();
-		if(targetAfflictions == null)
-			return;
+	
 
 		
-		
+		foreach(var s in targetAfflictions.statusPairs){
+			Status stat = s.Value;
+			if(stat.evokeType.Contains(evokeType) || ParseStackable(stat.evokeType,stat.value)){
+			foreach(var pair in stat.abilityRoot.abilityChain){
 
-		foreach (var type in targetAfflictions.statusPairs) {
-			var status = type.Value;
-			if(status.evokeType.Contains(evokeType)){
-
-				
-				
-				var action = new StatusAbilityAction(status);
-				
-				if(ability != null)
-						action.castedAbility = ability;
 				
 
+				if(castedAbility != null)
+					pair.evokedAbility = castedAbility;
+
+				
+				int count = this.ParseAbilityInfo(pair.abilityCount.ToString(), null, pair);
+
+				for(int i = 0; i < count; i++){
+				
+				var action = new AbilityAction(pair);
 				container.AddReaction(action);
+				}
+
 				
-				
+
+			}
 			}
 
-		}
 			
+		}
+
 
 	}
 
-    void SearchForEvokeType(int evokeType, Afflictions targetAfflictions, Ability ability = null){
-
-		if(targetAfflictions == null)
-			return;
-
-		
-		
-
-		foreach (var type in targetAfflictions.statusPairs) {
-			var status = type.Value;
-          
-          
-			if(ParseStackable(status.evokeType,status.value)){
-
-				
-				
-				var action = new StatusAbilityAction(status);
-				
-				if(ability != null)
-						action.castedAbility = ability;
-				
-
-				container.AddReaction(action);
-				
-				
-			}
-
-            
-
-		}
-			
-
-	}
 
     public bool ParseStackable(string str, int statusVALUE){
       
@@ -354,19 +292,20 @@ public partial class StatusSystem : Aspect, IObserve
             
 
 
-            f = temp.Find("<");
+            f = temp.Find("≤");
             if(f == -1)
-            f = temp.Find(">");
+            f = temp.Find("≥");
 
+				
             string comparator = temp.Substring(f);
             
             temp = temp.Remove(f);
 
             
 
-            if(comparator.Equals("<=") && Int32.Parse(temp) <= statusVALUE)
+            if(comparator.Equals("≤") && Int32.Parse(temp) <= statusVALUE)
                 return true;
-            else if(comparator.Equals(">=") && Int32.Parse(temp) >= statusVALUE)
+            else if(comparator.Equals("≥") && Int32.Parse(temp) >= statusVALUE)
                 return true;
 
                 return false;
@@ -375,164 +314,138 @@ public partial class StatusSystem : Aspect, IObserve
     public void InitializeCard(Card card, Dictionary<string, object> data){
         if (data.ContainsKey("afflictions") == false)
 			return;
-
-		var afflictions = card.AddAspect<Afflictions> ();
 		
 		var afflictionsData = (List<object>)data ["afflictions"];
 
-		
+		var castedAbility = card.GetAspect<AbilityRoot>().abilityChain[0];
+
 		foreach (object entry in afflictionsData) {
             
 			StatusData statusData = new();
             statusData.data = (Dictionary<string, object>)entry;
-			AddStatus(card, statusData);
+			AddStatus(card, statusData, castedAbility);
 			
 			
 		}
     }
 
 
-	 public void MM(Card card, Dictionary<string, object> data){
+	 public void CreateCard(Card card, Dictionary<string, object> data, Card attached){
         if (data.ContainsKey("afflictions") == false)
 			return;
 
-		var afflictions = card.AddAspect<Afflictions> ();
+		
 		
 		var afflictionsData = (List<object>)data ["afflictions"];
 
+		var castedAbility = card.GetAspect<AbilityRoot>().abilityChain[0];
 		
 		foreach (object entry in afflictionsData) {
             
 			StatusData statusData = new();
             statusData.data = (Dictionary<string, object>)entry;
-			AddStatus(card, statusData,null,false);
+			AddStatus(card, statusData,castedAbility,false);
 			
 			
 		}
+
+		
     }
+
+	public void ShareAfflictions(Card original, Card spawn){
+
+		if(original.GetAspect<Afflictions>().GetStatus("cultist") == null) return;
+
+		var oA = original.GetAspect<Afflictions>();
+
+		var sA = spawn.GetAspect<Afflictions>();
+
+		foreach(var pair in oA.statusPairs)
+			pair.Value.AddConnectedCard(spawn);
+
+		sA.statusPairs = oA.statusPairs;
+
+		
+		
+	}
 	
-    private void AddStatus(Card target, StatusData s, Ability castedAbility = null, bool se = true){
+    public void AddStatus(Card target, StatusData s, Ability castedAbility, bool initialized = true){
 
 
 
         if(s == null)
             return;
 
+		Afflictions aff = target.GetAspect<Afflictions>();
 
+		if(!initialized && aff.GetStatus("x") != null)
+			return;
+
+	
          Dictionary<string, object> statusData = s.data;
 
-        Afflictions aff = target.GetAspect<Afflictions>();
+        
 
-        if(aff == null)
-            aff = target.AddAspect<Afflictions>();
+       
 
 
         string id = (string)statusData["id"];
 		id = id.ToLower();
 
 
-        if(!aff.statusPairs.ContainsKey(id) && se && !s.data.ContainsKey("modifier"))
-            AddGlobalStatus(target, id);
+        if(!aff.statusPairs.ContainsKey(id) && initialized && !s.data.ContainsKey("modifier"))
+            AddGlobalStatus(target, id, castedAbility);
 
 
 
         EditCurrentStatus(target, statusData, castedAbility);
 
-		if(GetStatus(target,id) != null){
-        UpdateStatusNotification statusNotification = new();
-		statusNotification.card = target;
-		statusNotification.status = GetStatus(target, id);
-		this.PostNotification (UpdateStatusNotification, statusNotification);
-		}
 
     }
+	
 
-    private void EditCurrentStatus(Card target, Dictionary<string, object> statusData, Ability castedAbility)
-    {   
-
-        string statusID = (string)statusData["id"];
-		statusID = statusID.ToLower();
-
-        Afflictions aff = target.GetAspect<Afflictions>();
-
-        if(aff.statusPairs.TryGetValue(statusID, out Status status)){
-            
-            status.Load(statusData,target,castedAbility,this);
-           
-           
-            SearchForEvokeType(status.value, target.GetAspect<Afflictions>(), castedAbility);
-        
-		}else if(!statusData.ContainsKey("modifier")){
-
-			Status s = new();
-			s.Load(statusData,target,castedAbility,this);
-			aff.statusPairs.Add(s.id, s);
-		}
-       
-        
-    }
-
-    public static Status GetStatus(Card target, string id){
-        string str = id.ToLower();
-		var aff = target.GetAspect<Afflictions>();
-		
-		
-
-		if(aff == null)
-			return null;
-
-		
-
-		if(aff.statusPairs.TryGetValue(str, out Status status)){
-
-			if(status != null)
-			return status;
-
-
-
-		}
-
-		
-			return null;
-    }
-
-
-    public static int GetStatusValue(Card target, string id){
-        string str = id.ToLower();
-		var aff = target.GetAspect<Afflictions>();
-		
-		
-
-		if(aff == null)
-			return 0;
-
-		
-
-		if(aff.statusPairs.TryGetValue(str, out Status status)){
-
-			if(status != null)
-			return status.value;
-
-
-
-		}
-
-		
-			return 0;
-    }
 
     
 
-	private void AddGlobalStatus(Card target, string id){
+	private void AddGlobalStatus(Card target, string id, Ability castedAbility){
 		
 
 		Afflictions aff = target.GetAspect<Afflictions>();
 
+
+		
+
+		if(id == "health"){
+
+		Health health = new();
+
+       	health.Load(DeckFactory.Afflictions[id],target, castedAbility, this);
+        
+        health.AddConnectedCard(target);
+        aff.statusPairs.Add(id, health);
+
+		return;
+
+		}else if(id == "token"){
+
+		Token token = new();
+
+       	token.Load(DeckFactory.Afflictions[id],target, castedAbility, this);
+        
+        token.AddConnectedCard(target);
+        aff.statusPairs.Add(id, token);
+
+		return;
+
+		}
+
+
+
         Status status = new();
 
-        status.Load(DeckFactory.Statuses[id],target);
+        status.Load(DeckFactory.Afflictions[id],target, castedAbility, this);
         
-        
+        status.AddConnectedCard(target);
         aff.statusPairs.Add(id, status);
 
    
@@ -541,7 +454,63 @@ public partial class StatusSystem : Aspect, IObserve
     }
 
 
+	private void EditCurrentStatus(Card target, Dictionary<string, object> statusData, Ability castedAbility)
+    {   
 
+        string statusID = (string)statusData["id"];
+		statusID = statusID.ToLower();
+
+        Afflictions aff = target.GetAspect<Afflictions>();
+		Status status = new();
+
+        if(aff.statusPairs.TryGetValue(statusID, out Status s)){
+            status = s;
+            status.Load(statusData,target,castedAbility,this);
+
+			if(statusData.ContainsKey("incr")){
+				if(statusData.ContainsKey("modifier"))
+					status.ChangeValue((string)statusData ["incr"], (string)statusData ["modifier"],target,castedAbility,this);
+				else
+					status.ChangeValue((string)statusData ["incr"], "+",target,castedAbility,this);
+			}
+
+
+			status.Override(aff,statusID,statusData);
+			
+          	SearchForEvokeType("MEOW", target);
+            //SearchForEvokeType(status.value, target.GetAspect<Afflictions>(), castedAbility);
+        
+		}else if(!statusData.ContainsKey("modifier")){
+
+			
+			status.Load(statusData,target,castedAbility,this);
+			aff.statusPairs.Add(status.id, s);
+		}
+       
+        UpdateStatus(target,status);
+    }
+
+	
+	public void DecreaseStatusNotify(Card target, Status status){
+		
+		if(target == null ||  status == null)
+			return;
+
+		UpdateStatusNotification statusNotification = new(target,status);
+		this.PostNotification (DecreaseStatusNotification, statusNotification);
+	}
+    
+	public void UpdateStatus(Card target, Status status){
+		
+		if(target == null ||  status == null)
+			return;
+
+		UpdateStatusNotification statusNotification = new(target,status);
+		this.PostNotification (UpdateStatusNotification, statusNotification);
+	}
+    
+
+	#region DataReader
 	public string TakeOtherInfo(string str, Ability ability){
 
 		if(!str.Contains("info"))
@@ -549,7 +518,7 @@ public partial class StatusSystem : Aspect, IObserve
 
 		if(str.Contains("infoability")){
 
-		string abilityInfo = ability.userInfo.ToString();
+		string abilityInfo = ability.GetInfo();
 		
 		while(abilityInfo.Contains("(")){
 		int f = abilityInfo.Find("(");
@@ -628,7 +597,7 @@ public partial class StatusSystem : Aspect, IObserve
 		return value;
 	}
 
-public int InterpretStatusIncrease(string str, Card target, Ability ability)
+	public int InterpretStatusIncrease(string str, Card target, Ability ability)
     {	
 		str = str.ToLower().Replace(" ", "");
 		str = str.ToLower().Replace("|", "");
@@ -647,7 +616,7 @@ public int InterpretStatusIncrease(string str, Card target, Ability ability)
 		
 
 		if(ability.evokedAbility != null && str.Contains("evoke"))
-				return ParseAbilityInfo(ability.evokedAbility.userInfo.ToString(), target, ability.evokedAbility);
+				return ParseAbilityInfo(ability.evokedAbility.GetInfo(), target, ability.evokedAbility);
 		
 
 		if(str.Contains("abilitychainposition")){
@@ -684,16 +653,23 @@ public int InterpretStatusIncrease(string str, Card target, Ability ability)
 				Unit attachedUnit = (Unit)ability.card;
 
 				if(str.Equals("currenthealth"))
-				return attachedUnit.hitPoints;
+				return ability.card.GetAspect<Afflictions>().GetStatusINT("health");
 
-				if(str.Equals("maxhealth"))
-				return attachedUnit.maxHitPoints;
-			
-				if(str.Equals("missinghealth"))
-				return attachedUnit.maxHitPoints - attachedUnit.hitPoints;
+				if(str.Equals("maxhealth")){
+				var health = ability.card.GetAspect<Afflictions>().GetStatus("health") as Health;
+				return health.maxHealth;
+				}
+
+				if(str.Equals("missinghealth")){
+				var health = ability.card.GetAspect<Afflictions>().GetStatus("health") as Health;
+				return health.maxHealth - health.value;
+				}
+
+				if(str.Equals("mana"))
+				return ability.card.cost;
 
 				if(str.Contains("status"))
-				return InterpretStatusStatus(str, attachedUnit);
+				return InterpretStatusStatus(str, ability.card);
 
 
 				str = str.Replace("name", "");
@@ -704,19 +680,25 @@ public int InterpretStatusIncrease(string str, Card target, Ability ability)
 		if(str.Contains("target") && target != null){
 			str = str.Replace("target", "");
 
-				Unit targetUnit = (Unit)target;
 
 				if(str.Equals("currenthealth"))
-				return targetUnit.hitPoints;
+				return target.GetAspect<Afflictions>().GetStatusINT("health");
 
-				if(str.Equals("maxhealth"))
-				return targetUnit.maxHitPoints;
-			
-				if(str.Equals("missinghealth"))
-				return targetUnit.maxHitPoints - targetUnit.hitPoints;
+				if(str.Equals("maxhealth")){
+				var health = target.GetAspect<Afflictions>().GetStatus("health") as Health;
+				return health.maxHealth;
+				}
+
+				if(str.Equals("missinghealth")){
+				var health = target.GetAspect<Afflictions>().GetStatus("health") as Health;
+				return health.maxHealth - health.value;
+				}
+
+				if(str.Equals("mana"))
+				return target.cost;
 
 				if(str.Contains("status"))
-				return InterpretStatusStatus(str, targetUnit);
+				return InterpretStatusStatus(str, target);
 		
 		}
 			
@@ -726,17 +708,23 @@ public int InterpretStatusIncrease(string str, Card target, Ability ability)
 			return 0;
 	}
 
-	public int InterpretStatusStatus(string str, Unit unit){
+	public int InterpretStatusStatus(string str, Card card){
 		str = str.Substr(6, str.Length - 1);
 		
-        return GetStatusValue(unit, str);
+        return card.GetAspect<Afflictions>().GetStatusINT(str);
 	}
 
-
+	#endregion
 }
 
 
 public class UpdateStatusNotification{
 	public Card card;
 	public Status status;
+
+	public UpdateStatusNotification(Card target, Status status){
+		this.card = target;
+		this.status = status;
+
+	}
 }

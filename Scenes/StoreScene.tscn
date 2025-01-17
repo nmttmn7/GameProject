@@ -5,8 +5,8 @@
 [ext_resource type="Shader" path="res://Shaders/ToonWaterEffect.gdshader" id="3_etf4t"]
 [ext_resource type="Script" path="res://Scripts/DisplayObjectsView.cs" id="4_3msku"]
 [ext_resource type="Script" path="res://Scripts/Components/StateMachines/RewardController.cs" id="5_cwttv"]
-[ext_resource type="Script" path="res://Scripts/Components/StatusView.cs" id="14_ts28k"]
-[ext_resource type="PackedScene" uid="uid://dl0s8vtqymelc" path="res://Constructs/StatusConstruct.tscn" id="15_2h3ly"]
+[ext_resource type="Script" path="res://Scripts/Components/AfflictionView.cs" id="6_mlat8"]
+[ext_resource type="Script" path="res://Scripts/Components/ViewView.cs" id="7_sxxr5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pb1w0"]
 resource_local_to_scene = true
@@ -21,13 +21,13 @@ shader_parameter/shades = 3.0
 shader_parameter/steps = 6
 shader_parameter/tint = Vector3(0.615, 0.505, -7.055)
 
-[node name="Reward" type="Node2D" node_paths=PackedStringArray("rewardNode2D", "deckNode2D", "statusView", "displayObjectsView")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("rewardNode2D", "deckNode2D", "afflictionView", "displayObjectsView")]
 position = Vector2(576, 324)
 script = ExtResource("1_6ucek")
 cardConstruct = ExtResource("2_eaeks")
 rewardNode2D = NodePath("ObjectNode")
 deckNode2D = NodePath("DeckNode")
-statusView = NodePath("StatusView")
+afflictionView = NodePath("AfflictionView")
 displayObjectsView = NodePath("DisplayObjectsView")
 storeSETUP = true
 metadata/_edit_lock_ = true
@@ -57,6 +57,12 @@ position_smoothing_speed = 1.0
 [node name="DisplayObjectsView" type="Node" parent="."]
 script = ExtResource("4_3msku")
 
+[node name="PlayerHand" type="Node2D" parent="."]
+visible = false
+
+[node name="EnemyHand" type="Node2D" parent="."]
+visible = false
+
 [node name="DeckNode" type="Node2D" parent="."]
 position = Vector2(0, 250)
 
@@ -68,11 +74,12 @@ script = ExtResource("5_cwttv")
 displayObjectsView = NodePath("../DisplayObjectsView")
 rewardView = NodePath("..")
 
-[node name="StatusView" type="Node" parent="."]
-script = ExtResource("14_ts28k")
-statusIconConstruct = ExtResource("15_2h3ly")
+[node name="AfflictionView" type="Node" parent="." node_paths=PackedStringArray("view")]
+script = ExtResource("6_mlat8")
+view = NodePath("../ViewView")
 
-[node name="Node" type="Node" parent="."]
+[node name="ViewView" type="Node" parent="."]
+script = ExtResource("7_sxxr5")
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = 8

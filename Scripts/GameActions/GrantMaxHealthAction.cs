@@ -8,7 +8,7 @@ using TheLiquidFire.Extensions;
 
 public class GrantMaxHealthAction : GameAction, IAbilityLoader
 {
-	public List<IDestructable> targets;
+	public List<Card> targets;
 	public Ability attachedAbility;
 
 	#region Constructors
@@ -17,14 +17,14 @@ public class GrantMaxHealthAction : GameAction, IAbilityLoader
 
 	}
 
-	public GrantMaxHealthAction(IDestructable target)
+	public GrantMaxHealthAction(Card target)
 	{
-		targets = new List<IDestructable>(1);
+		targets = new List<Card>(1);
 		targets.Add(target);
 
 	}
 
-	public GrantMaxHealthAction(List<IDestructable> targets)
+	public GrantMaxHealthAction(List<Card> targets)
 	{
 		this.targets = targets;
 
@@ -37,12 +37,11 @@ public class GrantMaxHealthAction : GameAction, IAbilityLoader
 		attachedAbility = ability;
 		var targetSelector = ability.GetAspect<ITargetSelector>();
 		var cards = targetSelector.SelectTargets(game);
-		targets = new List<IDestructable>();
+		targets = new List<Card>();
 		foreach (Card card in cards)
 		{
-			var destructable = card as IDestructable;
-			if (destructable != null)
-				targets.Add(destructable);
+			
+				targets.Add(card);
 		}
 
 
@@ -58,7 +57,7 @@ public class GrantMaxHealthAction : GameAction, IAbilityLoader
 
 	public string LoadText(Ability ability){
 		IAbilityLoader IAbility = this as IAbilityLoader;
-		string str = ability.userInfo.ToString();
+		string str = ability.GetInfo();
 		string description = "";
 		
 		

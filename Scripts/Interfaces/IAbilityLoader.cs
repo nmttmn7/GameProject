@@ -102,7 +102,7 @@ public interface IAbilityLoader {
 
 			if(info.Contains("status")){
 				info = info.Replace("cardstatus","");
-				var data = DeckFactory.Statuses[info.ToLower()];
+				var data = DeckFactory.Afflictions[info.ToLower()];
 				string statSprite = (string)data["sprite"];
 				return "[img=40]" + statSprite + "[/img] ";
 			}
@@ -124,7 +124,7 @@ public interface IAbilityLoader {
 
 			if(info.Contains("status")){
 				info = info.Replace("targetstatus","");
-				var data = DeckFactory.Statuses[info.ToLower()];
+				var data = DeckFactory.Afflictions[info.ToLower()];
 				string statSprite = (string)data["sprite"];
 				return "target's [img=40]" + statSprite + "[/img] ";
 			}

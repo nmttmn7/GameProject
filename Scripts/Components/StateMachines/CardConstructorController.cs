@@ -106,7 +106,7 @@ public partial class CardConstructorController : Node {
 				return;
 			
 			
-			if(owner.activeCardView != owner.targetCardView)
+			if(owner.activeCardView != owner.targetCardView && owner.targetCardView != null)
 				owner.stateMachine.ChangeState<ConfirmState> (); 
 			else
 				owner.stateMachine.ChangeState<ResetState> (); 

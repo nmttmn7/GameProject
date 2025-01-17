@@ -5,9 +5,8 @@
 			"disposition": "E0",
 			"rarity": "Common",
 			"name": "MonsterPack1",
-			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 17,
+			"sprite": "uid://dxy7hg1ktc0xr",
+			"cost": "1",
 			"group": "MonsterPack"
 			"target": {
 				"allowed": {
@@ -22,16 +21,27 @@
 			"abilities": [{
 				"description": "Deal 7 damage."
 				"action": "DamageAction",
-				"info": "7",
+				"info": "3",
 				"count": "1",
 				"targetSelector": {
 					"type": "ManualTarget",
-					
 				}
 				
 			
 			}]
-				
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "9"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
 		}
 
 			{
@@ -41,9 +51,8 @@
 			"disposition": "E0",
 			"rarity": "Common",
 			"name": "MonsterPack2",
-			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 12,
+			"sprite": "uid://x321xnipkuvq",
+			"cost": "1",
 			"group": "MonsterPack"
 			"target": {
 				"allowed": {
@@ -56,10 +65,24 @@
 				}
 			},
 			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+					
+				}
+				
+				"status":{
+				"id": "rage"
+				"incr": "2"
+			}
+			
+			}{
 				"description": "Deal 7 damage."
 				"action": "DamageAction",
 				"info": "2",
-				"count": "1",
+				"count": "2",
 				"targetSelector": {
 					"type": "ManualTarget",
 					
@@ -67,7 +90,19 @@
 				
 			
 			}]
-				
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "12"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
 		}
 	
 			{
@@ -78,8 +113,7 @@
 			"rarity": "Common",
 			"name": "MonsterPack3",
 			"sprite": "uid://c60dot2kfadty",
-			"cost": 1,
-			"hit points": 48,
+			"cost": "1",
 			"group": "MonsterPack"
 			"target": {
 				"allowed": {
@@ -102,14 +136,95 @@
 				
 			
 			}{
-				"description": "Create a copy of self."
 				"action": "TransformCardsAction",
-				"info": "target|true",
+				"info": "MonsterPack4",
 				"count": "1",
 				"targetSelector": {
 					"type": "SelfTarget",
 				}
 			
 			}]
+			
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "48"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+			
+		}
+		
+		{
 				
+			"id": "MonsterPack4",
+			"type": "Unit", 
+			"disposition": "E0",
+			"rarity": "Common",
+			"name": "MonsterPack4",
+			"sprite": "uid://34eqhqsmd7aa",
+			"cost": "1",
+			"group": "MonsterPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "7",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+			
+			}{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+					
+				}
+				
+				"status":{
+				"id": "rage"
+				"incr": "5"
+			}
+			
+			}{
+				"action": "TransformCardsAction",
+				"info": "MonsterPack3",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "12"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
 		}

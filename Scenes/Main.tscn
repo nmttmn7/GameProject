@@ -1,26 +1,19 @@
-[gd_scene load_steps=31 format=3 uid="uid://bsl650avf8clx"]
+[gd_scene load_steps=24 format=3 uid="uid://bsl650avf8clx"]
 
 [ext_resource type="PackedScene" uid="uid://ckhqsabxslt4x" path="res://Constructs/ChangeTurnContruct.tscn" id="1_1mf0h"]
 [ext_resource type="Script" path="res://Scripts/Systems/GameViewSystem.cs" id="1_ktsjg"]
 [ext_resource type="PackedScene" uid="uid://6kix7u2g4dmb" path="res://Constructs/ManaConstruct.tscn" id="1_owwox"]
-[ext_resource type="Script" path="res://Scripts/Components/BoardView.cs" id="2_ad3t2"]
-[ext_resource type="Script" path="res://Scripts/Components/PlayerView.cs" id="3_0q8gm"]
-[ext_resource type="Script" path="res://Scripts/Components/HandView.cs" id="4_waych"]
-[ext_resource type="PackedScene" uid="uid://ce17stvn2ta8x" path="res://Animations/AniShake.tscn" id="5_6yeo6"]
-[ext_resource type="Script" path="res://Scripts/Components/DeckView.cs" id="5_q8wdx"]
 [ext_resource type="Script" path="res://Scripts/DisplayObjectsView.cs" id="6_vcgch"]
 [ext_resource type="Script" path="res://Scripts/Components/DrawCardsView.cs" id="7_o5qhs"]
-[ext_resource type="PackedScene" uid="uid://b0a0u78ru6ddb" path="res://Constructs/GPUParticleConstruct.tscn" id="7_tiy76"]
-[ext_resource type="PackedScene" uid="uid://b8ofhhcplb4qx" path="res://Constructs/CardConstruct.tscn" id="8_tx0o4"]
 [ext_resource type="Script" path="res://Scripts/Components/StateMachines/CardController.cs" id="9_s800g"]
 [ext_resource type="Script" path="res://Scripts/Components/DiscardCardsView.cs" id="10_8vhhn"]
-[ext_resource type="Script" path="res://Scripts/Components/StatusView.cs" id="13_bjpw4"]
 [ext_resource type="PackedScene" uid="uid://sey76i4nfxot" path="res://Constructs/BannerConstruct.tscn" id="14_f8cyb"]
-[ext_resource type="PackedScene" uid="uid://dl0s8vtqymelc" path="res://Constructs/StatusConstruct.tscn" id="14_n16yn"]
 [ext_resource type="Script" path="res://Scripts/Components/UIView.cs" id="15_hbyln"]
+[ext_resource type="Script" path="res://Scripts/Components/AfflictionView.cs" id="15_l64jy"]
 [ext_resource type="Script" path="res://Scripts/SoundEffectSetting.gd" id="15_wfm3s"]
 [ext_resource type="PackedScene" uid="uid://cc2r0yqgu7cbb" path="res://Constructs/DiscardViewConstruct.tscn" id="17_ajymj"]
 [ext_resource type="PackedScene" uid="uid://bi73cqm7haucl" path="res://Constructs/DrawViewConstruct.tscn" id="18_1i384"]
+[ext_resource type="Script" path="res://Scripts/Components/ViewView.cs" id="18_07vqa"]
 [ext_resource type="PackedScene" uid="uid://bji7841q126ar" path="res://Constructs/HealthConstruct.tscn" id="19_bper5"]
 [ext_resource type="SystemFont" uid="uid://d1eun1llll7oe" path="res://Fonts/KohoSystemFont.tres" id="21_ss5mj"]
 [ext_resource type="Shader" path="res://Shaders/ToonWaterEffect.gdshader" id="24_6xlhh"]
@@ -84,53 +77,11 @@ zoom = Vector2(0.7, 0.7)
 [node name="GameViewSystem" type="Node" parent="."]
 script = ExtResource("1_ktsjg")
 
-[node name="Board" type="Node" parent="GameViewSystem"]
-script = ExtResource("2_ad3t2")
-
-[node name="AllyPlayerView" type="Node" parent="GameViewSystem/Board" node_paths=PackedStringArray("deck", "hand")]
-script = ExtResource("3_0q8gm")
-deck = NodePath("DeckView")
-hand = NodePath("HandView")
-
-[node name="HandView" type="Node" parent="GameViewSystem/Board/AllyPlayerView" node_paths=PackedStringArray("deckPos", "handPos", "enemyHandView")]
-script = ExtResource("4_waych")
-deckPos = NodePath("TopCard")
-handPos = NodePath("../../../../PlayerHand")
-enemyHandView = NodePath("../../EnemyPlayerView/HandView")
-animationShake = ExtResource("5_6yeo6")
-healAnimationConstruct = ExtResource("7_tiy76")
-
-[node name="TopCard" type="Node2D" parent="GameViewSystem/Board/AllyPlayerView/HandView"]
-position = Vector2(108, 78)
-
-[node name="DeckView" type="Node" parent="GameViewSystem/Board/AllyPlayerView"]
-script = ExtResource("5_q8wdx")
-
-[node name="EnemyPlayerView" type="Node" parent="GameViewSystem/Board" node_paths=PackedStringArray("deck", "hand")]
-script = ExtResource("3_0q8gm")
-deck = NodePath("DeckView")
-hand = NodePath("HandView")
-
-[node name="HandView" type="Node" parent="GameViewSystem/Board/EnemyPlayerView" node_paths=PackedStringArray("deckPos", "handPos", "enemyHandView")]
-script = ExtResource("4_waych")
-deckPos = NodePath("TopCard")
-handPos = NodePath("../../../../EnemyHand")
-enemyHandView = NodePath("../../AllyPlayerView/HandView")
-animationShake = ExtResource("5_6yeo6")
-healAnimationConstruct = ExtResource("7_tiy76")
-
-[node name="TopCard" type="Node2D" parent="GameViewSystem/Board/EnemyPlayerView/HandView"]
-position = Vector2(63, 58)
-
-[node name="DeckView" type="Node" parent="GameViewSystem/Board/EnemyPlayerView"]
-script = ExtResource("5_q8wdx")
-
 [node name="DisplayObjectsView" type="Node" parent="GameViewSystem"]
 script = ExtResource("6_vcgch")
 
 [node name="DrawCardsView" type="Node" parent="GameViewSystem"]
 script = ExtResource("7_o5qhs")
-cardConstruct = ExtResource("8_tx0o4")
 resource = ExtResource("15_wfm3s")
 
 [node name="CardController" type="Node" parent="GameViewSystem"]
@@ -141,13 +92,16 @@ script = ExtResource("9_s800g")
 [node name="DiscardCardsView" type="Node" parent="GameViewSystem"]
 script = ExtResource("10_8vhhn")
 
-[node name="StatusView" type="Node" parent="GameViewSystem" node_paths=PackedStringArray("handView")]
-script = ExtResource("13_bjpw4")
-statusIconConstruct = ExtResource("14_n16yn")
-handView = NodePath("../Board/AllyPlayerView/HandView")
+[node name="AfflictionView" type="Node" parent="GameViewSystem" node_paths=PackedStringArray("view")]
+script = ExtResource("15_l64jy")
+view = NodePath("../ViewView")
 
 [node name="UIView" type="Node" parent="GameViewSystem"]
 script = ExtResource("15_hbyln")
+
+[node name="ViewView" type="Node" parent="GameViewSystem" node_paths=PackedStringArray("displayObjectsView")]
+script = ExtResource("18_07vqa")
+displayObjectsView = NodePath("../DisplayObjectsView")
 
 [node name="Control" parent="." node_paths=PackedStringArray("richTextLabel", "changeTurnNode") instance=ExtResource("1_1mf0h")]
 offset_left = 476.0

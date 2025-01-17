@@ -10,8 +10,8 @@ public class Card : TheLiquidFire.AspectContainer.Container{
 	public string name;
 	public Rarities rarity;
 	public string spritePath;
-	public List<string> description = new();
 	public int cost;
+	public string c;
 	public int orderOfPlay = int.MaxValue;
 	public int ownerIndex;
 	public Zones zone = Zones.Deck;
@@ -34,6 +34,9 @@ public class Card : TheLiquidFire.AspectContainer.Container{
 		spritePath = (string)data ["sprite"];
 
 		cost = System.Convert.ToInt32(data["cost"]);
+
+		if(data.ContainsKey("C"))
+		c = (string)data ["C"];;
 	}
 
 	public virtual string Save(){

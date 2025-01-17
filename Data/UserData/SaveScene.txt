@@ -1,1 +1,1 @@
-{"scene": "res://Scenes/Main.tscn"}
+{"scene": "res://Scenes/CardConstructorScene.tscn"}

@@ -24,7 +24,7 @@ public class ShuffleAction : GameAction, IAbilityLoader
 	public void Load(IContainer game, Ability ability)
 	{
 		player = game.GetMatch().players[ability.card.ownerIndex];
-		amount = Convert.ToInt32(ability.userInfo);
+		amount = Convert.ToInt32(ability.GetInfo());
 	}
 
     public string LoadText(Ability ability)

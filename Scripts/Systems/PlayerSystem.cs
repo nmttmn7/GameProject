@@ -15,8 +15,9 @@ public class PlayerSystem : Aspect, IObserve {
 		round = 1;
 		this.AddObserver (OnPerformChangeTurn, Global.PerformNotification<ChangeTurnAction> (), container);
 		this.AddObserver (OnPerformDrawCards, Global.PerformNotification<DrawCardsAction> (), container);
+
 		
-		//this.AddObserver (OnPerformPlayCard, Global.PerformNotification<PlayCardAction> (), container);
+
 		this.AddObserver(OnPerformDiscardCards, Global.PerformNotification<DiscardCardsAction>(), container);
 		this.AddObserver(OnPerformShuffle, Global.PerformNotification<ShuffleAction>(), container);
 

@@ -8,7 +8,7 @@ using TheLiquidFire.Extensions;
 
 public class DamageAction : GameAction, IAbilityLoader
 {
-	public List<IDestructable> targets;
+	public List<Card> targets;
 	public Ability attachedAbility;
 
 	#region Constructors
@@ -17,14 +17,14 @@ public class DamageAction : GameAction, IAbilityLoader
 
 	}
 
-	public DamageAction(IDestructable target)
+	public DamageAction(Card target)
 	{
-		targets = new List<IDestructable>(1);
+		targets = new List<Card>(1);
 		targets.Add(target);
 
 	}
 
-	public DamageAction(List<IDestructable> targets)
+	public DamageAction(List<Card> targets)
 	{
 		this.targets = targets;
 
@@ -38,16 +38,15 @@ public class DamageAction : GameAction, IAbilityLoader
 		var targetSelector = ability.GetAspect<ITargetSelector>();
 		var cards = targetSelector.SelectTargets(game);
 		
-		targets = new List<IDestructable>();
+		targets = new List<Card>();
 		foreach (Card card in cards)
 		{
-			var destructable = card as IDestructable;
-			if (destructable != null)
-				targets.Add(destructable);
+				targets.Add(card);
 		}
 		var status = ability.abilityRoot.container as Status;
-		if(status == null && !ability.userInfo.ToString().ToLower().Contains("(cardstatusrage)"))
-			ability.userInfo += "|(cardstatusrage)";
+		if(status == null && !ability.GetInfo().ToLower().Contains("(cardstatusrage)"))
+			ability.AddToInfo("|(cardstatusrage)");
+			//ability.userInfo += "|(cardstatusrage)";
 
 	
 
@@ -60,7 +59,7 @@ public class DamageAction : GameAction, IAbilityLoader
 
 	public string LoadText(Ability ability){
 		IAbilityLoader IAbility = this as IAbilityLoader;
-		string str = ability.userInfo.ToString();
+		string str = ability.GetInfo();
 		string description = "";
 		
 		

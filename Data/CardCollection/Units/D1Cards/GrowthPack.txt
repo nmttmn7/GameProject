@@ -1,0 +1,748 @@
+
+
+
+{
+			"id": "GrowthPack1",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack1",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				"status":{
+					"id": "thorns"
+					"incr": "5"
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "18"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+		
+	{
+			"id": "GrowthPack2",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack2",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "2",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "4"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "thorns"
+			
+				"value": "22"
+			}]
+			
+		}
+
+
+{
+			"id": "GrowthPack3",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack3",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Apply 4 rage."
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				"status":{
+					"id": "thorns"
+					"incr": "5"
+					
+				"abilities":[{
+				"action": "HealAction",
+				"info": "cardstatusthorns",
+				"count": 1,
+				"targetSelector": {
+					"type": "EvokeTarget",
+					}
+				
+				}]
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "18"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+		{
+			"id": "GrowthPack4",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack4",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "HealAction",
+				"info": "6",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "4"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+	{
+			"id": "GrowthPack5",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack5",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "7",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+				"status":{
+					"id": "vitality"
+					"incr": "8"
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "4"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+
+	{
+			"id": "GrowthPack6",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack6",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "TransformCardsAction",
+				"info": "GrowthPack6GrowthPack6",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "4"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+{
+			"id": "GrowthPack6GrowthPack6",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack6GrowthPack6",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "TransformCardsAction",
+				"info": "GrowthPack6GrowthPack6GrowthPack6",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "4"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+{
+			"id": "GrowthPack6GrowthPack6GrowthPack6",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack6GrowthPack6GrowthPack6",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "0",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "cardstatusthorns",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "4"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "thorns"
+				"value": "1"
+				"override": "mana"
+			}{
+				"id": "anchored"
+				"type": "INNATE"
+				"value": "1"
+			}]
+			
+		}
+
+
+
+	{
+			"id": "GrowthPack7",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack7",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "TransformCardsAction",
+				"info": "GrowthPack7GrowthPack7",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+					
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "4"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+	{
+			"id": "GrowthPack7GrowthPack7",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "The Gorgon",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "TransformCardsAction",
+				"info": "GrowthPack7",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				"status":{
+					"id": "petrify"
+					"incr": "1"
+				}
+			
+			}{
+				"action": "DamageAction",
+				"info": "2",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+				
+				"status":{
+					"id": "petrify"
+					"incr": "1"
+				}
+			
+			}{
+				"action": "TransformCardsAction",
+				"info": "GrowthPack7",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "4"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+{
+			"id": "GrowthPack8",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack8",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+				"status":{
+					"id": "anchored"
+					"incr": "1"
+				}
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "4"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+{
+			"id": "GrowthPack9",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack9",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "8",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				"status":{
+					"id": "x"
+					"type": "INNATE"
+					"incr": "1"
+				}
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "4"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+{
+			"id": "GrowthPack10",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack10",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "TransformCardsAction",
+				"info": "GrowthPack10GrowthPack10",
+				"count": "3",
+				"targetSelector": {
+					"type": "RandomTarget",
+					"mark": {
+						"alliance": "Ally",
+						"zone": "Active"
+					},
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "4"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+{
+			"id": "GrowthPack10GrowthPack10",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack10GrowthPack10",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "2",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			}{
+				"action": "DamageAction",
+				"info": "cardcurrenthealth",
+				"count": "2",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+{
+			"id": "GrowthPack11",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack11",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "cardcurrenthealth",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "7"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}

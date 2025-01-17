@@ -10,7 +10,6 @@ public class TransformCardsAction : GameAction, IAbilityLoader {
 
 	public string cardID;
 	
-	public bool drawCreatedCard = false;
 
 	public List<Card> targets;
 	public Ability attachedAbility;
@@ -29,9 +28,8 @@ public class TransformCardsAction : GameAction, IAbilityLoader {
 		attachedAbility = ability;
 	
 		
-		var split = ability.userInfo.ToString().Split("|");
-		cardID = split[0];
-		drawCreatedCard = System.Convert.ToBoolean(split[1]);
+		cardID = ability.GetInfo();
+		
 		
 		var targetSelector = ability.GetAspect<ITargetSelector>();
 		var cards = targetSelector.SelectTargets(game);
@@ -49,16 +47,14 @@ public class TransformCardsAction : GameAction, IAbilityLoader {
     {
 		string str = "";
 
-		var split = ability.userInfo.ToString().Split("|");
-		cardID = split[0];
-		drawCreatedCard = System.Convert.ToBoolean(split[1]);
+		var split = ability.GetInfo().Split("|");
+		cardID = ability.GetInfo();
+		
 
 		//Create CARDID // On enemy or ally pile. if
         
 
-		if(drawCreatedCard)
-			str += "Draw ";
-		else
+		
 			str += "Create ";
 
 		if(cardID == "target" || cardID == "self")
@@ -131,7 +127,7 @@ public class TransformCardsAction : GameAction, IAbilityLoader {
 
 			if(info.Contains("status")){
 				info = info.Replace("cardstatus","");
-				var data = DeckFactory.Statuses[info.Capitalize()];
+				var data = DeckFactory.Afflictions[info.Capitalize()];
 				string statSprite = (string)data["sprite"];
 				return "[img=40]" + statSprite + "[/img] ";
 			}
@@ -153,7 +149,7 @@ public class TransformCardsAction : GameAction, IAbilityLoader {
 
 			if(info.Contains("status")){
 				info = info.Replace("targetstatus","");
-				var data = DeckFactory.Statuses[info.Capitalize()];
+				var data = DeckFactory.Afflictions[info.Capitalize()];
 				string statSprite = (string)data["sprite"];
 				return "target's [img=40]" + statSprite + "[/img] ";
 			}

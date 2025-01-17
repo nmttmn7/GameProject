@@ -10,15 +10,25 @@ public class Ability : Container, IAspect {
 	public string actionName { get; set; }
 	public object abilityCount { get; set; }
 	public object userInfo { get; set; }
+	public string info;
 	public Ability evokedAbility { get; set; }
+	public string description { get; set; }
 	public int chainPosition {get; set;}
-	
+	public bool locked	{get; set;}
+
+	public string GetInfo(){
+		return info;
+	}
+
+	public void AddToInfo(string str){
+		info += str;
+	}
 	public string Save(){
 		string text = "";
 		text += "\n{";
 
 		text += "\n\"action\": " + "\"" + actionName + "\","; 
-		text += "\n\"info\": " + "\"" + userInfo.ToString() + "\","; 
+		text += "\n\"info\": " + "\"" + GetInfo() + "\","; 
 		text += "\n\"count\": " + "\"" + abilityCount.ToString() + "\","; 
 		
 		var ITargetSelector = this.GetAspect<ITargetSelector>();

@@ -22,39 +22,58 @@ public class DestructableSystem : Aspect, IObserve {
 	//	this.RemoveObserver (OnFilterAttackTargets, AttackSystem.FilterTargetsNotification, container);
 	}
 
-	void OnPerformHealAction (object sender, object args) {
-		var action = args as HealAction;
-		var statusSystem = container.GetAspect<StatusSystem> ();
-		var status = action.attachedAbility.abilityRoot.GetAspect<Stat>();
+
+	void OnPerformGrantMaxHealthAction (object sender, object args) {
+		var action = args as GrantMaxHealthAction;
 		
-		string str =  action.attachedAbility.userInfo.ToString().ToLower();
+		string str =  action.attachedAbility.GetInfo();
 		
 		if(str.Contains("skip"))
 			return;
 
-		foreach (IDestructable target in action.targets) {
+		foreach (Card target in action.targets) {
 			
+			GrantHealth(str, target, action.attachedAbility);
 			
-			int amount = statusSystem.ParseAbilityInfo(str, (Card)target, action.attachedAbility);
-			target.hitPoints = Mathf.Clamp(target.hitPoints + amount, 0, target.maxHitPoints);
+		}
+		
+	}
+
+	void OnPerformHealAction (object sender, object args) {
+		var action = args as HealAction;
+		
+		string str =  action.attachedAbility.GetInfo();
+		
+		if(str.Contains("skip"))
+			return;
+
+		foreach (Card target in action.targets) {
+			
+			IncreaseHealth(str, target, action.attachedAbility);
+			
 		
 		}
 
 	}
 	
+	
 
-	void OnPerformDamageAction (object sender, object args) {
+/*	void OnPerformDamageAction (object sender, object args) {
 	
 		var action = args as DamageAction;
-		var statusSystem = container.GetAspect<StatusSystem> ();
-		
-		var status = action.attachedAbility.abilityRoot.GetAspect<Stat>();
-		Unit castUnit = (Unit)action.attachedAbility.card;
-		int weak = StatusSystem.GetStatusValue(castUnit, "weak");
+
 		string str =  action.attachedAbility.userInfo.ToString().ToLower();
 
 		if(str.Contains("skip"))
 			return;
+
+		var statusSystem = container.GetAspect<StatusSystem> ();
+		
+		var card = action.attachedAbility.card;
+		//var status = action.attachedAbility.abilityRoot.GetAspect<Stat>();
+		
+		
+		int weak = card.GetAspect<Afflictions>().GetStatusINT("weak");
 
 	
 		foreach (IDestructable target in action.targets) {
@@ -67,54 +86,87 @@ public class DestructableSystem : Aspect, IObserve {
 			if(amount < 0)
 				amount = 0;
 
-			amount = CheckOverrideHealth(unit, amount);
-			target.hitPoints = Mathf.Clamp(target.hitPoints - amount, 0, target.maxHitPoints);
+			
+
+
+			ReduceHealth(unit,amount);
 			
 
 			
 		
 		}
 	}
+ */
+ 
+	void GrantHealth(string amount, Card card, Ability castedAbility) {
 
-	
-
-	int CheckOverrideHealth(Unit unit, int amount){
-		var oh = unit.GetAspect<OverrideHealth>();
-
-		if(oh == null)
-			return amount;
-
+		Afflictions afflictions = card.GetAspect<Afflictions>();
 		var statusSystem = container.GetAspect<StatusSystem> ();
-		var status = StatusSystem.GetStatus(unit, oh.status);
 
-		if(status == null)
-			return amount;
-			
-		int statusValue = status.value;
-		
-		statusSystem.DecreaseStatus(status, amount, 1);
-		amount = Mathf.Max(amount - statusValue, 0);
-		return amount;
-		
+
+
+		Health health = afflictions.GetStatus("health") as Health;
+		if(health != null)
+			health.ChangeMaxHealth(amount,"+",card,castedAbility,statusSystem);
+
+		statusSystem.UpdateStatus(card, health);
+
+
 	}
 
-	void OnPerformGrantMaxHealthAction (object sender, object args) {
-		var action = args as GrantMaxHealthAction;
-		var statusSystem = container.GetAspect<StatusSystem> ();
-		var status = action.attachedAbility.abilityRoot.GetAspect<Stat>();
-		
 
-		string str =  action.attachedAbility.userInfo.ToString().ToLower();
+	void IncreaseHealth(string amount, Card card, Ability castedAbility) {
+
+		Afflictions afflictions = card.GetAspect<Afflictions>();
+		var statusSystem = container.GetAspect<StatusSystem> ();
+
+
+
+		Status health = afflictions.GetStatus("health");
+
+		if(health != null) 
+			health.ChangeValue(amount,"+",card,castedAbility,statusSystem);
+
+		statusSystem.UpdateStatus(card, health);
+
+	}
+
+	void OnPerformDamageAction (object sender, object args) {
+		var action = args as DamageAction;
+		
+		string str =  action.attachedAbility.GetInfo();
 		
 		if(str.Contains("skip"))
 			return;
 
-
-		foreach (IDestructable target in action.targets) {
-			int amount = statusSystem.ParseAbilityInfo(str, (Card)target, action.attachedAbility);
-			target.maxHitPoints += amount;
+		foreach (Card target in action.targets) {
+			
+			ReduceHealth(str, target, action.attachedAbility);
+			
+		
 		}
+
 	}
+
+	void ReduceHealth(string amount, Card card, Ability castedAbility) {
+
+		Afflictions afflictions = card.GetAspect<Afflictions>();
+		var statusSystem = container.GetAspect<StatusSystem> ();
+
+
+
+		Status health = afflictions.GetStatus("health");
+
+		if(health != null)
+			health.ChangeValue(amount,"-",card,castedAbility,statusSystem);
+				
+		statusSystem.UpdateStatus(card, health);
+
+	}
+
+	
+
+	
 	
 
 
@@ -122,7 +174,7 @@ public class DestructableSystem : Aspect, IObserve {
 	void OnFilterAttackTargets (object sender, object args) {
 		var candidates = args as List<Card>;
 		for (int i = candidates.Count - 1; i >= 0; --i) {
-			var destructable = candidates [i] as IDestructable;
+			var destructable = candidates [i] as Card;
 			if (destructable == null)
 				candidates.RemoveAt (i);
 		}

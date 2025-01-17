@@ -8,9 +8,10 @@ using TheLiquidFire.Extensions;
 public partial class DiscardCardsView : Node
 {
 
-	BoardView boardView;
 	Node playerHand;
 	Node enemyHand;
+
+	public ViewView view;
 
 	RichTextLabel discardCardLabel;
 		public override void _Ready()
@@ -22,10 +23,11 @@ public partial class DiscardCardsView : Node
 
 		this.AddObserver (OnPerformDiscardUICards, Global.PerformNotification<DiscardCardsAction> ());
 
-		boardView = GetTree().Root.GetNode("Main").GetNode("GameViewSystem").GetNode<BoardView>("Board");
 		playerHand = GetTree().Root.GetNode("Main").GetNode("PlayerHand");
 		enemyHand = GetTree().Root.GetNode("Main").GetNode("EnemyHand");
 		discardCardLabel = GetTree().Root.GetNode("Main").GetNode("DiscardConstruct").GetChild<RichTextLabel>(1);
+
+		view = GetTree().Root.GetNode("Main").GetNode("GameViewSystem").GetNode<ViewView>("ViewView");
 
 
 	}
@@ -82,17 +84,17 @@ void OnPerformDiscardUICards(object sender, object args){
 		var discardAction = action as DiscardCardsAction;
 		
 		
-		for (int i = 0; i < discardAction.cards.Count; ++i)
-		{	
+		var cardViews = view.GetCardView(discardAction.cards);
 			
-			var playerView = boardView.playerViews[discardAction.cards[i].ownerIndex];
+		
+			foreach(var cardView in cardViews){
 
-			var cardView = playerView.hand.GetView(discardAction.cards[i]);
-			
-			var discardCard = playerView.hand.DiscardCard(cardView);
+			var discardCard = view.DiscardCard(cardView);
 			while (discardCard.MoveNext())
 				yield return null;
-		}
+
+			}
+		
 
 		
 	}

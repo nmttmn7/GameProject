@@ -1,0 +1,96 @@
+		{
+				
+			"id": "TEST",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "TEST",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": "1",
+			"group": "RagePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Deal 0 damage."
+				"action": "DamageAction",
+				"info": "2",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"status":{
+				"id": "leech"
+				"incr": "2"
+				}
+				
+			}]
+			
+			
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "12"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+		{
+			"id": "TEST1",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "TEST",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "TEST"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Apply 4 rage."
+				"action": "DamageAction",
+				"info": "99",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "22"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}

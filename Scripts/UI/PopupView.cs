@@ -39,9 +39,10 @@ public partial class PopupView : Node
 
 		foreach (var entry in afflictions.statusPairs){
 
-			
+			if(entry.Key != "health" && entry.Key != "mana" && entry.Key != "abilitychain"){
 			var status = entry.Value;
 			CreatePopup(status);
+			}
 			
 		}
 	}
@@ -54,7 +55,7 @@ public partial class PopupView : Node
 			if(popupNames.Contains(id))
 				return;
 
-			var data = DeckFactory.Statuses[id];
+			var data = DeckFactory.Afflictions[id];
 				
 			var instance = popupConstruct.Instantiate();
 			var construct = (PopupConstruct)instance;

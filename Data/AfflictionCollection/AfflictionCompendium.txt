@@ -1,0 +1,485 @@
+{ "statuses": [
+
+{
+	"id": "id",
+	"name": "name",
+	"type": "INSTANT"
+	"sprite": "uid://38ecw4faqfte"
+	"evokeType": "Passive"
+	"description": "[color=white]Status Description.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": false
+	"color": "grey"
+	"abilities":[]
+}
+
+
+
+
+
+{
+	"id": "petrify",
+	"name": "Petify",
+	"type": "STACKABLE"
+	"sprite": "uid://38ecw4faqfte"
+	"evokeType": "{5≤}"
+	"description": "[color=white]Status Description.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": false
+	"color": "brown"
+	"abilities":[{
+		"action": "DamageAction",
+		"info": "skip",
+		"count": 1,
+		"targetSelector": {
+			"type": "SelfTarget",
+			}
+		"status":{
+			"id": "fossilized"
+			"incr": "1"
+		}
+	}]
+}
+
+
+{
+	"id": "fossilized",
+	"name": "Fossilized",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusSprites/Icons/fire-iris.png"
+	"evokeType": "Passive"
+	"description": "[color=white]Cannot be played.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": false
+	"color": "brown"
+	"abilities":[]
+}
+
+
+{
+	"id": "thorns",
+	"name": "Thorns",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusSprites/Icons/thorny-tentacle.png"
+	"evokeType": "OnWounded"
+	"description": "[color=white]Deal damage to attacker.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": true
+	"color": "green"
+	"abilities":[{
+	"action": "DamageAction",
+	"info": "cardstatusthorns",
+	"count": 1,
+	"targetSelector": {
+	"type": "SelfTarget",
+	}
+	}]
+}
+
+{
+	"id": "token",
+	"name": "Token",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusSprites/Icons/energise.png"
+	"evokeType": "OnAttack"
+	"description": "[color=white]Status Description.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": false
+	"color": "yellow"
+	"abilities":[{
+		"action": "DamageAction",
+		"info": "skip",
+		"count": 1,
+		"targetSelector": {
+		"type": "SelfTarget",
+			},
+		"status":{
+				"id": "token"
+				"incr": "5"
+				}
+	}]
+}
+
+
+{
+	"id": "vitality",
+	"name": "Vitality",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusSprites/Icons/life-support.png"
+	"evokeType": "OnWounded"
+	"description": "[color=white]Heal before death.[/color]"
+	"decr": "0"
+	"value": "0"
+	"flip": false
+	"color": "green"
+	"abilities": [{
+				"action": "HealAction",
+				"info": "cardstatusvitality",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+				"condition":{
+					"info": "0"
+					"comparator": "≥"
+					"value": "cardcurrenthealth"
+				}
+			}]
+}
+
+
+{
+	"id": "explode",
+	"name": "Explode",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusSprites/Icons/squib.png"
+	"evokeType": "OnWounded"
+	"description": "[color=white]Gain stacks, Explode on death.[/color]"
+	"decr": "0"
+	"value": "0"
+	"flip": false
+	"color": "orange"
+	"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+				
+			"status":{
+				"id": "explode"
+				"incr": "5"
+			}
+			
+			}{
+				"action": "DamageAction",
+				"info": "cardstatusexplode",
+				"count": "1",
+				"targetSelector": {
+					"type": "AllTarget",
+					"mark": {
+						"alliance": "Ally",
+						"zone": "Active"
+					},
+
+					}
+				
+				"condition":{
+					"info": "0"
+					"comparator": "≥"
+					"value": "cardcurrenthealth"
+				}
+			
+			}]
+}
+
+
+{
+	"id": "skeleton",
+	"name": "Skeleton",
+	"type": "INNATE"
+	"sprite": "res://Sprites/StatusSprites/Icons/fish-corpse.png"
+	"evokeType": "Passive"
+	"description": "[color=white]Skeleton.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": false
+	"color": "purple"
+	"abilities":[]
+}
+
+{
+	"id": "x",
+	"name": "X",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusSprites/Icons/health-normal.png"
+	"evokeType": "Passive"
+	"description": "[color=white]Afflictions cannot be applied.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": false
+	"color": "grey"
+	"abilities":[]
+}
+
+{
+	"id": "cursed",
+	"name": "Cursed",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusSprites/Icons/cursed-star.png"
+	"evokeType": "Passive"
+	"description": "[color=white]Double applied afflictions[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": false
+	"color": "purple"
+	"abilities":[]
+}
+
+{
+	"id": "cultist",
+	"name": "Cultist",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusSprites/Icons/cultist.png"
+	"evokeType": "Passive"
+	"description": "[color=white]Afflictions are transfered to created cards.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": false
+	"color": "purple"
+	"abilities":[]
+}
+
+{
+	"id": "contagion",
+	"name": "Contagion",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusIcons/ice-cube.svg"
+	"evokeType": "Passive"
+	"description": "[color=white]Hexs apply damage.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": false
+	"color": "purple"
+	"abilities":[]
+}
+
+
+
+{
+	"id": "health",
+	"name": "Health",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/UIIcons/chained-heart.png"
+	"evokeType": "Invisible"
+	"description": "[color=white]Health.[/color]"
+	"decr": "0"
+	"value": "0"
+	"flip": false
+	"color": "red"
+	"abilities": []
+}
+
+{
+	"id": "mana",
+	"name": "Mana",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/UIIcons/unstable-orb.png"
+	"evokeType": "Invisible"
+	"description": "[color=white]Mana.[/color]"
+	"decr": "0"
+	"value": "1"
+	"flip": false
+	"color": "blue"
+	"abilities": []
+}
+
+{
+	"id": "abilitychain",
+	"name": "AbilityChain",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/UIIcons/gem-chain.png"
+	"evokeType": "Invisible"
+	"description": "[color=white]The ability chain length.[/color]"
+	"decr": "0"
+	"value": "5"
+	"flip": false
+	"color": "grey"
+	"abilities":[]
+}
+
+{
+	"id": "anchored",
+	"name": "Anchored",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusSprites/Icons/anchor.png"
+	"evokeType": "Passive"
+	"description": "[color=white]Card is anchored.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": false
+	"color": "blue"
+	"abilities":[]
+}
+
+{
+	"id": "leech",
+	"name": "Leech",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusSprites/Icons/fangs.png"
+	"evokeType": "OnAttack"
+	"description": "[color=white]Heal for the amount dealt.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": false
+	"color": "red"
+	"abilities":[{
+	"action": "HealAction",
+	"info": "evoke",
+	"count": 1,
+	"targetSelector": {
+	"type": "SelfTarget",
+	"count": 1
+	},
+	}]
+}
+
+
+{
+	"id": "weak",
+	"name": "Weak",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusSprites/Icons/broken-axe.png"
+	"evokeType": "Passive"
+	"description": "[color=white]Reduce damage.[/color]"
+	"decr": "99"
+	"value": "0"
+	"flip": false
+	"color": "grey"
+	"abilities":[]
+}
+
+{
+	"id": "scorched",
+	"name": "Scorched",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusSprites/Icons/pyromaniac.png"
+	"evokeType": "OnAttack"
+	"description": "[color=white]Apply fire.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": false
+	"color": "orange"
+	"abilities":[{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 1,
+				"targetSelector": {
+					"type": "EvokeTarget",
+				},
+				"status":{
+				"id": "fire"
+				"incr": "1"
+			}
+				
+				}]
+}
+
+{
+	"id": "oil",
+	"name": "Oil",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusSprites/Icons/flaming-claw.png"
+	"evokeType": "OnDraw"
+	"description": "[color=white]Deal [img=40]res://Sprites/StatusSprites/Icons/flaming-claw.png[/img] damage.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": false
+	"color": "grey"
+	"abilities":[{
+		
+	"action": "DamageAction",
+	"info": "targetstatusfire",
+	"count": "1",
+	
+	"targetSelector": {
+	"type": "SelfTarget",
+	},
+	
+	}]
+}
+
+{
+	"id": "fire",
+	"name": "Fire",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusSprites/Icons/flaming-claw.png"
+	"evokeType": "OnDraw"
+	"description": "[color=white]Deal damage.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": false
+	"color": "orange"
+	"abilities":[{
+		
+	"action": "DamageAction",
+	"info": "targetstatusfire",
+	"count": "1",
+	
+	"targetSelector": {
+	"type": "SelfTarget",
+	},
+	
+	}]
+}
+
+{
+	"id": "bloodlust",
+	"name": "Bloodlust",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusSprites/Icons/warlord-helmet.png"
+	"evokeType": "OnWounded"
+	"description": "[color=white]Apply rage based on damage taken.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": false
+	"color": "red"
+	"abilities":[{
+	"action": "DamageAction",
+	"info": "skip",
+	"count": 1,
+	"targetSelector": {
+	"type": "SelfTarget",
+	},
+	"status":{
+	"id": "rage"
+	"incr": "evoke"
+	}
+	}]
+}
+
+{
+	"id": "rage",
+	"name": "Rage",
+	"type": "INSTANT"
+	"sprite": "res://Sprites/StatusSprites/Icons/fire-iris.png"
+	"evokeType": "Passive"
+	"description": "[color=white]Increases attack power.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": false
+	"color": "red"
+	"abilities":[]
+}
+
+
+{
+	"id": "death",
+	"name": "Death",
+	"type": "INNATE"
+	"sprite": "res://Sprites/StatusSprites/Icons/broken-skull.png"
+	"evokeType": "OnPlay"
+	"description": "[color=white]Kill this card.[/color]"
+	"decr": "1"
+	"value": "0"
+	"flip": false
+	"color": "grey"
+	"abilities":[{
+				"action": "DamageAction",
+				"info": "cardMaxHealth",
+				"count": 1,
+				"targetSelector": {
+					"type": "SelfTarget",
+				},
+				
+				}]
+}
+
+
+]}

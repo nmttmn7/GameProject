@@ -17,6 +17,17 @@ public partial class HandView : Node {
 	private Node2D enemyHand2D;
 	private Camera2D camera2D;
  	public DisplayObjectsView displayObjectsView;
+
+	public Dictionary <Card, CardView> hand = new();
+
+	public List<CardView> GetCardView(List<Card> cardList){
+		List<CardView> l = new();
+		foreach (Card card in cardList)
+			if(hand.TryGetValue(card, out CardView cardView))
+				l.Add(cardView);
+
+		return l;
+	}
 	public override void _Ready()
 	{	
 		playerHand2D = GetTree().Root.GetNode("Main").GetNode<Node2D>("PlayerHand");
@@ -33,6 +44,7 @@ public partial class HandView : Node {
 
 		this.AddObserver (OnValidateCreateCard, Global.ValidateNotification<CreateCardsAction> ());
 
+		this.AddObserver (OnValidateTransform, Global.ValidateNotification<TransformCardsAction> ());
 		
 
 		//this.AddObserver (OnDiscardNotification, ActionSystem.deathReaperNotification);
@@ -55,13 +67,36 @@ public partial class HandView : Node {
 
 		this.RemoveObserver (OnValidateCreateCard, Global.ValidateNotification<CreateCardsAction> ());
 		
-		;
+		this.RemoveObserver (OnValidateTransform, Global.ValidateNotification<TransformCardsAction> ());
 		//this.RemoveObserver (OnDiscardNotification, ActionSystem.deathReaperNotification);
 //		this.RemoveObserver (OnCompleteAllActions, ActionSystem.completeNotification);
 
 	//	this.RemoveObserver (OnPolymorphZeroNotification, AugmentSystem.RemovePolymorphNotification);
 	}
 	
+	void OnValidateTransform (object sender, object args) {
+		var action = sender as TransformCardsAction;
+		action.perform.viewer = OnPerformTransformView;
+	}
+
+	IEnumerator OnPerformTransformView (IContainer game, GameAction action) {
+		
+		var transformAction = action as TransformCardsAction;
+
+		yield return true;
+
+		foreach(var target in transformAction.targets){
+			var view = GetView((Card)target);		
+			if(view != null)
+			view.UpdateText();
+		}
+
+		
+
+
+	}
+
+
 	#region Polymorph Methods
 
 	void OnPolymorphZeroNotification (object sender, object args) {
@@ -76,15 +111,32 @@ public partial class HandView : Node {
 
 
 	#endregion
+
+	public void CheckPosition(){
+		CardView cardView = null;
+
+		var pos = cardView.cardNodePos.Position;
+
+		var parent = cardView.GetParent();
+		
+	}
+
+	private void CheckLeft(CardView originalCardView, Godot.Vector2 position){
+		var parent = originalCardView.GetParent();
+		var s = GetChildren;
+	}
 	
 	#region Discard Methods
 	public IEnumerator DiscardCard(CardView cardView)
 	{
 		//if DiscardAction is played twice on same card it will throw an error this code stops it
+
+		GD.Print("DISCARD");
 		if(cardView == null)
 			yield break;
 
-	
+		hand.Remove(cardView.card);
+
 		var layout = DiscardAnimation(cardView);
 		while (layout.MoveNext ())
 				yield return null;
@@ -96,7 +148,7 @@ public partial class HandView : Node {
 
 	public IEnumerator DiscardAnimation(CardView cardView)
 	{
-		
+		GD.Print("AMIMANS");
 		Tween tween = CreateTween().SetParallel(false);
 		
 		if(cardView.card.ownerIndex == 0){
@@ -176,9 +228,9 @@ public partial class HandView : Node {
 
 	void OnValidateCreateCard (object sender, object args) {
 		var action = sender as CreateCardsAction;
-		action.perform.viewer = OnPerformTransformView;
+		action.perform.viewer = OnPerformCreateView;
 	}
-	IEnumerator OnPerformTransformView (IContainer game, GameAction action) {
+	IEnumerator OnPerformCreateView (IContainer game, GameAction action) {
 		var transformAction = action as CreateCardsAction;
 		var attackType = transformAction.attachedAbility.GetAspect<ITargetSelector>();
 		
@@ -205,7 +257,7 @@ public partial class HandView : Node {
 
 		attackerView.button.Call("_on_drop_card",true);
 	}
-    List<CardView> GetAllTargetsView(List<IDestructable> targets)
+    List<CardView> GetAllTargetsView(List<Card> targets)
     {	
 		List<CardView> targetViews = new();
 		foreach(Card target in targets){
@@ -329,13 +381,14 @@ public partial class HandView : Node {
 	}
 
 	
-	public IEnumerator AddCard (CardView card, bool showPreview, Ability attachedAbility) {
+	public IEnumerator AddCard (CardView cardView, bool showPreview, Ability attachedAbility) {
 		
 			if(attachedAbility != null){
 
 			}
-			
-			card.UpdateText();
+			hand.Add(cardView.card,cardView);
+			GD.Print("HAND " + hand.Count);
+			cardView.UpdateText();
 			var layout = displayObjectsView.LayoutObjects(handPos,99);
 			while (layout.MoveNext ())
 				yield return null;
@@ -427,12 +480,13 @@ public partial class HandView : Node {
 		
 		var playAction = action as DeathAction;
 		CardView cardView = GetView(playAction.card);
-
+		
 
 		if (cardView == null)
 			yield break;
 
-	
+		hand.Remove(cardView.card);
+
 		displayObjectsView.LayoutObjects(handPos, 99);
 		var discard = DeathAnimation(cardView);
 		while (discard.MoveNext())

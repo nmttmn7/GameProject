@@ -5,30 +5,30 @@
 [ext_resource type="Shader" path="res://Shaders/ToonWaterEffect.gdshader" id="3_gnijv"]
 [ext_resource type="Script" path="res://Scripts/DisplayObjectsView.cs" id="4_qvmsj"]
 [ext_resource type="Script" path="res://Scripts/Components/StateMachines/CardConstructorController.cs" id="5_h05ge"]
-[ext_resource type="Script" path="res://Scripts/Components/StatusView.cs" id="6_cycs3"]
-[ext_resource type="PackedScene" uid="uid://dl0s8vtqymelc" path="res://Constructs/StatusConstruct.tscn" id="7_g5rub"]
+[ext_resource type="Script" path="res://Scripts/Components/AfflictionView.cs" id="6_ai4gu"]
+[ext_resource type="Script" path="res://Scripts/Components/ViewView.cs" id="7_ivrcb"]
 [ext_resource type="SystemFont" uid="uid://d1eun1llll7oe" path="res://Fonts/KohoSystemFont.tres" id="8_ld6ms"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pb1w0"]
 resource_local_to_scene = true
 shader = ExtResource("3_gnijv")
-shader_parameter/R = Vector2(1.2, 0.6)
+shader_parameter/R = Vector2(-3.005, 0.19)
 shader_parameter/scale = 1.095
-shader_parameter/speed = 0.035
-shader_parameter/direction = Vector3(1, 1, 0)
+shader_parameter/speed = 1.51
+shader_parameter/direction = Vector3(0.19, 0.075, 0)
 shader_parameter/distortion = 0.5
-shader_parameter/layers = 2.0
+shader_parameter/layers = -0.83
 shader_parameter/shades = 3.0
 shader_parameter/steps = 6
-shader_parameter/tint = Vector3(-0.33, 0.505, -7.055)
+shader_parameter/tint = Vector3(0.459, 0.765, 1)
 
-[node name="CardConstructorScene" type="Node2D" node_paths=PackedStringArray("rewardNode2D", "deckNode2D", "statusView", "displayObjectsView")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("rewardNode2D", "deckNode2D", "AfflictionView", "displayObjectsView")]
 position = Vector2(576, 324)
 script = ExtResource("1_vfgt4")
 cardConstruct = ExtResource("2_x35yt")
 rewardNode2D = NodePath("ObjectNode")
 deckNode2D = NodePath("DeckNode")
-statusView = NodePath("StatusView")
+AfflictionView = NodePath("AfflictionView")
 displayObjectsView = NodePath("DisplayObjectsView")
 metadata/_edit_lock_ = true
 
@@ -68,11 +68,12 @@ script = ExtResource("5_h05ge")
 displayObjectsView = NodePath("../DisplayObjectsView")
 cardConstructorView = NodePath("..")
 
-[node name="StatusView" type="Node" parent="."]
-script = ExtResource("6_cycs3")
-statusIconConstruct = ExtResource("7_g5rub")
+[node name="AfflictionView" type="Node" parent="." node_paths=PackedStringArray("view")]
+script = ExtResource("6_ai4gu")
+view = NodePath("../ViewView")
 
-[node name="Node" type="Node" parent="."]
+[node name="ViewView" type="Node" parent="."]
+script = ExtResource("7_ivrcb")
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = 8
@@ -111,5 +112,11 @@ theme_override_fonts/normal_font = ExtResource("8_ld6ms")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[center]1"
+
+[node name="PlayerHand" type="Node2D" parent="."]
+visible = false
+
+[node name="EnemyHand" type="Node2D" parent="."]
+visible = false
 
 [connection signal="button_down" from="Button" to="." method="_on_button_down"]

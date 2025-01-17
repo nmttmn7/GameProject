@@ -1,0 +1,363 @@
+{ "deck": [{
+"id": "RagePack1",
+"type": "Unit",
+"rarity": "Common",
+"name": "RagePack1",
+"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+"cost": "1",
+"money": "300",
+"target": {
+"allowed": {
+"alliance": "Any",
+"zone": "Hand"
+},
+"preferred": {
+"alliance": "Enemy",
+"zone": "Hand"
+}
+}
+"abilities": [
+{
+"action": "DamageAction",
+"info": "6|(cardstatusrage)",
+"count": "1",
+"targetSelector": {
+"type": "ManualTarget",
+}
+}
+]
+"afflictions": [
+]}{
+"id": "RagePack1",
+"type": "Unit",
+"rarity": "Common",
+"name": "RagePack1",
+"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+"cost": "1",
+"money": "180",
+"target": {
+"allowed": {
+"alliance": "Any",
+"zone": "Hand"
+},
+"preferred": {
+"alliance": "Enemy",
+"zone": "Hand"
+}
+}
+"abilities": [
+{
+"action": "DamageAction",
+"info": "6|(cardstatusrage)",
+"count": "1",
+"targetSelector": {
+"type": "ManualTarget",
+}
+}
+]
+"afflictions": [
+]}{
+"id": "DuplicatePack1",
+"type": "Unit",
+"rarity": "Common",
+"name": "DuplicatePack1",
+"sprite": "uid://c5smq5nlc40a5",
+"cost": "1",
+"money": "120",
+"target": {
+"allowed": {
+"alliance": "Any",
+"zone": "Hand"
+},
+"preferred": {
+"alliance": "Enemy",
+"zone": "Hand"
+}
+}
+"abilities": [
+{
+"action": "CreateCardsAction",
+"info": "self|true",
+"count": "1",
+"targetSelector": {
+"type": "SelfTarget",
+}
+}
+]
+"afflictions": [
+]}{
+"id": "RagePack1",
+"type": "Unit",
+"rarity": "Common",
+"name": "RagePack1",
+"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+"cost": "1",
+"money": "40",
+"target": {
+"allowed": {
+"alliance": "Any",
+"zone": "Hand"
+},
+"preferred": {
+"alliance": "Enemy",
+"zone": "Hand"
+}
+}
+"abilities": [
+{
+"action": "DamageAction",
+"info": "6|(cardstatusrage)",
+"count": "1",
+"targetSelector": {
+"type": "ManualTarget",
+}
+}
+]
+"afflictions": [
+]}{
+"id": "RagePack1",
+"type": "Unit",
+"rarity": "Common",
+"name": "RagePack1",
+"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+"cost": "1",
+"money": "340",
+"target": {
+"allowed": {
+"alliance": "Any",
+"zone": "Hand"
+},
+"preferred": {
+"alliance": "Enemy",
+"zone": "Hand"
+}
+}
+"abilities": [
+{
+"action": "DamageAction",
+"info": "6|(cardstatusrage)",
+"count": "1",
+"targetSelector": {
+"type": "ManualTarget",
+}
+}
+]
+"afflictions": [
+]}{
+"id": "RagePack1",
+"type": "Unit",
+"rarity": "Common",
+"name": "RagePack1",
+"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+"cost": "1",
+"money": "280",
+"target": {
+"allowed": {
+"alliance": "Any",
+"zone": "Hand"
+},
+"preferred": {
+"alliance": "Enemy",
+"zone": "Hand"
+}
+}
+"abilities": [
+{
+"action": "DamageAction",
+"info": "6|(cardstatusrage)",
+"count": "1",
+"targetSelector": {
+"type": "ManualTarget",
+}
+}
+]
+"afflictions": [
+]}{
+"id": "MinionPack1",
+"type": "Unit",
+"rarity": "Common",
+"name": "MinionPack1",
+"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+"cost": "1",
+"money": "80",
+"target": {
+"allowed": {
+"alliance": "Any",
+"zone": "Hand"
+},
+"preferred": {
+"alliance": "Enemy",
+"zone": "Hand"
+}
+}
+"abilities": [
+{
+"action": "DamageAction",
+"info": "1",
+"count": "1",
+"targetSelector": {
+"type": "SelfTarget",
+}
+}
+]
+"afflictions": [
+]}{
+"id": "RagePack5",
+"type": "Unit",
+"rarity": "Common",
+"name": "RagePack5",
+"sprite": "uid://c5smq5nlc40a5",
+"cost": "1",
+"money": "120",
+"target": {
+"allowed": {
+"alliance": "Any",
+"zone": "Hand"
+},
+"preferred": {
+"alliance": "Enemy",
+"zone": "Hand"
+}
+}
+"abilities": [
+{
+"action": "DamageAction",
+"info": "skip|(cardstatusrage)",
+"count": "1",
+"targetSelector": {
+"type": "ManualTarget",
+}
+"status": {
+"id" : "rage"
+"incr" : "3"
+}
+}
+]
+"afflictions": [
+]}{
+"id": "RagePack5",
+"type": "Unit",
+"rarity": "Common",
+"name": "RagePack5",
+"sprite": "uid://c5smq5nlc40a5",
+"cost": "1",
+"money": "40",
+"target": {
+"allowed": {
+"alliance": "Any",
+"zone": "Hand"
+},
+"preferred": {
+"alliance": "Enemy",
+"zone": "Hand"
+}
+}
+"abilities": [
+{
+"action": "DamageAction",
+"info": "skip|(cardstatusrage)",
+"count": "1",
+"targetSelector": {
+"type": "ManualTarget",
+}
+"status": {
+"id" : "rage"
+"incr" : "3"
+}
+}
+]
+"afflictions": [
+]}{
+"id": "RagePack4",
+"type": "Unit",
+"rarity": "Common",
+"name": "RagePack4",
+"sprite": "uid://c5smq5nlc40a5",
+"cost": "1",
+"money": "180",
+"target": {
+"allowed": {
+"alliance": "Any",
+"zone": "Hand"
+},
+"preferred": {
+"alliance": "Enemy",
+"zone": "Hand"
+}
+}
+"abilities": [
+{
+"action": "DamageAction",
+"info": "2|(cardstatusrage)",
+"count": "1",
+"targetSelector": {
+"type": "ManualTarget",
+}
+"status": {
+"id" : "leech"
+"incr" : "2"
+}
+}
+]
+"afflictions": [
+]}{
+"id": "MinionPack10",
+"type": "Unit",
+"rarity": "Common",
+"name": "MinionPack10",
+"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+"cost": "1",
+"money": "0",
+"target": {
+"allowed": {
+"alliance": "Any",
+"zone": "Hand"
+},
+"preferred": {
+"alliance": "Enemy",
+"zone": "Hand"
+}
+}
+"abilities": [
+{
+"action": "CreateCardsAction",
+"info": "MinionPack10CREATEDCARD|true",
+"count": "1",
+"targetSelector": {
+"type": "ManualTarget",
+}
+}
+]
+"afflictions": [{
+"id": "mana",
+"name": "Mana",
+"type": "INSTANT",
+"sprite": "res://Sprites/UIIcons/unstable-orb.png",
+"evokeType": "[color=]Invisible[/color]",
+"description": "[color=white]Mana.[/color]",
+"decr": "0",
+"value": "1",
+"flip": false,
+"color": blue,}{
+"id": "health",
+"name": "Health",
+"type": "INSTANT",
+"sprite": "res://Sprites/UIIcons/chained-heart.png",
+"evokeType": "[color=]Invisible[/color]",
+"description": "[color=white]Health.[/color]",
+"decr": "0",
+"value": "24",
+"flip": false,
+"color": red,}{
+"id": "abilitychain",
+"name": "AbilityChain",
+"type": "INSTANT",
+"sprite": "res://Sprites/UIIcons/gem-chain.png",
+"evokeType": "[color=]Invisible[/color]",
+"description": "[color=white]The ability chain length.[/color]",
+"decr": "0",
+"value": "5",
+"flip": false,
+"color": grey,}
+]}
+]}

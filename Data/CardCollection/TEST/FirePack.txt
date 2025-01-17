@@ -1,15 +1,13 @@
-
-{
-			"id": "FirePack1111",
+			{
+				
+			"id": "FirePack1",
 			"type": "Unit", 
-			"disposition": "D2",
+			"disposition": "D1",
 			"rarity": "Common",
 			"name": "FirePack1",
-			"decription": "//Fire card that heals based on fire amount, When this particular card is hit it does fire damage to cards in return, fire now spreads?"
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
-			"group": ["FirePack"]
+			"cost": "1",
+			"group": "FirePack"
 			"target": {
 				"allowed": {
 					"alliance": "Any",
@@ -21,33 +19,45 @@
 				}
 			},
 			"abilities": [{
+				"description": "Apply 1 fire to self"
 				"action": "DamageAction",
 				"info": "skip",
 				"count": "1",
 				"targetSelector": {
-					"type": "SelfTarget",
+					"type": "ManualTarget",
 				}
 				
 			"status":{
 				"id": "fire"
-				"incr": "5"
+				"incr": "8"
 			}
 			
 			}]
-				
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
 		}
 		
 		{
-			"id": "FirePack13343",
+				
+			"id": "FirePack2",
 			"type": "Unit", 
-			"disposition": "D2",
+			"disposition": "D1",
 			"rarity": "Common",
-			"name": "FirePack1",
-			"description": "fire is this cards health"
+			"name": "FirePack2",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
-			"group": ["FirePack"]
+			"cost": "1",
+			"group": "FirePack"
 			"target": {
 				"allowed": {
 					"alliance": "Any",
@@ -60,60 +70,534 @@
 			},
 			"abilities": [{
 				"action": "DamageAction",
-				"info": "cardstatusfire",
-				"count": 2,
+				"info": "playernamefirepack2",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "1"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "death"
+				"value": "1"
+				"type": "INNATE"
+			}]
+			
+			
+		}
+		
+		
+		{
+				
+			"id": "FirePack3",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "FirePack3",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": "1",
+			"group": "FirePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Apply 7 fire"
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "4",
 				"targetSelector": {
 					"type": "RandomTarget",
 					"mark": {
 						"alliance": "Target",
-						"zone": "Hand"
+						"zone": "Active"
 					},
 				}
 				
 				"status":{
 				"id": "fire"
-				"incr": "cardstatusfire"
-			}
+				"incr": "3"
+				}
+				
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
 			
 			}]
 			
-			"overridehealth":{
-				"status": "fire",
-			}
+		}
+
+		{
+				
+			"id": "FirePack4",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "FirePack4",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": "2",
+			"group": "FirePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Deal 14 fire if this card has fire"
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"status":{
+				"id": "fire"
+				"incr": "15"
+				}
+				
+				"condition":{
+					"info": "10"
+					"comparator": "≥"
+					"value": "targetstatusfire"
+				}
+				
+			}]
 			
 			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "12"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+		{
+				
+			"id": "FirePack5",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "FirePack5",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": "1",
+			"group": "FirePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Apply rage for the amount of fire on card"
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"status":{
+				"id": "rage"
+				"incr": "cardstatusfire"
+				}
+				
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "24"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+
+
+
+		{
+				
+			"id": "FirePack6",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "FirePack6",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": "1",
+			"group": "FirePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Deal damage based on the amount of fire on target"
+				"action": "DamageAction",
+				"info": "cardstatusfire",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+
+
+			{
+				
+			"id": "FirePack7",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "FirePack7",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": "1",
+			"group": "FirePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Apply double fire and kill this card after"
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			"status":{
+				"id": "fire"
+				"incr": "2"
+				"modifier": "x"
+				
+			}
+			
+			}{
+				"description": "Apply 4 rage."
+				"action": "DamageAction",
+				"info": "1",
+				"count": "cardstatusfire",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+				
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+		
+
+		{
+				
+			"id": "FirePack8",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "FirePack8",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": "1",
+			"group": "FirePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Apply fire that increases."
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "cardstatusfire",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"status":{
+				"id": "fire"
+				"incr": "1"
+				"decr": "-2"
+				
+			}
+				
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+		{
+			"id": "FirePack9",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "FirePack9",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": "1",
+			"group": "FirePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Fire is this cards health"
+				"action": "DamageAction",
+				"info": "0",
+				"count": 1,
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			}]
+			
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
+			}{
 				"id": "fire"
 				"value": "4"
-				"decr": "-1"
-				"evokeType": "OnWounded"
-				"flip": true
-				"abilities":[{
+				"override": "health"
+			}]
+			
+		}
+		
+
+	{
+			"id": "FirePack10",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "FirePack10",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": "1",
+			"group": "FirePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Fire is this cards health"
+				"action": "DamageAction",
+				"info": "skip",
+				"count": 3,
+				"targetSelector": {
+					"type": "RandomTarget",
+					"mark": {
+						"alliance": "Target",
+						"zone": "Active"
+					},
+				}
+				
+				"status":{
+				"id": "oil"
+				"incr": "4"
+			}
+				
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+		
+		{
+			"id": "FirePack11",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "FirePack11",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": "2",
+			"group": "FirePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Fire is this cards health"
 				"action": "DamageAction",
 				"info": "skip",
 				"count": 1,
 				"targetSelector": {
-				"type": "SelfTarget",
-				},		
+					"type": "AllTarget",
+					"mark": {
+						"alliance": "Target",
+						"zone": "Active"
+					},
+				}
+				
+				"condition":{
+					"info": "cardstatusfire"
+					"comparator": ">"
+					"value": "5"
+				}
+				
 				"status":{
 				"id": "fire"
-				"incr": ""
-				}
-				}]
+				"incr": "12"
+			}
+				
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "12"
+			}{
+				"id": "abilitychain"
+			
 			}]
 			
 		}
 		
 			{
 				
-			"id": "FirePack1",
+			"id": "FirePack12",
 			"type": "Unit", 
-			"disposition": "D2",
+			"disposition": "D1",
 			"rarity": "Common",
-			"name": "FirePack1",
-			"sprite": "res://Sprites/CardSprites/Algal.png",
-			"cost": 1,
-			"hit points": 6,
-			"group": ["FirePack"]
+			"name": "FirePack12",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": "1",
+			"group": "FirePack"
 			"target": {
 				"allowed": {
 					"alliance": "Any",
@@ -125,154 +609,30 @@
 				}
 			},
 			"abilities": [{
+				"description": "Deal 0 damage."
 				"action": "DamageAction",
-				"info": "1",
-				"count": 1,
+				"info": "0",
+				"count": "3",
 				"targetSelector": {
 					"type": "ManualTarget",
 				}
 				
 			}]
-		}
-		
-		{
-			"id": "FirePack2",
-			"type": "Unit", 
-			"disposition": "D2",
-			"rarity": "Common",
-			"name": "FirePack2",
-			"sprite": "res://Sprites/CardSprites/Algal.png",
-			"cost": 1,
-			"hit points": 6,
-			"group": ["FirePack"]
-			"target": {
-				"allowed": {
-					"alliance": "Any",
-					"zone": "Hand"
-				},
-				"preferred": {
-					"alliance": "Enemy",
-					"zone": "Hand"
-				}
-			},
-			"abilities": [{
-				"action": "DamageAction",
-				"info": "skip",
-				"count": 1,
-				"targetSelector": {
-					"type": "ManualTarget",
-				}
-				
-				"status":{
-				"id": "fire"
-				"incr": "playernamefire"
-			}
-		
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "scorched"
+				"value": "1"
+				"type": "INNATE"
 			}]
 				
 		}
-		
-		{
-				
-			"id": "FirePack3",
-			"type": "Unit", 
-			"disposition": "D2",
-			"rarity": "Common",
-			"name": "FirePack3",
-			"sprite": "res://Sprites/CardSprites/Algal.png",
-			"cost": 1,
-			"hit points": 6,
-			"group": ["FirePack"]
-			"target": {
-				"allowed": {
-					"alliance": "Any",
-					"zone": "Hand"
-				},
-				"preferred": {
-					"alliance": "Enemy",
-					"zone": "Hand"
-				}
-			},
-			"abilities": [{
-				"action": "DamageAction",
-				"info": "skip",
-				"count": 1,
-				"targetSelector": {
-					"type": "ManualTarget",
-				}
-				
-				"status":{
-				"id": "fire"
-				"incr": "playernamefire"
-			}
-		
-			}]
-				
-		}
-		
-		
-		{
-			"id": "FirePack4",
-			"type": "Unit", 
-			"disposition": "d2",
-			"rarity": "Common",
-			"name": "FirePack4",
-			"sprite": "res://Sprites/CardSprites/Pollution.png",
-			"cost": 1,
-			"hit points": 6,
-			"group": ["FirePack"]
-			"target": {
-				"allowed": {
-					"alliance": "Any",
-					"zone": "Hand"
-				},
-				"preferred": {
-					"alliance": "Enemy",
-					"zone": "Hand"
-				}
-			},
-			"abilities": [{
-				"action": "CreateCardsAction",
-				"info": "FirePack1|false|self",
-				"count": 2,
-				"targetSelector": {
-					"type": "ManualTarget",
-				}
-				}]
-				
-		}
-		
-		
-		{
-				
-			"id": "FirePack21",
-			"type": "Unit", 
-			"disposition": "D2",
-			"rarity": "Common",
-			"name": "FirePack1",
-			"sprite": "res://Sprites/CardSprites/Algal.png",
-			"cost": 1,
-			"hit points": 6,
-			"group": ["FirePack"]
-			"target": {
-				"allowed": {
-					"alliance": "Any",
-					"zone": "Hand"
-				},
-				"preferred": {
-					"alliance": "Enemy",
-					"zone": "Hand"
-				}
-			},
-			"abilities": [{
-				"action": "DamageAction",
-				"info": "skip",
-				"count": 1,
-				"targetSelector": {
-					"type": "ManualTarget",
-				}
-				
-			}]
-				
-		}
-		

@@ -35,7 +35,7 @@ public partial class CardConstructorView : Node, IAspect {
 	[Export] PackedScene cardConstruct;
 	[Export] Node2D rewardNode2D;
 	[Export] Node2D deckNode2D;
-	[Export] StatusView statusView;
+	[Export] AfflictionView AfflictionView;
 	[Export] DisplayObjectsView displayObjectsView;
 	
 
@@ -43,6 +43,8 @@ public partial class CardConstructorView : Node, IAspect {
     	public override void _EnterTree()
     {	
 		container.Awake ();
+		container.AddAspect<DataSystem>();
+		container.AddAspect<StatusSystem>();
 		actionSystem = container.GetAspect<ActionSystem> ();
 	
         }
@@ -111,7 +113,7 @@ public partial class CardConstructorView : Node, IAspect {
 				cardView.card = player[Zones.Deck][i];
 				cardView.UpdateText();
 
-				statusView.GenerateAllStatuses(cardView);
+				AfflictionView.GenerateAllStatuses(cardView);
 
 		}
 		displayObjectsView.LayoutObjects(deckNode2D, 99).MoveNext();
@@ -121,13 +123,8 @@ public partial class CardConstructorView : Node, IAspect {
 	public void CombineCards(Card cardBase, CardView cardDelete){
 
 	
-		var abilityDelete = cardDelete.card.GetAspect<AbilityRoot>().abilityChain[cardDelete.GetDescriptionIndex()];
-		var abilitychainBase = cardBase.GetAspect<AbilityRoot>().abilityChain;
-
-		abilityDelete.container = cardBase;
-		abilityDelete.card = cardBase;
-		abilitychainBase.Add(abilityDelete);
-
+		bool success = DeckFactory.CombineCards(cardBase,cardDelete,false);
+		if(success)
 		DiscardCard(cardDelete);
 
 	}

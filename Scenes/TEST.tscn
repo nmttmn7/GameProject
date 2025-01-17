@@ -1,9 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://cxtdp54g2ou3e"]
+[gd_scene load_steps=24 format=3 uid="uid://cxtdp54g2ou3e"]
 
-[ext_resource type="Script" path="res://Scripts/Factory/DataManager.cs" id="1_3fx5b"]
+[ext_resource type="Script" path="res://TEST.gd" id="1_odayu"]
 [ext_resource type="Shader" path="res://Shaders/WolKaHologram.gdshader" id="2_ywrqp"]
 [ext_resource type="Texture2D" uid="uid://38ecw4faqfte" path="res://icon.svg" id="4_hxgac"]
 [ext_resource type="Shader" path="res://Shaders/TEST.gdshader" id="4_p4k07"]
+[ext_resource type="Texture2D" uid="uid://34eqhqsmd7aa" path="res://Sprites/CardSprites/E0/GreenBunny2.png" id="5_kd23x"]
+[ext_resource type="Texture2D" uid="uid://b38f4dxki4ckw" path="res://Sprites/UIIcons/tesla-coil.png" id="6_g2nhm"]
+[ext_resource type="Texture2D" uid="uid://xinjlxc2g381" path="res://Sprites/UIIcons/shatter.png" id="7_rmwuo"]
 
 [sub_resource type="Gradient" id="Gradient_gs54o"]
 offsets = PackedFloat32Array(0, 0.196296, 0.351852, 0.722222, 1)
@@ -76,17 +79,27 @@ shader_parameter/gradient = SubResource("GradientTexture1D_euqsr")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ua60a"]
 shader = ExtResource("4_p4k07")
-shader_parameter/crt_curve = 0.02
-shader_parameter/crt_scan_line_color = 0.347
-shader_parameter/aperture_grille_rate = 0.4
-shader_parameter/rf_switch_esque_blur = 1.0
-shader_parameter/white_noise_rate = 0.0
+shader_parameter/color_one = null
+shader_parameter/color_two = null
+shader_parameter/angle = 20.0
+shader_parameter/line_count = 20.0
+shader_parameter/speed = 0.2
+shader_parameter/blur = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nyk3p"]
+shader = ExtResource("4_p4k07")
+shader_parameter/color_one = null
+shader_parameter/color_two = null
+shader_parameter/angle = 20.0
+shader_parameter/line_count = 20.0
+shader_parameter/speed = 2.2
+shader_parameter/blur = null
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(576, 325)
 
 [node name="Node" type="Node" parent="."]
-script = ExtResource("1_3fx5b")
+script = ExtResource("1_odayu")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_7bql1")
@@ -121,3 +134,34 @@ theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "L[img=60]res://Sprites/StatusSprites/Icons/plain-arrow.png[/img]-1"
 metadata/_edit_lock_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_kd23x")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_nyk3p")
+offset_left = -14.0
+offset_top = -46.0
+offset_right = 601.0
+offset_bottom = 250.0
+color = Color(0.928329, 0.99908, 0.733387, 1)
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+offset_left = -266.0
+offset_top = 46.0
+offset_right = -226.0
+offset_bottom = 86.0
+texture = ExtResource("6_g2nhm")
+
+[node name="TextureRect3" type="TextureRect" parent="TextureRect3"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 31.0
+offset_right = 156.0
+offset_bottom = 159.0
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("7_rmwuo")

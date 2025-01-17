@@ -1,0 +1,12 @@
+[gd_scene load_steps=5 format=3 uid="uid://4bens776urgp"]
+
+[ext_resource type="Script" path="res://Scripts/Factory/DataManager.cs" id="1_yiq68"]
+[ext_resource type="PackedScene" uid="uid://b8ofhhcplb4qx" path="res://Constructs/CardConstruct.tscn" id="2_6os28"]
+[ext_resource type="PackedScene" uid="uid://ce17stvn2ta8x" path="res://Animations/AniShake.tscn" id="2_f1mg0"]
+[ext_resource type="PackedScene" uid="uid://dl0s8vtqymelc" path="res://Constructs/StatusConstruct.tscn" id="4_vsgym"]
+
+[node name="DataConstruct" type="Node"]
+script = ExtResource("1_yiq68")
+animationShake = ExtResource("2_f1mg0")
+cardConstruct = ExtResource("2_6os28")
+statusIconConstruct = ExtResource("4_vsgym")

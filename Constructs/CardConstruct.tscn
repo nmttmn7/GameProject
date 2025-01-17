@@ -7,10 +7,10 @@
 [ext_resource type="Script" path="res://Scripts/Components/StateMachines/Clickable.cs" id="4_gdiwq"]
 [ext_resource type="Shader" path="res://Shaders/CustomPerspective.gdshader" id="4_u315g"]
 [ext_resource type="SystemFont" uid="uid://d1eun1llll7oe" path="res://Fonts/KohoSystemFont.tres" id="4_w2e45"]
-[ext_resource type="Texture2D" uid="uid://c5cwyfrl3ngy5" path="res://Sprites/UIIcons/chained-heart (2).png" id="4_woabm"]
 [ext_resource type="Shader" path="res://Shaders/OutlineBright.gdshader" id="5_ab71o"]
-[ext_resource type="Texture2D" uid="uid://b38f4dxki4ckw" path="res://Sprites/UIIcons/tesla-coil.png" id="6_eardd"]
-[ext_resource type="Texture2D" uid="uid://bfl7mq0tawsyq" path="res://Sprites/UIIcons/armoured-shell.png" id="7_8tht3"]
+[ext_resource type="Texture2D" uid="uid://di245lbn060kk" path="res://Sprites/UIIcons/chained-heart.png" id="7_etxxl"]
+[ext_resource type="Texture2D" uid="uid://cej7w26ukmo7i" path="res://Sprites/UIIcons/unstable-orb.png" id="9_pshko"]
+[ext_resource type="Texture2D" uid="uid://c1jsr2u81oqfe" path="res://Sprites/UIIcons/gem-chain.png" id="10_1owq0"]
 [ext_resource type="Texture2D" uid="uid://cc73vn2upme2c" path="res://Sprites/UIIcons/metal-disc.png" id="12_4d6vn"]
 [ext_resource type="PackedScene" uid="uid://c1ydamdh386gx" path="res://Constructs/PopupConstruct.tscn" id="16_g58ho"]
 [ext_resource type="Script" path="res://Scripts/UI/PopupView.cs" id="16_kr0pt"]
@@ -86,15 +86,19 @@ corner_radius_bottom_left = 6
 
 [node name="CardConstruct" type="Node2D"]
 
-[node name="CardView" type="Node" parent="." node_paths=PackedStringArray("cardNodePos", "statusNode2D", "textureRect", "healthText", "manaText", "nameText", "abilityCountText", "moneyText", "descriptionText", "button")]
+[node name="CardView" type="Node" parent="." node_paths=PackedStringArray("cardNodePos", "statusNode2D", "healthTexture", "healthText", "manaTexture", "manaText", "abilityCountTexture", "abilityCountText", "abilityReaderText", "textureRect", "nameText", "moneyText", "descriptionText", "button")]
 script = ExtResource("1_woj7e")
 cardNodePos = NodePath("..")
 statusNode2D = NodePath("../Button/StatusView")
-textureRect = NodePath("../Button/CardTexture/SubViewport/Control/SpriteRect")
+healthTexture = NodePath("../Button/CardTexture/SubViewport/Control/CardHeader/HealthTexture")
 healthText = NodePath("../Button/CardTexture/SubViewport/Control/CardHeader/HealthTexture/Health")
+manaTexture = NodePath("../Button/CardTexture/SubViewport/Control/CardHeader/ManaTexture")
 manaText = NodePath("../Button/CardTexture/SubViewport/Control/CardHeader/ManaTexture/Mana")
-nameText = NodePath("../Button/CardTexture/SubViewport/Control/Name")
+abilityCountTexture = NodePath("../Button/CardTexture/SubViewport/Control/CardHeader/AbilityTexture")
 abilityCountText = NodePath("../Button/CardTexture/SubViewport/Control/CardHeader/AbilityTexture/Ability")
+abilityReaderText = NodePath("../Button/CardTexture/SubViewport/Control/AbilityTexture/Ability")
+textureRect = NodePath("../Button/CardTexture/SubViewport/Control/SpriteRect")
+nameText = NodePath("../Button/CardTexture/SubViewport/Control/Name")
 moneyText = NodePath("../Button/CardTexture/SubViewport/Control/Money/Money")
 descriptionText = NodePath("../Button/CardTexture/SubViewport/Control/Panel4/Description2")
 button = NodePath("../Button")
@@ -266,7 +270,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.14, 0.14)
 pivot_offset = Vector2(256, 256)
-texture = ExtResource("4_woabm")
+texture = ExtResource("7_etxxl")
 
 [node name="Health" type="RichTextLabel" parent="Button/CardTexture/SubViewport/Control/CardHeader/HealthTexture"]
 layout_mode = 1
@@ -290,7 +294,7 @@ theme_override_fonts/normal_font = ExtResource("4_w2e45")
 theme_override_fonts/bold_font = ExtResource("4_w2e45")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "[center]?"
+text = "[center]?/?"
 fit_content = true
 scroll_active = false
 
@@ -310,7 +314,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.1, 0.1)
 pivot_offset = Vector2(256, 256)
-texture = ExtResource("6_eardd")
+texture = ExtResource("9_pshko")
 
 [node name="Mana" type="RichTextLabel" parent="Button/CardTexture/SubViewport/Control/CardHeader/ManaTexture"]
 layout_mode = 1
@@ -353,7 +357,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.1, 0.1)
 pivot_offset = Vector2(256, 256)
-texture = ExtResource("7_8tht3")
+texture = ExtResource("10_1owq0")
 
 [node name="Ability" type="RichTextLabel" parent="Button/CardTexture/SubViewport/Control/CardHeader/AbilityTexture"]
 layout_mode = 1
@@ -495,6 +499,49 @@ pivot_offset = Vector2(256, 256)
 texture = ExtResource("12_4d6vn")
 
 [node name="Money" type="RichTextLabel" parent="Button/CardTexture/SubViewport/Control/Money"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.81
+offset_top = -20.0
+offset_right = 157.19
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(10.39, 10.39)
+pivot_offset = Vector2(150, 20)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("4_w2e45")
+theme_override_fonts/bold_font = ExtResource("4_w2e45")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]?[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="AbilityTexture" type="TextureRect" parent="Button/CardTexture/SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -85.81
+offset_right = 256.0
+offset_bottom = 426.19
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(256, 256)
+texture = ExtResource("10_1owq0")
+
+[node name="Ability" type="RichTextLabel" parent="Button/CardTexture/SubViewport/Control/AbilityTexture"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

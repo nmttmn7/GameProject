@@ -12,12 +12,13 @@ public partial class CardController : Node {
 	CardView activeCardView;
 	CardView targetCardView;
 	private DisplayObjectsView displayObjectsView;
-
+	public ViewView view;
 	private float centerPlayPoint = -350f;
     public override void _EnterTree()
     {
     	game = GetTree().Root.GetNode("Main").GetNode<GameViewSystem>("GameViewSystem").container;
 		displayObjectsView = GetTree().Root.GetNode("Main").GetNode("GameViewSystem").GetNode<DisplayObjectsView>("DisplayObjectsView");
+		view = GetTree().Root.GetNode("Main").GetNode("GameViewSystem").GetNode<ViewView>("ViewView");
 		container = new TheLiquidFire.AspectContainer.Container ();
 		stateMachine = container.AddAspect<StateMachine> ();
 		container.AddAspect (new WaitingForInputState ()).owner = this;
@@ -141,13 +142,13 @@ public partial class CardController : Node {
 		}
 
 		IEnumerator HideProcess () {
-			var handView = owner.activeCardView.GetParent().GetParent().GetParent<HandView>();
+			
 			//var handView = owner.activeCardView.GetComponentInParent<HandView> ();
 			
 			
 			//yield return owner.StartCoroutine (handView.LayoutCards (true));
 			owner.stateMachine.ChangeState<ResetState> ();
-			yield return handView.displayObjectsView.LayoutObjects(handView.handPos,99,true).MoveNext();
+			yield return owner.view.displayObjectsView.LayoutObjects(owner.view.playerHand2D,99,true).MoveNext();
 		}
 	}
 
@@ -171,12 +172,12 @@ public partial class CardController : Node {
 		}
 
 		IEnumerator HideProcess () {
-			var handView = owner.activeCardView.GetParent().GetParent().GetNode<HandView>("HandView");
+	
 			//var handView = owner.activeCardView.GetComponentInParent<HandView> ();
 			
 			//yield return owner.StartCoroutine (handView.LayoutCards (true));
 			owner.stateMachine.ChangeState<TargetState> ();
-			yield return handView.displayObjectsView.LayoutObjects(handView.handPos,99,true).MoveNext();
+			yield return owner.view.displayObjectsView.LayoutObjects(owner.view.playerHand2D,99,true).MoveNext();
 		}
 	}
 

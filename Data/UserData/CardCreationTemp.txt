@@ -1,9 +1,9 @@
 {
-"id": "RagePack4",
+"id": "RagePack1",
 "type": "Unit",
 "rarity": "Common",
-"name": "RagePack4",
-"sprite": "uid://c5smq5nlc40a5",
+"name": "RagePack1",
+"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
 "cost": "1",
 "hit points": "6",
 "money": "0",
@@ -20,26 +20,10 @@
 "abilities": [
 {
 "action": "DamageAction",
-"info": "0",
-"count": "4",
+"info": "6|(cardstatusrage)",
+"count": "1",
 "targetSelector": {
-"type": "RandomTarget",
-"mark": {
-"alliance": "Target",
-"zone": "Active"
+"type": "ManualTarget",
 }
 }
-}
-]
-"afflictions": [{
-"id": "rage",
-"name": "Rage",
-"type": "INSTANT",
-"sprite": "res://Sprites/StatusSprites/Icons/fire-iris.png",
-"evokeType": "[color=]Passive[/color]",
-"description": "[color=white]Increases attack power.[/color]",
-"decr": "1",
-"value": "5",
-"flip": false,
-"color": red,}
 ]}

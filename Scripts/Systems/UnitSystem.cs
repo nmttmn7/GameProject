@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Godot;
 
 using TheLiquidFire.AspectContainer;
 using TheLiquidFire.Notifications;
@@ -52,23 +53,33 @@ public class UnitSystem : Aspect, IObserve
 		StatusSystem statusSystem = container.GetAspect<StatusSystem>();
 		
 		
-		foreach(var ability in abilityRoot.abilityChain){
-		int count = statusSystem.ParseAbilityInfo(ability.abilityCount.ToString(), null, ability);
+		int abilityStatusINT = action.unit.GetAspect<Afflictions>().GetStatusINT("abilitychain");
 
-		for(int i = 0; i < count; i++){
+		var abilityChainMIN = Mathf.Min(abilityStatusINT, abilityRoot.abilityChain.Count);
+		GD.Print("COUNT " + abilityChainMIN);
+		for(int i = 0; i < abilityChainMIN; i++){
+
+		Ability ability =  abilityRoot.abilityChain[i];
+
+		int count = statusSystem.ParseAbilityInfo(ability.abilityCount.ToString(), null, ability);
+		
+		for(int c = 0; c < count; c++){
 		var reaction = new AbilityAction(ability);
 		container.AddReaction(reaction);
 		}
 		
 		}
-		
-	//	if(StatusSystem.GetStatus(action.unit, "deathless") == null){
+
+
+
+		var afflictions = action.unit.GetAspect<Afflictions>();
+		if(afflictions.GetStatus("anchored") == null){
 
 		var match = container.GetAspect<DataSystem> ().match;
 		var player = match.players [action.unit.ownerIndex];
 		var discardAction = new DiscardCardsAction(player,action.unit);
 		container.AddReaction(discardAction);
 
-	//	}
+		}
 	}
 }

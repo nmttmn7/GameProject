@@ -1,0 +1,51 @@
+		{
+				
+			"id": "LeechPack1",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "LeechPack1",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": 1,
+			"group": "LeechPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Deal 0 damage."
+				"action": "DamageAction",
+				"info": "7"
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"status":{
+				"id": "leech"
+				"incr": "1"
+			}
+				
+				
+			}]
+			
+			
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "20"
+			}{
+				"id": "abilitychain"
+			
+			}]
+		}

@@ -1,4 +1,100 @@
-{ "cards": [			{
+{ "cards": [		{
+				
+			"id": "TEST",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "TEST",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": "1",
+			"group": "RagePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Deal 0 damage."
+				"action": "DamageAction",
+				"info": "2",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"status":{
+				"id": "leech"
+				"incr": "2"
+				}
+				
+			}]
+			
+			
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "12"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+		{
+			"id": "TEST1",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "TEST",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "TEST"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Apply 4 rage."
+				"action": "DamageAction",
+				"info": "99",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "22"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+			{
 				
 			"id": "DuplicatePack1",
 			"type": "Unit", 
@@ -6,9 +102,8 @@
 			"rarity": "Common",
 			"name": "DuplicatePack1",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
-			"group": "DuplicatePack"
+			"cost": "1",
+			"group": "FirePack"
 			"target": {
 				"allowed": {
 					"alliance": "Any",
@@ -22,11 +117,23 @@
 			"abilities": [{
 				"description": "Create a copy of self."
 				"action": "CreateCardsAction",
-				"info": "target|true",
+				"info": "self|true",
 				"count": "1",
 				"targetSelector": {
-					"type": "ManualTarget",
+					"type": "SelfTarget",
 				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "1"
+			}{
+				"id": "abilitychain"
 			
 			}]
 				
@@ -39,8 +146,7 @@
 			"rarity": "Common",
 			"name": "FirePack1",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "FirePack"
 			"target": {
 				"allowed": {
@@ -67,7 +173,19 @@
 			}
 			
 			}]
-				
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
 		}
 		
 		{
@@ -78,8 +196,7 @@
 			"rarity": "Common",
 			"name": "FirePack2",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "FirePack"
 			"target": {
 				"allowed": {
@@ -92,7 +209,6 @@
 				}
 			},
 			"abilities": [{
-				"description": "Deal damage based on the amount of firepack2 cards"
 				"action": "DamageAction",
 				"info": "playernamefirepack2",
 				"count": "1",
@@ -101,7 +217,24 @@
 				}
 				
 			}]
-				
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "1"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "death"
+				"value": "1"
+				"type": "INNATE"
+			}]
+			
+			
 		}
 		
 		
@@ -113,8 +246,7 @@
 			"rarity": "Common",
 			"name": "FirePack3",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "FirePack"
 			"target": {
 				"allowed": {
@@ -130,18 +262,34 @@
 				"description": "Apply 7 fire"
 				"action": "DamageAction",
 				"info": "skip",
-				"count": "1",
+				"count": "4",
 				"targetSelector": {
-					"type": "ManualTarget",
+					"type": "RandomTarget",
+					"mark": {
+						"alliance": "Target",
+						"zone": "Active"
+					},
 				}
 				
 				"status":{
 				"id": "fire"
-				"incr": "7"
+				"incr": "3"
 				}
 				
 			}]
-				
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
 		}
 
 		{
@@ -152,8 +300,7 @@
 			"rarity": "Common",
 			"name": "FirePack4",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "2",
 			"group": "FirePack"
 			"target": {
 				"allowed": {
@@ -176,17 +323,29 @@
 				
 				"status":{
 				"id": "fire"
-				"incr": "14"
+				"incr": "15"
 				}
 				
 				"condition":{
-					"info": "cardstatusfire"
+					"info": "10"
 					"comparator": "≥"
-					"value": "1"
+					"value": "targetstatusfire"
 				}
 				
 			}]
-				
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "12"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
 		}
 
 		{
@@ -197,8 +356,7 @@
 			"rarity": "Common",
 			"name": "FirePack5",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "FirePack"
 			"target": {
 				"allowed": {
@@ -224,15 +382,25 @@
 				"incr": "cardstatusfire"
 				}
 				
-				"condition":{
-					"info": "1"
-					"comparator": "≤"
-					"value": "targetstatusfire"
-				}
-				
 			}]
-				
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "24"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
 		}
+
+
+
+
 
 		{
 				
@@ -242,8 +410,7 @@
 			"rarity": "Common",
 			"name": "FirePack6",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "FirePack"
 			"target": {
 				"allowed": {
@@ -258,24 +425,33 @@
 			"abilities": [{
 				"description": "Deal damage based on the amount of fire on target"
 				"action": "DamageAction",
-				"info": "targetstatusfire",
+				"info": "cardstatusfire",
 				"count": "1",
 				"targetSelector": {
 					"type": "ManualTarget",
 				}
 				
 				
-				"condition":{
-					"info": "targetstatusfire"
-					"comparator": "≥"
-					"value": "10"
-				}
-				
 			}]
-				
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
 		}
 
-	{
+
+
+
+			{
 				
 			"id": "FirePack7",
 			"type": "Unit", 
@@ -283,49 +459,7 @@
 			"rarity": "Common",
 			"name": "FirePack7",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
-			"group": "FirePack"
-			"target": {
-				"allowed": {
-					"alliance": "Any",
-					"zone": "Hand"
-				},
-				"preferred": {
-					"alliance": "Enemy",
-					"zone": "Hand"
-				}
-			},
-			"abilities": [{
-				"description": "Apply 5 fire "
-				"action": "DamageAction",
-				"info": "skip",
-				"count": "1",
-				"targetSelector": {
-					"type": "ManualTarget",
-				}
-				
-			"status":{
-				"id": "fire"
-				"incr": "5"
-			}
-			
-			}]
-				
-		}
-		
-
-
-			{
-				
-			"id": "FirePack8",
-			"type": "Unit", 
-			"disposition": "D1",
-			"rarity": "Common",
-			"name": "FirePack8",
-			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "FirePack"
 			"target": {
 				"allowed": {
@@ -353,12 +487,28 @@
 				
 			}
 			
+			}{
+				"description": "Apply 4 rage."
+				"action": "DamageAction",
+				"info": "1",
+				"count": "cardstatusfire",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+				
+			
 			}]
 			
 			"afflictions":[{
-				"id": "death"
-				"value": "1"
-				"type": "INNATE"
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
 			}]
 			
 		}
@@ -366,14 +516,13 @@
 
 		{
 				
-			"id": "FirePack9",
+			"id": "FirePack8",
 			"type": "Unit", 
 			"disposition": "D1",
 			"rarity": "Common",
-			"name": "FirePack9",
+			"name": "FirePack8",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "FirePack"
 			"target": {
 				"allowed": {
@@ -397,24 +546,35 @@
 				"status":{
 				"id": "fire"
 				"incr": "1"
-				"decr": "-1"
+				"decr": "-2"
 				
 			}
 				
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
 			}]
 			
 		}
 
 
 		{
-			"id": "FirePack10",
+			"id": "FirePack9",
 			"type": "Unit", 
 			"disposition": "D1",
 			"rarity": "Common",
-			"name": "FirePack10",
+			"name": "FirePack9",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "FirePack"
 			"target": {
 				"allowed": {
@@ -437,27 +597,33 @@
 				
 			}]
 			
-			"overridehealth":{
-				"status": "fire",
-			}
 			
 			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
+			}{
 				"id": "fire"
 				"value": "4"
+				"override": "health"
 			}]
 			
 		}
 		
 
 	{
-			"id": "FirePack11",
+			"id": "FirePack10",
 			"type": "Unit", 
 			"disposition": "D1",
 			"rarity": "Common",
-			"name": "FirePack11",
+			"name": "FirePack10",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "FirePack"
 			"target": {
 				"allowed": {
@@ -483,24 +649,34 @@
 				}
 				
 				"status":{
-				"id": "fire"
+				"id": "oil"
 				"incr": "4"
 			}
 				
 			}]
 			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
+			}]
 			
 		}
 		
 		{
-			"id": "FirePack12",
+			"id": "FirePack11",
 			"type": "Unit", 
 			"disposition": "D1",
 			"rarity": "Common",
-			"name": "FirePack12",
+			"name": "FirePack11",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "2",
 			"group": "FirePack"
 			"target": {
 				"allowed": {
@@ -528,7 +704,7 @@
 				"condition":{
 					"info": "cardstatusfire"
 					"comparator": ">"
-					"value": "0"
+					"value": "5"
 				}
 				
 				"status":{
@@ -538,19 +714,29 @@
 				
 			}]
 			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "12"
+			}{
+				"id": "abilitychain"
+			
+			}]
 			
 		}
 		
 			{
 				
-			"id": "FirePack13",
+			"id": "FirePack12",
 			"type": "Unit", 
 			"disposition": "D1",
 			"rarity": "Common",
-			"name": "FirePack13",
+			"name": "FirePack12",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "FirePack"
 			"target": {
 				"allowed": {
@@ -570,31 +756,2032 @@
 				"targetSelector": {
 					"type": "ManualTarget",
 				}
-				"condition":{
-					"info": "cardstatusscorched"
-					"comparator": ">"
-					"value": "0"
-				}
 				
 			}]
 			
 			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
+			}{
 				"id": "scorched"
 				"value": "1"
 				"type": "INNATE"
 			}]
 				
 		}
+
+
+
+{
+			"id": "GrowthPack1",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack1",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				"status":{
+					"id": "thorns"
+					"incr": "5"
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "18"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+		
+	{
+			"id": "GrowthPack2",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack2",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "2",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "4"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "thorns"
+			
+				"value": "22"
+			}]
+			
+		}
+
+
+{
+			"id": "GrowthPack3",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack3",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Apply 4 rage."
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				"status":{
+					"id": "thorns"
+					"incr": "5"
+					
+				"abilities":[{
+				"action": "HealAction",
+				"info": "cardstatusthorns",
+				"count": 1,
+				"targetSelector": {
+					"type": "EvokeTarget",
+					}
+				
+				}]
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "18"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+		{
+			"id": "GrowthPack4",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack4",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "HealAction",
+				"info": "6",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "4"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+	{
+			"id": "GrowthPack5",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack5",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "7",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+				"status":{
+					"id": "vitality"
+					"incr": "8"
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "4"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+
+	{
+			"id": "GrowthPack6",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack6",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "TransformCardsAction",
+				"info": "GrowthPack6GrowthPack6",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "4"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+{
+			"id": "GrowthPack6GrowthPack6",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack6GrowthPack6",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "TransformCardsAction",
+				"info": "GrowthPack6GrowthPack6GrowthPack6",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "4"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+{
+			"id": "GrowthPack6GrowthPack6GrowthPack6",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack6GrowthPack6GrowthPack6",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "0",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "cardstatusthorns",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "4"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "thorns"
+				"value": "1"
+				"override": "mana"
+			}{
+				"id": "anchored"
+				"type": "INNATE"
+				"value": "1"
+			}]
+			
+		}
+
+
+
+	{
+			"id": "GrowthPack7",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack7",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "TransformCardsAction",
+				"info": "GrowthPack7GrowthPack7",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+					
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "4"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+	{
+			"id": "GrowthPack7GrowthPack7",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "The Gorgon",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "TransformCardsAction",
+				"info": "GrowthPack7",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				"status":{
+					"id": "petrify"
+					"incr": "1"
+				}
+			
+			}{
+				"action": "DamageAction",
+				"info": "2",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+				
+				"status":{
+					"id": "petrify"
+					"incr": "1"
+				}
+			
+			}{
+				"action": "TransformCardsAction",
+				"info": "GrowthPack7",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "4"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+{
+			"id": "GrowthPack8",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack8",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+				"status":{
+					"id": "anchored"
+					"incr": "1"
+				}
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "4"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+{
+			"id": "GrowthPack9",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack9",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "8",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				"status":{
+					"id": "x"
+					"type": "INNATE"
+					"incr": "1"
+				}
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "4"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+{
+			"id": "GrowthPack10",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack10",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "TransformCardsAction",
+				"info": "GrowthPack10GrowthPack10",
+				"count": "3",
+				"targetSelector": {
+					"type": "RandomTarget",
+					"mark": {
+						"alliance": "Ally",
+						"zone": "Active"
+					},
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "4"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+{
+			"id": "GrowthPack10GrowthPack10",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack10GrowthPack10",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "2",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			}{
+				"action": "DamageAction",
+				"info": "cardcurrenthealth",
+				"count": "2",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+{
+			"id": "GrowthPack11",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "GrowthPack11",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "GrowthPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "cardcurrenthealth",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "7"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+		{
+				
+			"id": "LeechPack1",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "LeechPack1",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": 1,
+			"group": "LeechPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Deal 0 damage."
+				"action": "DamageAction",
+				"info": "7"
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"status":{
+				"id": "leech"
+				"incr": "1"
+			}
+				
+				
+			}]
+			
+			
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "20"
+			}{
+				"id": "abilitychain"
+			
+			}]
+		}
+		{
+				
+			"id": "LowHealthPack1",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "LowHealthPack1",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "RagePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Apply 4 rage."
+				"action": "DamageAction",
+				"info": "cardmissinghealth",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "50"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+		{
+				
+			"id": "LowHealthPack2",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "LowHealthPack2",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "RagePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Apply 4 rage."
+				"action": "GrantMaxHealthAction",
+				"info": "4",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"condition":{
+					"info": "cardstatusfire"
+					"comparator": "≥"
+					"value": "1"
+				}
+				
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "8"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+		{
+				
+			"id": "LowHealthPack3",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "LowHealthPack3",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "RagePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Apply 4 rage."
+				"action": "DrawCardsAction",
+				"info": "1",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				
+			}]
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "8"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "fire"
+				"value": "1"
+				"decr": "-3"
+			}]
+		}
+		
 			{
 				
+			"id": "LowPack4",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "LowPack4",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": "1",
+			"group": "LowPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Apply 1 fire to self"
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			"status":{
+				"id": "rage"
+				"incr": "cardmissinghealth"
+			}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+
+		{
+				
+			"id": "LowHealthPack5",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "LowHealthPack5",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "RagePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Apply 4 rage."
+				"action": "HealAction",
+				"info": "cardmissinghealth",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"condition":{
+					"info": "0"
+					"comparator": "≥"
+					"value": "cardcurrenthealth"
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+				
+			}{
+				"id": "health"
+				
+				"value": "18"
+			}{
+				"id": "abilitychain"
+				
+			}]
+			
+		}
+{
+			"id": "MinionPack1",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack1",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "1",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "22"
+			}{
+				
+				"id": "abilitychain"
+				
+			}{
+				"id": "cultist"
+				"type": "INNATE"
+				"value": "1"
+			
+			}]
+			
+		}
+
+
+	{
+			"id": "MinionPack2",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack2",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "playergraveyard",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "5"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+
+	{
+			"id": "MinionPack3",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack3",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "HealAction",
+				"info": "4",
+				"count": "1",
+				"targetSelector": {
+					"type": "AllTarget",
+					"mark": {
+						"alliance": "Any",
+						"zone": "Active"
+					},
+					}
+				
+				"condition":{
+					"info": "targetstatusskeleton"
+					"comparator": "≥"
+					"value": "1"
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "5"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+
+
+		{
+			"id": "MinionPack4",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack4",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				
+				"action": "CreateCardsAction",
+				"info": "MinionPack4CREATEDCARD|true",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			
+			
+			"condition":{
+					"info": "cardcurrenthealth"
+					"comparator": "="
+					"value": "0"
+				}
+				}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "24"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+
+		{
+			"id": "MinionPack4CREATEDCARD",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack4CREATEDCARD",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "75",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "75"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "skeleton"
+				"type": "INNATE"
+				"value": "1"
+			
+			}{
+				"id": "x"
+				"type": "INNATE"
+				"value": "1"
+			
+			}]
+			
+		}
+
+
+
+		{
+			"id": "MinionPack5",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack5",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				
+				"action": "CreateCardsAction",
+				"info": "MinionPack5CREATEDCARD|true",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "22"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+
+		{
+			"id": "MinionPack5CREATEDCARD",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack5CREATEDCARD",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "2",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "5"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "skeleton"
+				"type": "INNATE"
+				"value": "1"
+			
+			}{
+				"id": "x"
+				"type": "INNATE"
+				"value": "1"
+			
+			}]
+			
+		}
+
+
+
+
+		{
+			"id": "MinionPack6",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack6",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				
+				"action": "CreateCardsAction",
+				"info": "MinionPack6CREATEDCARD|true",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "22"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+
+		{
+			"id": "MinionPack6CREATEDCARD",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack6CREATEDCARD",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				
+				"action": "CreateCardsAction",
+				"info": "MinionPack6CREATEDCARDMinionPack6CREATEDCARD|true",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "5"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "skeleton"
+				"type": "INNATE"
+				"value": "1"
+			
+			}{
+				"id": "x"
+				"type": "INNATE"
+				"value": "1"
+			
+			}]
+			
+		}
+
+
+		{
+			"id": "MinionPack6CREATEDCARDMinionPack6CREATEDCARD",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack6CREATEDCARDMinionPack6CREATEDCARD",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				
+				"action": "GrantMaxHealth",
+				"info": "4",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "5"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "skeleton"
+				"type": "INNATE"
+				"value": "1"
+			
+			}{
+				"id": "death"
+				"type": "INNATE"
+				"value": "1"
+			
+			}{
+				"id": "x"
+				"type": "INNATE"
+				"value": "1"
+			
+			}]
+			
+		}
+
+
+
+
+		{
+			"id": "MinionPack7",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack7",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				
+				"action": "CreateCardsAction",
+				"info": "MinionPack7CREATEDCARD|true",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "22"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+
+		{
+			"id": "MinionPack7CREATEDCARD",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack7CREATEDCARD",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "1",
+				"count": "4",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "5"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "skeleton"
+				"type": "INNATE"
+				"value": "1"
+			
+			}{
+				"id": "x"
+				"type": "INNATE"
+				"value": "1"
+			
+			}]
+			
+		}
+		
+
+
+		{
+			"id": "MinionPack8",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack8",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "1",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "22"
+			}{
+				"id": "abilitychain"
+				"value": "1"
+			}{
+				
+				"id": "fire"
+				"value": "2"
+				"override": "abilitychain"
+				
+			}{
+						
+				"id": "skeleton"
+				"type": "INNATE"
+				"value": "1"
+			
+			}{
+						
+				"id": "death"
+				"type": "INNATE"
+				"value": "1"
+			
+			}]
+			
+		}
+
+
+
+		{
+			"id": "MinionPack9",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack9",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				
+				"action": "CreateCardsAction",
+				"info": "MinionPack9CREATEDCARD|true",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+			
+			
+			
+				}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "24"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+
+		{
+			"id": "MinionPack9CREATEDCARD",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack9CREATEDCARD",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "4",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "10"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "explode"
+				"value": "5"
+			}]
+			
+		}
+
+
+
+		{
+			"id": "MinionPack10",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack10",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				
+				"action": "CreateCardsAction",
+				"info": "MinionPack10CREATEDCARD|true",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+			
+			
+			
+				}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "24"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+
+		{
+			"id": "MinionPack10CREATEDCARD",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack10CREATEDCARD",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "6",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+			
+			}{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+					
+				}
+				
+				"status":{
+				"id": "exlode"
+				"incr": "4"
+			}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "40"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "explode"
+				"value": "5"
+			}]
+			
+		}
+
+{
+			"id": "MinionPack11",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack11",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "3",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"status":{
+				"id": "cursed"
+				"incr": "2"
+				}
+				
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "22"
+			}{
+				
+				"id": "abilitychain"
+				
+			}]
+			
+		}
+		{
 			"id": "RagePack1",
 			"type": "Unit", 
 			"disposition": "D1",
 			"rarity": "Common",
 			"name": "RagePack1",
 			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "RagePack"
 			"target": {
 				"allowed": {
@@ -618,7 +2805,19 @@
 				
 			
 			}]
-				
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "22"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
 		}
 		
 		{
@@ -629,8 +2828,7 @@
 			"rarity": "Common",
 			"name": "RagePack2",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "RagePack|FirePack"
 			"target": {
 				"allowed": {
@@ -652,10 +2850,26 @@
 				}
 				
 			}]
-				
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "18"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
 		}
 
-			{
+
+
+
+
+		{
 				
 			"id": "RagePack3",
 			"type": "Unit", 
@@ -663,8 +2877,210 @@
 			"rarity": "Common",
 			"name": "RagePack3",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
+			"group": "RagePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "5",
+				"count": "1",
+				"targetSelector": {
+					"type": "AllTarget",
+					"mark": {
+						"alliance": "Target",
+						"zone": "Active"
+					},
+				}
+				
+				
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "16"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+		{
+				
+			"id": "RagePack4",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "RagePack4",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": "1",
+			"group": "RagePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Deal 0 damage."
+				"action": "DamageAction",
+				"info": "2",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"status":{
+				"id": "leech"
+				"incr": "2"
+				}
+				
+			}]
+			
+			
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "12"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+		{
+				
+			"id": "RagePack5",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "RagePack5",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": "1",
+			"group": "RagePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Apply 4 rage."
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+				"status":{
+				"id": "rage"
+				"incr": "3"
+			}
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "12"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+		
+
+
+	{
+			"id": "RagePack6",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "RagePack6",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": "1",
+			"group": "RagePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Apply 4 rage."
+				"action": "DamageAction",
+				"info": "1",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "78"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "anchored"
+				"evokeType": "INNATE"
+				"value": "1"
+			}]
+			
+			
+		}
+
+		{
+				
+			"id": "RagePack7",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "RagePack7",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": "1",
 			"group": "RagePack"
 			"target": {
 				"allowed": {
@@ -688,43 +3104,34 @@
 				"status":{
 				"id": "rage"
 				"incr": "1"
-				"decr": "-1"
+				"decr": "-2"
 			}
-			
-			}{
-				"description": "Deal 1 damage."
-				"action": "DamageAction",
-				"info": "skip",
-				"count": "1",
-				"targetSelector": {
-					"type": "ManualTarget",
-				}
-				
-				"status":{
-				"id": "rage"
-				"incr": "5"
-				"decr": "-3"
-			}
-				"condition":{
-					"info": "targetcurrenthealth"
-					"comparator": "≤"
-					"value": "0"
-				}
 			
 			}]
-				
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
 		}
 
 		{
 				
-			"id": "RagePack4",
+			"id": "RagePack8",
 			"type": "Unit", 
 			"disposition": "D1",
 			"rarity": "Common",
-			"name": "RagePack4",
+			"name": "RagePack8",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "RagePack"
 			"target": {
 				"allowed": {
@@ -737,7 +3144,6 @@
 				}
 			},
 			"abilities": [{
-				"description": "Deal 0 damage."
 				"action": "DamageAction",
 				"info": "0",
 				"count": "4",
@@ -752,21 +3158,30 @@
 				
 			}]
 			
-		
-				
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "15"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
 		}
 		
 
-		{
+			{
 				
-			"id": "RagePack5",
+			"id": "RagePack9",
 			"type": "Unit", 
 			"disposition": "D1",
 			"rarity": "Common",
-			"name": "RagePack5",
+			"name": "RagePack9",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "RagePack"
 			"target": {
 				"allowed": {
@@ -779,74 +3194,45 @@
 				}
 			},
 			"abilities": [{
-				"description": "Deal 0 damage."
+				"description": "Apply bloodlust."
 				"action": "DamageAction",
-				"info": "0",
-				"count": "7",
+				"info": "2",
+				"count": "1",
 				"targetSelector": {
 					"type": "ManualTarget",
-				}
-				"condition":{
-					"info": "cardstatusrage"
-					"comparator": "<"
-					"value": "1"
+					
 				}
 				
-			}]
-			
-		}
-		
-		{
-			"id": "RagePack6",
-			"type": "Unit", 
-			"disposition": "D1",
-			"rarity": "Common",
-			"name": "RagePack6",
-			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
-			"group": "RagePack"
-			"target": {
-				"allowed": {
-					"alliance": "Any",
-					"zone": "Hand"
-				},
-				"preferred": {
-					"alliance": "Enemy",
-					"zone": "Hand"
-				}
-			},
-			"abilities": [{
-				"description": "Rage is this cards health"
-				"action": "DamageAction",
-				"info": "0",
-				"count": 1,
-				"targetSelector": {
-					"type": "ManualTarget",
-				}
-				
-			}]
-			
-			"overridehealth":{
-				"status": "rage",
+				"status":{
+				"id": "bloodlust"
+				"incr": "2"
 			}
 			
+			}]
+			
 			"afflictions":[{
-				"id": "rage"
-				"value": "40"
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
 			}]
 			
 		}
 
+
 		{
-			"id": "RagePack7",
+			"id": "RagePack10",
 			"type": "Unit", 
 			"disposition": "D1",
 			"rarity": "Common",
-			"name": "RagePack7",
+			"name": "RagePack10",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "RagePack"
 			"target": {
 				"allowed": {
@@ -861,7 +3247,7 @@
 			"abilities": [{
 				"description": "Rage is this cards health"
 				"action": "DamageAction",
-				"info": "0",
+				"info": "skip",
 				"count": 1,
 				"targetSelector": {
 					"type": "ManualTarget",
@@ -889,110 +3275,29 @@
 			
 			}]
 			
+			"afflictions":[{
+				"id": "mana"
 			
-		}
-		
-		{
-			"id": "RagePack8",
-			"type": "Unit", 
-			"disposition": "D1",
-			"rarity": "Common",
-			"name": "RagePack8",
-			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
-			"group": "RagePack"
-			"target": {
-				"allowed": {
-					"alliance": "Any",
-					"zone": "Hand"
-				},
-				"preferred": {
-					"alliance": "Enemy",
-					"zone": "Hand"
-				}
-			},
-			"abilities": [{
-				"description": "Rage is this cards health"
-				"action": "DrawCardsAction",
-				"info": "1",
-				"count": 1,
-				"targetSelector": {
-					"type": "ManualTarget",
-				}
-				
 			}{
-				"description": "Rage is this cards health"
-				"action": "DrawCardsAction",
-				"info": "2",
-				"count": 1,
-				"targetSelector": {
-					"type": "ManualTarget",
-				}
-				
-				"condition":{
-					"info": "abilitychainposition"
-					"comparator": "="
-					"value": "2"
-				}
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
 			}]
-			
-			
 			
 		}
 
-			{
-				
-			"id": "RagePack9",
-			"type": "Unit", 
-			"disposition": "D1",
-			"rarity": "Common",
-			"name": "RagePack9",
-			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
-			"group": "RagePack"
-			"target": {
-				"allowed": {
-					"alliance": "Any",
-					"zone": "Hand"
-				},
-				"preferred": {
-					"alliance": "Enemy",
-					"zone": "Hand"
-				}
-			},
-			"abilities": [{
-				"description": "Apply bloodlust."
-				"action": "DamageAction",
-				"info": "1",
-				"count": "1",
-				"targetSelector": {
-					"type": "ManualTarget",
-					
-				}
-				
-				"status":{
-				"id": "bloodlust"
-				"incr": "2"
-			}
-			
-			}]
-			
-			
-			
-		}
-		
 		{
 				
-			"id": "RagePack10",
+			"id": "RagePack11",
 			"type": "Unit", 
 			"disposition": "D1",
 			"rarity": "Common",
-			"name": "RagePack10",
-			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"name": "RagePack11",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "0",
 			"group": "RagePack"
 			"target": {
 				"allowed": {
@@ -1007,32 +3312,40 @@
 			"abilities": [{
 				"description": "Apply 4 rage."
 				"action": "DamageAction",
-				"info": "1",
+				"info": "5",
 				"count": "1",
 				"targetSelector": {
 					"type": "ManualTarget",
-					
 				}
 				
-				"status":{
-				"id": "rage"
-				"incr": "5"
-			}
 			
 			}]
-				
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "43"
+			}{
+				"id": "abilitychain"
+				"value": "4"
+			}]
+			
+			
 		}
+		
 		{
 				
-			"id": "WeakPack1",
+			"id": "RagePack12",
 			"type": "Unit", 
 			"disposition": "D1",
 			"rarity": "Common",
-			"name": "WeakPack1",
-			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
-			"group": "WeakPack"
+			"name": "RagePack12",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "2",
+			"group": "RagePack"
 			"target": {
 				"allowed": {
 					"alliance": "Any",
@@ -1044,20 +3357,284 @@
 				}
 			},
 			"abilities": [{
-				"description": "Apply 7 block."
+				"description": "Apply 4 rage."
 				"action": "DamageAction",
-				"info": "skip",
+				"info": "10",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			
+			}{
+				"description": "Apply 4 rage."
+				"action": "DamageAction",
+				"info": "cardmaxhealth",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+				
+			
+			}]
+				
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "21"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+		{
+				
+			"id": "RagePack13",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "Whirlwind",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "2",
+			"group": "RagePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Apply 4 rage."
+				"action": "DamageAction",
+				"info": "0",
+				"locked": true,
+				"count": "cardstatusfire",
+				"targetSelector": {
+					"type": "AllTarget",
+					"mark": {
+						"alliance": "Target",
+						"zone": "Active"
+					},
+				}
+				
+			
+			}{
+				"description": "Apply 4 rage."
+				"action": "DamageAction",
+				"info": "1",
+				"count": "cardstatusfire",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+				
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "13"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+		{
+				
+			"id": "RagePack14",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "RagePack14",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": "1",
+			"group": "RagePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "2",
+				"count": "1",
+				"targetSelector": {
+					"type": "AllTarget",
+					"mark": {
+						"alliance": "Any",
+						"zone": "Active"
+					},
+				}
+				
+				"status":{
+				"id": "rage"
+				"incr": "4"
+			}
+				
+			}]
+			
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "12"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+		{
+				
+			"id": "RagePack15",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "RagePack15",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": "1",
+			"group": "RagePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "5",
 				"count": "1",
 				"targetSelector": {
 					"type": "ManualTarget",
 					
 				}
 				
-				"status":{
-				"id": "weak"
-				"incr": "7"
+			}]
+			
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "12"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "vitality"
+				"type": "INNATE"
+				"value": "1"
+			
+			}]
+			
+		}
+			{
+			
+			"id": "PoisoncdfPack1",
+			"type": "Unit", 
+			"disposition": "D2",
+			"rarity": "Common",
+			"name": "PoisonPack1",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": 1,
+			"hit points": 18,
+			"group": "PoisonPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			"status":{
+				"id": "poison"
+				"incr": "8"
 			}
 			
+			}]
+				
+		}
+			{
+				
+			"id": "BossPack1",
+			"type": "Unit", 
+			"disposition": "E0",
+			"rarity": "Common",
+			"name": "BossPack1",
+			"sprite": "uid://csqot38nd6u1m",
+			"cost": 1,
+			"hit points": 94,
+			"group": "BossPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Deal 7 damage."
+				"action": "DamageAction",
+				"info": "0",
+				"count": "2",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+			
+			}]
+			
+			"afflictions":[{
+				"id": "bloodlust"
+				"value": "1"
+				"type": "INNATE"
 			}]
 				
 		}
@@ -1068,9 +3645,8 @@
 			"disposition": "E0",
 			"rarity": "Common",
 			"name": "MonsterPack1",
-			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 17,
+			"sprite": "uid://dxy7hg1ktc0xr",
+			"cost": "1",
 			"group": "MonsterPack"
 			"target": {
 				"allowed": {
@@ -1085,16 +3661,27 @@
 			"abilities": [{
 				"description": "Deal 7 damage."
 				"action": "DamageAction",
-				"info": "7",
+				"info": "3",
 				"count": "1",
 				"targetSelector": {
 					"type": "ManualTarget",
-					
 				}
 				
 			
 			}]
-				
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "9"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
 		}
 
 			{
@@ -1104,9 +3691,8 @@
 			"disposition": "E0",
 			"rarity": "Common",
 			"name": "MonsterPack2",
-			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 12,
+			"sprite": "uid://x321xnipkuvq",
+			"cost": "1",
 			"group": "MonsterPack"
 			"target": {
 				"allowed": {
@@ -1119,10 +3705,24 @@
 				}
 			},
 			"abilities": [{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+					
+				}
+				
+				"status":{
+				"id": "rage"
+				"incr": "2"
+			}
+			
+			}{
 				"description": "Deal 7 damage."
 				"action": "DamageAction",
 				"info": "2",
-				"count": "1",
+				"count": "2",
 				"targetSelector": {
 					"type": "ManualTarget",
 					
@@ -1130,7 +3730,19 @@
 				
 			
 			}]
-				
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "12"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
 		}
 	
 			{
@@ -1141,8 +3753,7 @@
 			"rarity": "Common",
 			"name": "MonsterPack3",
 			"sprite": "uid://c60dot2kfadty",
-			"cost": 1,
-			"hit points": 48,
+			"cost": "1",
 			"group": "MonsterPack"
 			"target": {
 				"allowed": {
@@ -1164,8 +3775,98 @@
 				}
 				
 			
+			}{
+				"action": "TransformCardsAction",
+				"info": "MonsterPack4",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
 			}]
+			
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "48"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+			
+		}
+		
+		{
 				
+			"id": "MonsterPack4",
+			"type": "Unit", 
+			"disposition": "E0",
+			"rarity": "Common",
+			"name": "MonsterPack4",
+			"sprite": "uid://34eqhqsmd7aa",
+			"cost": "1",
+			"group": "MonsterPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "7",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+			
+			}{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+					
+				}
+				
+				"status":{
+				"id": "rage"
+				"incr": "5"
+			}
+			
+			}{
+				"action": "TransformCardsAction",
+				"info": "MonsterPack3",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "12"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
 		}
 {
 			"id": "d0zodiacaries1enemy1",

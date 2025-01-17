@@ -5,8 +5,8 @@
 [ext_resource type="Shader" path="res://Shaders/ToonWaterEffect.gdshader" id="3_jxkgh"]
 [ext_resource type="Script" path="res://Scripts/DisplayObjectsView.cs" id="3_xnufn"]
 [ext_resource type="Script" path="res://Scripts/Components/StateMachines/RewardController.cs" id="5_l0j1x"]
-[ext_resource type="Script" path="res://Scripts/Components/StatusView.cs" id="6_6c3k7"]
-[ext_resource type="PackedScene" uid="uid://dl0s8vtqymelc" path="res://Constructs/StatusConstruct.tscn" id="7_ppu0g"]
+[ext_resource type="Script" path="res://Scripts/Components/AfflictionView.cs" id="6_v4wqs"]
+[ext_resource type="Script" path="res://Scripts/Components/ViewView.cs" id="7_vll86"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pb1w0"]
 shader = ExtResource("3_jxkgh")
@@ -20,12 +20,12 @@ shader_parameter/shades = 3.0
 shader_parameter/steps = 6
 shader_parameter/tint = Vector3(0, 0, 0)
 
-[node name="Reward" type="Node2D" node_paths=PackedStringArray("rewardNode2D", "statusView", "displayObjectsView")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("rewardNode2D", "afflictionView", "displayObjectsView")]
 position = Vector2(576, 324)
 script = ExtResource("1_5w48d")
 cardConstruct = ExtResource("2_ueql8")
-rewardNode2D = NodePath("ObjectNode")
-statusView = NodePath("StatusView")
+rewardNode2D = NodePath("PlayerHand")
+afflictionView = NodePath("AfflictionView")
 displayObjectsView = NodePath("DisplayObjectsView")
 metadata/_edit_lock_ = true
 
@@ -53,7 +53,10 @@ position_smoothing_speed = 1.0
 [node name="DisplayObjectsView" type="Node" parent="."]
 script = ExtResource("3_xnufn")
 
-[node name="ObjectNode" type="Node2D" parent="."]
+[node name="PlayerHand" type="Node2D" parent="."]
+visible = false
+
+[node name="EnemyHand" type="Node2D" parent="."]
 visible = false
 
 [node name="RewardController" type="Node" parent="." node_paths=PackedStringArray("displayObjectsView", "rewardView")]
@@ -61,6 +64,9 @@ script = ExtResource("5_l0j1x")
 displayObjectsView = NodePath("../DisplayObjectsView")
 rewardView = NodePath("..")
 
-[node name="StatusView" type="Node" parent="."]
-script = ExtResource("6_6c3k7")
-statusIconConstruct = ExtResource("7_ppu0g")
+[node name="AfflictionView" type="Node" parent="." node_paths=PackedStringArray("view")]
+script = ExtResource("6_v4wqs")
+view = NodePath("../ViewView")
+
+[node name="ViewView" type="Node" parent="."]
+script = ExtResource("7_vll86")

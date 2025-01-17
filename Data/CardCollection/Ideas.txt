@@ -1,5 +1,650 @@
+
+		{
+			"id": "MinionPack1",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack1",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				
+				"action": "CreateCardsAction",
+				"info": "MinionPack1CREATEDCARD|true",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "22"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+
+		{
+			"id": "MinionPack1CREATEDCARD",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "Skeleton",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "2",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "5"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+		
+		
+		
+		{
+			"id": "MinionPack2CREATEDCARD",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "Skeleton",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "1",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+				"status":{
+				"id": "hex"
+				"incr": "2"
+			}
+				
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "5"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+		
+		
+		{
+			"id": "MinionPack3CREATEDCARD",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "Skeleton",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "2",
+				"count": "3",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "5"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+		
+		
+		{
+			"id": "MinionPack3CREATEDCARD",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "Skeleton",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "10",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "5"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+	{
+			"id": "MinionPack3CREATEDCARD",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "Skeleton",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"kill 3 random cards with skeleton on them, this card can card with locked "
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "targetmaxhealth",
+				"count": "3",
+				"targetSelector": {
+					"type": "RandomTarget",
+					"mark": {
+						"alliance": "Target",
+						"zone": "Active"
+					},
+				}
+				
+				"condition":{
+					"info": "targetstatusskeleton"
+					"comparator": "≥"
+					"value": "1"
+				}
+				
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "5"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+
+	{
+			"id": "MinionPack3CREATEDCARD",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "Skeleton",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"kill 3 random cards with skeleton on them, this card can card with locked "
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "playerzonegraveyard",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "5"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+	{
+			"id": "MinionPack4CREATEDCARD",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack4",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "playergraveyard",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "5"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+		
+
+
+
+
+
+	{
+			"id": "MinionPack6CREATEDCARD",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack6",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "1",
+				"count": "2",
+				"targetSelector": {
+					"type": "RandomTarget",
+					"mark": {
+						"alliance": "Target",
+						"zone": "Active"
+					},
+				}
+				
+				"status":{
+				"id": "contagion"
+				"incr": "2"
+			}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "5"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+	{
+			"id": "MinionPack7CREATEDCARD",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack7",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "cardmaxhealth",
+				"count": "1",
+				"targetSelector": {
+					"type": "RandomTarget",
+					"mark": {
+						"alliance": "Target",
+						"zone": "Active"
+					},
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "playergraveyard"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+{
+			"id": "MinionPack7",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack7",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "HealAction",
+				"info": "1",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "22"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "cultist"
+				"type": "INNATE"
+				"value": "1"
+			
+			}]
+			
+		}
+
+{
+			"id": "MinionPack7",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack7",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "HealAction",
+				"info": "1",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "22"
+			}{
+				"id": "abilitychain"
+				"value": 3
+			}{
+				"id": "skeleton"
+				"value": "1"
+			
+			}]
+			
+		}
+
+
+Minions - Apply status on minions, Summons cards, Graveeyard, Mutate, Summon minions on opposing that explode, Kill ally units to deal damage
+
+Growth - Thorns , Max health, Mutation, Large units, Mutiphase cards/ Transform into power cards
+
+"revive a skeleton mutate it based on the amount of card killed ever" OR JUST MUTATE A CARD BASED ON SOMETHING
+"Consume a skeleton to deals its health as damage"
+"Consume a skeleton EVERYWHERE to deals its health as damage, affected abilities copy this cards targeting"
+"Summoned units copy with afflictions"(Done)
+"Deal damage based on graveyard" (DONE)
+"Skeleton has a skeleton affliction, this will be combine with hex, only skeleton can hit units with hex, hex deal double damage"" Or when on skeletons they deal double damage"
+"When skeletons die summon them back with some health" "WHEN REVIE SOME AFFLICTIONS RANDOMLY ROLL IMPROVEMENTS"OR REVIVE A SKELTON
+"EACH TURN THIS SKELETON IS DEAD IT GAINS RAGE"
+"Subsime this cards abilities onto a skeleton"
+"Heal all skeletons" (Done)
+"Contagion like poison but when an enemy dies the contagion spreads" 
+"The card spawns with the amount health equal the the number of dead cards" (Done)
+"Cards can no longer be played they are played on draw"
+"Kill the random cards to play, locked abilities can go on this card"
+"Do a powerful ability summon a hex, HEXS on draw apply or active contagion"
+"Summon two hexs"
+"When a hex is played draw 1"
+"Apply contagion to a card"
+"Contagion allows attacks to deal double damage if a skeleton hits it"
+"When a skeleton dies its heal is applied to other skeletons"
+"Summons 2 skeletons"
+"Deal missing health damage"
+"Summon a skeleton on the other side that on death does damage"
+"Card skelekton that summons on the other side and explodes"
+"Card has rage as health"------------------------------------------
+"Deal dmge 6 times if rage on enemy 5> cost 10"
+"The ability chain increase on another card"
+"Draw 2 cards"
+
+"USE AI TO TAILOR MAKE MY RESUME TOWARDS COMPANIES THAT IM APPLING TO"
+"USE AI TO FIND CORRECT QUESTIONS THAT WILL HELP ME UNDERSTAND THE CORRECT QUESTION THEY WILL ASK"
+"USE AI TO FIND THE CORRECT KEYWORDS THAT THE JOBS NEEDS"
+"USE THE CORRECT PO BOXES"
+
 Fire - Deal produce more fire cards that get out of control
 //Card that fire is health
+
+-Rage
++AOE
++Mutiple Hits
++Hit heavy
+
+-Fire
++Mutiple hits
++Fire on self
++
+
+Abilities
+
+
+
+//If codition gets a kill apply shield or 100 dodge that completely ignores the attack
+//On kill gain a stack do, damaage stacks times
+
+
+Abilitys buff instead of locking out playing them
 
 Growth/Death Poison - Spawn good cards, and kill do something, Draw
 

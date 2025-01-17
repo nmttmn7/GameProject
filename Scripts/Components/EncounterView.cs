@@ -11,7 +11,7 @@ public partial class EncounterView : Node
     [Export] DisplayObjectsView displayObjectsView;
 
     [Export] Node2D deckNode2D;
-	[Export] StatusView statusView;
+	[Export] AfflictionView afflictionView;
     private Player p;
 	public override void _Ready()
 	{

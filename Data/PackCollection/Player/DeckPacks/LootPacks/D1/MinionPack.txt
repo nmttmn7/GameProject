@@ -1,0 +1,2 @@
+{ "deck": ["MinionPack1","MinionPack2","MinionPack3","MinionPack4","MinionPack5","MinionPack6","MinionPack7","MinionPack8","MinionPack9","MinionPack10","MinionPack11",
+]}

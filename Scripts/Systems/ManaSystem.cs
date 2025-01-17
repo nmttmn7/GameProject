@@ -56,27 +56,47 @@ public class ManaSystem : Aspect, IObserve {
 	void OnPerformPlayCard (object sender, object args) {
 		var action = args as PlayCardAction;
 		var mana = container.GetMatch ().CurrentPlayer.mana;
+		Card card = action.card;
+		var manaStatus = card.GetAspect<Afflictions>().GetStatus("mana");
 
 		int cost = action.card.cost;
 
-		//var poly = AugmentSystem.CheckPolymorph(action.card);
+		if(manaStatus.id == "mana"){
+			mana.spent += cost;
+		}else{
+			
+		var statusSystem = container.GetAspect<StatusSystem> ();
+
+
+
 		
-		//if (poly != null)
-		//	cost = poly.cost;
 		
-		if(cost == -1){
+		statusSystem.DecreaseStatus(manaStatus, manaStatus.id, cost, 1);
+
+		}
+	/*	if(cost == -1){
 			mana.spent += mana.permanent;
 		}else{
-		mana.spent += cost;
-		}
+
+			mana.spent += cost;
+			OverrideCheck((Unit)action.card);
+		} */
 		this.PostNotification (ValueChangedNotification, mana);
 	}
+
+	
 
 	void OnValidatePlayCard (object sender, object args) {
 		var playCardAction = sender as PlayCardAction;
 		var validator = args as Validator;
+		Status status = playCardAction.card.GetAspect<Afflictions>().GetStatus("mana");
+		if(status.id == "mana"){
 		var player = container.GetMatch().players[playCardAction.card.ownerIndex];
 		if (player.mana.Available < playCardAction.card.cost)
 			validator.Invalidate ();
+		}else{
+		if (status.value < playCardAction.card.cost)
+			validator.Invalidate ();
+		}
 	}
 }

@@ -9,7 +9,7 @@ using TheLiquidFire.Extensions;
 public class AllTarget : Aspect, ITargetSelector {
 	public Mark mark;
 
-	Condition cond;
+	
 	
 
 	public List<Card> SelectTargets (IContainer game) {

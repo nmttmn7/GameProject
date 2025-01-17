@@ -1,0 +1,211 @@
+{
+"list": [
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/FirePack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/GrowthPack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/LeechPack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/LowPack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/MinionPack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/RagePack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/TEST.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/FirePack.txt"
+"roll_weight": "25"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/FirePack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/GrowthPack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/LeechPack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/LowPack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/MinionPack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/RagePack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/TEST.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/FirePack.txt"
+"roll_weight": "25"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/MinionPack.txt"
+"roll_weight": "25"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/FirePack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/GrowthPack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/LeechPack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/LowPack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/MinionPack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/RagePack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/TEST.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/FirePack.txt"
+"roll_weight": "25"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/FirePack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/GrowthPack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/LeechPack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/LowPack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/MinionPack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/RagePack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/TEST.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/FirePack.txt"
+"roll_weight": "25"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/MinionPack.txt"
+"roll_weight": "25"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/FirePack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/GrowthPack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/LeechPack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/LowPack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/MinionPack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/RagePack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/TEST.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/FirePack.txt"
+"roll_weight": "25"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/FirePack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/GrowthPack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/LeechPack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/LowPack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/MinionPack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/RagePack.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/TEST.txt"
+"roll_weight": "100"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/FirePack.txt"
+"roll_weight": "25"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/MinionPack.txt"
+"roll_weight": "25"
+}
+{
+"name": "res://Data/PackCollection/Player/DeckPacks/LootPacks/D1/MinionPack.txt"
+"roll_weight": "25"
+}
+]}

@@ -26,6 +26,8 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 SceneManager="*res://addons/scene_manager/SceneManager.tscn"
 AudioManager="*res://Scripts/Autoload/audio_manager.tscn"
 DampedOscillator="*res://addons/DampedOscillator/scripts/damped_oscillator.tscn"
+DataManager="res://Scripts/Factory/DataManager.cs"
+DataConstruct="*res://Constructs/DataConstruct.tscn"
 
 [dialogue_manager]
 

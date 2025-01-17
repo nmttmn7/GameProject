@@ -44,7 +44,7 @@ public class DrawCardsAction : GameAction, IAbilityLoader {
 
 
 		//player = game.GetMatch ().players [ability.card.ownerIndex];
-		amount = Convert.ToInt32 (ability.userInfo);
+		amount = Convert.ToInt32 (ability.GetInfo());
 	/*	var availableSlots = Mathf.Clamp(Player.maxHand - player.hand.Count, 0, Player.maxHand);
 		if(availableSlots == 0) 
 		amount = 0;
@@ -54,7 +54,7 @@ public class DrawCardsAction : GameAction, IAbilityLoader {
 
     public string LoadText(Ability ability){
 		IAbilityLoader IAbility = this as IAbilityLoader;
-		string str = ability.userInfo.ToString();
+		string str = ability.GetInfo();
 		string description = "";
 		
 		

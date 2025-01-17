@@ -15,17 +15,17 @@ public static class DeckFactory {
 		}
 	}
 
-	public static Dictionary<string, Dictionary<string, object>> Statuses {
+	public static Dictionary<string, Dictionary<string, object>> Afflictions {
 		get { 
-			if (_statuses == null) {
-				_statuses = LoadSTATUSCollection ();
+			if (_afflictions == null) {
+				_afflictions = LoadAfflictionsCollection ();
 			}
-			return _statuses;
+			return _afflictions;
 		}
 	}
 	
 
-	private static Dictionary<string, Dictionary<string, object>> _statuses = null;
+	private static Dictionary<string, Dictionary<string, object>> _afflictions = null;
 
 	private static Dictionary<string, Dictionary<string, object>> _cards = null;
 	private static Dictionary<string, object> cardData;
@@ -77,7 +77,9 @@ public static class DeckFactory {
 		foreach (object entry in array) {
 			var cardData = (Dictionary<string, object>)entry;
 			var id = (string)cardData["id"];
-			LoadGroup(cardData);
+			if(!id.Contains("CREATEDCARD"))
+				LoadGroup(cardData);
+
 			result.Add (id, cardData);
 		}
 		return result;
@@ -98,12 +100,17 @@ public static class DeckFactory {
     {
 		DirAccess dir = DirAccess.Open(str);
 		var files = dir.GetFiles();
+		
 		foreach(var f in files){
 		
-		FileFactory.RemoveFile(dir, str + "/" + f);
-
+		dir.Remove(str + "/" + f);
+		
 		}
+		
+
+		
 	}
+
     private static void LoadGroup(Dictionary<string, object> cardData)
     {	
 		var id = (string)cardData["id"];	
@@ -140,9 +147,9 @@ public static class DeckFactory {
 		//"res://UserData/Cards/Player/DeckPacks/LootPacks/" + disposition + "/";
     }
 
-	private static Dictionary<string, Dictionary<string, object>> LoadSTATUSCollection () {
+	private static Dictionary<string, Dictionary<string, object>> LoadAfflictionsCollection () {
 		
-		var file = Godot.FileAccess.Open("res://Data/StatusCollection/StatusCompendium.txt", Godot.FileAccess.ModeFlags.Read);
+		var file = Godot.FileAccess.Open("res://Data/AfflictionCollection/AfflictionCompendium.txt", Godot.FileAccess.ModeFlags.Read);
 		var fileText = file.GetAsText();
 		var dict = MiniJSON.Json.Deserialize (fileText) as Dictionary<string, object>;
 		file.Close();
@@ -212,24 +219,13 @@ public static class DeckFactory {
 		Card card = CreateCard (cardData, ownerIndex);
 		AddTarget (card, cardData);
 		AddAbilities (card, cardData);
-		AddOverride(card, cardData);
 		AddMechanics (card, cardData);
 		
 		return card;
 	}
 	
-	private static void AddOverride(Card card, Dictionary<string, object> data)
-    {
-		if (data.ContainsKey ("overridehealth") == false)
-			return;
+	
 
-
-		var overrideHealth = card.AddAspect<OverrideHealth>();
-
-		var overridehealthData = (Dictionary<string, object>)data["overridehealth"];
-		overrideHealth.status = (string)overridehealthData["status"];
-
-	}
 
 
 	private static Card CreateCard (Dictionary<string, object> data, int ownerIndex) {
@@ -266,6 +262,13 @@ public static class DeckFactory {
 			AddSelector (ability, abilityData);
 			AddStatusData(ability,abilityData);
 			AddCondition(ability,abilityData);
+
+
+			if(abilityData.ContainsKey("chainMAX"))
+				abilityRoot.chainMAX = (int)abilityData["chainMAX"];
+			else
+				abilityRoot.chainMAX = 99;
+
 
 			ability.container = abilityRoot;
 			ability.card = card;
@@ -370,7 +373,7 @@ public static class DeckFactory {
 		if (loader != null)
 		str += loader.LoadText (ability);
 		str +="\n" + "\n" + "\n" + "\n";
-		card.description.Add(str);
+		ability.description = str;
 		
 	
 		
@@ -381,8 +384,16 @@ public static class DeckFactory {
 	private static Ability AddAbility (Dictionary<string, object> data) {
 		var ability = new Ability();
 		ability.actionName = (string)data["action"];
-		ability.userInfo = data["info"];
+		//ability.userInfo = data["info"];
+
+		ability.info = (string)data ["info"];
 		ability.abilityCount = data["count"];
+
+		if (data.ContainsKey ("locked") == true)
+			ability.locked = (bool)data["locked"];
+		else
+			ability.locked = false;
+
 		return ability;
 	}
 
@@ -433,6 +444,54 @@ public static class DeckFactory {
 	
 	}
 
+	public static void TransformCard(Card target, string cardID) {
+		
+	
+		var cardData = Cards[cardID];
+		target.DeleteAspect<AbilityRoot>();
+		
+		AddAbilities(target,cardData);
+		target.spritePath =  (string)cardData ["sprite"];
+		target.name = (string)cardData ["name"];
+
+	
+	}
+
+	public static bool CombineCards(Card baseCard, CardView deleteCard, bool selected){
+		
+		AbilityRoot baseRoot = baseCard.GetAspect<AbilityRoot>();
+		AbilityRoot deleteRoot = deleteCard.card.GetAspect<AbilityRoot>();
+		bool success = false;
+
+		if(selected == false){
+		foreach (var ability in deleteRoot.abilityChain){
+			if(!ability.locked && baseRoot.abilityChain.Count < baseRoot.chainMAX){
+				ability.container = baseCard;
+				ability.card = baseCard;
+				baseRoot.abilityChain.Add(ability);
+				success = true;
+			}
+		}
+
+		}else{
+		Ability deleteAbility = deleteRoot.abilityChain[deleteCard.GetDescriptionIndex()];
+		if(!deleteAbility.locked && baseRoot.abilityChain.Count < baseRoot.chainMAX){
+
+		deleteAbility.container = baseCard;
+		deleteAbility.card = baseCard;
+		baseRoot.abilityChain.Add(deleteAbility);
+		success = true;
+
+		}
+
+		}
+
+		if(success)
+		return true;
+		else
+		return false;
+
+	}
 
 
 }

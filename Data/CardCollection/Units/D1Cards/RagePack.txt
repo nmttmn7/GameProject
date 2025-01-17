@@ -1,13 +1,11 @@
-			{
-				
+		{
 			"id": "RagePack1",
 			"type": "Unit", 
 			"disposition": "D1",
 			"rarity": "Common",
 			"name": "RagePack1",
 			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "RagePack"
 			"target": {
 				"allowed": {
@@ -31,7 +29,19 @@
 				
 			
 			}]
-				
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "22"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
 		}
 		
 		{
@@ -42,8 +52,7 @@
 			"rarity": "Common",
 			"name": "RagePack2",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "RagePack|FirePack"
 			"target": {
 				"allowed": {
@@ -65,10 +74,26 @@
 				}
 				
 			}]
-				
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "18"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
 		}
 
-			{
+
+
+
+
+		{
 				
 			"id": "RagePack3",
 			"type": "Unit", 
@@ -76,8 +101,210 @@
 			"rarity": "Common",
 			"name": "RagePack3",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
+			"group": "RagePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "5",
+				"count": "1",
+				"targetSelector": {
+					"type": "AllTarget",
+					"mark": {
+						"alliance": "Target",
+						"zone": "Active"
+					},
+				}
+				
+				
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "16"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+		{
+				
+			"id": "RagePack4",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "RagePack4",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": "1",
+			"group": "RagePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Deal 0 damage."
+				"action": "DamageAction",
+				"info": "2",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"status":{
+				"id": "leech"
+				"incr": "2"
+				}
+				
+			}]
+			
+			
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "12"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+		{
+				
+			"id": "RagePack5",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "RagePack5",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": "1",
+			"group": "RagePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Apply 4 rage."
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+				"status":{
+				"id": "rage"
+				"incr": "3"
+			}
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "12"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+		
+
+
+	{
+			"id": "RagePack6",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "RagePack6",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": "1",
+			"group": "RagePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Apply 4 rage."
+				"action": "DamageAction",
+				"info": "1",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "78"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "anchored"
+				"evokeType": "INNATE"
+				"value": "1"
+			}]
+			
+			
+		}
+
+		{
+				
+			"id": "RagePack7",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "RagePack7",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": "1",
 			"group": "RagePack"
 			"target": {
 				"allowed": {
@@ -101,43 +328,34 @@
 				"status":{
 				"id": "rage"
 				"incr": "1"
-				"decr": "-1"
+				"decr": "-2"
 			}
-			
-			}{
-				"description": "Deal 1 damage."
-				"action": "DamageAction",
-				"info": "skip",
-				"count": "1",
-				"targetSelector": {
-					"type": "ManualTarget",
-				}
-				
-				"status":{
-				"id": "rage"
-				"incr": "5"
-				"decr": "-3"
-			}
-				"condition":{
-					"info": "targetcurrenthealth"
-					"comparator": "≤"
-					"value": "0"
-				}
 			
 			}]
-				
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
 		}
 
 		{
 				
-			"id": "RagePack4",
+			"id": "RagePack8",
 			"type": "Unit", 
 			"disposition": "D1",
 			"rarity": "Common",
-			"name": "RagePack4",
+			"name": "RagePack8",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "RagePack"
 			"target": {
 				"allowed": {
@@ -150,7 +368,6 @@
 				}
 			},
 			"abilities": [{
-				"description": "Deal 0 damage."
 				"action": "DamageAction",
 				"info": "0",
 				"count": "4",
@@ -165,21 +382,30 @@
 				
 			}]
 			
-		
-				
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "15"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
 		}
 		
 
-		{
+			{
 				
-			"id": "RagePack5",
+			"id": "RagePack9",
 			"type": "Unit", 
 			"disposition": "D1",
 			"rarity": "Common",
-			"name": "RagePack5",
+			"name": "RagePack9",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "RagePack"
 			"target": {
 				"allowed": {
@@ -192,74 +418,45 @@
 				}
 			},
 			"abilities": [{
-				"description": "Deal 0 damage."
+				"description": "Apply bloodlust."
 				"action": "DamageAction",
-				"info": "0",
-				"count": "7",
+				"info": "2",
+				"count": "1",
 				"targetSelector": {
 					"type": "ManualTarget",
-				}
-				"condition":{
-					"info": "cardstatusrage"
-					"comparator": "<"
-					"value": "1"
+					
 				}
 				
-			}]
-			
-		}
-		
-		{
-			"id": "RagePack6",
-			"type": "Unit", 
-			"disposition": "D1",
-			"rarity": "Common",
-			"name": "RagePack6",
-			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
-			"group": "RagePack"
-			"target": {
-				"allowed": {
-					"alliance": "Any",
-					"zone": "Hand"
-				},
-				"preferred": {
-					"alliance": "Enemy",
-					"zone": "Hand"
-				}
-			},
-			"abilities": [{
-				"description": "Rage is this cards health"
-				"action": "DamageAction",
-				"info": "0",
-				"count": 1,
-				"targetSelector": {
-					"type": "ManualTarget",
-				}
-				
-			}]
-			
-			"overridehealth":{
-				"status": "rage",
+				"status":{
+				"id": "bloodlust"
+				"incr": "2"
 			}
 			
+			}]
+			
 			"afflictions":[{
-				"id": "rage"
-				"value": "40"
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
 			}]
 			
 		}
 
+
 		{
-			"id": "RagePack7",
+			"id": "RagePack10",
 			"type": "Unit", 
 			"disposition": "D1",
 			"rarity": "Common",
-			"name": "RagePack7",
+			"name": "RagePack10",
 			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"cost": "1",
 			"group": "RagePack"
 			"target": {
 				"allowed": {
@@ -274,7 +471,7 @@
 			"abilities": [{
 				"description": "Rage is this cards health"
 				"action": "DamageAction",
-				"info": "0",
+				"info": "skip",
 				"count": 1,
 				"targetSelector": {
 					"type": "ManualTarget",
@@ -302,110 +499,29 @@
 			
 			}]
 			
+			"afflictions":[{
+				"id": "mana"
 			
-		}
-		
-		{
-			"id": "RagePack8",
-			"type": "Unit", 
-			"disposition": "D1",
-			"rarity": "Common",
-			"name": "RagePack8",
-			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
-			"group": "RagePack"
-			"target": {
-				"allowed": {
-					"alliance": "Any",
-					"zone": "Hand"
-				},
-				"preferred": {
-					"alliance": "Enemy",
-					"zone": "Hand"
-				}
-			},
-			"abilities": [{
-				"description": "Rage is this cards health"
-				"action": "DrawCardsAction",
-				"info": "1",
-				"count": 1,
-				"targetSelector": {
-					"type": "ManualTarget",
-				}
-				
 			}{
-				"description": "Rage is this cards health"
-				"action": "DrawCardsAction",
-				"info": "2",
-				"count": 1,
-				"targetSelector": {
-					"type": "ManualTarget",
-				}
-				
-				"condition":{
-					"info": "abilitychainposition"
-					"comparator": "="
-					"value": "2"
-				}
+				"id": "health"
+			
+				"value": "6"
+			}{
+				"id": "abilitychain"
+			
 			}]
-			
-			
 			
 		}
 
-			{
-				
-			"id": "RagePack9",
-			"type": "Unit", 
-			"disposition": "D1",
-			"rarity": "Common",
-			"name": "RagePack9",
-			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
-			"group": "RagePack"
-			"target": {
-				"allowed": {
-					"alliance": "Any",
-					"zone": "Hand"
-				},
-				"preferred": {
-					"alliance": "Enemy",
-					"zone": "Hand"
-				}
-			},
-			"abilities": [{
-				"description": "Apply bloodlust."
-				"action": "DamageAction",
-				"info": "1",
-				"count": "1",
-				"targetSelector": {
-					"type": "ManualTarget",
-					
-				}
-				
-				"status":{
-				"id": "bloodlust"
-				"incr": "2"
-			}
-			
-			}]
-			
-			
-			
-		}
-		
 		{
 				
-			"id": "RagePack10",
+			"id": "RagePack11",
 			"type": "Unit", 
 			"disposition": "D1",
 			"rarity": "Common",
-			"name": "RagePack10",
-			"sprite": "uid://c5smq5nlc40a5",
-			"cost": 1,
-			"hit points": 6,
+			"name": "RagePack11",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "0",
 			"group": "RagePack"
 			"target": {
 				"allowed": {
@@ -420,18 +536,251 @@
 			"abilities": [{
 				"description": "Apply 4 rage."
 				"action": "DamageAction",
+				"info": "5",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "43"
+			}{
+				"id": "abilitychain"
+				"value": "4"
+			}]
+			
+			
+		}
+		
+		{
+				
+			"id": "RagePack12",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "RagePack12",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "2",
+			"group": "RagePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Apply 4 rage."
+				"action": "DamageAction",
+				"info": "10",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+			
+			}{
+				"description": "Apply 4 rage."
+				"action": "DamageAction",
+				"info": "cardmaxhealth",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+				
+			
+			}]
+				
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "21"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+		{
+				
+			"id": "RagePack13",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "Whirlwind",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "2",
+			"group": "RagePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Apply 4 rage."
+				"action": "DamageAction",
+				"info": "0",
+				"locked": true,
+				"count": "cardstatusfire",
+				"targetSelector": {
+					"type": "AllTarget",
+					"mark": {
+						"alliance": "Target",
+						"zone": "Active"
+					},
+				}
+				
+			
+			}{
+				"description": "Apply 4 rage."
+				"action": "DamageAction",
 				"info": "1",
+				"count": "cardstatusfire",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+				
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "13"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+		{
+				
+			"id": "RagePack14",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "RagePack14",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": "1",
+			"group": "RagePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "2",
+				"count": "1",
+				"targetSelector": {
+					"type": "AllTarget",
+					"mark": {
+						"alliance": "Any",
+						"zone": "Active"
+					},
+				}
+				
+				"status":{
+				"id": "rage"
+				"incr": "4"
+			}
+				
+			}]
+			
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "12"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+		{
+				
+			"id": "RagePack15",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "RagePack15",
+			"sprite": "uid://c5smq5nlc40a5",
+			"cost": "1",
+			"group": "RagePack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "5",
 				"count": "1",
 				"targetSelector": {
 					"type": "ManualTarget",
 					
 				}
 				
-				"status":{
-				"id": "rage"
-				"incr": "5"
-			}
+			}]
+			
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "12"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "vitality"
+				"type": "INNATE"
+				"value": "1"
 			
 			}]
-				
+			
 		}

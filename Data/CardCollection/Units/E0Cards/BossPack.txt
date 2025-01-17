@@ -1,0 +1,41 @@
+			{
+				
+			"id": "BossPack1",
+			"type": "Unit", 
+			"disposition": "E0",
+			"rarity": "Common",
+			"name": "BossPack1",
+			"sprite": "uid://csqot38nd6u1m",
+			"cost": 1,
+			"hit points": 94,
+			"group": "BossPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"description": "Deal 7 damage."
+				"action": "DamageAction",
+				"info": "0",
+				"count": "2",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+			
+			}]
+			
+			"afflictions":[{
+				"id": "bloodlust"
+				"value": "1"
+				"type": "INNATE"
+			}]
+				
+		}

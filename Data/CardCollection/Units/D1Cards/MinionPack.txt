@@ -1,0 +1,950 @@
+{
+			"id": "MinionPack1",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack1",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "1",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "22"
+			}{
+				
+				"id": "abilitychain"
+				
+			}{
+				"id": "cultist"
+				"type": "INNATE"
+				"value": "1"
+			
+			}]
+			
+		}
+
+
+	{
+			"id": "MinionPack2",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack2",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "playergraveyard",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "5"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+
+	{
+			"id": "MinionPack3",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack3",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "HealAction",
+				"info": "4",
+				"count": "1",
+				"targetSelector": {
+					"type": "AllTarget",
+					"mark": {
+						"alliance": "Any",
+						"zone": "Active"
+					},
+					}
+				
+				"condition":{
+					"info": "targetstatusskeleton"
+					"comparator": "≥"
+					"value": "1"
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "5"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+
+
+		{
+			"id": "MinionPack4",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack4",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				
+				"action": "CreateCardsAction",
+				"info": "MinionPack4CREATEDCARD|true",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			
+			
+			"condition":{
+					"info": "cardcurrenthealth"
+					"comparator": "="
+					"value": "0"
+				}
+				}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "24"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+
+		{
+			"id": "MinionPack4CREATEDCARD",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack4CREATEDCARD",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "75",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "75"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "skeleton"
+				"type": "INNATE"
+				"value": "1"
+			
+			}{
+				"id": "x"
+				"type": "INNATE"
+				"value": "1"
+			
+			}]
+			
+		}
+
+
+
+		{
+			"id": "MinionPack5",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack5",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				
+				"action": "CreateCardsAction",
+				"info": "MinionPack5CREATEDCARD|true",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "22"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+
+		{
+			"id": "MinionPack5CREATEDCARD",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack5CREATEDCARD",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "2",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "5"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "skeleton"
+				"type": "INNATE"
+				"value": "1"
+			
+			}{
+				"id": "x"
+				"type": "INNATE"
+				"value": "1"
+			
+			}]
+			
+		}
+
+
+
+
+		{
+			"id": "MinionPack6",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack6",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				
+				"action": "CreateCardsAction",
+				"info": "MinionPack6CREATEDCARD|true",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "22"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+
+		{
+			"id": "MinionPack6CREATEDCARD",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack6CREATEDCARD",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				
+				"action": "CreateCardsAction",
+				"info": "MinionPack6CREATEDCARDMinionPack6CREATEDCARD|true",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "5"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "skeleton"
+				"type": "INNATE"
+				"value": "1"
+			
+			}{
+				"id": "x"
+				"type": "INNATE"
+				"value": "1"
+			
+			}]
+			
+		}
+
+
+		{
+			"id": "MinionPack6CREATEDCARDMinionPack6CREATEDCARD",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack6CREATEDCARDMinionPack6CREATEDCARD",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				
+				"action": "GrantMaxHealth",
+				"info": "4",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "5"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "skeleton"
+				"type": "INNATE"
+				"value": "1"
+			
+			}{
+				"id": "death"
+				"type": "INNATE"
+				"value": "1"
+			
+			}{
+				"id": "x"
+				"type": "INNATE"
+				"value": "1"
+			
+			}]
+			
+		}
+
+
+
+
+		{
+			"id": "MinionPack7",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack7",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				
+				"action": "CreateCardsAction",
+				"info": "MinionPack7CREATEDCARD|true",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "22"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+
+		{
+			"id": "MinionPack7CREATEDCARD",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack7CREATEDCARD",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "1",
+				"count": "4",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "5"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "skeleton"
+				"type": "INNATE"
+				"value": "1"
+			
+			}{
+				"id": "x"
+				"type": "INNATE"
+				"value": "1"
+			
+			}]
+			
+		}
+		
+
+
+		{
+			"id": "MinionPack8",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack8",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "1",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+				}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "22"
+			}{
+				"id": "abilitychain"
+				"value": "1"
+			}{
+				
+				"id": "fire"
+				"value": "2"
+				"override": "abilitychain"
+				
+			}{
+						
+				"id": "skeleton"
+				"type": "INNATE"
+				"value": "1"
+			
+			}{
+						
+				"id": "death"
+				"type": "INNATE"
+				"value": "1"
+			
+			}]
+			
+		}
+
+
+
+		{
+			"id": "MinionPack9",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack9",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				
+				"action": "CreateCardsAction",
+				"info": "MinionPack9CREATEDCARD|true",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+			
+			
+			
+				}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "24"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+
+		{
+			"id": "MinionPack9CREATEDCARD",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack9CREATEDCARD",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "4",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "10"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "explode"
+				"value": "5"
+			}]
+			
+		}
+
+
+
+		{
+			"id": "MinionPack10",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack10",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				
+				"action": "CreateCardsAction",
+				"info": "MinionPack10CREATEDCARD|true",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+			
+			
+			
+				}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "24"
+			}{
+				"id": "abilitychain"
+			
+			}]
+			
+		}
+
+
+
+		{
+			"id": "MinionPack10CREATEDCARD",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack10CREATEDCARD",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "6",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+					
+				}
+				
+			
+			}{
+				"action": "DamageAction",
+				"info": "skip",
+				"count": "1",
+				"targetSelector": {
+					"type": "SelfTarget",
+					
+				}
+				
+				"status":{
+				"id": "exlode"
+				"incr": "4"
+			}
+			
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "40"
+			}{
+				"id": "abilitychain"
+			
+			}{
+				"id": "explode"
+				"value": "5"
+			}]
+			
+		}
+
+{
+			"id": "MinionPack11",
+			"type": "Unit", 
+			"disposition": "D1",
+			"rarity": "Common",
+			"name": "MinionPack11",
+			"sprite": "res://Sprites/CardSprites/Enemy/SwordGuy.png",
+			"cost": "1",
+			"group": "MinionPack"
+			"target": {
+				"allowed": {
+					"alliance": "Any",
+					"zone": "Hand"
+				},
+				"preferred": {
+					"alliance": "Enemy",
+					"zone": "Hand"
+				}
+			},
+			"abilities": [{
+				"action": "DamageAction",
+				"info": "3",
+				"count": "1",
+				"targetSelector": {
+					"type": "ManualTarget",
+				}
+				
+				"status":{
+				"id": "cursed"
+				"incr": "2"
+				}
+				
+			}]
+			
+			"afflictions":[{
+				"id": "mana"
+			
+			}{
+				"id": "health"
+			
+				"value": "22"
+			}{
+				
+				"id": "abilitychain"
+				
+			}]
+			
+		}
