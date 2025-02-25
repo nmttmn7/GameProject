@@ -25,9 +25,6 @@ A digital card game. This project is a card game that allows players to draft a 
 - Got get afflictions!
 - [Explanation] Card.cs has many variables including: name, health, cost,
 
-## Ability System
-- Choose a card type to get as rewards!
-- [Explanation]
 
 ## Fighting other card
 - Choose a card type to get as rewards!
