@@ -2,8 +2,11 @@
 
 A digital card game. This project is a card game that allows players to draft a deck type, fight opponets, build cards, and win.
 
-## Features
+## Map System
+- The map system creates a map that the player can traverse through!
+- [Explanation]
 
+##
 - **Map System**: Add new items to your cargo, categorized as weapons, equipables, or consumables.
 - **Draft Types**:  Display all items in your cargo with details like name, type, quantity, and stats.
 - **Card System**: Search for items by name, type, or other attributes.
