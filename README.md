@@ -17,7 +17,7 @@ A digital card game. This project is a card game that allows players to draft a 
 - [Explanation] Card.cs has many variables including: name, health, cost,
 
 ## Save/Load System
-- Choose a card type to get as rewards!
+- Automatically save and load your game!
 - [Explanation]
 
 ## Gameplay Video
