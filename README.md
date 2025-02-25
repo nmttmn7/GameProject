@@ -8,16 +8,16 @@ A digital card game. This project is a card game that allows players to draft a 
 
 ## Draft Types
 
-##Action System
+## Action System
 
-##Card System
+## Card System
 
-##Ability System
+## Ability System
 
-##Fighting other card
+## Fighting other card
 
-##Win/Lose Condition
+## Win/Lose Condition
 
-##Save/Load System
+## Save/Load System
 
-##Gameplay
+## Gameplay
