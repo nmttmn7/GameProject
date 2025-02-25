@@ -14,7 +14,7 @@ A digital card game. This project is a card game that allows players to draft a 
 
 ## Affliction System
 - Cards can have status effects!
-- [Explanation] Card.cs has many variables including: name, health, cost,
+- [Explanation] 
 
 ## Save/Load System
 - Automatically save and load your game!
