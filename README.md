@@ -10,7 +10,7 @@ A digital card game. This project is a card game that allows players to draft a 
 ## Card/Ability System
 - Pick a card and build into a stronger version of itself!
 - [Explanation] Card(Card.cs) has many variables including: name, health, cost, ability chain, abilitys, ect. These variables are loaded whenever a Regular node, Elite node, Boss node (Enemy encounter) is instantiate. The game(GameViewSystem.cs) creates a match(Match.cs) with two players(Player.cs) you and the opponent. The cards are loaded by game(GameViewSystem.cs) through a static factory(DeckFactory.cs). This factory has all the cards in a folder with different subgroups. The cards are build like robots. First they are intantiated based on the type(To ensure scalability). Then componets are added on to card itself. Component such as <AbilityRoot>, <Afflictions>, or <Target> can be added if the JSON data calls for it. The components gives cards the ability to act within the game world. Within the <AbilityRoot> components as a array of Abilitys within it. Each ability as 
-
+- https://youtu.be/zxZRitnAuc0
 
 ## Ability System
 - Mix and match different abilities to create the best ability chain.
