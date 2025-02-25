@@ -6,7 +6,7 @@ A digital card game. This project is a card game that allows players to draft a 
 - The map system creates a map that the player can traverse through!
 - [Explanation]
 
-##Draft Types
+## Draft Types
 
 ##Action System
 
