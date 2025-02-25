@@ -6,11 +6,18 @@ A digital card game. This project is a card game that allows players to draft a 
 - The map system creates a map that the player can traverse through!
 - [Explanation]
 
-##
-- **Map System**: Add new items to your cargo, categorized as weapons, equipables, or consumables.
-- **Draft Types**:  Display all items in your cargo with details like name, type, quantity, and stats.
-- **Card System**: Search for items by name, type, or other attributes.
-- **Fight Opponents**: Remove items from your cargo.
-- **Eoe**: Track the total weight or capacity of your cargo to prevent overloading.
-- **Load Items**: Load previously create items.
-- **Save Items**: Save items that are created.
+##Draft Types
+
+##Action System
+
+##Card System
+
+##Ability System
+
+##Fighting other card
+
+##Win/Lose Condition
+
+##Save/Load System
+
+##Gameplay
