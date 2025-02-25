@@ -43,5 +43,4 @@ A digital card game. This project is a card game that allows players to draft a 
 - [Explanation]
 
 ## Gameplay Video
-- Choose a card type to get as rewards!
-- [Explanation]
+
