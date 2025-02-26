@@ -18,5 +18,5 @@ A digital card game. This project is a card game that allows players to draft a 
 - https://youtu.be/zxZRitnAuc0
 
 ## Gameplay Video
-
+- https://youtu.be/FYksTip_SKA
 
