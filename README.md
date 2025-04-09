@@ -1,6 +1,6 @@
 # Card Game Application!
 
-A digital card game. This project is a card game that allows players to draft a deck type, fight opponents, build cards, and win. Below is an explanation of the most important systems. A QUICK DEMO IS AT THE BOTTOM OF THIS README.
+A digital card game. This project is a card game that allows players to draft a deck type, fight opponents, build cards, and win. Below is an explanation of the most important systems. A QUICK DEMO IS AT THE BOTTOM OF THIS README
 
 ## Map System
 - The map system creates a map that the player can traverse through! Either a regular node, Elite node, Boss node Shop node, or Random Encounter node.
